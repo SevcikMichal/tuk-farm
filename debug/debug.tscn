@@ -1,0 +1,29 @@
+[gd_scene load_steps=2 format=3 uid="uid://c7fb7ct3lqgec"]
+
+[ext_resource type="Script" uid="uid://dmasov6uwmwou" path="res://debug/debug.gd" id="1_ikwhb"]
+
+[node name="Debug" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ikwhb")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -784.0
+offset_bottom = 1133.0
+grow_horizontal = 0
+
+[node name="ColorRect" type="ColorRect" parent="MarginContainer"]
+layout_mode = 2
+color = Color(0, 0, 0, 0.392157)
+
+[node name="RichTextLabel" type="RichTextLabel" parent="MarginContainer"]
+layout_mode = 2
+scroll_active = false

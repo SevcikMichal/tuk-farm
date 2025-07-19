@@ -1,0 +1,48 @@
+[gd_scene load_steps=3 format=3 uid="uid://qjk6f61jkjhr"]
+
+[ext_resource type="Script" uid="uid://bictlmo4vhllr" path="res://milking_controller/milking_controller.gd" id="1_oa2ic"]
+[ext_resource type="Script" uid="uid://55wwgqh2accb" path="res://milking_controller/drag_controller.gd" id="2_oa2ic"]
+
+[node name="MilkingController" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_oa2ic")
+
+[node name="MarginContainerL" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -436.0
+offset_top = -610.0
+
+[node name="Left" type="ColorRect" parent="MarginContainerL"]
+layout_mode = 2
+color = Color(0, 1, 0, 0.0784314)
+script = ExtResource("2_oa2ic")
+zone_name = "left"
+
+[node name="MarginContainerR" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_top = -610.0
+offset_right = 436.0
+
+[node name="Right" type="ColorRect" parent="MarginContainerR"]
+layout_mode = 2
+color = Color(1, 0, 0, 0.0784314)
+script = ExtResource("2_oa2ic")
+zone_name = "right"
+
+[connection signal="zone_dragged" from="MarginContainerL/Left" to="." method="_on_zone_drag"]
+[connection signal="zone_dragged" from="MarginContainerR/Right" to="." method="_on_zone_drag"]

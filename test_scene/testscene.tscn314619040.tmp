@@ -1,0 +1,30 @@
+[gd_scene load_steps=6 format=3 uid="uid://01skae6kdp8p"]
+
+[ext_resource type="Script" uid="uid://dutp3knmwixvt" path="res://test_scene/testscene.gd" id="1_bo1vn"]
+[ext_resource type="PackedScene" uid="uid://doqjvunhcfs67" path="res://milk_bucket/milk_bucket.tscn" id="2_ovymc"]
+[ext_resource type="PackedScene" uid="uid://gk8hgpuimdr3" path="res://cow_udder/cow_udder.tscn" id="3_ovymc"]
+[ext_resource type="PackedScene" uid="uid://qjk6f61jkjhr" path="res://milking_controller/milking_controller.tscn" id="4_na226"]
+[ext_resource type="PackedScene" uid="uid://c7fb7ct3lqgec" path="res://debug/debug.tscn" id="5_7vb23"]
+
+[node name="TestScene" type="Node3D"]
+script = ExtResource("1_bo1vn")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(0.999682, 0, 0.0251999, 0, 1, 0, -0.0251999, 0, 0.999682, -0.016597, 2.93589, 4.1909)
+fov = 65.4
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.837337, 0.546687, 0, -0.546687, 0.837337, 0, 0, 0)
+
+[node name="MilkBucket" parent="." instance=ExtResource("2_ovymc")]
+
+[node name="CowUdder" parent="." instance=ExtResource("3_ovymc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.087154, 4.10645, 0)
+
+[node name="MilkingController" parent="." instance=ExtResource("4_na226")]
+
+[node name="Debug" parent="." instance=ExtResource("5_7vb23")]
+
+[connection signal="bad_rhythm" from="MilkingController" to="CowUdder" method="_on_milking_controller_bad_rhythm"]
+[connection signal="good_rhythm" from="MilkingController" to="CowUdder" method="_on_milking_controller_good_rhythm"]
+[connection signal="great_rhythm" from="MilkingController" to="CowUdder" method="_on_milking_controller_great_rhythm"]
