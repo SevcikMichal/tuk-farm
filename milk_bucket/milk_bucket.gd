@@ -12,12 +12,18 @@ var current_fill: float = 0
 var is_full: bool = false
 
 @onready
+var _debug: Control = %Debug
+
+@onready
 var animation_player: AnimationPlayer = get_node("AnimationPlayer")
 
-func add_milk(amount: float) -> void:
+func _add_milk(amount: float) -> void:
 	if is_full:
 		return
-
+	
+	if _debug != null:
+		_debug.increment_counter("MilkAdded")
+	
 	current_fill += amount
 	if current_fill >= capacity:
 		is_full = true
@@ -30,3 +36,7 @@ func _set_animation_progress(progress: float) -> void:
 	animation_player.play(FILLING_ANIMATION_NAME)
 	animation_player.seek(progress, true)
 	animation_player.pause()
+
+
+func _on_cow_udder_milked(amount: float) -> void:
+	_add_milk(amount)

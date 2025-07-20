@@ -125,52 +125,6 @@ _data = {
 &"breathing": SubResource("Animation_4cr8i")
 }
 
-[sub_resource type="Animation" id="Animation_0yv0c"]
-resource_name = "left_tit"
-length = 0.5
-tracks/0/type = "position_3d"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Armature/Skeleton3D:Bone.015")
-tracks/0/interp = 2
-tracks/0/loop_wrap = true
-tracks/0/keys = PackedFloat32Array(0, 1, -4.47035e-08, 0.431719, -1.49012e-08, 0.25, 1, 0, 0.432, -0.87, 0.5, 1, -4.47035e-08, 0.431719, -1.49012e-08)
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("MilkParticles/L:emitting")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.183333, 0.5),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 1,
-"values": [false, true, false]
-}
-
-[sub_resource type="Animation" id="Animation_f4tiw"]
-resource_name = "right_tit"
-length = 0.5
-tracks/0/type = "position_3d"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Armature/Skeleton3D:Bone.009")
-tracks/0/interp = 2
-tracks/0/loop_wrap = true
-tracks/0/keys = PackedFloat32Array(0, 1, 0, 0.604006, 5.96046e-08, 0.25, 1, 0, 0.604, -0.605, 0.5, 1, 0, 0.604006, 5.96046e-08)
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("MilkParticles/R:emitting")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.183333, 0.5),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 1,
-"values": [false, true, false]
-}
-
 [sub_resource type="Animation" id="Animation_c7dak"]
 length = 0.001
 tracks/0/type = "value"
@@ -196,6 +150,100 @@ tracks/1/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("MilkParticles/L:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-0.220982, -1.49218, 0.480631)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("MilkParticles/R:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0.482186, -1.42638, 0.61919)]
+}
+
+[sub_resource type="Animation" id="Animation_0yv0c"]
+resource_name = "left_tit"
+length = 0.3
+tracks/0/type = "position_3d"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Armature/Skeleton3D:Bone.015")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = PackedFloat32Array(0, 1, -4.47035e-08, 0.431719, -1.49012e-08, 0.15, 1, 0, 0.432, -0.87, 0.3, 1, -4.47035e-08, 0.431719, -1.49012e-08)
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("MilkParticles/L:emitting")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.133333, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [false, true, false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("MilkParticles/L:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.15, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(-0.523883, -0.727413, 0.480631), Vector3(-0.153869, -1.54287, 0.480631), Vector3(-0.523883, -0.727413, 0.480631)]
+}
+
+[sub_resource type="Animation" id="Animation_f4tiw"]
+resource_name = "right_tit"
+length = 0.3
+tracks/0/type = "position_3d"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Armature/Skeleton3D:Bone.009")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = PackedFloat32Array(0, 1, 0, 0.604006, 5.96046e-08, 0.15, 1, 0, 0.604, -0.605, 0.3, 1, 0, 0.604006, 5.96046e-08)
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("MilkParticles/R:emitting")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.083333, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [false, true, false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("MilkParticles/R:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.150713, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(0.501106, -0.910436, 0.508922), Vector3(0.482186, -1.42638, 0.61919), Vector3(0.501106, -0.910436, 0.508922)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_f4tiw"]
@@ -236,6 +284,10 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.75302, 0, 0.720596)
 [node name="Icosphere_002" parent="." index="4"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.19646, 0)
 
+[node name="Skeleton3D" parent="Armature" index="0"]
+bones/6/position = Vector3(-4.47035e-08, 0.431719, -1.49012e-08)
+bones/13/position = Vector3(0, 0.604006, 5.96046e-08)
+
 [node name="MilkParticles" type="Node3D" parent="." index="6"]
 
 [node name="L" type="GPUParticles3D" parent="MilkParticles" index="0"]
@@ -247,7 +299,7 @@ process_material = SubResource("ParticleProcessMaterial_4cr8i")
 draw_pass_1 = SubResource("PlaneMesh_4ygoy")
 
 [node name="R" type="GPUParticles3D" parent="MilkParticles" index="1"]
-transform = Transform3D(0.164512, 0, 0, 0, 0.139841, 0, 0, 0, 0.143858, 0.501106, -1.33384, 0.624347)
+transform = Transform3D(0.164512, 0, 0, 0, 0.139841, 0, 0, 0, 0.143858, 0.482186, -1.42638, 0.61919)
 emitting = false
 amount = 30
 lifetime = 0.5

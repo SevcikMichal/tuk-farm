@@ -26,4 +26,5 @@ unique_name_in_owner = true
 
 [node name="MilkingController" parent="." instance=ExtResource("4_na226")]
 
+[connection signal="milked" from="CowUdder" to="MilkBucket" method="_on_cow_udder_milked"]
 [connection signal="rhythm" from="MilkingController" to="CowUdder" method="_on_milking_controller_rhythm"]
