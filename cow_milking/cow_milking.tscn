@@ -1,0 +1,156 @@
+[gd_scene load_steps=13 format=3 uid="uid://01skae6kdp8p"]
+
+[ext_resource type="Script" uid="uid://dutp3knmwixvt" path="res://cow_milking/cow_milking.gd" id="1_ywrdx"]
+[ext_resource type="PackedScene" uid="uid://doqjvunhcfs67" path="res://milk_bucket/milk_bucket.tscn" id="2_bydsx"]
+[ext_resource type="PackedScene" uid="uid://gk8hgpuimdr3" path="res://cow_udder/cow_udder.tscn" id="3_rvbjl"]
+[ext_resource type="PackedScene" uid="uid://c7fb7ct3lqgec" path="res://debug/debug.tscn" id="4_mlqbd"]
+[ext_resource type="PackedScene" uid="uid://qjk6f61jkjhr" path="res://milking_controller/milking_controller.tscn" id="5_0kvvt"]
+
+[sub_resource type="Environment" id="Environment_ywrdx"]
+background_mode = 1
+background_color = Color(0.545098, 0.752941, 0.917647, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ywrdx"]
+albedo_color = Color(0.54902, 0.796078, 0.407843, 1)
+
+[sub_resource type="SphereMesh" id="SphereMesh_ywrdx"]
+material = SubResource("StandardMaterial3D_ywrdx")
+radius = 100.0
+height = 200.0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_bydsx"]
+albedo_color = Color(0.294554, 0.42258, 0.183929, 1)
+
+[sub_resource type="PrismMesh" id="PrismMesh_ywrdx"]
+material = SubResource("StandardMaterial3D_bydsx")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_rvbjl"]
+albedo_color = Color(0.945098, 0.980392, 0.933333, 1)
+
+[sub_resource type="SphereMesh" id="SphereMesh_bydsx"]
+material = SubResource("StandardMaterial3D_rvbjl")
+
+[node name="CowMilking" type="Node3D"]
+script = ExtResource("1_ywrdx")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(0.999682, 0, 0.0251999, 0, 1, 0, -0.0251999, 0, 0.999682, 0.108079, 2.936, 4.191)
+environment = SubResource("Environment_ywrdx")
+fov = 65.4
+
+[node name="Ground" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -107.349, -96.4505)
+mesh = SubResource("SphereMesh_ywrdx")
+
+[node name="HillsGroup" type="Node3D" parent="."]
+
+[node name="Hills" type="MeshInstance3D" parent="HillsGroup"]
+transform = Transform3D(13.9882, 0, 0, 0, 13.9882, 0, 0, 0, 1, 0.131497, -2.12375, -94.0662)
+mesh = SubResource("PrismMesh_ywrdx")
+skeleton = NodePath("../..")
+
+[node name="Hills2" type="MeshInstance3D" parent="HillsGroup"]
+transform = Transform3D(13.9882, 0, 0, 0, 13.9882, 0, 0, 0, 1, -7.61904, -5.55741, -94.4616)
+mesh = SubResource("PrismMesh_ywrdx")
+skeleton = NodePath("../..")
+
+[node name="Hills3" type="MeshInstance3D" parent="HillsGroup"]
+transform = Transform3D(13.9882, 0, 0, 0, 13.9882, 0, 0, 0, 1, 8.37879, -7.64942, -94.4616)
+mesh = SubResource("PrismMesh_ywrdx")
+skeleton = NodePath("../..")
+
+[node name="Hills4" type="MeshInstance3D" parent="HillsGroup"]
+transform = Transform3D(28.8683, 0, 0, 0, 34.3251, 0, 0, 0, 1, -10.4583, -7.48141, -106.394)
+mesh = SubResource("PrismMesh_ywrdx")
+skeleton = NodePath("../..")
+
+[node name="Hills5" type="MeshInstance3D" parent="HillsGroup"]
+transform = Transform3D(28.6885, 0, 0, 0, 34.3806, 0, 0, 0, 1, 14.9191, -17.1168, -94.5246)
+mesh = SubResource("PrismMesh_ywrdx")
+skeleton = NodePath("../..")
+
+[node name="Hills6" type="MeshInstance3D" parent="HillsGroup"]
+transform = Transform3D(28.6885, 0, 0, 0, 34.3806, 0, 0, 0, 1, 18.0621, -14.369, -93.2829)
+mesh = SubResource("PrismMesh_ywrdx")
+skeleton = NodePath("../..")
+
+[node name="Hills7" type="MeshInstance3D" parent="HillsGroup"]
+transform = Transform3D(28.6885, 0, 0, 0, 34.3806, 0, 0, 0, 1, -13.7032, -10.6399, -91.5256)
+mesh = SubResource("PrismMesh_ywrdx")
+skeleton = NodePath("../..")
+
+[node name="Hills8" type="MeshInstance3D" parent="HillsGroup"]
+transform = Transform3D(28.6885, 0, 0, 0, 34.3806, 0, 0, 0, 1, -24.9591, -7.64387, -89.8467)
+mesh = SubResource("PrismMesh_ywrdx")
+skeleton = NodePath("../..")
+
+[node name="CloudsGroup" type="Node3D" parent="."]
+
+[node name="Cloud" type="MeshInstance3D" parent="CloudsGroup"]
+transform = Transform3D(6.78404, 0, 0, 0, 4.47683, 0, 0, 0, 1, -19.2923, 9.15413, -85.5391)
+mesh = SubResource("SphereMesh_bydsx")
+skeleton = NodePath("../..")
+
+[node name="Cloud2" type="MeshInstance3D" parent="CloudsGroup"]
+transform = Transform3D(6.78404, 0, 0, 0, 4.47683, 0, 0, 0, 1, -15.8888, 10.5959, -85.5391)
+mesh = SubResource("SphereMesh_bydsx")
+skeleton = NodePath("../..")
+
+[node name="Cloud3" type="MeshInstance3D" parent="CloudsGroup"]
+transform = Transform3D(6.78404, 0, 0, 0, 4.47683, 0, 0, 0, 1, -13.6388, 8.42201, -85.5391)
+mesh = SubResource("SphereMesh_bydsx")
+skeleton = NodePath("../..")
+
+[node name="Cloud4" type="MeshInstance3D" parent="CloudsGroup"]
+transform = Transform3D(6.78404, 0, 0, 0, 4.47683, 0, 0, 0, 1, 5.92216, 0.512298, -85.5391)
+mesh = SubResource("SphereMesh_bydsx")
+skeleton = NodePath("../..")
+
+[node name="Cloud5" type="MeshInstance3D" parent="CloudsGroup"]
+transform = Transform3D(7.49629, 0, 0, 0, 6.46865, 0, 0, 0, 1, 9.32566, 1.95408, -85.5391)
+mesh = SubResource("SphereMesh_bydsx")
+skeleton = NodePath("../..")
+
+[node name="Cloud6" type="MeshInstance3D" parent="CloudsGroup"]
+transform = Transform3D(6.78404, 0, 0, 0, 4.47683, 0, 0, 0, 1, 11.5757, -0.219818, -85.5391)
+mesh = SubResource("SphereMesh_bydsx")
+skeleton = NodePath("../..")
+
+[node name="Cloud7" type="MeshInstance3D" parent="CloudsGroup"]
+transform = Transform3D(4.95161, 0, 0, 0, 6.68612, 0, 0, 0, 1, -17.4878, -3.89056, -85.5391)
+mesh = SubResource("SphereMesh_bydsx")
+skeleton = NodePath("../..")
+
+[node name="Cloud8" type="MeshInstance3D" parent="CloudsGroup"]
+transform = Transform3D(9.92652, 0, 0, 0, 4.07523, 0, 0, 0, 1, -14.0843, -2.44878, -85.5391)
+mesh = SubResource("SphereMesh_bydsx")
+skeleton = NodePath("../..")
+
+[node name="Cloud9" type="MeshInstance3D" parent="CloudsGroup"]
+transform = Transform3D(9.83114, 0, 0, 0, 6.04406, 0, 0, 0, 1, -11.8343, -4.62268, -85.5391)
+mesh = SubResource("SphereMesh_bydsx")
+skeleton = NodePath("../..")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.862796, 0.505552, 0, -0.505552, 0.862796, 0, 3.56685, 3.92457)
+light_color = Color(1, 0.945098, 0.709804, 1)
+light_specular = 0.2
+shadow_enabled = true
+shadow_opacity = 0.6
+shadow_blur = 1.9
+sky_mode = 1
+
+[node name="MilkBucket" parent="." instance=ExtResource("2_bydsx")]
+
+[node name="CowUdder" parent="." node_paths=PackedStringArray("debug") instance=ExtResource("3_rvbjl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.087154, 4.10645, 0)
+debug = NodePath("../Debug")
+
+[node name="Debug" parent="." instance=ExtResource("4_mlqbd")]
+visible = false
+
+[node name="MilkingController" parent="." node_paths=PackedStringArray("debug") instance=ExtResource("5_0kvvt")]
+debug = NodePath("../Debug")
+
+[connection signal="milked" from="CowUdder" to="MilkBucket" method="_on_cow_udder_milked"]
+[connection signal="rhythm" from="MilkingController" to="CowUdder" method="_on_milking_controller_rhythm"]

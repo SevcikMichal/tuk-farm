@@ -75,15 +75,19 @@ func _try_register_gesture() -> void:
 	
 	if not are_opposite:
 		emit_signal("rhythm", "bad", last_zone)
+		_reset_swipe(true)
+		return
 	elif delta > MAX_PAIR_DELTA:
 		emit_signal("rhythm", "bad", last_zone)
+		_reset_swipe(true)
+		return
 	else:
 		debug_counter("Success Drag")
 		
 		if not _is_valid_followup():
 			print("Invalid pattern! Resetting.")
 			emit_signal("rhythm", "bad", last_zone)
-			_reset_swipe()
+			_reset_swipe(true)
 			return
 		
 		_last_left_dir = _left_dir
@@ -93,7 +97,6 @@ func _try_register_gesture() -> void:
 		
 		if _last_success_time > 0:
 			var rhythm_delta = now - _last_success_time
-			
 			if rhythm_delta <= GREAT_RYTHM_RANGE:
 				emit_signal("rhythm", "great", last_zone)
 			elif rhythm_delta <= GOOD_RHYTHM_RANGE:
@@ -109,7 +112,7 @@ func _try_register_gesture() -> void:
 	_reset_swipe()
 
 
-func _reset_swipe():
+func _reset_swipe(reset_success_time: bool = false):
 	_left_dir = ""
 	_right_dir = ""
 	_left_swipe_time = 0
@@ -117,6 +120,10 @@ func _reset_swipe():
 	_input_locked = false
 	_last_left_dir = ""
 	_last_right_dir = ""
+	_left_released = false
+	_right_released = false
+	if reset_success_time:
+		_last_success_time = 0
 
 
 func _is_valid_followup() -> bool:
@@ -150,9 +157,7 @@ func _on_zone_released(zone: String) -> void:
 		_right_released = true
 	if _left_released and _right_released:
 		_reset_timer.start()
-	
-
 
 func _on_reset_timer_timeout() -> void:
 	debug.log("Reset timer hit")
-	_reset_swipe()
+	_reset_swipe(true)
