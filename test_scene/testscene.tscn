@@ -16,15 +16,17 @@ fov = 65.4
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.837337, 0.546687, 0, -0.546687, 0.837337, 0, 0, 0)
 
-[node name="MilkBucket" parent="." instance=ExtResource("2_ovymc")]
+[node name="MilkBucket" parent="." node_paths=PackedStringArray("debug") instance=ExtResource("2_ovymc")]
+debug = NodePath("../Debug")
 
-[node name="CowUdder" parent="." instance=ExtResource("3_ovymc")]
+[node name="CowUdder" parent="." node_paths=PackedStringArray("debug") instance=ExtResource("3_ovymc")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.087154, 4.10645, 0)
+debug = NodePath("../Debug")
 
 [node name="Debug" parent="." instance=ExtResource("5_7vb23")]
-unique_name_in_owner = true
 
-[node name="MilkingController" parent="." instance=ExtResource("4_na226")]
+[node name="MilkingController" parent="." node_paths=PackedStringArray("debug") instance=ExtResource("4_na226")]
+debug = NodePath("../Debug")
 
 [connection signal="milked" from="CowUdder" to="MilkBucket" method="_on_cow_udder_milked"]
 [connection signal="rhythm" from="MilkingController" to="CowUdder" method="_on_milking_controller_rhythm"]

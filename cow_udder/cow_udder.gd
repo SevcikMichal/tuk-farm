@@ -9,14 +9,16 @@ signal milked(amount: float)
 var good_amount: float = 1.0
 @export
 var great_amount: float = 2.0
+@export
+var debug: Control
+
 
 # Attached to udder or cow
 @onready 
 var _skeleton: Skeleton3D = get_node("Armature/Skeleton3D")
 @onready
 var _milk_animations: AnimationPlayer = get_node("MilkAnimations")
-@onready
-var _debug: Control = %Debug
+
 
 var _original_rotations = {}
 
@@ -33,20 +35,17 @@ func _process(_delta: float) -> void:
 
 
 func _bad_rhythm() -> void:
-	_debug.upsert_data("Rhythm", "bad")
-	_debug.increment_counter("Bad")
+	debug.increment_counter("Bad")
 
 
 func _good_rhythm() -> void:
 	emit_signal("milked", good_amount)
-	_debug.upsert_data("Rhythm", "good")
-	_debug.increment_counter("Good")
+	debug.increment_counter("Good")
 
 
 func _great_rhythm() -> void:
 	emit_signal("milked", great_amount)
-	_debug.upsert_data("Rhythm", "great")
-	_debug.increment_counter("Great")
+	debug.increment_counter("Great")
 
 
 func _on_milking_controller_rhythm(state: String, last_zone: String) -> void:

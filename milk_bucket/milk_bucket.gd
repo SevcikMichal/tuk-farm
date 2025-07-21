@@ -12,17 +12,13 @@ var current_fill: float = 0
 var is_full: bool = false
 
 @onready
-var _debug: Control = %Debug
-
-@onready
 var animation_player: AnimationPlayer = get_node("AnimationPlayer")
+
+
 
 func _add_milk(amount: float) -> void:
 	if is_full:
 		return
-	
-	if _debug != null:
-		_debug.increment_counter("MilkAdded")
 	
 	current_fill += amount
 	if current_fill >= capacity:

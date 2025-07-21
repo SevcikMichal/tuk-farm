@@ -6,14 +6,17 @@ const GOOD_RHYTHM_RANGE: int = 800
 
 signal rhythm(state: String, last_zone: String)
 
-@onready
-var _debug: Control = %Debug
+@export
+var debug: Control
 
 @onready
 var _animation: AnimationPlayer = get_node("AnimationPlayer")
 
 @onready
 var _idle_timer: Timer = get_node("IdleTimer")
+
+@onready
+var _reset_timer: Timer = get_node("ResetTimer")
 
 var _left_swipe_time: int = 0
 var _left_dir: String = ""
@@ -26,6 +29,9 @@ var _input_locked: bool = false
 
 var _last_left_dir: String = ""
 var _last_right_dir: String = ""
+
+var _left_released: bool = false
+var _right_released: bool = false
 
 func _ready() -> void:
 	_animation.play("hint")
@@ -42,7 +48,8 @@ func _on_zone_drag(zone: String, direction: String) -> void:
 func _on_left_drag(direction: String) -> void:
 	_animation.stop()
 	_idle_timer.start()
-	_debug_counter("left_drags")
+	_left_released = false
+	_reset_timer.stop()
 	_left_swipe_time = Time.get_ticks_msec()
 	_left_dir = direction
 	_try_register_gesture()
@@ -50,7 +57,8 @@ func _on_left_drag(direction: String) -> void:
 func _on_right_drag(direction: String) -> void:
 	_animation.stop()
 	_idle_timer.start()
-	_debug_counter("right_drags")
+	_right_released = false
+	_reset_timer.stop()
 	_right_swipe_time = Time.get_ticks_msec()
 	_right_dir = direction
 	_try_register_gesture()
@@ -70,7 +78,7 @@ func _try_register_gesture() -> void:
 	elif delta > MAX_PAIR_DELTA:
 		emit_signal("rhythm", "bad", last_zone)
 	else:
-		_debug_counter("Success Drag")
+		debug_counter("Success Drag")
 		
 		if not _is_valid_followup():
 			print("Invalid pattern! Resetting.")
@@ -124,11 +132,27 @@ func _is_valid_followup() -> bool:
 	)
 
 
-func _debug_counter(key: String):
-	if _debug != null:
-		_debug.increment_counter(key)
+func debug_counter(key: String):
+	if debug != null:
+		debug.increment_counter(key)
 
 
 func _on_idle_timer_timeout() -> void:
 	if not _input_locked:
 		_animation.play("hint")
+		_reset_swipe()
+
+
+func _on_zone_released(zone: String) -> void:
+	if zone == "left":
+		_left_released = true
+	if zone == "right":
+		_right_released = true
+	if _left_released and _right_released:
+		_reset_timer.start()
+	
+
+
+func _on_reset_timer_timeout() -> void:
+	debug.log("Reset timer hit")
+	_reset_swipe()

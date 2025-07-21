@@ -4,6 +4,105 @@
 [ext_resource type="Script" uid="uid://55wwgqh2accb" path="res://milking_controller/drag_controller.gd" id="2_oa2ic"]
 [ext_resource type="Texture2D" uid="uid://bab8fc7xl1rwm" path="res://milking_controller/sprites/arrow.png" id="3_oa2ic"]
 
+[sub_resource type="Animation" id="Animation_1suj8"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MarginContainerL/Left/Up1:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("MarginContainerL/Left/Up2:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("MarginContainerR/Right/Down1:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("MarginContainerR/Right/Down2:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("MarginContainerR/Right/Up1:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("MarginContainerR/Right/Up2:visible")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("MarginContainerL/Left/Down1:visible")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("MarginContainerL/Left/Down2:visible")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
 [sub_resource type="Animation" id="Animation_oa2ic"]
 resource_name = "hint"
 length = 1.6
@@ -105,105 +204,6 @@ tracks/7/keys = {
 "values": [false, true, false]
 }
 
-[sub_resource type="Animation" id="Animation_1suj8"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("MarginContainerL/Left/Up1:visible")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("MarginContainerL/Left/Up2:visible")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("MarginContainerR/Right/Down1:visible")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("MarginContainerR/Right/Down2:visible")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
-}
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("MarginContainerR/Right/Up1:visible")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
-}
-tracks/5/type = "value"
-tracks/5/imported = false
-tracks/5/enabled = true
-tracks/5/path = NodePath("MarginContainerR/Right/Up2:visible")
-tracks/5/interp = 1
-tracks/5/loop_wrap = true
-tracks/5/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
-}
-tracks/6/type = "value"
-tracks/6/imported = false
-tracks/6/enabled = true
-tracks/6/path = NodePath("MarginContainerL/Left/Down1:visible")
-tracks/6/interp = 1
-tracks/6/loop_wrap = true
-tracks/6/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
-}
-tracks/7/type = "value"
-tracks/7/imported = false
-tracks/7/enabled = true
-tracks/7/path = NodePath("MarginContainerL/Left/Down2:visible")
-tracks/7/interp = 1
-tracks/7/loop_wrap = true
-tracks/7/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
-}
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_1suj8"]
 _data = {
 &"RESET": SubResource("Animation_1suj8"),
@@ -228,6 +228,10 @@ libraries = {
 [node name="IdleTimer" type="Timer" parent="."]
 wait_time = 10.0
 autostart = true
+
+[node name="ResetTimer" type="Timer" parent="."]
+wait_time = 2.0
+one_shot = true
 
 [node name="MarginContainerL" type="MarginContainer" parent="."]
 layout_mode = 1
@@ -302,6 +306,7 @@ zone_name = "right"
 
 [node name="Down1" type="TextureRect" parent="MarginContainerR/Right"]
 visible = false
+layout_mode = 0
 offset_right = 1024.0
 offset_bottom = 1024.0
 scale = Vector2(0.425, 0.409)
@@ -309,6 +314,7 @@ texture = ExtResource("3_oa2ic")
 
 [node name="Down2" type="TextureRect" parent="MarginContainerR/Right"]
 visible = false
+layout_mode = 0
 offset_top = 385.649
 offset_right = 1024.0
 offset_bottom = 1409.65
@@ -317,6 +323,7 @@ texture = ExtResource("3_oa2ic")
 
 [node name="Up1" type="TextureRect" parent="MarginContainerR/Right"]
 visible = false
+layout_mode = 0
 offset_left = 435.2
 offset_top = 419.057
 offset_right = 1459.2
@@ -327,6 +334,7 @@ texture = ExtResource("3_oa2ic")
 
 [node name="Up2" type="TextureRect" parent="MarginContainerR/Right"]
 visible = false
+layout_mode = 0
 offset_left = 435.2
 offset_top = 804.706
 offset_right = 1459.2
@@ -336,5 +344,8 @@ scale = Vector2(0.425, 0.409)
 texture = ExtResource("3_oa2ic")
 
 [connection signal="timeout" from="IdleTimer" to="." method="_on_idle_timer_timeout"]
+[connection signal="timeout" from="ResetTimer" to="." method="_on_reset_timer_timeout"]
 [connection signal="zone_dragged" from="MarginContainerL/Left" to="." method="_on_zone_drag"]
+[connection signal="zone_released" from="MarginContainerL/Left" to="." method="_on_zone_released"]
 [connection signal="zone_dragged" from="MarginContainerR/Right" to="." method="_on_zone_drag"]
+[connection signal="zone_released" from="MarginContainerR/Right" to="." method="_on_zone_released"]
