@@ -1,8 +1,9 @@
-[gd_scene load_steps=13 format=3 uid="uid://01skae6kdp8p"]
+[gd_scene load_steps=14 format=3 uid="uid://01skae6kdp8p"]
 
 [ext_resource type="Script" uid="uid://dutp3knmwixvt" path="res://cow_milking/cow_milking.gd" id="1_ywrdx"]
 [ext_resource type="PackedScene" uid="uid://doqjvunhcfs67" path="res://milk_bucket/milk_bucket.tscn" id="2_bydsx"]
 [ext_resource type="PackedScene" uid="uid://gk8hgpuimdr3" path="res://cow_udder/cow_udder.tscn" id="3_rvbjl"]
+[ext_resource type="PackedScene" uid="uid://dag67ckbdflew" path="res://global/post_process.tscn" id="4_bydsx"]
 [ext_resource type="PackedScene" uid="uid://c7fb7ct3lqgec" path="res://debug/debug.tscn" id="4_mlqbd"]
 [ext_resource type="PackedScene" uid="uid://qjk6f61jkjhr" path="res://milking_controller/milking_controller.tscn" id="5_0kvvt"]
 
@@ -102,32 +103,32 @@ mesh = SubResource("SphereMesh_bydsx")
 skeleton = NodePath("../..")
 
 [node name="Cloud4" type="MeshInstance3D" parent="CloudsGroup"]
-transform = Transform3D(6.78404, 0, 0, 0, 4.47683, 0, 0, 0, 1, 5.92216, 0.512298, -85.5391)
+transform = Transform3D(6.78404, 0, 0, 0, 4.47683, 0, 0, 0, 1, 8.65122, 9.12671, -85.5391)
 mesh = SubResource("SphereMesh_bydsx")
 skeleton = NodePath("../..")
 
 [node name="Cloud5" type="MeshInstance3D" parent="CloudsGroup"]
-transform = Transform3D(7.49629, 0, 0, 0, 6.46865, 0, 0, 0, 1, 9.32566, 1.95408, -85.5391)
+transform = Transform3D(7.49629, 0, 0, 0, 6.46865, 0, 0, 0, 1, 12.0547, 10.5685, -85.5391)
 mesh = SubResource("SphereMesh_bydsx")
 skeleton = NodePath("../..")
 
 [node name="Cloud6" type="MeshInstance3D" parent="CloudsGroup"]
-transform = Transform3D(6.78404, 0, 0, 0, 4.47683, 0, 0, 0, 1, 11.5757, -0.219818, -85.5391)
+transform = Transform3D(6.78404, 0, 0, 0, 4.47683, 0, 0, 0, 1, 14.3048, 8.3946, -85.5391)
 mesh = SubResource("SphereMesh_bydsx")
 skeleton = NodePath("../..")
 
 [node name="Cloud7" type="MeshInstance3D" parent="CloudsGroup"]
-transform = Transform3D(4.95161, 0, 0, 0, 6.68612, 0, 0, 0, 1, -17.4878, -3.89056, -85.5391)
+transform = Transform3D(4.95161, 0, 0, 0, 6.68612, 0, 0, 0, 1, -5.24084, 7.76663, -85.5391)
 mesh = SubResource("SphereMesh_bydsx")
 skeleton = NodePath("../..")
 
 [node name="Cloud8" type="MeshInstance3D" parent="CloudsGroup"]
-transform = Transform3D(9.92652, 0, 0, 0, 4.07523, 0, 0, 0, 1, -14.0843, -2.44878, -85.5391)
+transform = Transform3D(9.92652, 0, 0, 0, 4.07523, 0, 0, 0, 1, -1.83734, 9.20841, -85.5391)
 mesh = SubResource("SphereMesh_bydsx")
 skeleton = NodePath("../..")
 
 [node name="Cloud9" type="MeshInstance3D" parent="CloudsGroup"]
-transform = Transform3D(9.83114, 0, 0, 0, 6.04406, 0, 0, 0, 1, -11.8343, -4.62268, -85.5391)
+transform = Transform3D(9.83114, 0, 0, 0, 6.04406, 0, 0, 0, 1, 0.412662, 7.03451, -85.5391)
 mesh = SubResource("SphereMesh_bydsx")
 skeleton = NodePath("../..")
 
@@ -145,6 +146,8 @@ sky_mode = 1
 [node name="CowUdder" parent="." node_paths=PackedStringArray("debug") instance=ExtResource("3_rvbjl")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.087154, 4.10645, 0)
 debug = NodePath("../Debug")
+
+[node name="PostProcess" parent="." instance=ExtResource("4_bydsx")]
 
 [node name="Debug" parent="." instance=ExtResource("4_mlqbd")]
 visible = false

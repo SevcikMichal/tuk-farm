@@ -22,8 +22,10 @@ grow_horizontal = 0
 
 [node name="ColorRect" type="ColorRect" parent="MarginContainer"]
 layout_mode = 2
+mouse_filter = 2
 color = Color(0, 0, 0, 0.392157)
 
 [node name="RichTextLabel" type="RichTextLabel" parent="MarginContainer"]
 layout_mode = 2
+mouse_filter = 2
 scroll_active = false
