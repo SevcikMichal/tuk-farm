@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://doqjvunhcfs67"]
+[gd_scene load_steps=8 format=3 uid="uid://doqjvunhcfs67"]
 
 [ext_resource type="PackedScene" uid="uid://bbg2cjppo32k1" path="res://milk_bucket/models/bucket.glb" id="1_3nmuo"]
 [ext_resource type="Script" uid="uid://ddpup467cc7gu" path="res://milk_bucket/milk_bucket.gd" id="1_62jrh"]
@@ -63,7 +63,10 @@ _data = {
 &"filling": SubResource("Animation_62jrh")
 }
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_62jrh"]
+
 [sub_resource type="CylinderMesh" id="CylinderMesh_ff6l4"]
+material = SubResource("StandardMaterial3D_62jrh")
 height = 0.1
 
 [node name="MilkBucket" type="Node3D"]

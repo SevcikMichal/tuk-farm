@@ -230,7 +230,7 @@ wait_time = 10.0
 autostart = true
 
 [node name="ResetTimer" type="Timer" parent="."]
-wait_time = 2.0
+wait_time = 0.5
 one_shot = true
 
 [node name="MarginContainerL" type="MarginContainer" parent="."]
@@ -241,7 +241,7 @@ anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
 offset_left = -436.0
-offset_top = -805.0
+offset_top = -1105.0
 
 [node name="Left" type="ColorRect" parent="MarginContainerL"]
 layout_mode = 2
@@ -260,9 +260,9 @@ texture = ExtResource("3_oa2ic")
 [node name="Down2" type="TextureRect" parent="MarginContainerL/Left"]
 visible = false
 layout_mode = 0
-offset_top = 385.649
+offset_top = 678.198
 offset_right = 1024.0
-offset_bottom = 1409.65
+offset_bottom = 1702.2
 scale = Vector2(0.425, 0.409)
 texture = ExtResource("3_oa2ic")
 
@@ -281,9 +281,9 @@ texture = ExtResource("3_oa2ic")
 visible = false
 layout_mode = 0
 offset_left = 435.2
-offset_top = 804.706
+offset_top = 1100.25
 offset_right = 1459.2
-offset_bottom = 1828.71
+offset_bottom = 2124.25
 rotation = 3.14159
 scale = Vector2(0.425, 0.409)
 texture = ExtResource("3_oa2ic")
@@ -295,7 +295,7 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_top = -805.0
+offset_top = -1105.0
 offset_right = 436.0
 
 [node name="Right" type="ColorRect" parent="MarginContainerR"]
@@ -315,9 +315,9 @@ texture = ExtResource("3_oa2ic")
 [node name="Down2" type="TextureRect" parent="MarginContainerR/Right"]
 visible = false
 layout_mode = 0
-offset_top = 385.649
+offset_top = 673.206
 offset_right = 1024.0
-offset_bottom = 1409.65
+offset_bottom = 1697.21
 scale = Vector2(0.425, 0.409)
 texture = ExtResource("3_oa2ic")
 
@@ -336,13 +336,15 @@ texture = ExtResource("3_oa2ic")
 visible = false
 layout_mode = 0
 offset_left = 435.2
-offset_top = 804.706
+offset_top = 1100.25
 offset_right = 1459.2
-offset_bottom = 1828.71
+offset_bottom = 2124.25
 rotation = 3.14159
 scale = Vector2(0.425, 0.409)
 texture = ExtResource("3_oa2ic")
 
+[connection signal="reset" from="." to="MarginContainerL/Left" method="_on_milking_controller_reset"]
+[connection signal="reset" from="." to="MarginContainerR/Right" method="_on_milking_controller_reset"]
 [connection signal="timeout" from="IdleTimer" to="." method="_on_idle_timer_timeout"]
 [connection signal="timeout" from="ResetTimer" to="." method="_on_reset_timer_timeout"]
 [connection signal="zone_dragged" from="MarginContainerL/Left" to="." method="_on_zone_drag"]

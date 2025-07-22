@@ -5,6 +5,7 @@ const GREAT_RYTHM_RANGE: int = 300
 const GOOD_RHYTHM_RANGE: int = 800
 
 signal rhythm(state: String, last_zone: String)
+signal reset()
 
 @export
 var debug: Control
@@ -159,5 +160,5 @@ func _on_zone_released(zone: String) -> void:
 		_reset_timer.start()
 
 func _on_reset_timer_timeout() -> void:
-	debug.log("Reset timer hit")
+	emit_signal("reset")
 	_reset_swipe(true)

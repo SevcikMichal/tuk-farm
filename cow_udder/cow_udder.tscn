@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://gk8hgpuimdr3"]
+[gd_scene load_steps=13 format=3 uid="uid://gk8hgpuimdr3"]
 
 [ext_resource type="PackedScene" uid="uid://mvtrhls1fa6x" path="res://cow_udder/models/cow_udder.glb" id="1_w4ep5"]
 [ext_resource type="Script" uid="uid://dt4fucme8kn5k" path="res://cow_udder/cow_udder.gd" id="2_4cr8i"]
@@ -257,7 +257,12 @@ _data = {
 emission_shape = 1
 emission_sphere_radius = 1.0
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4cr8i"]
+emission_enabled = true
+emission = Color(1, 1, 1, 1)
+
 [sub_resource type="PlaneMesh" id="PlaneMesh_4ygoy"]
+material = SubResource("StandardMaterial3D_4cr8i")
 size = Vector2(0.1, 0.1)
 orientation = 2
 
