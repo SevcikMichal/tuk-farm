@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://bq7oqletifb5s"]
+
+[ext_resource type="PackedScene" uid="uid://cs57d8heb32n0" path="res://chicken/models/chicken.glb" id="1_sd5y8"]
+
+[node name="chicken" instance=ExtResource("1_sd5y8")]
+
+[node name="Skeleton3D" parent="Armature" index="0"]
+transform = Transform3D(0.247016, 0, -0.969011, 0, 1, 0, 0.969011, 0, 0.247016, 0, 0, 0)
