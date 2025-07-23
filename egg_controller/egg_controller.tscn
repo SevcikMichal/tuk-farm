@@ -1,7 +1,6 @@
-[gd_scene load_steps=7 format=3 uid="uid://diknmv0ejsus7"]
+[gd_scene load_steps=6 format=3 uid="uid://diknmv0ejsus7"]
 
-[ext_resource type="Script" uid="uid://bictlmo4vhllr" path="res://milking_controller/milking_controller.gd" id="1_ecl3b"]
-[ext_resource type="Script" uid="uid://55wwgqh2accb" path="res://milking_controller/drag_controller.gd" id="2_hwtar"]
+[ext_resource type="Script" uid="uid://b3dafhful1ucx" path="res://egg_controller/egg_controller.gd" id="1_hhw2q"]
 [ext_resource type="Texture2D" uid="uid://bab8fc7xl1rwm" path="res://milking_controller/sprites/arrow.png" id="3_xk8gs"]
 
 [sub_resource type="Animation" id="Animation_1suj8"]
@@ -41,7 +40,7 @@ _data = {
 &"hint": SubResource("Animation_oa2ic")
 }
 
-[node name="MilkingController" type="Control"]
+[node name="EggController" type="Control"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -49,7 +48,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(1, 1.00154)
-script = ExtResource("1_ecl3b")
+script = ExtResource("1_hhw2q")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
@@ -61,10 +60,6 @@ autoplay = "hint"
 wait_time = 10.0
 autostart = true
 
-[node name="ResetTimer" type="Timer" parent="."]
-wait_time = 0.5
-one_shot = true
-
 [node name="MarginContainerL" type="MarginContainer" parent="."]
 layout_mode = 1
 anchors_preset = -1
@@ -74,12 +69,12 @@ anchor_right = 0.5
 anchor_bottom = 1.0
 offset_left = -436.0
 offset_top = -1105.0
+mouse_filter = 2
 
 [node name="Left" type="ColorRect" parent="MarginContainerL"]
 layout_mode = 2
+mouse_filter = 2
 color = Color(1, 1, 1, 0.0196078)
-script = ExtResource("2_hwtar")
-zone_name = "left"
 
 [node name="Right1" type="TextureRect" parent="MarginContainerL/Left"]
 visible = false
@@ -89,6 +84,7 @@ offset_right = 1024.0
 offset_bottom = 2004.0
 rotation = -1.5708
 scale = Vector2(0.425, 0.409)
+mouse_filter = 2
 texture = ExtResource("3_xk8gs")
 
 [node name="MarginContainerR" type="MarginContainer" parent="."]
@@ -100,12 +96,12 @@ anchor_right = 0.5
 anchor_bottom = 1.0
 offset_top = -1105.0
 offset_right = 436.0
+mouse_filter = 2
 
 [node name="Right" type="ColorRect" parent="MarginContainerR"]
 layout_mode = 2
+mouse_filter = 2
 color = Color(1, 1, 1, 0.0196078)
-script = ExtResource("2_hwtar")
-zone_name = "right"
 
 [node name="Left1" type="TextureRect" parent="MarginContainerR/Right"]
 visible = false
@@ -116,13 +112,7 @@ offset_right = 1460.0
 offset_bottom = 1574.0
 rotation = 1.5708
 scale = Vector2(0.425, 0.409)
+mouse_filter = 2
 texture = ExtResource("3_xk8gs")
 
-[connection signal="reset" from="." to="MarginContainerL/Left" method="_on_milking_controller_reset"]
-[connection signal="reset" from="." to="MarginContainerR/Right" method="_on_milking_controller_reset"]
 [connection signal="timeout" from="IdleTimer" to="." method="_on_idle_timer_timeout"]
-[connection signal="timeout" from="ResetTimer" to="." method="_on_reset_timer_timeout"]
-[connection signal="zone_dragged" from="MarginContainerL/Left" to="." method="_on_zone_drag"]
-[connection signal="zone_released" from="MarginContainerL/Left" to="." method="_on_zone_released"]
-[connection signal="zone_dragged" from="MarginContainerR/Right" to="." method="_on_zone_drag"]
-[connection signal="zone_released" from="MarginContainerR/Right" to="." method="_on_zone_released"]

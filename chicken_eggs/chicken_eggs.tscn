@@ -1,12 +1,15 @@
-[gd_scene load_steps=6 format=3 uid="uid://b7ptky0wls84g"]
+[gd_scene load_steps=8 format=3 uid="uid://b7ptky0wls84g"]
 
 [ext_resource type="PackedScene" uid="uid://bq7oqletifb5s" path="res://chicken/chicken.tscn" id="1_i0beg"]
+[ext_resource type="Script" uid="uid://bfq7rm436g5es" path="res://chicken_eggs/chicken_eggs.gd" id="1_uvyug"]
 [ext_resource type="PackedScene" uid="uid://b2elg3q57q4sj" path="res://global/camera_3d.tscn" id="2_0tpng"]
 [ext_resource type="PackedScene" uid="uid://bbdx775276raa" path="res://global/directional_light_3d.tscn" id="3_6hepm"]
 [ext_resource type="PackedScene" uid="uid://dag67ckbdflew" path="res://global/post_process.tscn" id="4_56wwa"]
 [ext_resource type="PackedScene" uid="uid://diknmv0ejsus7" path="res://egg_controller/egg_controller.tscn" id="5_56wwa"]
+[ext_resource type="PackedScene" uid="uid://c7fb7ct3lqgec" path="res://debug/debug.tscn" id="6_rs3o1"]
 
 [node name="chicken_eggs" type="Node3D"]
+script = ExtResource("1_uvyug")
 
 [node name="chicken" parent="." instance=ExtResource("1_i0beg")]
 transform = Transform3D(0.986683, 0, -0.162654, -0.0266105, 0.986526, -0.161423, 0.160463, 0.163601, 0.973389, -0.0648155, 0, 0)
@@ -19,4 +22,12 @@ transform = Transform3D(1, 0, 0, 0, 0.380651, 0.924719, 0, -0.924719, 0.380651, 
 
 [node name="PostProcess" parent="." instance=ExtResource("4_56wwa")]
 
-[node name="MilkingController" parent="." instance=ExtResource("5_56wwa")]
+[node name="UI" type="CanvasLayer" parent="."]
+layer = 2
+
+[node name="EggController" parent="UI" node_paths=PackedStringArray("debug") instance=ExtResource("5_56wwa")]
+debug = NodePath("../Debug")
+
+[node name="Debug" parent="UI" instance=ExtResource("6_rs3o1")]
+
+[connection signal="pitch_performed" from="UI/EggController" to="chicken" method="_on_pitch_performed"]

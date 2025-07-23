@@ -135,15 +135,17 @@ transform = Transform3D(1, 0, 0, 0, 0.862796, 0.505552, 0, -0.505552, 0.862796, 
 
 [node name="CowUdder" parent="." node_paths=PackedStringArray("debug") instance=ExtResource("3_rvbjl")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.087154, 4.10645, 0)
-debug = NodePath("../Debug")
+debug = NodePath("../UI/Debug")
 
 [node name="PostProcess" parent="." instance=ExtResource("4_bydsx")]
 
-[node name="Debug" parent="." instance=ExtResource("4_mlqbd")]
+[node name="UI" type="CanvasLayer" parent="."]
+
+[node name="Debug" parent="UI" instance=ExtResource("4_mlqbd")]
 visible = false
 
-[node name="MilkingController" parent="." node_paths=PackedStringArray("debug") instance=ExtResource("5_0kvvt")]
+[node name="MilkingController" parent="UI" node_paths=PackedStringArray("debug") instance=ExtResource("5_0kvvt")]
 debug = NodePath("../Debug")
 
 [connection signal="milked" from="CowUdder" to="MilkBucket" method="_on_cow_udder_milked"]
-[connection signal="rhythm" from="MilkingController" to="CowUdder" method="_on_milking_controller_rhythm"]
+[connection signal="rhythm" from="UI/MilkingController" to="CowUdder" method="_on_milking_controller_rhythm"]
