@@ -1,8 +1,149 @@
-[gd_scene load_steps=2 format=3 uid="uid://bq7oqletifb5s"]
+[gd_scene load_steps=8 format=3 uid="uid://bq7oqletifb5s"]
 
 [ext_resource type="PackedScene" uid="uid://cs57d8heb32n0" path="res://chicken/models/chicken.glb" id="1_sd5y8"]
 
+[sub_resource type="Animation" id="Animation_lfvh4"]
+resource_name = "Squeeze"
+length = 0.5
+tracks/0/type = "position_3d"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Armature/Skeleton3D:Bone.003")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = PackedFloat32Array(0, 1, 0, 0, 0, 0.233333, 1, 0, 0, -0.835, 0.466667, 1, 0, 0, 0)
+tracks/1/type = "position_3d"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Armature/Skeleton3D:Bone.004")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = PackedFloat32Array(0, 1, 0, 0, 0, 0.233333, 1, 0, 0, 0.775, 0.466667, 1, 0, 0, 0)
+tracks/2/type = "scale_3d"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Armature/Skeleton3D:Bone")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = PackedFloat32Array(0, 1, 1, 1, 1, 0.233333, 1, 1.43, 1.185, 1.645, 0.466667, 1, 1, 1, 1)
+tracks/3/type = "scale_3d"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Armature/Skeleton3D:Bone.007")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = PackedFloat32Array(0, 1, 1, 1, 1, 0.233333, 1, 1.385, 1, 1.86, 0.466667, 1, 1, 1, 1)
+
+[sub_resource type="Animation" id="Animation_sdkux"]
+length = 0.001
+tracks/0/type = "position_3d"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Armature/Skeleton3D:Bone.003")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = PackedFloat32Array(0, 1, 0, 0, -0.835)
+tracks/1/type = "position_3d"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Armature/Skeleton3D:Bone.004")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = PackedFloat32Array(0, 1, 0, 0, 0.775)
+tracks/2/type = "scale_3d"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Armature/Skeleton3D:Bone")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = PackedFloat32Array(0, 1, 1.43, 1.185, 1.645)
+tracks/3/type = "scale_3d"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Armature/Skeleton3D:Bone.007")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = PackedFloat32Array(0, 1, 1, 1, 1)
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_sdkux"]
+_data = {
+&"RESET": SubResource("Animation_sdkux"),
+&"Squeeze": SubResource("Animation_lfvh4")
+}
+
+[sub_resource type="Animation" id="Animation_sd5y8"]
+resource_name = "idle"
+loop_mode = 1
+tracks/0/type = "rotation_3d"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Armature/Skeleton3D:Bone.003")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = PackedFloat32Array(0.00833333, 1, 0, 0.707107, 0.707107, 0, 0.141667, 1, 0, -0.915, -0.404, 0, 0.241667, 1, 0, 0.707107, 0.707107, 0, 0.438333, 1, 0, 0.707107, 0.707107, 0, 0.571667, 1, 0, -0.915, -0.404, 0, 0.671667, 1, 0, 0.707107, 0.707107, 0, 1.00833, 1, 0, 0.707107, 0.707107, 0)
+tracks/1/type = "rotation_3d"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Armature/Skeleton3D:Bone.004")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = PackedFloat32Array(0, 1, -0.707107, 0, 0, 0.707107, 0.133333, 1, -0.404, 0, 0, 0.915, 0.233333, 1, -0.707107, 0, 0, 0.707107, 0.43, 1, -0.707107, 0, 0, 0.707107, 0.563333, 1, -0.404, 0, 0, 0.915, 0.663333, 1, -0.707107, 0, 0, 0.707107, 1, 1, -0.707107, 0, 0, 0.707107)
+tracks/2/type = "rotation_3d"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Armature/Skeleton3D:Bone")
+tracks/2/interp = 2
+tracks/2/loop_wrap = true
+tracks/2/keys = PackedFloat32Array(0, 1, 0, 0, 0, 1, 0.2, 1, 0, 0, 0, 1, 0.333333, 1, 0, -0.423, 0, 0.906, 0.466667, 1, 0, 0, 0, 1, 0.608894, 1, 0, 0, 0, 1, 0.8, 1, 0, -0.423, 0, 0.906, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="Animation" id="Animation_8uiii"]
+length = 0.001
+tracks/0/type = "rotation_3d"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Armature/Skeleton3D:Bone.003")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = PackedFloat32Array(0, 1, 0, -0.915, -0.404, 0)
+tracks/1/type = "rotation_3d"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Armature/Skeleton3D:Bone.004")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = PackedFloat32Array(0, 1, -0.404, 0, 0, 0.915)
+tracks/2/type = "rotation_3d"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Armature/Skeleton3D:Bone")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = PackedFloat32Array(0, 1, 0, -0.643, 0, 0.766)
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_lfvh4"]
+_data = {
+&"RESET": SubResource("Animation_8uiii"),
+&"idle": SubResource("Animation_sd5y8")
+}
+
 [node name="chicken" instance=ExtResource("1_sd5y8")]
+
+[node name="Squeeze" type="AnimationPlayer" parent="." index="0"]
+libraries = {
+&"": SubResource("AnimationLibrary_sdkux")
+}
+
+[node name="Idle" type="AnimationPlayer" parent="." index="1"]
+libraries = {
+&"": SubResource("AnimationLibrary_lfvh4")
+}
+autoplay = "idle"
 
 [node name="Skeleton3D" parent="Armature" index="0"]
 transform = Transform3D(0.247016, 0, -0.969011, 0, 1, 0, 0.969011, 0, 0.247016, 0, 0, 0)
+bones/0/rotation = Quaternion(0, -0.642934, 0, 0.765922)
+bones/0/scale = Vector3(1.43, 1.185, 1.645)
+bones/1/position = Vector3(0, 0, -0.835)
+bones/1/rotation = Quaternion(0, 0.914798, 0.403911, 0)
+bones/2/position = Vector3(0, 0, 0.775)
+bones/2/rotation = Quaternion(-0.403911, 0, 0, 0.914798)

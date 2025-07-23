@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://b2elg3q57q4sj"]
+
+[sub_resource type="Environment" id="Environment_ywrdx"]
+background_mode = 1
+background_color = Color(0.545098, 0.752941, 0.917647, 1)
+
+[node name="Camera3D" type="Camera3D"]
+transform = Transform3D(0.999682, 0, 0.0251999, 0, 1, 0, -0.0251999, 0, 0.999682, 0, 0, 0)
+environment = SubResource("Environment_ywrdx")
+fov = 65.4

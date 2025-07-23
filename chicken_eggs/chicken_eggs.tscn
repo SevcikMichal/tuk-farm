@@ -1,0 +1,19 @@
+[gd_scene load_steps=5 format=3 uid="uid://b7ptky0wls84g"]
+
+[ext_resource type="PackedScene" uid="uid://bq7oqletifb5s" path="res://chicken/chicken.tscn" id="1_i0beg"]
+[ext_resource type="PackedScene" uid="uid://b2elg3q57q4sj" path="res://global/camera_3d.tscn" id="2_0tpng"]
+[ext_resource type="PackedScene" uid="uid://bbdx775276raa" path="res://global/directional_light_3d.tscn" id="3_6hepm"]
+[ext_resource type="PackedScene" uid="uid://dag67ckbdflew" path="res://global/post_process.tscn" id="4_56wwa"]
+
+[node name="chicken_eggs" type="Node3D"]
+
+[node name="chicken" parent="." instance=ExtResource("1_i0beg")]
+transform = Transform3D(0.986683, 0, -0.162654, -0.0266105, 0.986526, -0.161423, 0.160463, 0.163601, 0.973389, -0.0648155, 0, 0)
+
+[node name="Camera3D" parent="." instance=ExtResource("2_0tpng")]
+transform = Transform3D(0.999682, 0, 0.0251999, 0, 1, 0, -0.0251999, 0, 0.999682, 0, 0, 4)
+
+[node name="DirectionalLight3D" parent="." instance=ExtResource("3_6hepm")]
+transform = Transform3D(1, 0, 0, 0, 0.380651, 0.924719, 0, -0.924719, 0.380651, 0, 0, 0)
+
+[node name="PostProcess" parent="." instance=ExtResource("4_56wwa")]
