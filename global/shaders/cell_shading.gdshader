@@ -28,7 +28,7 @@ void fragment() {
     // Quantize original color (cel shading)
     vec3 color = texture(screen_texture, uv).rgb;
     float lum = dot(color, vec3(0.2126, 0.7152, 0.0722));
-    float band = floor(lum * levels + 0.5) / levels;
+    float band = floor(lum * levels + levels/2.0) / levels;
     vec3 toon_color = color * band;
 
     // Output: edge = black, otherwise toon color
