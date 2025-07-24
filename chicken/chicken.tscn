@@ -1,7 +1,8 @@
-[gd_scene load_steps=9 format=3 uid="uid://bq7oqletifb5s"]
+[gd_scene load_steps=10 format=3 uid="uid://bq7oqletifb5s"]
 
 [ext_resource type="PackedScene" uid="uid://cs57d8heb32n0" path="res://chicken/models/chicken.glb" id="1_sd5y8"]
 [ext_resource type="Script" uid="uid://6kd1higpdnxe" path="res://chicken/chicken.gd" id="2_8uiii"]
+[ext_resource type="PackedScene" uid="uid://yod067gv365n" path="res://egg/egg.tscn" id="3_lfvh4"]
 
 [sub_resource type="Animation" id="Animation_sdkux"]
 length = 0.001
@@ -80,6 +81,7 @@ _data = {
 
 [node name="chicken" instance=ExtResource("1_sd5y8")]
 script = ExtResource("2_8uiii")
+egg_object = ExtResource("3_lfvh4")
 
 [node name="Squeeze" type="AnimationPlayer" parent="." index="0"]
 libraries = {
@@ -95,3 +97,8 @@ autoplay = "idle"
 [node name="Skeleton3D" parent="Armature" index="0"]
 transform = Transform3D(0.247016, 0, -0.969011, 0, 1, 0, 0.969011, 0, 0.247016, 0, 0, 0)
 bones/1/rotation = Quaternion(0, 0.695479, 0.718546, 0)
+
+[node name="EggSpawner" type="Node3D" parent="." index="3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00983024, -1.27572, -0.488031)
+
+[connection signal="animation_finished" from="Squeeze" to="." method="_on_squeeze_animation_finished"]

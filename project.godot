@@ -15,10 +15,16 @@ run/main_scene="uid://cxlwr1n6nvjar"
 config/features=PackedStringArray("4.4", "Mobile")
 config/icon="res://icon.svg"
 
+[autoload]
+
+Gobals="*res://global/gobals.gd"
+
 [display]
 
 window/size/viewport_width=900
 window/size/viewport_height=1950
+window/size/window_width_override=450
+window/size/window_height_override=975
 window/stretch/mode="viewport"
 window/stretch/aspect="expand"
 window/handheld/orientation=1

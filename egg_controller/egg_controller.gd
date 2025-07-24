@@ -5,6 +5,12 @@ signal pitch_performed()
 @export
 var debug: Control
 
+@onready
+var idle_timer: Timer = get_node("IdleTimer")
+
+@onready
+var animation: AnimationPlayer = get_node("AnimationPlayer")
+
 const MIN_SWIPE_DISTANCE := 200
 const MAX_TIME_DELTA_MS := 200
 const RESET_TIMEOUT_MS := 500
@@ -18,7 +24,10 @@ var start_positions := {}
 var start_times := {}
 var last_drag_time: int = 0
 
-func _process(delta: float) -> void:
+func _ready() -> void:
+	animation.play("hint")
+
+func _process(_delta: float) -> void:
 	debug.upsert_data("left_done", str(active_swipes.left.done))
 	debug.upsert_data("right_done", str(active_swipes.right.done))
 	if active_swipes.left.done != active_swipes.right.done:
@@ -59,6 +68,8 @@ func _try_emit_pitch() -> void:
 	if active_swipes.left.done and active_swipes.right.done:
 		var delta = abs(active_swipes.left.time - active_swipes.right.time)
 		if delta <= MAX_TIME_DELTA_MS:
+			animation.stop()
+			idle_timer.start()
 			emit_signal("pitch_performed")
 		_reset()
 
@@ -69,3 +80,7 @@ func _reset():
 	}
 	start_positions.clear()
 	start_times.clear()
+
+
+func _on_idle_timer_timeout() -> void:
+	animation.play("hint")

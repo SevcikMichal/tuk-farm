@@ -54,11 +54,9 @@ script = ExtResource("1_hhw2q")
 libraries = {
 &"": SubResource("AnimationLibrary_1suj8")
 }
-autoplay = "hint"
 
 [node name="IdleTimer" type="Timer" parent="."]
 wait_time = 10.0
-autostart = true
 
 [node name="MarginContainerL" type="MarginContainer" parent="."]
 layout_mode = 1
