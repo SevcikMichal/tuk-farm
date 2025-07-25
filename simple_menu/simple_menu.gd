@@ -12,3 +12,7 @@ func _on_cow_pressed() -> void:
 
 func _on_chicken_pressed() -> void:
 	load_game_scene("res://chicken_eggs/chicken_eggs.tscn")
+
+
+func _on_fishing_pressed() -> void:
+	load_game_scene("res://fishing/fishing.tscn")

@@ -72,8 +72,7 @@ transform = Transform3D(1, 0, 0, 0, 0.380651, 0.924719, 0, -0.924719, 0.380651, 
 [node name="UI" type="CanvasLayer" parent="."]
 layer = 2
 
-[node name="EggController" parent="UI" node_paths=PackedStringArray("debug") instance=ExtResource("5_56wwa")]
-debug = NodePath("../Debug")
+[node name="EggController" parent="UI" instance=ExtResource("5_56wwa")]
 
 [node name="Debug" parent="UI" instance=ExtResource("6_rs3o1")]
 visible = false

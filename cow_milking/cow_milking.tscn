@@ -133,9 +133,8 @@ transform = Transform3D(1, 0, 0, 0, 0.862796, 0.505552, 0, -0.505552, 0.862796, 
 
 [node name="MilkBucket" parent="." instance=ExtResource("2_bydsx")]
 
-[node name="CowUdder" parent="." node_paths=PackedStringArray("debug") instance=ExtResource("3_rvbjl")]
+[node name="CowUdder" parent="." instance=ExtResource("3_rvbjl")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.087154, 4.10645, 0)
-debug = NodePath("../UI/Debug")
 
 [node name="PostProcess" parent="." instance=ExtResource("4_bydsx")]
 
@@ -144,8 +143,7 @@ debug = NodePath("../UI/Debug")
 [node name="Debug" parent="UI" instance=ExtResource("4_mlqbd")]
 visible = false
 
-[node name="MilkingController" parent="UI" node_paths=PackedStringArray("debug") instance=ExtResource("5_0kvvt")]
-debug = NodePath("../Debug")
+[node name="MilkingController" parent="UI" instance=ExtResource("5_0kvvt")]
 
 [connection signal="milked" from="CowUdder" to="MilkBucket" method="_on_cow_udder_milked"]
 [connection signal="rhythm" from="UI/MilkingController" to="CowUdder" method="_on_milking_controller_rhythm"]
