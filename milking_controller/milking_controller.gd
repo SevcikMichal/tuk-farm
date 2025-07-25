@@ -7,9 +7,6 @@ const GOOD_RHYTHM_RANGE: int = 800
 signal rhythm(state: String, last_zone: String)
 signal reset()
 
-@export
-var debug: Control
-
 @onready
 var _animation: AnimationPlayer = get_node("AnimationPlayer")
 
@@ -83,10 +80,7 @@ func _try_register_gesture() -> void:
 		_reset_swipe(true)
 		return
 	else:
-		debug_counter("Success Drag")
-		
 		if not _is_valid_followup():
-			print("Invalid pattern! Resetting.")
 			emit_signal("rhythm", "bad", last_zone)
 			_reset_swipe(true)
 			return
@@ -139,17 +133,10 @@ func _is_valid_followup() -> bool:
 		_left_dir == "up" and _right_dir == "down"
 	)
 
-
-func debug_counter(key: String):
-	if debug != null:
-		debug.increment_counter(key)
-
-
 func _on_idle_timer_timeout() -> void:
 	if not _input_locked:
 		_animation.play("hint")
 		_reset_swipe()
-
 
 func _on_zone_released(zone: String) -> void:
 	if zone == "left":

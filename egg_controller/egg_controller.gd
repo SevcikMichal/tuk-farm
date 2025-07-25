@@ -2,9 +2,6 @@ extends Control
 
 signal pitch_performed()
 
-@export
-var debug: Control
-
 @onready
 var idle_timer: Timer = get_node("IdleTimer")
 
@@ -28,8 +25,6 @@ func _ready() -> void:
 	animation.play("hint")
 
 func _process(_delta: float) -> void:
-	debug.upsert_data("left_done", str(active_swipes.left.done))
-	debug.upsert_data("right_done", str(active_swipes.right.done))
 	if active_swipes.left.done != active_swipes.right.done:
 		var now = Time.get_ticks_msec()
 		if now - last_drag_time > RESET_TIMEOUT_MS:

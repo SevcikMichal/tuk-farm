@@ -13,7 +13,6 @@ func _on_pitch_performed():
 	squeeze_player.queue("Squeeze")
 
 func _on_squeeze_animation_finished(anim_name: StringName) -> void:
-	print("finished")
 	if anim_name == "Squeeze":
 		var egg_instance = egg_object.instantiate()
 		add_child(egg_instance)

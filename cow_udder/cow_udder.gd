@@ -9,8 +9,6 @@ signal milked(amount: float)
 var good_amount: float = 1.0
 @export
 var great_amount: float = 2.0
-@export
-var debug: Control
 
 
 # Attached to udder or cow
@@ -35,17 +33,15 @@ func _process(_delta: float) -> void:
 
 
 func _bad_rhythm() -> void:
-	debug.increment_counter("Bad")
+	pass
 
 
 func _good_rhythm() -> void:
 	emit_signal("milked", good_amount)
-	debug.increment_counter("Good")
 
 
 func _great_rhythm() -> void:
 	emit_signal("milked", great_amount)
-	debug.increment_counter("Great")
 
 
 func _on_milking_controller_rhythm(state: String, last_zone: String) -> void:
