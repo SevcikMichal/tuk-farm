@@ -1,5 +1,8 @@
 extends Node3D
 
+signal throw_finished
+signal hook_finished
+
 @onready
 var fishing_line: Node3D = get_node("FishingLine")
 
@@ -9,7 +12,12 @@ var line_start: Node3D = get_node("FishingLine/LineStart")
 @onready
 var line_end: Node3D = get_node("FishingLine/LineEnd")
 
-func _process(delta: float) -> void:
+@onready
+var fishing_animation: AnimationPlayer = get_node("FishingAnimation")
+
+var _fishing_animation_index: int = 0
+
+func _process(_delta: float) -> void:
 	update_fishing_line()
 	
 func update_fishing_line() -> void:
@@ -23,7 +31,7 @@ func update_fishing_line() -> void:
 	st.begin(Mesh.PRIMITIVE_TRIANGLES)
 
 	var sides := 8
-	var radius := 0.02
+	var radius := 0.01
 
 	for i in range(sides):
 		var angle1 = TAU * i / sides
@@ -44,8 +52,8 @@ func update_fishing_line() -> void:
 
 	var mesh = st.commit()
 
-	var basis = Basis().looking_at(axis, Vector3.UP)
-	var xform = Transform3D(basis, start_pos)
+	var mesh_basis = Basis.looking_at(axis, Vector3.UP)
+	var xform = Transform3D(mesh_basis, start_pos)
 
 	if fishing_line.has_node("GeneratedLine"):
 		var existing = fishing_line.get_node("GeneratedLine") as MeshInstance3D
@@ -57,3 +65,18 @@ func update_fishing_line() -> void:
 		line_mesh_instance.mesh = mesh
 		line_mesh_instance.transform = xform
 		fishing_line.add_child(line_mesh_instance)
+
+
+func _on_fishing_controller_swipe_up_detected():
+	fishing_animation.play("Throw")
+
+func _on_fishing_controller_swipe_down_detected():
+	fishing_animation.play("Hook")
+
+func _on_fishing_animation_animation_finished(anim_name):
+	if anim_name == "Throw":
+		fishing_animation.play("Thrown_Idle")
+		emit_signal("throw_finished")
+	elif anim_name == "Hook":
+		fishing_animation.play("Idle")
+		emit_signal("hook_finished")

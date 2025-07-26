@@ -1,0 +1,30 @@
+[gd_scene load_steps=3 format=3 uid="uid://b3oylvx3y146q"]
+
+[ext_resource type="Texture2D" uid="uid://bab8fc7xl1rwm" path="res://milking_controller/sprites/arrow.png" id="1_kg2vi"]
+[ext_resource type="Script" uid="uid://b2hhos4t6a6ho" path="res://fishing_controller/fishing_controller.gd" id="1_qno38"]
+
+[node name="FishingController" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_qno38")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -902.0
+grow_horizontal = 2
+grow_vertical = 0
+mouse_filter = 2
+
+[node name="Up" type="TextureRect" parent="MarginContainer"]
+layout_mode = 2
+mouse_filter = 2
+texture = ExtResource("1_kg2vi")
+flip_v = true

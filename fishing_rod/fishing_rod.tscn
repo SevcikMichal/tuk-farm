@@ -1,12 +1,11 @@
-[gd_scene load_steps=7 format=3 uid="uid://buhbw4s2y70v2"]
+[gd_scene load_steps=9 format=3 uid="uid://buhbw4s2y70v2"]
 
 [ext_resource type="Script" uid="uid://c7lm2prlpndsd" path="res://fishing_rod/fishing_rod.gd" id="1_dj25p"]
 [ext_resource type="PackedScene" uid="uid://dbitr604sjjef" path="res://fishing_rod/models/fishing_rod.glb" id="1_inol3"]
 
 [sub_resource type="Animation" id="Animation_dj25p"]
 resource_name = "Hook"
-length = 0.5
-loop_mode = 1
+length = 2.0
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -14,10 +13,10 @@ tracks/0/path = NodePath("FishingLine/LineEnd:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.5),
-"transitions": PackedFloat32Array(1, 1),
+"times": PackedFloat32Array(0, 0.17, 0.244249, 2),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 0,
-"values": [Vector3(6.75321, -1.55517, -1.19209e-07), Vector3(-0.884642, 3.1259, 5.96046e-08)]
+"values": [Vector3(6.75321, -1.55517, -1.19209e-07), Vector3(-0.270736, 2.34626, -5.96046e-08), Vector3(0.127288, 2.39512, -5.96046e-08), Vector3(0.0364437, -1.93846, 0)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -26,10 +25,10 @@ tracks/1/path = NodePath("fishing_rod:position")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.5),
-"transitions": PackedFloat32Array(1, 1),
+"times": PackedFloat32Array(0, 0.17, 2),
+"transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
-"values": [Vector3(0, 0, 0), Vector3(-0.490724, 0.887783, 0)]
+"values": [Vector3(0, 0, 0), Vector3(0, 0.280677, 0), Vector3(0, 0, 0)]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
@@ -38,10 +37,10 @@ tracks/2/path = NodePath("fishing_rod:rotation")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.5),
-"transitions": PackedFloat32Array(1, 1),
+"times": PackedFloat32Array(0, 0.17, 2),
+"transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
-"values": [Vector3(0, 0, 0), Vector3(0, 0, 0.982167)]
+"values": [Vector3(0, 0, 0), Vector3(0, 0, 0.770463), Vector3(0, 0, 0.617271)]
 }
 tracks/3/type = "value"
 tracks/3/imported = false
@@ -50,10 +49,10 @@ tracks/3/path = NodePath("FishingLine/LineStart:position")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
-"times": PackedFloat32Array(0, 0.24, 0.5),
-"transitions": PackedFloat32Array(1, 1, 1),
+"times": PackedFloat32Array(0, 0.15, 0.17, 2),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 0,
-"values": [Vector3(1.6671, 1.59561, 0), Vector3(0.527594, 2.5833, 5.72205e-08), Vector3(-0.895441, 3.11401, 1.19209e-07)]
+"values": [Vector3(1.6671, 1.59561, 0), Vector3(0.527594, 2.5833, 5.72205e-08), Vector3(0.0892055, 2.55844, 4.95911e-08), Vector3(0.419447, 2.20627, 0)]
 }
 
 [sub_resource type="Animation" id="Animation_tfe6e"]
@@ -61,32 +60,55 @@ length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("FishingLine/LineEnd:position")
+tracks/0/path = NodePath("fishing_rod:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector3(1.65606, 1.56472, -1.19209e-07)]
+"values": [Vector3(0, 0.133279, 0)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("FishingLine/LineStart:position")
+tracks/1/path = NodePath("fishing_rod:rotation")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector3(-2.06293, 2.89333, 0)]
+"values": [Vector3(0, 0, 0.692163)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("FishingLine/LineEnd:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0.27656, -1.93846, -0.279872)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("FishingLine/LineStart:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0.25514, 2.3952, 0)]
 }
 
 [sub_resource type="Animation" id="Animation_lucrk"]
 resource_name = "Throw"
 length = 1.5
-loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -118,10 +140,10 @@ tracks/2/path = NodePath("FishingLine/LineStart:position")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.3, 0.5, 0.75),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
+"times": PackedFloat32Array(0, 0.3, 0.5, 0.575928, 0.632827, 0.70638, 0.75, 1.1588, 1.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1),
 "update": 0,
-"values": [Vector3(1.6671, 1.59561, 0), Vector3(-0.526728, 2.77471, 0), Vector3(-2.06293, 2.89333, 0), Vector3(3.03114, 1.6123, 0)]
+"values": [Vector3(1.6671, 1.59561, 0), Vector3(-0.526728, 2.77471, 0), Vector3(-2.06293, 2.89333, 0), Vector3(-0.353627, 3.09512, 1.19209e-07), Vector3(0.939988, 2.90259, 0), Vector3(2.36312, 2.21036, 0), Vector3(3.03114, 1.6123, 0), Vector3(2.32057, 1.61892, 1.19209e-07), Vector3(1.64424, 1.57278, 1.19209e-07)]
 }
 tracks/3/type = "value"
 tracks/3/imported = false
@@ -136,11 +158,119 @@ tracks/3/keys = {
 "values": [Vector3(1.65606, 1.56472, -1.19209e-07), Vector3(-0.511659, 2.7492, -1.19209e-07), Vector3(-2.05255, 2.86856, -1.19209e-07), Vector3(3.00827, 1.61257, -1.19209e-07), Vector3(7.83532, 0.614386, -1.19209e-07), Vector3(6.75321, -1.55517, -1.19209e-07)]
 }
 
+[sub_resource type="Animation" id="Animation_rcpge"]
+resource_name = "Idle"
+length = 2.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("fishing_rod:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1, 2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, 0.133279, 0), Vector3(0, 0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("FishingLine/LineStart:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1, 2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(0.419447, 2.20627, 0), Vector3(0.25514, 2.3952, 0), Vector3(0.419447, 2.20627, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("FishingLine/LineEnd:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0.0364437, -1.93846, 0), Vector3(0.0364437, -1.93846, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("fishing_rod:rotation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 1, 2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0.617271), Vector3(0, 0, 0.692163), Vector3(0, 0, 0.617271)]
+}
+
+[sub_resource type="Animation" id="Animation_gikft"]
+resource_name = "Thrown_Idle"
+length = 2.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("fishing_rod:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1, 2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, 0.0665447, 0), Vector3(0, 0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("FishingLine/LineStart:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1, 2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(1.6671, 1.59561, 0), Vector3(1.5368, 1.75819, 0), Vector3(1.6671, 1.59561, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("FishingLine/LineEnd:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.8, 1, 1.2, 1.4, 1.6, 1.8, 2),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(6.75321, -1.55517, -1.19209e-07), Vector3(6.75321, -1.6276, -1.19209e-07), Vector3(6.75321, -1.46184, -1.19209e-07), Vector3(6.75321, -1.77042, -1.19209e-07), Vector3(6.75321, -1.58841, -1.19209e-07), Vector3(6.75321, -1.80227, -1.19209e-07), Vector3(6.75778, -1.55633, 0.0211662), Vector3(6.78449, -1.91088, -0.0170333), Vector3(6.77406, -1.64685, -0.0113556), Vector3(6.76364, -1.76872, -0.00567788), Vector3(6.75321, -1.55517, -1.19209e-07)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("fishing_rod:rotation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 1, 2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, 0, 0.0675792), Vector3(0, 0, 0)]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_tfe6e"]
 _data = {
 &"Hook": SubResource("Animation_dj25p"),
+&"Idle": SubResource("Animation_rcpge"),
 &"RESET": SubResource("Animation_tfe6e"),
-&"Throw": SubResource("Animation_lucrk")
+&"Throw": SubResource("Animation_lucrk"),
+&"Thrown_Idle": SubResource("Animation_gikft")
 }
 
 [node name="FishingRod" type="Node3D"]
@@ -150,15 +280,17 @@ script = ExtResource("1_dj25p")
 libraries = {
 &"": SubResource("AnimationLibrary_tfe6e")
 }
-autoplay = "Throw"
+autoplay = "Idle"
 
 [node name="fishing_rod" parent="." instance=ExtResource("1_inol3")]
-transform = Transform3D(0.7, 0, 0, 0, 0.7, 0, 0, 0, 0.7, 0, 0, 0)
+transform = Transform3D(0.538907, -0.446743, 0, 0.446743, 0.538907, 0, 0, 0, 0.7, 0, 0.133279, 0)
 
 [node name="FishingLine" type="Node3D" parent="."]
 
 [node name="LineStart" type="Node3D" parent="FishingLine"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.06293, 2.89333, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.25514, 2.3952, 0)
 
 [node name="LineEnd" type="Node3D" parent="FishingLine"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.65606, 1.56472, -1.19209e-07)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.27656, -1.93846, -0.279872)
+
+[connection signal="animation_finished" from="FishingAnimation" to="." method="_on_fishing_animation_animation_finished"]
