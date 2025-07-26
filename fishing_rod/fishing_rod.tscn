@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://buhbw4s2y70v2"]
+[gd_scene load_steps=13 format=3 uid="uid://buhbw4s2y70v2"]
 
 [ext_resource type="Script" uid="uid://c7lm2prlpndsd" path="res://fishing_rod/fishing_rod.gd" id="1_dj25p"]
 [ext_resource type="PackedScene" uid="uid://dbitr604sjjef" path="res://fishing_rod/models/fishing_rod.glb" id="1_inol3"]
@@ -273,6 +273,25 @@ _data = {
 &"Thrown_Idle": SubResource("Animation_gikft")
 }
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dj25p"]
+albedo_color = Color(0.808137, 4.42803e-06, 7.70092e-07, 1)
+
+[sub_resource type="SphereMesh" id="SphereMesh_tfe6e"]
+material = SubResource("StandardMaterial3D_dj25p")
+radius = 0.05
+height = 0.1
+radial_segments = 6
+rings = 3
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_tfe6e"]
+emission_enabled = true
+emission = Color(1, 1, 1, 1)
+
+[sub_resource type="SphereMesh" id="SphereMesh_lucrk"]
+material = SubResource("StandardMaterial3D_tfe6e")
+radius = 0.05
+height = 0.1
+
 [node name="FishingRod" type="Node3D"]
 script = ExtResource("1_dj25p")
 
@@ -292,5 +311,12 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.25514, 2.3952, 0)
 
 [node name="LineEnd" type="Node3D" parent="FishingLine"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.27656, -1.93846, -0.279872)
+
+[node name="Bob" type="MeshInstance3D" parent="FishingLine/LineEnd"]
+mesh = SubResource("SphereMesh_tfe6e")
+
+[node name="ber" type="MeshInstance3D" parent="FishingLine/LineEnd"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00621331, -0.0481852, 0.00610769)
+mesh = SubResource("SphereMesh_lucrk")
 
 [connection signal="animation_finished" from="FishingAnimation" to="." method="_on_fishing_animation_animation_finished"]

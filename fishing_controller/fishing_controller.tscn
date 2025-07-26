@@ -1,7 +1,45 @@
-[gd_scene load_steps=3 format=3 uid="uid://b3oylvx3y146q"]
+[gd_scene load_steps=6 format=3 uid="uid://b3oylvx3y146q"]
 
 [ext_resource type="Texture2D" uid="uid://bab8fc7xl1rwm" path="res://milking_controller/sprites/arrow.png" id="1_kg2vi"]
 [ext_resource type="Script" uid="uid://b2hhos4t6a6ho" path="res://fishing_controller/fishing_controller.gd" id="1_qno38"]
+
+[sub_resource type="Animation" id="Animation_lcgbb"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MarginContainer/Up:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_qno38"]
+resource_name = "hint"
+length = 0.6
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MarginContainer/Up:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [false, true, false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_lcgbb"]
+_data = {
+&"RESET": SubResource("Animation_lcgbb"),
+&"hint": SubResource("Animation_qno38")
+}
 
 [node name="FishingController" type="Control"]
 layout_mode = 3
@@ -11,6 +49,14 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_qno38")
+
+[node name="HintTimer" type="Timer" parent="."]
+wait_time = 10.0
+
+[node name="Hint" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_lcgbb")
+}
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 1
@@ -24,7 +70,10 @@ grow_vertical = 0
 mouse_filter = 2
 
 [node name="Up" type="TextureRect" parent="MarginContainer"]
+visible = false
 layout_mode = 2
 mouse_filter = 2
 texture = ExtResource("1_kg2vi")
 flip_v = true
+
+[connection signal="timeout" from="HintTimer" to="." method="_on_hint_timer_timeout"]
