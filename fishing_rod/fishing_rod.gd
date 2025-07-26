@@ -1,7 +1,13 @@
 extends Node3D
 
+const BASE_CHANCE: float = 0.1
+const CHANCE_INCREMENT: float = 0.05
+const MAX_CHANCE: float = 1.0
+const MAX_FISH_DELTA_MS: int = 1000
+
 signal throw_finished
 signal hook_finished
+signal fish_caught
 
 @onready
 var _fishing_line: Node3D = get_node("FishingLine")
@@ -14,6 +20,18 @@ var _line_end: Node3D = get_node("FishingLine/LineEnd")
 
 @onready
 var _fishing_animation: AnimationPlayer = get_node("FishingAnimation")
+
+@onready
+var _fishing_timer: Timer = get_node("FishingTimer")
+
+@onready
+var _bubbles: GPUParticles3D = get_node("FishingLine/LineEnd/Bubbles")
+
+@onready
+var _fish: Node3D = get_node("FishingLine/LineEnd/Fish")
+
+var _current_chance: float = BASE_CHANCE
+var _fish_hooked_time: int = 0
 
 func _process(_delta: float) -> void:
 	update_fishing_line()
@@ -69,12 +87,39 @@ func _on_fishing_controller_swipe_up_detected():
 	_fishing_animation.play("Throw")
 
 func _on_fishing_controller_swipe_down_detected():
+	_bubbles.visible = false
+	var actual_time = Time.get_ticks_msec()
+	
+	if actual_time - _fish_hooked_time <= MAX_FISH_DELTA_MS:
+		_fish.set_color(get_random_warm_color())
+		_fish.visible = true
+		emit_signal("fish_caught")
+	
 	_fishing_animation.play("Hook")
 
 func _on_fishing_animation_animation_finished(anim_name):
 	if anim_name == "Throw":
 		_fishing_animation.play("Thrown_Idle")
-		emit_signal("throw_finished")
+		_fishing_timer.start()
 	elif anim_name == "Hook":
 		_fishing_animation.play("Idle")
 		emit_signal("hook_finished")
+
+func _on_fishing_timer_timeout() -> void:
+	var roll = randf()
+	if roll < _current_chance:
+		_fishing_timer.stop()
+		_current_chance = BASE_CHANCE
+		_fish_hooked_time = Time.get_ticks_msec()
+		_fishing_animation.play("Hooked")
+		_bubbles.visible = true
+		emit_signal("throw_finished")
+	else:
+		_current_chance = min(_current_chance + CHANCE_INCREMENT, MAX_CHANCE)
+		_fishing_timer.start()
+
+func get_random_warm_color() -> Color:
+	var hue := randf_range(0.0, 0.15)
+	var saturation := randf_range(0.7, 1.0)
+	var value := randf_range(0.8, 1.0)
+	return Color.from_hsv(hue, saturation, value)

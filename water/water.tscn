@@ -3,7 +3,12 @@
 [ext_resource type="Script" uid="uid://bcv2fkkugwxlt" path="res://water/water.gd" id="1_wjap7"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2ke50"]
-albedo_color = Color(0, 0.227451, 1, 1)
+transparency = 1
+albedo_color = Color(0.278431, 0.54902, 0.74902, 0.741176)
+clearcoat_roughness = 1.0
+subsurf_scatter_strength = 0.14
+backlight = Color(0, 0.717647, 0, 1)
+refraction_scale = 1.0
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_2ke50"]
 material = SubResource("StandardMaterial3D_2ke50")

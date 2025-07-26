@@ -32,6 +32,8 @@ visible = false
 [node name="Water" parent="." instance=ExtResource("7_dnold")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.8, 0)
 
+[node name="Background" type="Node3D" parent="."]
+
 [connection signal="hook_finished" from="FishingRod" to="FishingController" method="_on_fishing_rod_hook_finished"]
 [connection signal="throw_finished" from="FishingRod" to="FishingController" method="_on_fishing_rod_throw_finished"]
 [connection signal="swipe_down_detected" from="FishingController" to="FishingRod" method="_on_fishing_controller_swipe_down_detected"]

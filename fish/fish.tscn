@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://dw3bxnt7h3lca"]
+
+[ext_resource type="PackedScene" uid="uid://jqtrgxqi5pv2" path="res://fish/models/fish.glb" id="1_jx7ej"]
+[ext_resource type="Script" uid="uid://hy1symcmj8dx" path="res://fish/fish.gd" id="1_sgogb"]
+
+[node name="Fish" type="Node3D"]
+script = ExtResource("1_sgogb")
+
+[node name="fish" parent="." instance=ExtResource("1_jx7ej")]
+transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0, 0, 0)

@@ -1,7 +1,8 @@
-[gd_scene load_steps=13 format=3 uid="uid://buhbw4s2y70v2"]
+[gd_scene load_steps=18 format=3 uid="uid://buhbw4s2y70v2"]
 
 [ext_resource type="Script" uid="uid://c7lm2prlpndsd" path="res://fishing_rod/fishing_rod.gd" id="1_dj25p"]
 [ext_resource type="PackedScene" uid="uid://dbitr604sjjef" path="res://fishing_rod/models/fishing_rod.glb" id="1_inol3"]
+[ext_resource type="PackedScene" uid="uid://dw3bxnt7h3lca" path="res://fish/fish.tscn" id="3_tfe6e"]
 
 [sub_resource type="Animation" id="Animation_dj25p"]
 resource_name = "Hook"
@@ -53,6 +54,30 @@ tracks/3/keys = {
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 0,
 "values": [Vector3(1.6671, 1.59561, 0), Vector3(0.527594, 2.5833, 5.72205e-08), Vector3(0.0892055, 2.55844, 4.95911e-08), Vector3(0.419447, 2.20627, 0)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("FishingLine/LineEnd/Fish:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.17),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(-0.0342658, -0.561949, 0), Vector3(-0.118181, -2.533, -0.575587)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("FishingLine/LineEnd/Fish:visible")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0.2),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
 }
 
 [sub_resource type="Animation" id="Animation_rcpge"]
@@ -157,6 +182,18 @@ tracks/3/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [Vector3(0.25514, 2.3952, 0)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("FishingLine/LineEnd/Fish:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-0.118181, -2.60218, 0)]
 }
 
 [sub_resource type="Animation" id="Animation_lucrk"]
@@ -264,9 +301,63 @@ tracks/3/keys = {
 "values": [Vector3(0, 0, 0), Vector3(0, 0, 0.0675792), Vector3(0, 0, 0)]
 }
 
+[sub_resource type="Animation" id="Animation_0xa4p"]
+resource_name = "Hooked"
+length = 2.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("fishing_rod:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1, 2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, 0.0665447, 0), Vector3(0, 0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("FishingLine/LineStart:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1, 2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(1.6671, 1.59561, 0), Vector3(1.5368, 1.75819, 0), Vector3(1.6671, 1.59561, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("FishingLine/LineEnd:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.433333, 0.6, 0.8, 1, 1.2, 1.4, 1.63333, 1.8, 2),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(6.753, -1.8, 0), Vector3(8.198, -2.505, -2.25), Vector3(6.753, -1.75, 0.435), Vector3(6.753, -2.725, 1.645), Vector3(7.248, -2.46, 2.25), Vector3(6.753, -1.802, -1.23), Vector3(6.758, -2.301, 1.016), Vector3(6.784, -2.69, -0.017), Vector3(6.774, -2.65, -0.011), Vector3(6.764, -2.679, -0.756), Vector3(6.753, -1.8, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("fishing_rod:rotation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 1, 2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, 0, 0.0675792), Vector3(0, 0, 0)]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_tfe6e"]
 _data = {
 &"Hook": SubResource("Animation_dj25p"),
+&"Hooked": SubResource("Animation_0xa4p"),
 &"Idle": SubResource("Animation_rcpge"),
 &"RESET": SubResource("Animation_tfe6e"),
 &"Throw": SubResource("Animation_lucrk"),
@@ -284,7 +375,6 @@ radial_segments = 6
 rings = 3
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_tfe6e"]
-emission_enabled = true
 emission = Color(1, 1, 1, 1)
 
 [sub_resource type="SphereMesh" id="SphereMesh_lucrk"]
@@ -292,8 +382,26 @@ material = SubResource("StandardMaterial3D_tfe6e")
 radius = 0.05
 height = 0.1
 
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_tfe6e"]
+lifetime_randomness = 0.5
+emission_shape = 2
+emission_sphere_radius = 0.2
+direction = Vector3(1, 6.97, 0)
+gravity = Vector3(0, 9.8, 0)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_lucrk"]
+transparency = 1
+albedo_color = Color(1, 1, 1, 0.54902)
+
+[sub_resource type="SphereMesh" id="SphereMesh_rcpge"]
+material = SubResource("StandardMaterial3D_lucrk")
+radius = 0.05
+height = 0.1
+
 [node name="FishingRod" type="Node3D"]
 script = ExtResource("1_dj25p")
+
+[node name="FishingTimer" type="Timer" parent="."]
 
 [node name="FishingAnimation" type="AnimationPlayer" parent="."]
 libraries = {
@@ -319,4 +427,16 @@ mesh = SubResource("SphereMesh_tfe6e")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00621331, -0.0481852, 0.00610769)
 mesh = SubResource("SphereMesh_lucrk")
 
+[node name="Fish" parent="FishingLine/LineEnd" instance=ExtResource("3_tfe6e")]
+transform = Transform3D(3.55271e-15, 5.96046e-08, 1, 1, -4.37114e-08, 0, 4.37114e-08, 1, -5.96046e-08, -0.118181, -2.60218, 0)
+visible = false
+
+[node name="Bubbles" type="GPUParticles3D" parent="FishingLine/LineEnd"]
+visible = false
+amount = 40
+lifetime = 0.3
+process_material = SubResource("ParticleProcessMaterial_tfe6e")
+draw_pass_1 = SubResource("SphereMesh_rcpge")
+
+[connection signal="timeout" from="FishingTimer" to="." method="_on_fishing_timer_timeout"]
 [connection signal="animation_finished" from="FishingAnimation" to="." method="_on_fishing_animation_animation_finished"]
