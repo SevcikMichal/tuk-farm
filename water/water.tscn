@@ -1,0 +1,32 @@
+[gd_scene load_steps=6 format=3 uid="uid://djhol5r1q3de0"]
+
+[ext_resource type="Script" uid="uid://bcv2fkkugwxlt" path="res://water/water.gd" id="1_wjap7"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2ke50"]
+albedo_color = Color(0, 0.227451, 1, 1)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_2ke50"]
+material = SubResource("StandardMaterial3D_2ke50")
+size = Vector2(100, 100)
+subdivide_width = 20
+subdivide_depth = 20
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wjap7"]
+transparency = 1
+albedo_color = Color(1, 1, 1, 0.0784314)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_wjap7"]
+material = SubResource("StandardMaterial3D_wjap7")
+size = Vector2(100, 100)
+subdivide_width = 20
+subdivide_depth = 20
+
+[node name="Water" type="Node3D"]
+script = ExtResource("1_wjap7")
+
+[node name="Water" type="MeshInstance3D" parent="."]
+mesh = SubResource("PlaneMesh_2ke50")
+
+[node name="Foam" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
+mesh = SubResource("PlaneMesh_wjap7")

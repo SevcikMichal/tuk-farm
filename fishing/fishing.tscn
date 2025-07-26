@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://g76phv1k4sqs"]
+[gd_scene load_steps=8 format=3 uid="uid://g76phv1k4sqs"]
 
 [ext_resource type="PackedScene" uid="uid://b2elg3q57q4sj" path="res://global/camera_3d.tscn" id="1_lxurg"]
 [ext_resource type="PackedScene" uid="uid://bbdx775276raa" path="res://global/directional_light_3d.tscn" id="2_dy0fc"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://c7fb7ct3lqgec" path="res://debug/debug.tscn" id="4_dy0fc"]
 [ext_resource type="PackedScene" uid="uid://buhbw4s2y70v2" path="res://fishing_rod/fishing_rod.tscn" id="4_l07jn"]
 [ext_resource type="PackedScene" uid="uid://b3oylvx3y146q" path="res://fishing_controller/fishing_controller.tscn" id="6_h1tax"]
+[ext_resource type="PackedScene" uid="uid://djhol5r1q3de0" path="res://water/water.tscn" id="7_dnold"]
 
 [node name="Fishing" type="Node3D"]
 
@@ -24,8 +25,12 @@ transform = Transform3D(-0.222961, 0, 0.974827, 0, 1, 0, -0.974827, 0, -0.222961
 layer = 2
 
 [node name="Debug" parent="UI" instance=ExtResource("4_dy0fc")]
+visible = false
 
 [node name="FishingController" parent="." instance=ExtResource("6_h1tax")]
+
+[node name="Water" parent="." instance=ExtResource("7_dnold")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.8, 0)
 
 [connection signal="hook_finished" from="FishingRod" to="FishingController" method="_on_fishing_rod_hook_finished"]
 [connection signal="throw_finished" from="FishingRod" to="FishingController" method="_on_fishing_rod_throw_finished"]

@@ -1,6 +1,6 @@
 extends Node3D
 
-@export var lifetime := 10.0
+@export var lifetime: float = 10.0
 
 @onready
 var rigidbody: RigidBody3D = get_node("RigidBody3D")

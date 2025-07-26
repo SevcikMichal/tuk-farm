@@ -3,8 +3,8 @@ extends Control
 signal swipe_up_detected
 signal swipe_down_detected
 
-const MIN_SWIPE_DISTANCE := 150
-const MAX_SWIPE_TIME_MS := 500
+const MIN_SWIPE_DISTANCE: int = 150
+const MAX_SWIPE_TIME_MS: int = 500
 
 @onready 
 var _hint_arrow: TextureRect = get_node("MarginContainer/Up")
@@ -17,10 +17,10 @@ var _hint_timer: Timer = get_node("HintTimer")
 
 var _start_position: Vector2
 var _start_time: int
-var _swipe_valid := false
+var _swipe_valid: bool = false
 
-var _allow_swipe_up := true
-var _allow_swipe_down := false
+var _allow_swipe_up: bool = true
+var _allow_swipe_down: bool = false
 
 func _ready():
 	_hint_animation.play("hint")

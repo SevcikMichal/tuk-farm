@@ -8,17 +8,17 @@ var idle_timer: Timer = get_node("IdleTimer")
 @onready
 var animation: AnimationPlayer = get_node("AnimationPlayer")
 
-const MIN_SWIPE_DISTANCE := 200
-const MAX_TIME_DELTA_MS := 200
-const RESET_TIMEOUT_MS := 500
+const MIN_SWIPE_DISTANCE: int = 200
+const MAX_TIME_DELTA_MS: int = 200
+const RESET_TIMEOUT_MS: int = 500
 
-var active_swipes := {
+var active_swipes: Dictionary = {
 	"left": {"done": false, "time": 0},
 	"right": {"done": false, "time": 0}
 }
 
-var start_positions := {}
-var start_times := {}
+var start_positions: Dictionary = {}
+var start_times: Dictionary = {}
 var last_drag_time: int = 0
 
 func _ready() -> void:

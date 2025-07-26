@@ -28,8 +28,8 @@ func update_fishing_line() -> void:
 	var st = SurfaceTool.new()
 	st.begin(Mesh.PRIMITIVE_TRIANGLES)
 
-	var sides := 8
-	var radius := 0.01
+	var sides = 8
+	var radius = 0.01
 
 	for i in range(sides):
 		var angle1 = TAU * i / sides
