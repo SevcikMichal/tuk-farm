@@ -37,6 +37,13 @@ layout_mode = 2
 theme_override_font_sizes/font_size = 100
 text = "Fishing"
 
+[node name="Sheep" type="Button" parent="VBoxContainer"]
+custom_minimum_size = Vector2(0, 200)
+layout_mode = 2
+theme_override_font_sizes/font_size = 100
+text = "Sheep"
+
 [connection signal="pressed" from="VBoxContainer/Cow" to="." method="_on_cow_pressed"]
 [connection signal="pressed" from="VBoxContainer/Chicken" to="." method="_on_chicken_pressed"]
 [connection signal="pressed" from="VBoxContainer/Fishing" to="." method="_on_fishing_pressed"]
+[connection signal="pressed" from="VBoxContainer/Sheep" to="." method="_on_sheep_pressed"]

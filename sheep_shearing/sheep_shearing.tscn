@@ -1,0 +1,26 @@
+[gd_scene load_steps=6 format=3 uid="uid://bxstn1rgtokxt"]
+
+[ext_resource type="PackedScene" uid="uid://c7fb7ct3lqgec" path="res://debug/debug.tscn" id="1_a0an6"]
+[ext_resource type="PackedScene" uid="uid://bbdx775276raa" path="res://global/directional_light_3d.tscn" id="2_5xpdv"]
+[ext_resource type="PackedScene" uid="uid://b2elg3q57q4sj" path="res://global/camera_3d.tscn" id="3_10bgh"]
+[ext_resource type="PackedScene" uid="uid://lvucy2opcubr" path="res://sheep/sheep.tscn" id="4_amrhd"]
+[ext_resource type="PackedScene" uid="uid://dag67ckbdflew" path="res://global/post_process.tscn" id="5_0ikuk"]
+
+[node name="SheepShearing" type="Node3D"]
+
+[node name="DirectionalLight3D" parent="." instance=ExtResource("2_5xpdv")]
+transform = Transform3D(0.999682, -0.0127399, 0.0217424, 0, 0.862796, 0.505552, -0.0251999, -0.505391, 0.862522, 0, 0, 3.23218)
+
+[node name="Camera3D" parent="." instance=ExtResource("3_10bgh")]
+transform = Transform3D(0.999682, 0, 0.0251999, 0, 1, 0, -0.0251999, 0, 0.999682, 0, 0, 1.47303)
+
+[node name="sheep" parent="." instance=ExtResource("4_amrhd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.993362, 0, -1.18478)
+
+[node name="UI" type="CanvasLayer" parent="."]
+layer = 2
+
+[node name="Debug" parent="UI" instance=ExtResource("1_a0an6")]
+visible = false
+
+[node name="PostProcess" parent="." instance=ExtResource("5_0ikuk")]
