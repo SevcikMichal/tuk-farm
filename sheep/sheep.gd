@@ -8,6 +8,9 @@ var _wool_clumps: Array = get_node("Wool/Clumps").get_children()
 @onready
 var _check_timer: Timer = get_node("Wool/CheckTimer")
 
+@onready
+var _sheep_animation: AnimationPlayer = get_node("SheepAnimations")
+
 func _ready():
 	for wool_clump in _wool_clumps:
 		wool_clump.wool_cut.connect(_on_wool_cut)
@@ -21,6 +24,9 @@ func _on_check_timer_timeout() -> void:
 			return
 	
 	emit_signal("sheep_sheared")
+	
+	_sheep_animation.play("Respawn")
+	await get_tree().create_timer(1.0).timeout
 	
 	for wool_clump in _wool_clumps:
 		wool_clump.reuse()

@@ -5,6 +5,9 @@ signal wool_cut
 @onready
 var _rigidbody: RigidBody3D = get_node("RigidBody3D")
 
+@onready
+var _particles: CPUParticles3D = get_node("RigidBody3D/CPUParticles3D")
+
 var _initial_position: Vector3
 var _initial_rotation: Vector3
 var _triggered := false
@@ -27,9 +30,12 @@ func fall_and_disappear() -> void:
 		0
 	) * 2.0
 	_rigidbody.apply_impulse(random_force)
-
-	await get_tree().create_timer(1.0).timeout
-
+	_particles.emitting = true
+	await get_tree().create_timer(0.15).timeout
+	_particles.emitting = false
+	await get_tree().create_timer(0.85).timeout
+	
+	
 	_rigidbody.sleeping = true
 	_rigidbody.freeze = true
 	_rigidbody.position = _initial_position
@@ -51,7 +57,7 @@ func is_triggered() -> bool:
 	return _triggered
 
 
-func _on_rigid_body_3d_input_event(camera, event, event_position, normal, shape_idx):
+func _on_rigid_body_3d_input_event(_camera, event, _event_position, _normal, _shape_idx):
 	if _triggered:
 			return
 			

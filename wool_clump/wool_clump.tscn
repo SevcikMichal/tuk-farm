@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://bav8v4r403kwm"]
+[gd_scene load_steps=7 format=3 uid="uid://bav8v4r403kwm"]
 
 [ext_resource type="Script" uid="uid://c42gcyrxfuqww" path="res://wool_clump/wool_clump.gd" id="1_itqgt"]
 
@@ -16,6 +16,14 @@ height = 0.4
 radial_segments = 8
 rings = 4
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_itqgt"]
+transparency = 1
+albedo_color = Color(1, 1, 1, 0.313726)
+
+[sub_resource type="QuadMesh" id="QuadMesh_itqgt"]
+material = SubResource("StandardMaterial3D_itqgt")
+size = Vector2(0.05, 0.05)
+
 [node name="WoolClump" type="Node3D"]
 script = ExtResource("1_itqgt")
 
@@ -31,5 +39,16 @@ shape = SubResource("SphereShape3D_5riea")
 [node name="MeshInstance3D" type="MeshInstance3D" parent="RigidBody3D"]
 mesh = SubResource("SphereMesh_5riea")
 skeleton = NodePath("../..")
+
+[node name="CPUParticles3D" type="CPUParticles3D" parent="RigidBody3D"]
+emitting = false
+amount = 50
+lifetime = 0.5
+mesh = SubResource("QuadMesh_itqgt")
+emission_shape = 1
+emission_sphere_radius = 0.2
+direction = Vector3(0, 0, 0)
+gravity = Vector3(0, 0, 0)
+initial_velocity_max = 1.0
 
 [connection signal="input_event" from="RigidBody3D" to="." method="_on_rigid_body_3d_input_event"]

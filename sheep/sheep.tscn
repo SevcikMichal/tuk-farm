@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://lvucy2opcubr"]
+[gd_scene load_steps=8 format=3 uid="uid://lvucy2opcubr"]
 
 [ext_resource type="PackedScene" uid="uid://cykmnh1gj8mir" path="res://sheep/models/sheep.glb" id="1_5riea"]
 [ext_resource type="PackedScene" uid="uid://bav8v4r403kwm" path="res://wool_clump/wool_clump.tscn" id="2_8bfv8"]
@@ -63,35 +63,64 @@ tracks/5/keys = {
 
 [sub_resource type="Animation" id="Animation_vjvfl"]
 length = 0.001
+
+[sub_resource type="Animation" id="Animation_0btsa"]
+resource_name = "Respawn"
+length = 2.0
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Armature/Skeleton3D/Cylinder_003:position")
+tracks/0/path = NodePath("Armature:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
+"times": PackedFloat32Array(0, 1, 1.98333),
+"transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
-"values": [Vector3(0, 0, 0)]
+"values": [Vector3(-1.2165, 0.226173, 0), Vector3(-1.2165, 14.7293, 0), Vector3(-1.2165, 0.226173, 0)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Wool:position")
+tracks/1/path = NodePath("Armature:rotation")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
+"times": PackedFloat32Array(0, 0.1, 1.88333, 1.98333),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 0,
-"values": [Vector3(0, 0, 0)]
+"values": [Vector3(0, 0, -1.5708), Vector3(3.14159, 0, -1.5708), Vector3(3.14159, 0, -1.5708), Vector3(0, 0, -1.5708)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Wool:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 1, 1.98333),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, 14.5338, 0), Vector3(0, 0, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Wool:rotation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.1, 1.88333, 1.98333),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(3.14159, 0, 0), Vector3(3.14159, 0, 0), Vector3(0, 0, 0)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_vjvfl"]
 _data = {
 &"Idle": SubResource("Animation_1385h"),
-&"RESET": SubResource("Animation_vjvfl")
+&"RESET": SubResource("Animation_vjvfl"),
+&"Respawn": SubResource("Animation_0btsa")
 }
 
 [node name="sheep" instance=ExtResource("1_5riea")]
@@ -103,17 +132,19 @@ libraries = {
 }
 autoplay = "Idle"
 
+[node name="Armature" parent="." index="1"]
+transform = Transform3D(-1.3916e-08, 0.318361, 0, -0.318361, -1.3916e-08, 0, 0, 0, 0.318361, -1.2165, 0.226173, 0)
+
 [node name="Skeleton3D" parent="Armature" index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0234981, 0.00021553, -0.00127424)
-bones/6/rotation = Quaternion(-0.00114286, -0.0480727, 0.229037, 0.972229)
-bones/10/rotation = Quaternion(-0.0588016, 0.00347853, 0.06943, 0.995846)
-bones/24/rotation = Quaternion(-0.0458298, -0.0215222, -0.00184476, 0.998716)
-bones/28/rotation = Quaternion(-0.0183976, 0.0463446, -0.121474, 0.991341)
+bones/6/rotation = Quaternion(0.00999681, -0.000999681, 0.21893, 0.975689)
+bones/10/rotation = Quaternion(-0.0210068, 0.00100032, 0.0700227, 0.997324)
+bones/24/rotation = Quaternion(0.0229939, 0, 4.57469e-12, 0.999736)
+bones/28/rotation = Quaternion(-0.0110022, -0.0010002, -0.0740145, 0.997196)
 
 [node name="Wool" type="Node3D" parent="." index="2"]
 
 [node name="CheckTimer" type="Timer" parent="Wool" index="0"]
-wait_time = 3.0
 
 [node name="Clumps" type="Node3D" parent="Wool" index="1"]
 

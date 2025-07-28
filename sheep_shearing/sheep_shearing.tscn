@@ -93,7 +93,7 @@ mesh = SubResource("SphereMesh_5xpdv")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 9.14518, 0)
 
 [node name="Hills" type="MeshInstance3D" parent="Background/MeshInstance3D24/HillsGroup"]
-transform = Transform3D(13.9882, 0, 0, 0, 13.9882, 0, 0, 0, 1, 0.131497, -2.12375, -94.0662)
+transform = Transform3D(13.9882, 0, 0, 0, 13.9882, 0, 0, 0, 1, 0.131497, -7.29043, -94.0662)
 mesh = SubResource("PrismMesh_a0an6")
 skeleton = NodePath("../..")
 
