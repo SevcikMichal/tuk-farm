@@ -1,5 +1,134 @@
-[gd_scene load_steps=2 format=3 uid="uid://lvucy2opcubr"]
+[gd_scene load_steps=4 format=3 uid="uid://lvucy2opcubr"]
 
 [ext_resource type="PackedScene" uid="uid://cykmnh1gj8mir" path="res://sheep/models/sheep.glb" id="1_5riea"]
+[ext_resource type="PackedScene" uid="uid://bav8v4r403kwm" path="res://wool_clump/wool_clump.tscn" id="2_8bfv8"]
+[ext_resource type="Script" uid="uid://d3sweqyelp7s1" path="res://sheep/sheep.gd" id="2_1385h"]
 
 [node name="sheep" instance=ExtResource("1_5riea")]
+script = ExtResource("2_1385h")
+
+[node name="Wool" type="Node3D" parent="." index="1"]
+
+[node name="CheckTimer" type="Timer" parent="Wool" index="0"]
+wait_time = 3.0
+
+[node name="Clumps" type="Node3D" parent="Wool" index="1"]
+
+[node name="WoolClump" parent="Wool/Clumps" index="0" instance=ExtResource("2_8bfv8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.540519, 0, 0.304999)
+
+[node name="WoolClump2" parent="Wool/Clumps" index="1" instance=ExtResource("2_8bfv8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.75672, 0.117214, 0.304999)
+
+[node name="WoolClump3" parent="Wool/Clumps" index="2" instance=ExtResource("2_8bfv8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.801535, -0.119465, 0.304999)
+
+[node name="WoolClump4" parent="Wool/Clumps" index="3" instance=ExtResource("2_8bfv8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.0204, 0.0286663, 0.304999)
+
+[node name="WoolClump5" parent="Wool/Clumps" index="4" instance=ExtResource("2_8bfv8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.00638, 0.261155, 0.304999)
+
+[node name="WoolClump6" parent="Wool/Clumps" index="5" instance=ExtResource("2_8bfv8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.758403, 0.379338, 0.304999)
+
+[node name="WoolClump7" parent="Wool/Clumps" index="6" instance=ExtResource("2_8bfv8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.534234, 0.274109, 0.304999)
+
+[node name="WoolClump8" parent="Wool/Clumps" index="7" instance=ExtResource("2_8bfv8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.237214, 0.111669, 0.304999)
+
+[node name="WoolClump9" parent="Wool/Clumps" index="8" instance=ExtResource("2_8bfv8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.273271, 0.370496, 0.304999)
+
+[node name="WoolClump10" parent="Wool/Clumps" index="9" instance=ExtResource("2_8bfv8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00562966, 0.258974, 0.304999)
+
+[node name="WoolClump11" parent="Wool/Clumps" index="10" instance=ExtResource("2_8bfv8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0587814, 0.437556, 0.304999)
+
+[node name="WoolClump12" parent="Wool/Clumps" index="11" instance=ExtResource("2_8bfv8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.376669, 0.577573, 0.304999)
+
+[node name="WoolClump13" parent="Wool/Clumps" index="12" instance=ExtResource("2_8bfv8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.223203, 0.514893, 0.304999)
+
+[node name="WoolClump14" parent="Wool/Clumps" index="13" instance=ExtResource("2_8bfv8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.621701, 0.629195, 0.304999)
+
+[node name="WoolClump15" parent="Wool/Clumps" index="14" instance=ExtResource("2_8bfv8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.901977, 0.605977, 0.304999)
+
+[node name="WoolClump16" parent="Wool/Clumps" index="15" instance=ExtResource("2_8bfv8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.23026, 0.574411, 0.304999)
+
+[node name="WoolClump17" parent="Wool/Clumps" index="16" instance=ExtResource("2_8bfv8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.23026, 0.574411, 0.304999)
+
+[node name="WoolClump18" parent="Wool/Clumps" index="17" instance=ExtResource("2_8bfv8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.26599, 0.260434, 0.304999)
+
+[node name="WoolClump19" parent="Wool/Clumps" index="18" instance=ExtResource("2_8bfv8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.27966, -0.0131325, 0.304999)
+
+[node name="WoolClump20" parent="Wool/Clumps" index="19" instance=ExtResource("2_8bfv8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.08461, -0.208296, 0.304999)
+
+[node name="WoolClump21" parent="Wool/Clumps" index="20" instance=ExtResource("2_8bfv8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.08461, -0.208296, 0.304999)
+
+[node name="WoolClump22" parent="Wool/Clumps" index="21" instance=ExtResource("2_8bfv8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.787743, -0.364029, 0.304999)
+
+[node name="WoolClump23" parent="Wool/Clumps" index="22" instance=ExtResource("2_8bfv8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.495092, -0.261209, 0.304999)
+
+[node name="WoolClump24" parent="Wool/Clumps" index="23" instance=ExtResource("2_8bfv8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.244583, -0.153675, 0.304999)
+
+[node name="WoolClump25" parent="Wool/Clumps" index="24" instance=ExtResource("2_8bfv8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0545966, 0.0415443, 0.304999)
+
+[node name="WoolClump26" parent="Wool/Clumps" index="25" instance=ExtResource("2_8bfv8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.37716, -0.275494, 0.304999)
+
+[node name="WoolClump27" parent="Wool/Clumps" index="26" instance=ExtResource("2_8bfv8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.59746, -0.146346, 0.304999)
+
+[node name="WoolClump28" parent="Wool/Clumps" index="27" instance=ExtResource("2_8bfv8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.80649, 0.0536179, 0.304999)
+
+[node name="WoolClump29" parent="Wool/Clumps" index="28" instance=ExtResource("2_8bfv8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.88445, 0.316308, 0.304999)
+
+[node name="WoolClump30" parent="Wool/Clumps" index="29" instance=ExtResource("2_8bfv8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.70527, 0.496074, 0.304999)
+
+[node name="WoolClump31" parent="Wool/Clumps" index="30" instance=ExtResource("2_8bfv8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.70527, 0.496074, 0.304999)
+
+[node name="WoolClump32" parent="Wool/Clumps" index="31" instance=ExtResource("2_8bfv8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.48034, 0.633376, 0.304999)
+
+[node name="WoolClump33" parent="Wool/Clumps" index="32" instance=ExtResource("2_8bfv8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.49093, 0.332293, 0.304999)
+
+[node name="WoolClump34" parent="Wool/Clumps" index="33" instance=ExtResource("2_8bfv8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.69905, 0.197742, 0.304999)
+
+[node name="WoolClump35" parent="Wool/Clumps" index="34" instance=ExtResource("2_8bfv8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.52936, 0.0405354, 0.304999)
+
+[node name="WoolClump36" parent="Wool/Clumps" index="35" instance=ExtResource("2_8bfv8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.37773, 0.086759, 0.304999)
+
+[node name="WoolClump37" parent="Wool/Clumps" index="36" instance=ExtResource("2_8bfv8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.04297, 0.696175, 0.304999)
+
+[node name="WoolClump38" parent="Wool/Clumps" index="37" instance=ExtResource("2_8bfv8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.2684, 0.718805, 0.304999)
+
+[node name="WoolClump39" parent="Wool/Clumps" index="38" instance=ExtResource("2_8bfv8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.834104, 0.716423, 0.304999)
+
+[connection signal="timeout" from="Wool/CheckTimer" to="." method="_on_check_timer_timeout"]

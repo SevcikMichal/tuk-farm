@@ -9,10 +9,11 @@
 [node name="SheepShearing" type="Node3D"]
 
 [node name="DirectionalLight3D" parent="." instance=ExtResource("2_5xpdv")]
-transform = Transform3D(0.999682, -0.0127399, 0.0217424, 0, 0.862796, 0.505552, -0.0251999, -0.505391, 0.862522, 0, 0, 3.23218)
+transform = Transform3D(0.999682, -0.0127399, 0.0217424, -0.0134213, 0.461076, 0.887259, -0.0213284, -0.887269, 0.460758, 0, 0, 3.23218)
+light_energy = 0.5
 
 [node name="Camera3D" parent="." instance=ExtResource("3_10bgh")]
-transform = Transform3D(0.999682, 0, 0.0251999, 0, 1, 0, -0.0251999, 0, 0.999682, 0, 0, 1.47303)
+transform = Transform3D(0.999872, 0, 0.0160215, 0, 1, 0, -0.0160215, 0, 0.999872, 0, 0, 2.38721)
 
 [node name="sheep" parent="." instance=ExtResource("4_amrhd")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.993362, 0, -1.18478)

@@ -12,10 +12,10 @@ void fragment() {
     float l00 = dot(texture(screen_texture, uv + px * vec2(-1.0, -1.0)).rgb, vec3(0.2126, 0.7152, 0.0722));
     float l10 = dot(texture(screen_texture, uv + px * vec2( 0.0, -1.0)).rgb, vec3(0.2126, 0.7152, 0.0722));
     float l20 = dot(texture(screen_texture, uv + px * vec2( 1.0, -1.0)).rgb, vec3(0.2126, 0.7152, 0.0722));
-    
+
     float l01 = dot(texture(screen_texture, uv + px * vec2(-1.0,  0.0)).rgb, vec3(0.2126, 0.7152, 0.0722));
     float l21 = dot(texture(screen_texture, uv + px * vec2( 1.0,  0.0)).rgb, vec3(0.2126, 0.7152, 0.0722));
-    
+
     float l02 = dot(texture(screen_texture, uv + px * vec2(-1.0,  1.0)).rgb, vec3(0.2126, 0.7152, 0.0722));
     float l12 = dot(texture(screen_texture, uv + px * vec2( 0.0,  1.0)).rgb, vec3(0.2126, 0.7152, 0.0722));
     float l22 = dot(texture(screen_texture, uv + px * vec2( 1.0,  1.0)).rgb, vec3(0.2126, 0.7152, 0.0722));

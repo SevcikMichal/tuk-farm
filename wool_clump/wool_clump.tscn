@@ -1,0 +1,35 @@
+[gd_scene load_steps=5 format=3 uid="uid://bav8v4r403kwm"]
+
+[ext_resource type="Script" uid="uid://c42gcyrxfuqww" path="res://wool_clump/wool_clump.gd" id="1_itqgt"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_5riea"]
+radius = 0.176146
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5riea"]
+transparency = 1
+albedo_color = Color(1, 1, 1, 0.764706)
+
+[sub_resource type="SphereMesh" id="SphereMesh_5riea"]
+material = SubResource("StandardMaterial3D_5riea")
+radius = 0.2
+height = 0.4
+radial_segments = 8
+rings = 4
+
+[node name="WoolClump" type="Node3D"]
+script = ExtResource("1_itqgt")
+
+[node name="RigidBody3D" type="RigidBody3D" parent="."]
+collision_mask = 2
+gravity_scale = 0.4
+sleeping = true
+freeze = true
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D"]
+shape = SubResource("SphereShape3D_5riea")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="RigidBody3D"]
+mesh = SubResource("SphereMesh_5riea")
+skeleton = NodePath("../..")
+
+[connection signal="input_event" from="RigidBody3D" to="." method="_on_rigid_body_3d_input_event"]
