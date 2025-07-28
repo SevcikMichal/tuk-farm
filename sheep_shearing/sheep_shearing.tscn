@@ -1,10 +1,31 @@
-[gd_scene load_steps=6 format=3 uid="uid://bxstn1rgtokxt"]
+[gd_scene load_steps=12 format=3 uid="uid://bxstn1rgtokxt"]
 
 [ext_resource type="PackedScene" uid="uid://c7fb7ct3lqgec" path="res://debug/debug.tscn" id="1_a0an6"]
 [ext_resource type="PackedScene" uid="uid://bbdx775276raa" path="res://global/directional_light_3d.tscn" id="2_5xpdv"]
 [ext_resource type="PackedScene" uid="uid://b2elg3q57q4sj" path="res://global/camera_3d.tscn" id="3_10bgh"]
 [ext_resource type="PackedScene" uid="uid://lvucy2opcubr" path="res://sheep/sheep.tscn" id="4_amrhd"]
 [ext_resource type="PackedScene" uid="uid://dag67ckbdflew" path="res://global/post_process.tscn" id="5_0ikuk"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1385h"]
+albedo_color = Color(3.53761e-06, 0.519047, 0.258171, 1)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_a0an6"]
+material = SubResource("StandardMaterial3D_1385h")
+size = Vector2(200, 200)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_i3gi0"]
+albedo_color = Color(0.813258, 0.813258, 0.813258, 1)
+
+[sub_resource type="SphereMesh" id="SphereMesh_5xpdv"]
+material = SubResource("StandardMaterial3D_i3gi0")
+radial_segments = 4
+rings = 4
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_bydsx"]
+albedo_color = Color(0.294554, 0.42258, 0.183929, 1)
+
+[sub_resource type="PrismMesh" id="PrismMesh_a0an6"]
+material = SubResource("StandardMaterial3D_bydsx")
 
 [node name="SheepShearing" type="Node3D"]
 
@@ -25,3 +46,88 @@ layer = 2
 visible = false
 
 [node name="PostProcess" parent="." instance=ExtResource("5_0ikuk")]
+
+[node name="Background" type="Node3D" parent="."]
+
+[node name="Ground" type="MeshInstance3D" parent="Background"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.08666, 0)
+mesh = SubResource("PlaneMesh_a0an6")
+
+[node name="MeshInstance3D13" type="MeshInstance3D" parent="Background"]
+transform = Transform3D(3.25216, 0, 0, 0, 3.25216, 0, 0, 0, 1, 6.30667, 15.8316, -30.0993)
+mesh = SubResource("SphereMesh_5xpdv")
+
+[node name="MeshInstance3D14" type="MeshInstance3D" parent="Background"]
+transform = Transform3D(3.25216, 0, 0, 0, 3.25216, 0, 0, 0, 1, 8.14402, 15.996, -30.0993)
+mesh = SubResource("SphereMesh_5xpdv")
+
+[node name="MeshInstance3D15" type="MeshInstance3D" parent="Background"]
+transform = Transform3D(3.25216, 0, 0, 0, 3.25216, 0, 0, 0, 1, 7.15685, 17.2485, -30.0993)
+mesh = SubResource("SphereMesh_5xpdv")
+
+[node name="MeshInstance3D19" type="MeshInstance3D" parent="Background"]
+transform = Transform3D(3.25216, 0, 0, 0, 3.25216, 0, 0, 0, 1, -10.025, 18.424, -43.7006)
+mesh = SubResource("SphereMesh_5xpdv")
+
+[node name="MeshInstance3D20" type="MeshInstance3D" parent="Background"]
+transform = Transform3D(3.25216, 0, 0, 0, 3.25216, 0, 0, 0, 1, -8.18766, 18.5884, -43.7006)
+mesh = SubResource("SphereMesh_5xpdv")
+
+[node name="MeshInstance3D21" type="MeshInstance3D" parent="Background"]
+transform = Transform3D(3.25216, 0, 0, 0, 3.25216, 0, 0, 0, 1, -9.17483, 19.8409, -43.7006)
+mesh = SubResource("SphereMesh_5xpdv")
+
+[node name="MeshInstance3D22" type="MeshInstance3D" parent="Background"]
+transform = Transform3D(3.25216, 0, 0, 0, 3.25216, 0, 0, 0, 1, -1.39335, 10.9907, -14.9725)
+mesh = SubResource("SphereMesh_5xpdv")
+
+[node name="MeshInstance3D23" type="MeshInstance3D" parent="Background"]
+transform = Transform3D(3.25216, 0, 0, 0, 3.25216, 0, 0, 0, 1, 0.443996, 11.1551, -14.9725)
+mesh = SubResource("SphereMesh_5xpdv")
+
+[node name="MeshInstance3D24" type="MeshInstance3D" parent="Background"]
+transform = Transform3D(3.25216, 0, 0, 0, 3.25216, 0, 0, 0, 1, -0.543174, 12.4076, -14.9725)
+mesh = SubResource("SphereMesh_5xpdv")
+
+[node name="HillsGroup" type="Node3D" parent="Background/MeshInstance3D24"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 9.14518, 0)
+
+[node name="Hills" type="MeshInstance3D" parent="Background/MeshInstance3D24/HillsGroup"]
+transform = Transform3D(13.9882, 0, 0, 0, 13.9882, 0, 0, 0, 1, 0.131497, -2.12375, -94.0662)
+mesh = SubResource("PrismMesh_a0an6")
+skeleton = NodePath("../..")
+
+[node name="Hills2" type="MeshInstance3D" parent="Background/MeshInstance3D24/HillsGroup"]
+transform = Transform3D(13.9882, 0, 0, 0, 13.9882, 0, 0, 0, 1, -7.61904, -5.55741, -94.4616)
+mesh = SubResource("PrismMesh_a0an6")
+skeleton = NodePath("../..")
+
+[node name="Hills3" type="MeshInstance3D" parent="Background/MeshInstance3D24/HillsGroup"]
+transform = Transform3D(13.9882, 0, 0, 0, 13.9882, 0, 0, 0, 1, 8.37879, -7.64942, -94.4616)
+mesh = SubResource("PrismMesh_a0an6")
+skeleton = NodePath("../..")
+
+[node name="Hills4" type="MeshInstance3D" parent="Background/MeshInstance3D24/HillsGroup"]
+transform = Transform3D(28.8683, 0, 0, 0, 34.3251, 0, 0, 0, 1, -10.4583, -7.48141, -106.394)
+mesh = SubResource("PrismMesh_a0an6")
+skeleton = NodePath("../..")
+
+[node name="Hills5" type="MeshInstance3D" parent="Background/MeshInstance3D24/HillsGroup"]
+transform = Transform3D(28.6885, 0, 0, 0, 34.3806, 0, 0, 0, 1, 14.9191, -17.1168, -94.5246)
+mesh = SubResource("PrismMesh_a0an6")
+skeleton = NodePath("../..")
+
+[node name="Hills6" type="MeshInstance3D" parent="Background/MeshInstance3D24/HillsGroup"]
+transform = Transform3D(28.6885, 0, 0, 0, 34.3806, 0, 0, 0, 1, 18.0621, -14.369, -93.2829)
+mesh = SubResource("PrismMesh_a0an6")
+skeleton = NodePath("../..")
+
+[node name="Hills7" type="MeshInstance3D" parent="Background/MeshInstance3D24/HillsGroup"]
+transform = Transform3D(28.6885, 0, 0, 0, 34.3806, 0, 0, 0, 1, -13.7032, -10.6399, -91.5256)
+mesh = SubResource("PrismMesh_a0an6")
+skeleton = NodePath("../..")
+
+[node name="Hills8" type="MeshInstance3D" parent="Background/MeshInstance3D24/HillsGroup"]
+transform = Transform3D(28.6885, 0, 0, 0, 34.3806, 0, 0, 0, 1, -24.9591, -7.64387, -89.8467)
+mesh = SubResource("PrismMesh_a0an6")
+skeleton = NodePath("../..")

@@ -17,11 +17,11 @@ material = SubResource("StandardMaterial3D_ywrdx")
 radius = 100.0
 height = 200.0
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_bydsx"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_mlqbd"]
 albedo_color = Color(0.294554, 0.42258, 0.183929, 1)
 
 [sub_resource type="PrismMesh" id="PrismMesh_ywrdx"]
-material = SubResource("StandardMaterial3D_bydsx")
+material = SubResource("StandardMaterial3D_mlqbd")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_rvbjl"]
 albedo_color = Color(0.945098, 0.980392, 0.933333, 1)
