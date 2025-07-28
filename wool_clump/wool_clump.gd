@@ -67,6 +67,6 @@ func _on_rigid_body_3d_input_event(_camera, event, _event_position, _normal, _sh
 	if _triggered:
 			return
 			
-	if event is InputEventScreenDrag or event is InputEventMouseMotion:
+	if event is InputEventScreenDrag:
 		_triggered = true
 		fall_and_disappear()
