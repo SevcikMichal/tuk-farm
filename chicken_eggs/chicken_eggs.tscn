@@ -48,10 +48,10 @@ albedo_color = Color(7.21961e-07, 0.447675, 0.208652, 1)
 [sub_resource type="PrismMesh" id="PrismMesh_i3gi0"]
 material = SubResource("StandardMaterial3D_m3qso")
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_i3gi0"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_uvyug"]
 
 [sub_resource type="SphereMesh" id="SphereMesh_qtxgg"]
-material = SubResource("StandardMaterial3D_i3gi0")
+material = SubResource("StandardMaterial3D_uvyug")
 radial_segments = 4
 rings = 4
 

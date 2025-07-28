@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://g76phv1k4sqs"]
+[gd_scene load_steps=16 format=3 uid="uid://g76phv1k4sqs"]
 
 [ext_resource type="PackedScene" uid="uid://b2elg3q57q4sj" path="res://global/camera_3d.tscn" id="1_lxurg"]
 [ext_resource type="PackedScene" uid="uid://bbdx775276raa" path="res://global/directional_light_3d.tscn" id="2_dy0fc"]
@@ -7,6 +7,38 @@
 [ext_resource type="PackedScene" uid="uid://buhbw4s2y70v2" path="res://fishing_rod/fishing_rod.tscn" id="4_l07jn"]
 [ext_resource type="PackedScene" uid="uid://b3oylvx3y146q" path="res://fishing_controller/fishing_controller.tscn" id="6_h1tax"]
 [ext_resource type="PackedScene" uid="uid://djhol5r1q3de0" path="res://water/water.tscn" id="7_dnold"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dnold"]
+albedo_color = Color(1, 0.654902, 0.215686, 1)
+
+[sub_resource type="SphereMesh" id="SphereMesh_dnold"]
+material = SubResource("StandardMaterial3D_dnold")
+radius = 20.0
+height = 40.0
+radial_segments = 14
+rings = 7
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8t1kh"]
+albedo_color = Color(0.478431, 0.376471, 0.32549, 1)
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_lxt84"]
+material = SubResource("StandardMaterial3D_8t1kh")
+top_radius = 0.7
+radial_segments = 8
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_lxt84"]
+albedo_color = Color(0, 0.501961, 0.207843, 1)
+
+[sub_resource type="PrismMesh" id="PrismMesh_sqpqj"]
+material = SubResource("StandardMaterial3D_lxt84")
+size = Vector3(1.465, 3.685, 0.075)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_i3gi0"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_8t1kh"]
+material = SubResource("StandardMaterial3D_i3gi0")
+radial_segments = 4
+rings = 4
 
 [node name="Fishing" type="Node3D"]
 
@@ -33,6 +65,139 @@ visible = false
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.8, 0)
 
 [node name="Background" type="Node3D" parent="."]
+
+[node name="Island" type="MeshInstance3D" parent="Background"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.65728, -17.7169, -39.3931)
+mesh = SubResource("SphereMesh_dnold")
+
+[node name="Palm" type="Node3D" parent="Background"]
+
+[node name="Trunk" type="MeshInstance3D" parent="Background/Palm"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.721989, -37.6204)
+mesh = SubResource("CylinderMesh_lxt84")
+
+[node name="Trunk2" type="MeshInstance3D" parent="Background/Palm"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.25725, -37.6204)
+mesh = SubResource("CylinderMesh_lxt84")
+
+[node name="Trunk3" type="MeshInstance3D" parent="Background/Palm"]
+transform = Transform3D(0.990962, 0.134142, 0, -0.134142, 0.990962, 0, 0, 0, 1, 0.1804, 3.97243, -37.6204)
+mesh = SubResource("CylinderMesh_lxt84")
+
+[node name="Leave" type="MeshInstance3D" parent="Background/Palm"]
+transform = Transform3D(0.969087, -0.0169543, -0.246136, -0.232607, -0.395356, -0.888588, -0.0822458, 0.918371, -0.387078, 0.093851, 4.5294, -35.9199)
+mesh = SubResource("PrismMesh_sqpqj")
+
+[node name="Leave2" type="MeshInstance3D" parent="Background/Palm"]
+transform = Transform3D(0.894072, 0.379577, -0.237817, -0.0648267, -0.415689, -0.907194, -0.443208, 0.826513, -0.347049, 0.801585, 4.55341, -36.223)
+mesh = SubResource("PrismMesh_sqpqj")
+
+[node name="Leave3" type="MeshInstance3D" parent="Background/Palm"]
+transform = Transform3D(0.595807, 0.776592, -0.20474, 0.131651, -0.34592, -0.928982, -0.792264, 0.52654, -0.30834, 1.50331, 4.81314, -37.068)
+mesh = SubResource("PrismMesh_sqpqj")
+
+[node name="Leave4" type="MeshInstance3D" parent="Background/Palm"]
+transform = Transform3D(-0.190146, 0.974689, -0.117582, 0.311035, -0.0537898, -0.948875, -0.931183, -0.216997, -0.292935, 1.52767, 5.38098, -38.387)
+mesh = SubResource("PrismMesh_sqpqj")
+
+[node name="Leave5" type="MeshInstance3D" parent="Background/Palm"]
+transform = Transform3D(-0.700154, 0.711379, -0.0610239, 0.271102, 0.185807, -0.944447, -0.660521, -0.677802, -0.32295, 0.883861, 5.8334, -39.2058)
+mesh = SubResource("PrismMesh_sqpqj")
+
+[node name="Leave6" type="MeshInstance3D" parent="Background/Palm"]
+transform = Transform3D(-0.977659, -0.20801, -0.0302499, -0.0602693, 0.415271, -0.907699, 0.201372, -0.885597, -0.41853, -0.626237, 6.06827, -39.2194)
+mesh = SubResource("PrismMesh_sqpqj")
+
+[node name="Leave7" type="MeshInstance3D" parent="Background/Palm"]
+transform = Transform3D(-0.559644, -0.825185, -0.0766058, -0.359872, 0.325249, -0.874475, 0.746519, -0.461826, -0.478984, -1.48876, 5.77564, -38.2422)
+mesh = SubResource("PrismMesh_sqpqj")
+
+[node name="Leave8" type="MeshInstance3D" parent="Background/Palm"]
+transform = Transform3D(0.0326608, -0.989286, -0.14229, -0.500968, 0.106987, -0.858828, 0.864849, 0.0993326, -0.492107, -1.59199, 5.34176, -37.2047)
+mesh = SubResource("PrismMesh_sqpqj")
+
+[node name="Palm2" type="Node3D" parent="Background"]
+transform = Transform3D(0.812704, 0, 0.582676, 0, 1, 0, -0.582676, 0, 0.812704, 15.222, -3.00955, 2.57569)
+
+[node name="Trunk" type="MeshInstance3D" parent="Background/Palm2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.721989, -37.6204)
+mesh = SubResource("CylinderMesh_lxt84")
+
+[node name="Trunk2" type="MeshInstance3D" parent="Background/Palm2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.25725, -37.6204)
+mesh = SubResource("CylinderMesh_lxt84")
+
+[node name="Trunk3" type="MeshInstance3D" parent="Background/Palm2"]
+transform = Transform3D(0.990962, 0.134142, 0, -0.134142, 0.990962, 0, 0, 0, 1, 0.1804, 3.97243, -37.6204)
+mesh = SubResource("CylinderMesh_lxt84")
+
+[node name="Leave" type="MeshInstance3D" parent="Background/Palm2"]
+transform = Transform3D(0.969087, -0.0169543, -0.246136, -0.232607, -0.395356, -0.888588, -0.0822458, 0.918371, -0.387078, 0.093851, 4.5294, -35.9199)
+mesh = SubResource("PrismMesh_sqpqj")
+
+[node name="Leave2" type="MeshInstance3D" parent="Background/Palm2"]
+transform = Transform3D(0.894072, 0.379577, -0.237817, -0.0648267, -0.415689, -0.907194, -0.443208, 0.826513, -0.347049, 0.801585, 4.55341, -36.223)
+mesh = SubResource("PrismMesh_sqpqj")
+
+[node name="Leave3" type="MeshInstance3D" parent="Background/Palm2"]
+transform = Transform3D(0.595807, 0.776592, -0.20474, 0.131651, -0.34592, -0.928982, -0.792264, 0.52654, -0.30834, 1.50331, 4.81314, -37.068)
+mesh = SubResource("PrismMesh_sqpqj")
+
+[node name="Leave4" type="MeshInstance3D" parent="Background/Palm2"]
+transform = Transform3D(-0.190146, 0.974689, -0.117582, 0.311035, -0.0537898, -0.948875, -0.931183, -0.216997, -0.292935, 1.52767, 5.38098, -38.387)
+mesh = SubResource("PrismMesh_sqpqj")
+
+[node name="Leave5" type="MeshInstance3D" parent="Background/Palm2"]
+transform = Transform3D(-0.700154, 0.711379, -0.0610239, 0.271102, 0.185807, -0.944447, -0.660521, -0.677802, -0.32295, 0.883861, 5.8334, -39.2058)
+mesh = SubResource("PrismMesh_sqpqj")
+
+[node name="Leave6" type="MeshInstance3D" parent="Background/Palm2"]
+transform = Transform3D(-0.977659, -0.20801, -0.0302499, -0.0602693, 0.415271, -0.907699, 0.201372, -0.885597, -0.41853, -0.626237, 6.06827, -39.2194)
+mesh = SubResource("PrismMesh_sqpqj")
+
+[node name="Leave7" type="MeshInstance3D" parent="Background/Palm2"]
+transform = Transform3D(-0.559644, -0.825185, -0.0766058, -0.359872, 0.325249, -0.874475, 0.746519, -0.461826, -0.478984, -1.48876, 5.77564, -38.2422)
+mesh = SubResource("PrismMesh_sqpqj")
+
+[node name="Leave8" type="MeshInstance3D" parent="Background/Palm2"]
+transform = Transform3D(0.0326608, -0.989286, -0.14229, -0.500968, 0.106987, -0.858828, 0.864849, 0.0993326, -0.492107, -1.59199, 5.34176, -37.2047)
+mesh = SubResource("PrismMesh_sqpqj")
+
+[node name="MeshInstance3D13" type="MeshInstance3D" parent="Background"]
+transform = Transform3D(3.25216, 0, 0, 0, 3.25216, 0, 0, 0, 1, 7.9153, 6.03778, -29.1976)
+mesh = SubResource("SphereMesh_8t1kh")
+
+[node name="MeshInstance3D14" type="MeshInstance3D" parent="Background"]
+transform = Transform3D(3.25216, 0, 0, 0, 3.25216, 0, 0, 0, 1, 9.75265, 6.20218, -29.1976)
+mesh = SubResource("SphereMesh_8t1kh")
+
+[node name="MeshInstance3D15" type="MeshInstance3D" parent="Background"]
+transform = Transform3D(3.25216, 0, 0, 0, 3.25216, 0, 0, 0, 1, 8.76548, 7.45468, -29.1976)
+mesh = SubResource("SphereMesh_8t1kh")
+
+[node name="MeshInstance3D16" type="MeshInstance3D" parent="Background"]
+transform = Transform3D(3.25216, 0, 0, 0, 3.25216, 0, 0, 0, 1, -5.55244, 15.4605, -30.9742)
+mesh = SubResource("SphereMesh_8t1kh")
+
+[node name="MeshInstance3D17" type="MeshInstance3D" parent="Background"]
+transform = Transform3D(3.25216, 0, 0, 0, 3.25216, 0, 0, 0, 1, -3.71509, 15.6249, -30.9742)
+mesh = SubResource("SphereMesh_8t1kh")
+
+[node name="MeshInstance3D18" type="MeshInstance3D" parent="Background"]
+transform = Transform3D(3.25216, 0, 0, 0, 3.25216, 0, 0, 0, 1, -4.70226, 16.8774, -30.9742)
+mesh = SubResource("SphereMesh_8t1kh")
+
+[node name="MeshInstance3D19" type="MeshInstance3D" parent="Background"]
+transform = Transform3D(3.25216, 0, 0, 0, 3.25216, 0, 0, 0, 1, 1.88937, 15.4605, -51.3695)
+mesh = SubResource("SphereMesh_8t1kh")
+
+[node name="MeshInstance3D20" type="MeshInstance3D" parent="Background"]
+transform = Transform3D(3.25216, 0, 0, 0, 3.25216, 0, 0, 0, 1, 3.72672, 15.6249, -51.3695)
+mesh = SubResource("SphereMesh_8t1kh")
+
+[node name="MeshInstance3D21" type="MeshInstance3D" parent="Background"]
+transform = Transform3D(3.25216, 0, 0, 0, 3.25216, 0, 0, 0, 1, 2.73955, 16.8774, -51.3695)
+mesh = SubResource("SphereMesh_8t1kh")
 
 [connection signal="hook_finished" from="FishingRod" to="FishingController" method="_on_fishing_rod_hook_finished"]
 [connection signal="throw_finished" from="FishingRod" to="FishingController" method="_on_fishing_rod_throw_finished"]
