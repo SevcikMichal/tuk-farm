@@ -48,18 +48,6 @@ tracks/4/keys = {
 "update": 0,
 "values": [Vector3(0, 0, 0), Vector3(-0.0888927, 0, 0), Vector3(0, 0, 0)]
 }
-tracks/5/type = "value"
-tracks/5/imported = false
-tracks/5/enabled = true
-tracks/5/path = NodePath("Wool:position")
-tracks/5/interp = 1
-tracks/5/loop_wrap = true
-tracks/5/keys = {
-"times": PackedFloat32Array(0, 0.991667, 2),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [Vector3(0, 0, 0), Vector3(0, 0.034, 0), Vector3(0, 0, 0)]
-}
 
 [sub_resource type="Animation" id="Animation_vjvfl"]
 length = 0.001
@@ -265,4 +253,5 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.2684, 0.718805, 0.304999)
 [node name="WoolClump39" parent="Wool/Clumps" index="38" instance=ExtResource("2_8bfv8")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.834104, 0.716423, 0.304999)
 
+[connection signal="animation_finished" from="SheepAnimations" to="." method="_on_sheep_animations_animation_finished"]
 [connection signal="timeout" from="Wool/CheckTimer" to="." method="_on_check_timer_timeout"]

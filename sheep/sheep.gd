@@ -30,3 +30,7 @@ func _on_check_timer_timeout() -> void:
 	
 	for wool_clump in _wool_clumps:
 		wool_clump.reuse()
+
+
+func _on_sheep_animations_animation_finished(_anim_name: StringName) -> void:
+	_sheep_animation.play("Idle")

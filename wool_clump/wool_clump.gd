@@ -15,14 +15,18 @@ var _triggered := false
 func _ready() -> void:
 	_initial_rotation = rotation
 	_initial_position = _rigidbody.position
+	
+	await get_tree().physics_frame
 	_rigidbody.sleeping = true
 	_rigidbody.freeze = true
+	await get_tree().physics_frame
 	visible = true
 
 func fall_and_disappear() -> void:
 	emit_signal("wool_cut")
-	_rigidbody.sleeping = false
 	_rigidbody.freeze = false
+	await get_tree().physics_frame
+	_rigidbody.sleeping = false
 	
 	var random_force = Vector3(
 		randf_range(-1.0, 1.0),
@@ -38,6 +42,7 @@ func fall_and_disappear() -> void:
 	
 	_rigidbody.sleeping = true
 	_rigidbody.freeze = true
+	await get_tree().physics_frame
 	_rigidbody.position = _initial_position
 	_rigidbody.rotation = _initial_rotation
 	visible = false
@@ -47,6 +52,7 @@ func reuse() -> void:
 	_rigidbody.rotation = _initial_rotation
 	_rigidbody.sleeping = true
 	_rigidbody.freeze = true
+	await get_tree().physics_frame
 	visible = true
 	_triggered = false
 	_rigidbody.input_ray_pickable = false
@@ -61,6 +67,6 @@ func _on_rigid_body_3d_input_event(_camera, event, _event_position, _normal, _sh
 	if _triggered:
 			return
 			
-	if event is InputEventScreenDrag:
+	if event is InputEventScreenDrag or event is InputEventMouseMotion:
 		_triggered = true
 		fall_and_disappear()
