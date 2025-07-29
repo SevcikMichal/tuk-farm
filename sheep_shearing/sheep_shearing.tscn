@@ -1,10 +1,11 @@
-[gd_scene load_steps=12 format=3 uid="uid://bxstn1rgtokxt"]
+[gd_scene load_steps=13 format=3 uid="uid://bxstn1rgtokxt"]
 
 [ext_resource type="PackedScene" uid="uid://c7fb7ct3lqgec" path="res://debug/debug.tscn" id="1_a0an6"]
 [ext_resource type="PackedScene" uid="uid://bbdx775276raa" path="res://global/directional_light_3d.tscn" id="2_5xpdv"]
 [ext_resource type="PackedScene" uid="uid://b2elg3q57q4sj" path="res://global/camera_3d.tscn" id="3_10bgh"]
 [ext_resource type="PackedScene" uid="uid://lvucy2opcubr" path="res://sheep/sheep.tscn" id="4_amrhd"]
 [ext_resource type="PackedScene" uid="uid://dag67ckbdflew" path="res://global/post_process.tscn" id="5_0ikuk"]
+[ext_resource type="PackedScene" uid="uid://csnyrhwij17g6" path="res://home_button/home_button.tscn" id="5_5xpdv"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1385h"]
 albedo_color = Color(3.53761e-06, 0.519047, 0.258171, 1)
@@ -44,6 +45,8 @@ layer = 2
 
 [node name="Debug" parent="UI" instance=ExtResource("1_a0an6")]
 visible = false
+
+[node name="HomeButton" parent="UI" instance=ExtResource("5_5xpdv")]
 
 [node name="PostProcess" parent="." instance=ExtResource("5_0ikuk")]
 

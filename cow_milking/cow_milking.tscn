@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://01skae6kdp8p"]
+[gd_scene load_steps=16 format=3 uid="uid://01skae6kdp8p"]
 
 [ext_resource type="Script" uid="uid://dutp3knmwixvt" path="res://cow_milking/cow_milking.gd" id="1_ywrdx"]
 [ext_resource type="PackedScene" uid="uid://doqjvunhcfs67" path="res://milk_bucket/milk_bucket.tscn" id="2_bydsx"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://dag67ckbdflew" path="res://global/post_process.tscn" id="4_bydsx"]
 [ext_resource type="PackedScene" uid="uid://c7fb7ct3lqgec" path="res://debug/debug.tscn" id="4_mlqbd"]
 [ext_resource type="PackedScene" uid="uid://qjk6f61jkjhr" path="res://milking_controller/milking_controller.tscn" id="5_0kvvt"]
+[ext_resource type="PackedScene" uid="uid://csnyrhwij17g6" path="res://home_button/home_button.tscn" id="9_0kvvt"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ywrdx"]
 albedo_color = Color(0.54902, 0.796078, 0.407843, 1)
@@ -144,6 +145,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.087154, 4.10645, 0)
 visible = false
 
 [node name="MilkingController" parent="UI" instance=ExtResource("5_0kvvt")]
+
+[node name="HomeButton" parent="UI" instance=ExtResource("9_0kvvt")]
 
 [connection signal="milked" from="CowUdder" to="MilkBucket" method="_on_cow_udder_milked"]
 [connection signal="rhythm" from="UI/MilkingController" to="CowUdder" method="_on_milking_controller_rhythm"]

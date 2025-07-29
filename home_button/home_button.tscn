@@ -1,0 +1,35 @@
+[gd_scene load_steps=5 format=3 uid="uid://csnyrhwij17g6"]
+
+[ext_resource type="Texture2D" uid="uid://dxvdapnm6m03h" path="res://home_button/svgs/home.svg" id="1_1t6ga"]
+[ext_resource type="Script" uid="uid://cshnc15iy8vlx" path="res://home_button/home_button.gd" id="1_c2ekf"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_c2ekf"]
+draw_center = false
+
+[sub_resource type="Theme" id="Theme_c2ekf"]
+Button/styles/pressed = SubResource("StyleBoxFlat_c2ekf")
+
+[node name="HomeButton" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_c2ekf")
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+layout_mode = 1
+offset_left = 30.0
+offset_top = 30.0
+offset_right = 238.0
+offset_bottom = 238.0
+scale = Vector2(0.6, 0.6)
+
+[node name="Home" type="Button" parent="CenterContainer"]
+layout_mode = 2
+theme = SubResource("Theme_c2ekf")
+icon = ExtResource("1_1t6ga")
+flat = true
+
+[connection signal="pressed" from="CenterContainer/Home" to="." method="_on_home_pressed"]
