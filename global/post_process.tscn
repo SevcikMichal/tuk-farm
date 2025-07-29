@@ -5,7 +5,7 @@
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_rvbjl"]
 shader = ExtResource("1_jinsj")
 shader_parameter/levels = 10.0
-shader_parameter/edge_threshold = 0.3
+shader_parameter/edge_threshold = 0.7
 
 [node name="PostProcess" type="CanvasLayer"]
 process_mode = 4
