@@ -30,7 +30,6 @@ func _gui_input(event: InputEvent) -> void:
 				_last_direction = direction
 				emit_signal("zone_dragged", zone_name, direction)
 
-
 func _on_milking_controller_reset() -> void:
 	_drag_start_position = Vector2()
 	_last_direction = ""

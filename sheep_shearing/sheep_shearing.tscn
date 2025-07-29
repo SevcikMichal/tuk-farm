@@ -40,6 +40,8 @@ transform = Transform3D(0.999872, 0, 0.0160215, 0, 1, 0, -0.0160215, 0, 0.999872
 [node name="sheep" parent="." instance=ExtResource("4_amrhd")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.993362, 0, -1.18478)
 
+[node name="PostProcess" parent="." instance=ExtResource("5_0ikuk")]
+
 [node name="UI" type="CanvasLayer" parent="."]
 layer = 2
 
@@ -47,8 +49,6 @@ layer = 2
 visible = false
 
 [node name="HomeButton" parent="UI" instance=ExtResource("5_5xpdv")]
-
-[node name="PostProcess" parent="." instance=ExtResource("5_0ikuk")]
 
 [node name="Background" type="Node3D" parent="."]
 

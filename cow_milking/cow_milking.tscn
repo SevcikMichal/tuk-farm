@@ -137,16 +137,18 @@ transform = Transform3D(1, 0, 0, 0, 0.862796, 0.505552, 0, -0.505552, 0.862796, 
 [node name="CowUdder" parent="." instance=ExtResource("3_rvbjl")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.087154, 4.10645, 0)
 
-[node name="PostProcess" parent="." instance=ExtResource("4_bydsx")]
-
 [node name="UI" type="CanvasLayer" parent="."]
+layer = 2
+
+[node name="HomeButton" parent="UI" instance=ExtResource("9_0kvvt")]
 
 [node name="Debug" parent="UI" instance=ExtResource("4_mlqbd")]
 visible = false
 
 [node name="MilkingController" parent="UI" instance=ExtResource("5_0kvvt")]
+mouse_filter = 2
 
-[node name="HomeButton" parent="UI" instance=ExtResource("9_0kvvt")]
+[node name="PostProcess" parent="." instance=ExtResource("4_bydsx")]
 
 [connection signal="milked" from="CowUdder" to="MilkBucket" method="_on_cow_udder_milked"]
 [connection signal="rhythm" from="UI/MilkingController" to="CowUdder" method="_on_milking_controller_rhythm"]

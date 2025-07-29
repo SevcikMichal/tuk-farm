@@ -62,7 +62,8 @@ visible = false
 
 [node name="HomeButton" parent="UI" instance=ExtResource("6_8t1kh")]
 
-[node name="FishingController" parent="." instance=ExtResource("6_h1tax")]
+[node name="FishingController" parent="UI" instance=ExtResource("6_h1tax")]
+mouse_filter = 2
 
 [node name="Water" parent="." instance=ExtResource("7_dnold")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.8, 0)
@@ -202,7 +203,7 @@ mesh = SubResource("SphereMesh_8t1kh")
 transform = Transform3D(3.25216, 0, 0, 0, 3.25216, 0, 0, 0, 1, 2.73955, 16.8774, -51.3695)
 mesh = SubResource("SphereMesh_8t1kh")
 
-[connection signal="hook_finished" from="FishingRod" to="FishingController" method="_on_fishing_rod_hook_finished"]
-[connection signal="throw_finished" from="FishingRod" to="FishingController" method="_on_fishing_rod_throw_finished"]
-[connection signal="swipe_down_detected" from="FishingController" to="FishingRod" method="_on_fishing_controller_swipe_down_detected"]
-[connection signal="swipe_up_detected" from="FishingController" to="FishingRod" method="_on_fishing_controller_swipe_up_detected"]
+[connection signal="hook_finished" from="FishingRod" to="UI/FishingController" method="_on_fishing_rod_hook_finished"]
+[connection signal="throw_finished" from="FishingRod" to="UI/FishingController" method="_on_fishing_rod_throw_finished"]
+[connection signal="swipe_down_detected" from="UI/FishingController" to="FishingRod" method="_on_fishing_controller_swipe_down_detected"]
+[connection signal="swipe_up_detected" from="UI/FishingController" to="FishingRod" method="_on_fishing_controller_swipe_up_detected"]

@@ -48,6 +48,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 1
 script = ExtResource("1_qno38")
 
 [node name="HintTimer" type="Timer" parent="."]
@@ -67,12 +68,10 @@ anchor_bottom = 1.0
 offset_top = -902.0
 grow_horizontal = 2
 grow_vertical = 0
-mouse_filter = 2
 
 [node name="Up" type="TextureRect" parent="MarginContainer"]
 visible = false
 layout_mode = 2
-mouse_filter = 2
 texture = ExtResource("1_kg2vi")
 flip_v = true
 

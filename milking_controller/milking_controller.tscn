@@ -218,6 +218,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(1, 1.00154)
+mouse_filter = 1
 script = ExtResource("1_oa2ic")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
@@ -245,6 +246,7 @@ offset_top = -1105.0
 
 [node name="Left" type="ColorRect" parent="MarginContainerL"]
 layout_mode = 2
+mouse_filter = 1
 color = Color(1, 1, 1, 0.0196078)
 script = ExtResource("2_oa2ic")
 zone_name = "left"
@@ -300,6 +302,7 @@ offset_right = 436.0
 
 [node name="Right" type="ColorRect" parent="MarginContainerR"]
 layout_mode = 2
+mouse_filter = 1
 color = Color(1, 1, 1, 0.0196078)
 script = ExtResource("2_oa2ic")
 zone_name = "right"

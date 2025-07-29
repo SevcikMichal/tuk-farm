@@ -48,6 +48,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(1, 1.00154)
+mouse_filter = 1
 script = ExtResource("1_hhw2q")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
@@ -67,11 +68,10 @@ anchor_right = 0.5
 anchor_bottom = 1.0
 offset_left = -436.0
 offset_top = -1105.0
-mouse_filter = 2
 
 [node name="Left" type="ColorRect" parent="MarginContainerL"]
 layout_mode = 2
-mouse_filter = 2
+mouse_filter = 1
 color = Color(1, 1, 1, 0.0196078)
 
 [node name="Right1" type="TextureRect" parent="MarginContainerL/Left"]
@@ -82,7 +82,6 @@ offset_right = 1024.0
 offset_bottom = 2004.0
 rotation = -1.5708
 scale = Vector2(0.425, 0.409)
-mouse_filter = 2
 texture = ExtResource("3_xk8gs")
 
 [node name="MarginContainerR" type="MarginContainer" parent="."]
@@ -94,11 +93,10 @@ anchor_right = 0.5
 anchor_bottom = 1.0
 offset_top = -1105.0
 offset_right = 436.0
-mouse_filter = 2
 
 [node name="Right" type="ColorRect" parent="MarginContainerR"]
 layout_mode = 2
-mouse_filter = 2
+mouse_filter = 1
 color = Color(1, 1, 1, 0.0196078)
 
 [node name="Left1" type="TextureRect" parent="MarginContainerR/Right"]
@@ -110,7 +108,6 @@ offset_right = 1460.0
 offset_bottom = 1574.0
 rotation = 1.5708
 scale = Vector2(0.425, 0.409)
-mouse_filter = 2
 texture = ExtResource("3_xk8gs")
 
 [connection signal="timeout" from="IdleTimer" to="." method="_on_idle_timer_timeout"]

@@ -73,12 +73,13 @@ transform = Transform3D(1, 0, 0, 0, 0.380651, 0.924719, 0, -0.924719, 0.380651, 
 [node name="UI" type="CanvasLayer" parent="."]
 layer = 2
 
-[node name="EggController" parent="UI" instance=ExtResource("5_56wwa")]
-
 [node name="Debug" parent="UI" instance=ExtResource("6_rs3o1")]
 visible = false
 
 [node name="HomeButton" parent="UI" instance=ExtResource("8_56g7l")]
+
+[node name="EggController" parent="UI" instance=ExtResource("5_56wwa")]
+mouse_filter = 2
 
 [node name="StaticBody3D2" type="StaticBody3D" parent="."]
 physics_material_override = SubResource("PhysicsMaterial_56g7l")
