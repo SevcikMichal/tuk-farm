@@ -1,9 +1,14 @@
-[gd_scene load_steps=7 format=3 uid="uid://hdejlod4jlu1"]
+[gd_scene load_steps=10 format=3 uid="uid://hdejlod4jlu1"]
 
 [ext_resource type="PackedScene" uid="uid://csnyrhwij17g6" path="res://global/home_button/home_button.tscn" id="1_72csm"]
 [ext_resource type="PackedScene" uid="uid://b2elg3q57q4sj" path="res://global/camera_3d.tscn" id="1_ukrf4"]
 [ext_resource type="PackedScene" uid="uid://dag67ckbdflew" path="res://global/post_process.tscn" id="2_72csm"]
 [ext_resource type="PackedScene" uid="uid://bbdx775276raa" path="res://global/directional_light_3d.tscn" id="3_a1lvl"]
+[ext_resource type="PackedScene" uid="uid://dt2cok28l7oss" path="res://farmer/farmer.tscn" id="5_a1lvl"]
+
+[sub_resource type="NavigationMesh" id="NavigationMesh_72csm"]
+vertices = PackedVector3Array(-9.5, 0.5, -9.5, -9.5, 0.5, 9.5, 9.5, 0.5, 9.5, 9.5, 0.5, -9.5)
+polygons = [PackedInt32Array(3, 2, 0), PackedInt32Array(0, 2, 1)]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vkr66"]
 albedo_color = Color(0.372549, 0.666667, 0.305882, 1)
@@ -12,15 +17,24 @@ albedo_color = Color(0.372549, 0.666667, 0.305882, 1)
 material = SubResource("StandardMaterial3D_vkr66")
 size = Vector2(20, 20)
 
+[sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_72csm"]
+
 [node name="Farm" type="Node3D"]
 
-[node name="Ground" type="StaticBody3D" parent="."]
+[node name="NavigationRegion3D" type="NavigationRegion3D" parent="."]
+navigation_mesh = SubResource("NavigationMesh_72csm")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Ground"]
+[node name="Ground" type="StaticBody3D" parent="NavigationRegion3D"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="NavigationRegion3D/Ground"]
 mesh = SubResource("PlaneMesh_jynu1")
 
+[node name="CollisionShape3D" type="CollisionShape3D" parent="NavigationRegion3D/Ground"]
+shape = SubResource("WorldBoundaryShape3D_72csm")
+debug_color = Color(0, 0.63339, 0.440993, 0.42)
+
 [node name="Camera3D" parent="." instance=ExtResource("1_ukrf4")]
-transform = Transform3D(0.777912, -0.376263, 0.503268, -0.0154765, 0.789191, 0.613952, -0.628182, -0.48539, 0.608098, 0.911073, 0.883511, 0.973945)
+transform = Transform3D(0.777912, -0.376263, 0.503268, -0.0154765, 0.789191, 0.613952, -0.628182, -0.48539, 0.608098, 3.7109, 6.01123, 4.80435)
 
 [node name="PostProcess" parent="." instance=ExtResource("2_72csm")]
 
@@ -30,3 +44,6 @@ transform = Transform3D(1, 0, 0, 0, 0.862796, 0.505552, 0, -0.505552, 0.862796, 
 [node name="UI" type="CanvasLayer" parent="."]
 
 [node name="HomeButton" parent="UI" instance=ExtResource("1_72csm")]
+
+[node name="Farmer" parent="." instance=ExtResource("5_a1lvl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.88, 0)
