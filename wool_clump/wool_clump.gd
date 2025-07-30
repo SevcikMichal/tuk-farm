@@ -65,8 +65,13 @@ func is_triggered() -> bool:
 
 func _on_rigid_body_3d_input_event(_camera, event, _event_position, _normal, _shape_idx):
 	if _triggered:
-			return
-			
+		return
+
+	if event is InputEventScreenTouch and not event.pressed:
+		Globals.end_touch(event.index)
+		
 	if event is InputEventScreenDrag:
-		_triggered = true
-		fall_and_disappear()
+		if Globals.begin_touch(event.index):
+			_triggered = true
+			await fall_and_disappear()
+			Globals.end_touch(event.index)

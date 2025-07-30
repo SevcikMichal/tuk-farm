@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://bxstn1rgtokxt"]
+[gd_scene load_steps=14 format=3 uid="uid://bxstn1rgtokxt"]
 
 [ext_resource type="PackedScene" uid="uid://c7fb7ct3lqgec" path="res://debug/debug.tscn" id="1_a0an6"]
 [ext_resource type="PackedScene" uid="uid://bbdx775276raa" path="res://global/directional_light_3d.tscn" id="2_5xpdv"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://lvucy2opcubr" path="res://sheep/sheep.tscn" id="4_amrhd"]
 [ext_resource type="PackedScene" uid="uid://dag67ckbdflew" path="res://global/post_process.tscn" id="5_0ikuk"]
 [ext_resource type="PackedScene" uid="uid://csnyrhwij17g6" path="res://home_button/home_button.tscn" id="5_5xpdv"]
+[ext_resource type="PackedScene" uid="uid://b4masklchxpux" path="res://shears.tscn" id="7_10bgh"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1385h"]
 albedo_color = Color(3.53761e-06, 0.519047, 0.258171, 1)
@@ -134,3 +135,7 @@ skeleton = NodePath("../..")
 transform = Transform3D(28.6885, 0, 0, 0, 34.3806, 0, 0, 0, 1, -24.9591, -7.64387, -89.8467)
 mesh = SubResource("PrismMesh_a0an6")
 skeleton = NodePath("../..")
+
+[node name="Shears" parent="." node_paths=PackedStringArray("camera") instance=ExtResource("7_10bgh")]
+transform = Transform3D(-0.00564983, -0.0203809, -0.0977379, -0.0963658, 0.0267137, 0, 0.0261095, 0.094186, -0.0211495, 0, 0, 0)
+camera = NodePath("../Camera3D")

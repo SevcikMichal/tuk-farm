@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://lvucy2opcubr"]
+[gd_scene load_steps=9 format=3 uid="uid://lvucy2opcubr"]
 
 [ext_resource type="PackedScene" uid="uid://cykmnh1gj8mir" path="res://sheep/models/sheep.glb" id="1_5riea"]
 [ext_resource type="PackedScene" uid="uid://bav8v4r403kwm" path="res://wool_clump/wool_clump.tscn" id="2_8bfv8"]
@@ -110,6 +110,10 @@ _data = {
 &"RESET": SubResource("Animation_vjvfl"),
 &"Respawn": SubResource("Animation_0btsa")
 }
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_1385h"]
+margin = 0.0
+radius = 0.45
 
 [node name="sheep" instance=ExtResource("1_5riea")]
 script = ExtResource("2_1385h")
@@ -252,6 +256,15 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.2684, 0.718805, 0.304999)
 
 [node name="WoolClump39" parent="Wool/Clumps" index="38" instance=ExtResource("2_8bfv8")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.834104, 0.716423, 0.304999)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="." index="3"]
+collision_layer = 4
+collision_mask = 4
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" index="0"]
+transform = Transform3D(-4.3598e-08, 0.997407, -0.0719675, -1, -4.37114e-08, 0, -3.1458e-09, 0.0719675, 0.997407, -0.933068, 0.114401, 0)
+shape = SubResource("CapsuleShape3D_1385h")
+debug_color = Color(1.82897e-06, 0.635395, 0.405878, 1)
 
 [connection signal="animation_finished" from="SheepAnimations" to="." method="_on_sheep_animations_animation_finished"]
 [connection signal="timeout" from="Wool/CheckTimer" to="." method="_on_check_timer_timeout"]
