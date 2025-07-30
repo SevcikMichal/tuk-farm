@@ -7,7 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://dag67ckbdflew" path="res://global/post_process.tscn" id="4_56wwa"]
 [ext_resource type="PackedScene" uid="uid://diknmv0ejsus7" path="res://egg_controller/egg_controller.tscn" id="5_56wwa"]
 [ext_resource type="PackedScene" uid="uid://c7fb7ct3lqgec" path="res://debug/debug.tscn" id="6_rs3o1"]
-[ext_resource type="PackedScene" uid="uid://csnyrhwij17g6" path="res://home_button/home_button.tscn" id="8_56g7l"]
+[ext_resource type="PackedScene" uid="uid://csnyrhwij17g6" path="res://global/home_button/home_button.tscn" id="8_56g7l"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_56g7l"]
 friction = 0.25

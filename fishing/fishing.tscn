@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://dag67ckbdflew" path="res://global/post_process.tscn" id="3_l07jn"]
 [ext_resource type="PackedScene" uid="uid://c7fb7ct3lqgec" path="res://debug/debug.tscn" id="4_dy0fc"]
 [ext_resource type="PackedScene" uid="uid://buhbw4s2y70v2" path="res://fishing_rod/fishing_rod.tscn" id="4_l07jn"]
-[ext_resource type="PackedScene" uid="uid://csnyrhwij17g6" path="res://home_button/home_button.tscn" id="6_8t1kh"]
+[ext_resource type="PackedScene" uid="uid://csnyrhwij17g6" path="res://global/home_button/home_button.tscn" id="6_8t1kh"]
 [ext_resource type="PackedScene" uid="uid://b3oylvx3y146q" path="res://fishing_controller/fishing_controller.tscn" id="6_h1tax"]
 [ext_resource type="PackedScene" uid="uid://djhol5r1q3de0" path="res://water/water.tscn" id="7_dnold"]
 

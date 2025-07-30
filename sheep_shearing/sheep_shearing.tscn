@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://b2elg3q57q4sj" path="res://global/camera_3d.tscn" id="3_10bgh"]
 [ext_resource type="PackedScene" uid="uid://lvucy2opcubr" path="res://sheep/sheep.tscn" id="4_amrhd"]
 [ext_resource type="PackedScene" uid="uid://dag67ckbdflew" path="res://global/post_process.tscn" id="5_0ikuk"]
-[ext_resource type="PackedScene" uid="uid://csnyrhwij17g6" path="res://home_button/home_button.tscn" id="5_5xpdv"]
+[ext_resource type="PackedScene" uid="uid://csnyrhwij17g6" path="res://global/home_button/home_button.tscn" id="5_5xpdv"]
 [ext_resource type="PackedScene" uid="uid://b4masklchxpux" path="res://shears/shears.tscn" id="7_10bgh"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1385h"]

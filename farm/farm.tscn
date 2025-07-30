@@ -1,0 +1,32 @@
+[gd_scene load_steps=7 format=3 uid="uid://hdejlod4jlu1"]
+
+[ext_resource type="PackedScene" uid="uid://csnyrhwij17g6" path="res://global/home_button/home_button.tscn" id="1_72csm"]
+[ext_resource type="PackedScene" uid="uid://b2elg3q57q4sj" path="res://global/camera_3d.tscn" id="1_ukrf4"]
+[ext_resource type="PackedScene" uid="uid://dag67ckbdflew" path="res://global/post_process.tscn" id="2_72csm"]
+[ext_resource type="PackedScene" uid="uid://bbdx775276raa" path="res://global/directional_light_3d.tscn" id="3_a1lvl"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vkr66"]
+albedo_color = Color(0.372549, 0.666667, 0.305882, 1)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_jynu1"]
+material = SubResource("StandardMaterial3D_vkr66")
+size = Vector2(20, 20)
+
+[node name="Farm" type="Node3D"]
+
+[node name="Ground" type="StaticBody3D" parent="."]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Ground"]
+mesh = SubResource("PlaneMesh_jynu1")
+
+[node name="Camera3D" parent="." instance=ExtResource("1_ukrf4")]
+transform = Transform3D(0.777912, -0.376263, 0.503268, -0.0154765, 0.789191, 0.613952, -0.628182, -0.48539, 0.608098, 0.911073, 0.883511, 0.973945)
+
+[node name="PostProcess" parent="." instance=ExtResource("2_72csm")]
+
+[node name="DirectionalLight3D" parent="." instance=ExtResource("3_a1lvl")]
+transform = Transform3D(1, 0, 0, 0, 0.862796, 0.505552, 0, -0.505552, 0.862796, 0, 0, 1.2283)
+
+[node name="UI" type="CanvasLayer" parent="."]
+
+[node name="HomeButton" parent="UI" instance=ExtResource("1_72csm")]
