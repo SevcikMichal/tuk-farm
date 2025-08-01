@@ -1,0 +1,5 @@
+[gd_scene load_steps=2 format=3 uid="uid://2cbcngd1mfjm"]
+
+[ext_resource type="PackedScene" uid="uid://gkw33y8t8j1r" path="res://farmer/models/farmer.glb" id="1_l5qhy"]
+
+[node name="farmer" instance=ExtResource("1_l5qhy")]
