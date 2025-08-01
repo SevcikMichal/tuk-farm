@@ -221,4 +221,5 @@ chickens = NodePath("../NavigationRegion3D/Chickens")
 pond = NodePath("../NavigationRegion3D/Pond")
 
 [node name="Camera3D" parent="Farmer" instance=ExtResource("1_ukrf4")]
-transform = Transform3D(0.738558, -0.385301, 0.553241, -0.0532126, 0.784727, 0.617554, -0.672087, -0.485538, 0.559063, 2.83184, 6.80571, 3.1848)
+physics_interpolation_mode = 2
+transform = Transform3D(0.738558, -0.3853, 0.553241, -0.0532126, 0.784727, 0.617554, -0.672087, -0.485538, 0.559063, 2.83184, 6.80571, 3.1848)

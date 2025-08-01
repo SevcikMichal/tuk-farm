@@ -1,7 +1,7 @@
 extends CharacterBody3D
 
 const MOVEMENT_SPEED: float = 2.0
-const INTERACTION_RADIUS: float = 4
+const INTERACTION_RADIUS: float = 3.5
 
 @onready 
 var navigation_agent: NavigationAgent3D = get_node("NavigationAgent3D")
