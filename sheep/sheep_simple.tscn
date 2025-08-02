@@ -1,0 +1,16 @@
+[gd_scene load_steps=4 format=3 uid="uid://bvyiyhs1rsteb"]
+
+[ext_resource type="PackedScene" uid="uid://cykmnh1gj8mir" path="res://sheep/models/sheep.glb" id="1_3nnq4"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3nnq4"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_3nnq4"]
+material = SubResource("StandardMaterial3D_3nnq4")
+radial_segments = 8
+rings = 4
+
+[node name="sheep" instance=ExtResource("1_3nnq4")]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." index="1"]
+transform = Transform3D(2.68, 0, 0, 0, 1.64431, 0, 0, 0, 1.69634, -1.05584, 0.141737, -4.76837e-07)
+mesh = SubResource("SphereMesh_3nnq4")

@@ -7,7 +7,11 @@ var scene: PackedScene
 var interaction_radius: float = 3
 
 func _check_proximity_and_act(farmer_position: Vector3) -> void:
-	var distance = global_position.distance_to(farmer_position)
+	var flat_self = Vector2(global_position.x, global_position.z)
+	var flat_farmer = Vector2(farmer_position.x, farmer_position.z)
+	var distance = flat_self.distance_to(flat_farmer)
+	print(name)
+	print(distance)
 	if distance < interaction_radius:
 		load_game_scene()
 

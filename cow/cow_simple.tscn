@@ -1,0 +1,80 @@
+[gd_scene load_steps=8 format=3 uid="uid://djo0ceux607jj"]
+
+[ext_resource type="PackedScene" uid="uid://cykmnh1gj8mir" path="res://sheep/models/sheep.glb" id="1_y80e0"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_y80e0"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_y80e0"]
+material = SubResource("StandardMaterial3D_y80e0")
+radial_segments = 8
+rings = 4
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ou45b"]
+albedo_color = Color(1, 0.823529, 1, 1)
+
+[sub_resource type="SphereMesh" id="SphereMesh_ou45b"]
+material = SubResource("StandardMaterial3D_ou45b")
+radial_segments = 8
+rings = 4
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ngso2"]
+albedo_color = Color(0, 0, 0, 1)
+
+[sub_resource type="SphereMesh" id="SphereMesh_gi6vd"]
+material = SubResource("StandardMaterial3D_ngso2")
+radial_segments = 8
+rings = 4
+
+[node name="sheep" instance=ExtResource("1_y80e0")]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." index="1"]
+transform = Transform3D(2.58695, 0, 0, 0, 1.5774, 0, 0, 0, 1.42629, -1.0604, 0.146221, 0)
+mesh = SubResource("SphereMesh_y80e0")
+
+[node name="MeshInstance3D13" type="MeshInstance3D" parent="." index="2"]
+transform = Transform3D(0.0425889, 0.312237, 0, -0.0134511, 0.988604, 0, 0, 0, 0.157056, -2.40935, -0.115003, -0.0341704)
+mesh = SubResource("SphereMesh_y80e0")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="." index="3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 0.894665, -1.24977, -0.285664, 0)
+mesh = SubResource("SphereMesh_ou45b")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="." index="4"]
+transform = Transform3D(0.444847, 0, 0, 0, 0.60472, 0, 0, 0, 1, -1.03927, 0, -0.284479)
+mesh = SubResource("SphereMesh_gi6vd")
+
+[node name="MeshInstance3D4" type="MeshInstance3D" parent="." index="5"]
+transform = Transform3D(0.444847, 0, 0, 0, 0.60472, 0, 0, 0, 1, -0.529568, 0.237937, -0.160728)
+mesh = SubResource("SphereMesh_gi6vd")
+
+[node name="MeshInstance3D12" type="MeshInstance3D" parent="." index="6"]
+transform = Transform3D(0.444847, 0, 0, 0, 0.60472, 0, 0, 0, 1, -1.70536, 0.237937, -0.160728)
+mesh = SubResource("SphereMesh_gi6vd")
+
+[node name="MeshInstance3D6" type="MeshInstance3D" parent="." index="7"]
+transform = Transform3D(0.444847, 0, 0, 0, 0.60472, 0, 0, 0, 1, -0.818292, 0.565071, -0.0379739)
+mesh = SubResource("SphereMesh_gi6vd")
+
+[node name="MeshInstance3D5" type="MeshInstance3D" parent="." index="8"]
+transform = Transform3D(0.444847, 0, 0, 0, 0.60472, 0, 0, 0, 1, -1.25802, 0.450828, -0.141654)
+mesh = SubResource("SphereMesh_gi6vd")
+
+[node name="MeshInstance3D7" type="MeshInstance3D" parent="." index="9"]
+transform = Transform3D(0.444847, 0, 0, 0, 0.60472, 0, 0, 0, 1, -1.03927, 0, 0.253412)
+mesh = SubResource("SphereMesh_gi6vd")
+
+[node name="MeshInstance3D8" type="MeshInstance3D" parent="." index="10"]
+transform = Transform3D(0.444847, 0, 0, 0, 0.60472, 0, 0, 0, 1, -0.529568, 0.237937, 0.149136)
+mesh = SubResource("SphereMesh_gi6vd")
+
+[node name="MeshInstance3D9" type="MeshInstance3D" parent="." index="11"]
+transform = Transform3D(0.444847, 0, 0, 0, 0.60472, 0, 0, 0, 1, -0.818292, 0.565071, 0.0856916)
+mesh = SubResource("SphereMesh_gi6vd")
+
+[node name="MeshInstance3D10" type="MeshInstance3D" parent="." index="12"]
+transform = Transform3D(0.444847, 0, 0, 0, 0.60472, 0, 0, 0, 1, -1.25802, 0.450828, 0.191507)
+mesh = SubResource("SphereMesh_gi6vd")
+
+[node name="MeshInstance3D11" type="MeshInstance3D" parent="." index="13"]
+transform = Transform3D(0.444847, 0, 0, 0, 0.60472, 0, 0, 0, 1, -1.71481, 0.204374, 0.135478)
+mesh = SubResource("SphereMesh_gi6vd")

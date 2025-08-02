@@ -19,6 +19,6 @@ path_height_offset = 0.2
 height = 1.76
 
 [node name="farmer" parent="." instance=ExtResource("2_7h16g")]
-transform = Transform3D(-0.6, 0, -5.24537e-08, 0, 0.6, 0, 5.24537e-08, 0, -0.6, 0, 0.700508, 0)
+transform = Transform3D(-0.6, 0, -5.24537e-08, 0, 0.6, 0, 5.24537e-08, 0, -0.6, 0, 0.970282, 0)
 
 [connection signal="navigation_finished" from="NavigationAgent3D" to="." method="_on_navigation_agent_3d_navigation_finished"]
