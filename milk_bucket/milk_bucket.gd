@@ -14,8 +14,6 @@ var is_full: bool = false
 @onready
 var animation_player: AnimationPlayer = get_node("AnimationPlayer")
 
-
-
 func _add_milk(amount: float) -> void:
 	if is_full:
 		return

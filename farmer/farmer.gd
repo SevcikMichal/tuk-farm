@@ -1,22 +1,11 @@
 extends CharacterBody3D
 
 const MOVEMENT_SPEED: float = 2.0
-const INTERACTION_RADIUS: float = 3.5
+
+signal walk_finished(farmer_position: Vector3)
 
 @export
-var _camera: Camera3D
-
-@export
-var _cows: Node3D
-
-@export
-var _sheeps: Node3D
-
-@export
-var _chickens: Node3D
-
-@export
-var _pond: Node3D
+var camera: Camera3D
 
 @onready 
 var _navigation_agent: NavigationAgent3D = get_node("NavigationAgent3D")
@@ -36,12 +25,12 @@ func _unhandled_input(event) -> void:
 	if event is InputEventScreenTouch and event.pressed:
 		_set_target_from_screen_position(event.position)
 
-	#if event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
-		#_set_target_from_screen_position(event.position)
+	if event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
+		_set_target_from_screen_position(event.position)
 
 func _set_target_from_screen_position(screen_pos: Vector2) -> void:
-	var ray_origin = _camera.project_ray_origin(screen_pos)
-	var ray_direction = _camera.project_ray_normal(screen_pos)
+	var ray_origin = camera.project_ray_origin(screen_pos)
+	var ray_direction = camera.project_ray_normal(screen_pos)
 	var ray_length = 1000.0
 
 	var space_state = get_world_3d().direct_space_state
@@ -70,27 +59,6 @@ func _physics_process(_delta) -> void:
 	
 	move_and_slide()
 
-func _check_proximity_and_act() -> void:
-	var cow_dist = global_position.distance_to(_cows.global_position)
-	if cow_dist < INTERACTION_RADIUS:
-		load_game_scene("res://cow_milking/cow_milking.tscn")
-
-	var sheep_dist = global_position.distance_to(_sheeps.global_position)
-	if sheep_dist < INTERACTION_RADIUS:
-		load_game_scene("res://sheep_shearing/sheep_shearing.tscn")
-
-	var chicken_dist = global_position.distance_to(_chickens.global_position)
-	if chicken_dist < INTERACTION_RADIUS:
-		load_game_scene("res://chicken_eggs/chicken_eggs.tscn")
-
-	var pond_dist = global_position.distance_to(_pond.global_position)
-	if pond_dist < INTERACTION_RADIUS:
-		load_game_scene("res://fishing/fishing.tscn")
-
 func _on_navigation_agent_3d_navigation_finished() -> void:
 	_animations.play("idle")
-	_check_proximity_and_act()
-
-func load_game_scene(path: String) -> void:
-	var scene = load(path)
-	get_tree().change_scene_to_packed.call_deferred(scene)
+	emit_signal("walk_finished", global_position)

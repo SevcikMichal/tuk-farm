@@ -2,38 +2,8 @@
 
 [ext_resource type="PackedScene" uid="uid://gkw33y8t8j1r" path="res://farmer/models/farmer.glb" id="1_l5qhy"]
 
-[sub_resource type="Animation" id="Animation_l5qhy"]
-resource_name = "walk"
-length = 3.0
-loop_mode = 1
-tracks/0/type = "rotation_3d"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Armature/Skeleton3D:Bone.006")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = PackedFloat32Array(0, 1, 0.075, -0.107, -0.569, 0.812, 0.666667, 1, 0.148, -0.212, -0.554, 0.791, 2, 1, -0.148, 0.212, -0.554, 0.791, 3, 1, 0.075, -0.107, -0.569, 0.812)
-tracks/1/type = "rotation_3d"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Armature/Skeleton3D:Bone.009")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = PackedFloat32Array(0, 1, -0.05, -0.071, 0.571, 0.816, 0.666667, 1, -0.148, -0.212, 0.554, 0.791, 2, 1, 0.148, 0.212, 0.554, 0.791, 3, 1, -0.05, -0.071, 0.571, 0.816)
-tracks/2/type = "rotation_3d"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("Armature/Skeleton3D:Bone.015")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = PackedFloat32Array(0, 1, -0.533, 0.066, 0.042, 0.842, 0.666667, 1, -0.514, 0.233, 0.147, 0.812, 2, 1, -0.514, -0.234, -0.149, 0.812, 3, 1, -0.533, 0.066, 0.042, 0.842)
-tracks/3/type = "rotation_3d"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("Armature/Skeleton3D:Bone.019")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = PackedFloat32Array(0, 1, 0.497, 0.06, -0.034, 0.865, 0.666667, 1, 0.479, 0.239, -0.137, 0.833, 2, 1, 0.479, -0.24, 0.139, 0.833, 3, 1, 0.497, 0.06, -0.034, 0.865)
+[sub_resource type="Animation" id="Animation_5dvvo"]
+length = 0.001
 
 [sub_resource type="Animation" id="Animation_gux8d"]
 resource_name = "idle"
@@ -117,8 +87,38 @@ tracks/10/interp = 1
 tracks/10/loop_wrap = true
 tracks/10/keys = PackedFloat32Array(0, 1, -0.533221, 0.0660273, 0.0420174, 0.842348)
 
-[sub_resource type="Animation" id="Animation_5dvvo"]
-length = 0.001
+[sub_resource type="Animation" id="Animation_l5qhy"]
+resource_name = "walk"
+length = 3.0
+loop_mode = 1
+tracks/0/type = "rotation_3d"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Armature/Skeleton3D:Bone.006")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = PackedFloat32Array(0, 1, 0.075, -0.107, -0.569, 0.812, 0.666667, 1, 0.148, -0.212, -0.554, 0.791, 2, 1, -0.148, 0.212, -0.554, 0.791, 3, 1, 0.075, -0.107, -0.569, 0.812)
+tracks/1/type = "rotation_3d"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Armature/Skeleton3D:Bone.009")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = PackedFloat32Array(0, 1, -0.05, -0.071, 0.571, 0.816, 0.666667, 1, -0.148, -0.212, 0.554, 0.791, 2, 1, 0.148, 0.212, 0.554, 0.791, 3, 1, -0.05, -0.071, 0.571, 0.816)
+tracks/2/type = "rotation_3d"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Armature/Skeleton3D:Bone.015")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = PackedFloat32Array(0, 1, -0.533, 0.066, 0.042, 0.842, 0.666667, 1, -0.514, 0.233, 0.147, 0.812, 2, 1, -0.514, -0.234, -0.149, 0.812, 3, 1, -0.533, 0.066, 0.042, 0.842)
+tracks/3/type = "rotation_3d"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Armature/Skeleton3D:Bone.019")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = PackedFloat32Array(0, 1, 0.497, 0.06, -0.034, 0.865, 0.666667, 1, 0.479, 0.239, -0.137, 0.833, 2, 1, 0.479, -0.24, 0.139, 0.833, 3, 1, 0.497, 0.06, -0.034, 0.865)
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_gux8d"]
 _data = {

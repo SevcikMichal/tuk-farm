@@ -1,9 +1,14 @@
-[gd_scene load_steps=21 format=3 uid="uid://hdejlod4jlu1"]
+[gd_scene load_steps=26 format=3 uid="uid://hdejlod4jlu1"]
 
+[ext_resource type="Script" uid="uid://ny6w160fas55" path="res://farm/minigame_point.gd" id="1_mjpad"]
 [ext_resource type="PackedScene" uid="uid://b2elg3q57q4sj" path="res://global/camera_3d.tscn" id="1_ukrf4"]
 [ext_resource type="PackedScene" uid="uid://dag67ckbdflew" path="res://global/post_process.tscn" id="2_72csm"]
+[ext_resource type="PackedScene" uid="uid://bxstn1rgtokxt" path="res://sheep_shearing/sheep_shearing.tscn" id="2_udp8x"]
 [ext_resource type="PackedScene" uid="uid://bbdx775276raa" path="res://global/directional_light_3d.tscn" id="3_a1lvl"]
+[ext_resource type="PackedScene" uid="uid://01skae6kdp8p" path="res://cow_milking/cow_milking.tscn" id="3_udp8x"]
+[ext_resource type="PackedScene" uid="uid://b7ptky0wls84g" path="res://chicken_eggs/chicken_eggs.tscn" id="4_ol6uc"]
 [ext_resource type="PackedScene" uid="uid://dt2cok28l7oss" path="res://farmer/farmer.tscn" id="5_a1lvl"]
+[ext_resource type="PackedScene" uid="uid://g76phv1k4sqs" path="res://fishing/fishing.tscn" id="5_jba3n"]
 [ext_resource type="Script" uid="uid://djc7tj08ovl7y" path="res://global/camera_3d.gd" id="5_mjpad"]
 
 [sub_resource type="NavigationMesh" id="NavigationMesh_72csm"]
@@ -152,6 +157,8 @@ shape = SubResource("BoxShape3D_mjpad")
 
 [node name="Sheeps" type="Node3D" parent="NavigationRegion3D"]
 transform = Transform3D(0.548921, 0, 0.835874, 0, 1, 0, -0.835874, 0, 0.548921, 1.87899, 0.568681, 9.02787)
+script = ExtResource("1_mjpad")
+scene = ExtResource("2_udp8x")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="NavigationRegion3D/Sheeps"]
 
@@ -165,6 +172,8 @@ shape = SubResource("BoxShape3D_a1lvl")
 
 [node name="Cows" type="Node3D" parent="NavigationRegion3D"]
 transform = Transform3D(0.621599, 0, 0.783336, 0, 1, 0, -0.783336, 0, 0.621599, -6.86706, 0, 0)
+script = ExtResource("1_mjpad")
+scene = ExtResource("3_udp8x")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="NavigationRegion3D/Cows"]
 
@@ -178,6 +187,8 @@ shape = SubResource("BoxShape3D_qys1r")
 
 [node name="Chickens" type="Node3D" parent="NavigationRegion3D"]
 transform = Transform3D(0.696452, 0, 0.717604, 0, 1, 0, -0.717604, 0, 0.696452, 0, 0, -10.9587)
+script = ExtResource("1_mjpad")
+scene = ExtResource("4_ol6uc")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="NavigationRegion3D/Chickens"]
 
@@ -192,6 +203,8 @@ shape = SubResource("BoxShape3D_udp8x")
 
 [node name="Pond" type="Node3D" parent="NavigationRegion3D"]
 transform = Transform3D(0.703742, 0, 0.710456, 0, 1, 0, -0.710456, 0, 0.703742, 6.12149, 0.420536, 0)
+script = ExtResource("1_mjpad")
+scene = ExtResource("5_jba3n")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="NavigationRegion3D/Pond"]
 
@@ -217,10 +230,11 @@ script = ExtResource("5_mjpad")
 target = NodePath("../Farmer")
 offset = Vector3(4, 4, 4)
 
-[node name="Farmer" parent="." node_paths=PackedStringArray("_camera", "_cows", "_sheeps", "_chickens", "_pond") instance=ExtResource("5_a1lvl")]
+[node name="Farmer" parent="." node_paths=PackedStringArray("camera") instance=ExtResource("5_a1lvl")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.45, 0)
-_camera = NodePath("../Camera3D")
-_cows = NodePath("../NavigationRegion3D/Cows")
-_sheeps = NodePath("../NavigationRegion3D/Sheeps")
-_chickens = NodePath("../NavigationRegion3D/Chickens")
-_pond = NodePath("../NavigationRegion3D/Pond")
+camera = NodePath("../Camera3D")
+
+[connection signal="walk_finished" from="Farmer" to="NavigationRegion3D/Sheeps" method="_on_farmer_walk_finished"]
+[connection signal="walk_finished" from="Farmer" to="NavigationRegion3D/Cows" method="_on_farmer_walk_finished"]
+[connection signal="walk_finished" from="Farmer" to="NavigationRegion3D/Chickens" method="_on_farmer_walk_finished"]
+[connection signal="walk_finished" from="Farmer" to="NavigationRegion3D/Pond" method="_on_farmer_walk_finished"]
