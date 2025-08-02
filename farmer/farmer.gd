@@ -36,8 +36,8 @@ func _unhandled_input(event) -> void:
 	if event is InputEventScreenTouch and event.pressed:
 		_set_target_from_screen_position(event.position)
 
-	if event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
-		_set_target_from_screen_position(event.position)
+	#if event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
+		#_set_target_from_screen_position(event.position)
 
 func _set_target_from_screen_position(screen_pos: Vector2) -> void:
 	var ray_origin = _camera.project_ray_origin(screen_pos)

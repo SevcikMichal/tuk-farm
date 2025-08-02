@@ -6,4 +6,4 @@ func load_game_scene(path: String) -> void:
 
 
 func _on_home_pressed():
-	load_game_scene("res://simple_menu/simple_menu.tscn")
+	load_game_scene("res://farm/farm.tscn")

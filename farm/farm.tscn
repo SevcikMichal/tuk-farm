@@ -1,6 +1,5 @@
-[gd_scene load_steps=22 format=3 uid="uid://hdejlod4jlu1"]
+[gd_scene load_steps=21 format=3 uid="uid://hdejlod4jlu1"]
 
-[ext_resource type="PackedScene" uid="uid://csnyrhwij17g6" path="res://global/home_button/home_button.tscn" id="1_72csm"]
 [ext_resource type="PackedScene" uid="uid://b2elg3q57q4sj" path="res://global/camera_3d.tscn" id="1_ukrf4"]
 [ext_resource type="PackedScene" uid="uid://dag67ckbdflew" path="res://global/post_process.tscn" id="2_72csm"]
 [ext_resource type="PackedScene" uid="uid://bbdx775276raa" path="res://global/directional_light_3d.tscn" id="3_a1lvl"]
@@ -210,8 +209,6 @@ shape = SubResource("BoxShape3D_ol6uc")
 transform = Transform3D(1, 0, 0, 0, 0.862796, 0.505552, 0, -0.505552, 0.862796, 0, 0, 1.2283)
 
 [node name="UI" type="CanvasLayer" parent="."]
-
-[node name="HomeButton" parent="UI" instance=ExtResource("1_72csm")]
 
 [node name="Camera3D" parent="." node_paths=PackedStringArray("target") instance=ExtResource("1_ukrf4")]
 physics_interpolation_mode = 2
