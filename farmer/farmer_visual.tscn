@@ -4,6 +4,36 @@
 
 [sub_resource type="Animation" id="Animation_l5qhy"]
 resource_name = "walk"
+length = 3.0
+loop_mode = 1
+tracks/0/type = "rotation_3d"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Armature/Skeleton3D:Bone.006")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = PackedFloat32Array(0, 1, 0.075, -0.107, -0.569, 0.812, 0.666667, 1, 0.148, -0.212, -0.554, 0.791, 2, 1, -0.148, 0.212, -0.554, 0.791, 3, 1, 0.075, -0.107, -0.569, 0.812)
+tracks/1/type = "rotation_3d"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Armature/Skeleton3D:Bone.009")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = PackedFloat32Array(0, 1, -0.05, -0.071, 0.571, 0.816, 0.666667, 1, -0.148, -0.212, 0.554, 0.791, 2, 1, 0.148, 0.212, 0.554, 0.791, 3, 1, -0.05, -0.071, 0.571, 0.816)
+tracks/2/type = "rotation_3d"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Armature/Skeleton3D:Bone.015")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = PackedFloat32Array(0, 1, -0.533, 0.066, 0.042, 0.842, 0.666667, 1, -0.514, 0.233, 0.147, 0.812, 2, 1, -0.514, -0.234, -0.149, 0.812, 3, 1, -0.533, 0.066, 0.042, 0.842)
+tracks/3/type = "rotation_3d"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Armature/Skeleton3D:Bone.019")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = PackedFloat32Array(0, 1, 0.497, 0.06, -0.034, 0.865, 0.666667, 1, 0.479, 0.239, -0.137, 0.833, 2, 1, 0.479, -0.24, 0.139, 0.833, 3, 1, 0.497, 0.06, -0.034, 0.865)
 
 [sub_resource type="Animation" id="Animation_gux8d"]
 resource_name = "idle"
@@ -72,23 +102,23 @@ tracks/8/path = NodePath("Armature/Skeleton3D:Bone.017")
 tracks/8/interp = 1
 tracks/8/loop_wrap = true
 tracks/8/keys = PackedFloat32Array(0, 1, -0.0838547, 2.01961e-08, -5.52821e-07, 0.996478, 1, 1, -0.084, 0.001, 0.017, 0.996)
+tracks/9/type = "rotation_3d"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("Armature/Skeleton3D:Bone.019")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = PackedFloat32Array(0, 1, 0.497002, 0.0600003, -0.0340002, 0.865004)
+tracks/10/type = "rotation_3d"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("Armature/Skeleton3D:Bone.015")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = PackedFloat32Array(0, 1, -0.533221, 0.0660273, 0.0420174, 0.842348)
 
 [sub_resource type="Animation" id="Animation_5dvvo"]
 length = 0.001
-tracks/0/type = "rotation_3d"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Armature/Skeleton3D:Bone.023")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = PackedFloat32Array(0, 1, 0, 0, 0, 1)
-tracks/1/type = "rotation_3d"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Armature/Skeleton3D:Bone.017")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = PackedFloat32Array(0, 1, 0, 0, 0, 1)
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_gux8d"]
 _data = {
@@ -106,11 +136,12 @@ libraries = {
 autoplay = "idle"
 
 [node name="Skeleton3D" parent="Armature" index="0"]
-bones/0/rotation = Quaternion(-0.00613827, 0, 0, 0.999981)
-bones/5/rotation = Quaternion(6.66151e-16, -4.44101e-15, -0.565306, 0.824881)
+bones/0/rotation = Quaternion(0.00899964, 0, 0, 0.99996)
+bones/5/rotation = Quaternion(4.21835e-15, 4.44037e-15, -0.573932, 0.818903)
 bones/6/rotation = Quaternion(-8.32569e-17, -2.09356e-15, -0.258969, 0.965886)
-bones/9/rotation = Quaternion(1.83192e-15, 4.44101e-16, 0.565306, 0.824881)
+bones/9/rotation = Quaternion(-3.05275e-16, 6.66055e-16, 0.573932, 0.818903)
 bones/10/rotation = Quaternion(-3.19151e-16, -7.77064e-16, 0.258969, 0.965886)
-bones/17/rotation = Quaternion(0, 0, 0, 1)
+bones/15/rotation = Quaternion(-0.533221, 0.0660273, 0.0420174, 0.842348)
+bones/17/rotation = Quaternion(-0.0838547, 2.01961e-08, -5.52821e-07, 0.996478)
+bones/20/rotation = Quaternion(0.497002, 0.0600003, -0.0340002, 0.865004)
 bones/22/rotation = Quaternion(0.0525959, -1.01471e-07, 3.55758e-07, 0.998616)
-bones/23/rotation = Quaternion(0, 0, 0, 1)

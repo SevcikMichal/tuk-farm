@@ -220,10 +220,10 @@ script = ExtResource("5_mjpad")
 target = NodePath("../Farmer")
 offset = Vector3(4, 4, 4)
 
-[node name="Farmer" parent="." node_paths=PackedStringArray("camera", "cows", "sheeps", "chickens", "pond") instance=ExtResource("5_a1lvl")]
+[node name="Farmer" parent="." node_paths=PackedStringArray("_camera", "_cows", "_sheeps", "_chickens", "_pond") instance=ExtResource("5_a1lvl")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.45, 0)
-camera = NodePath("../Camera3D")
-cows = NodePath("../NavigationRegion3D/Cows")
-sheeps = NodePath("../NavigationRegion3D/Sheeps")
-chickens = NodePath("../NavigationRegion3D/Chickens")
-pond = NodePath("../NavigationRegion3D/Pond")
+_camera = NodePath("../Camera3D")
+_cows = NodePath("../NavigationRegion3D/Cows")
+_sheeps = NodePath("../NavigationRegion3D/Sheeps")
+_chickens = NodePath("../NavigationRegion3D/Chickens")
+_pond = NodePath("../NavigationRegion3D/Pond")
