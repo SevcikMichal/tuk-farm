@@ -60,6 +60,10 @@ func _physics_process(_delta) -> void:
 	var next_path_position: Vector3 = navigation_agent.get_next_path_position()
 
 	velocity = current_agent_position.direction_to(next_path_position) * MOVEMENT_SPEED
+	
+	if velocity.length() > 0.01:
+		look_at(global_position + velocity.normalized(), Vector3.UP)
+	
 	move_and_slide()
 
 func _check_proximity_and_act() -> void:

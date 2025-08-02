@@ -1,10 +1,11 @@
-[gd_scene load_steps=21 format=3 uid="uid://hdejlod4jlu1"]
+[gd_scene load_steps=22 format=3 uid="uid://hdejlod4jlu1"]
 
 [ext_resource type="PackedScene" uid="uid://csnyrhwij17g6" path="res://global/home_button/home_button.tscn" id="1_72csm"]
 [ext_resource type="PackedScene" uid="uid://b2elg3q57q4sj" path="res://global/camera_3d.tscn" id="1_ukrf4"]
 [ext_resource type="PackedScene" uid="uid://dag67ckbdflew" path="res://global/post_process.tscn" id="2_72csm"]
 [ext_resource type="PackedScene" uid="uid://bbdx775276raa" path="res://global/directional_light_3d.tscn" id="3_a1lvl"]
 [ext_resource type="PackedScene" uid="uid://dt2cok28l7oss" path="res://farmer/farmer.tscn" id="5_a1lvl"]
+[ext_resource type="Script" uid="uid://djc7tj08ovl7y" path="res://global/camera_3d.gd" id="5_mjpad"]
 
 [sub_resource type="NavigationMesh" id="NavigationMesh_72csm"]
 vertices = PackedVector3Array(-33, 0.5, -30, -14, 0.5, -30, -14, 0.5, -50.25, -13.25, 0.5, -50.5, -13.25, 0.5, -499.5, -499.5, 0.5, -29.25, -33.25, 0.5, -29.25, -499.5, 0.5, -499.5, -12.25, 0.5, -30, 38.25, 0.5, -30, 38.25, 0.5, -45.75, -12.25, 0.5, -50.25, 39.25, 0.5, -46, 39.25, 0.5, -499.5, 40, 0.5, -45.75, 40, 0.5, -30, 67.75, 0.5, -30, 68, 0.5, -29.25, 499.5, 0.5, -29.25, 499.5, 0.5, -499.5, -33, 0.5, 27.5, -14, 0.5, 27.5, -14, 0.5, -28.25, -33, 0.5, -28.25, -499.5, 0.5, 28.5, -33.25, 0.5, 28.5, 67.75, 0.5, -28.25, 40, 0.5, -28.25, 40, 0.5, 27.5, 67.75, 0.5, 27.5, 68, 0.5, 28.5, 499.5, 0.5, 28.5, -12.25, 0.5, -9, -3.25, 0.5, -9, -3.25, 0.5, -9.5, 1.75, 0.5, -14.5, 2.25, 0.5, -14.5, 2.25, 0.5, -28.25, -12.25, 0.5, -28.25, 1, 0.5, -10.25, 6.5, 0.5, -2, 7.25, 0.5, -2, 3.5, 0.5, -12.75, 8, 0.5, -1.25, 8, 0.5, -0.5, 38.25, 0.5, -0.5, 3.5, 0.5, -13.5, 38.25, 0.5, -28.25, -2.25, 1.25, -9, -1.75, 1.25, -8.75, 0, 1.25, -10.5, -0.25, 1.25, -11, -2.25, 0.5, -7.5, -5.25, 0.5, -2.25, -4.5, 0.5, -1.75, -1.5, 0.5, -7.5, -4.5, 0.5, -0.75, 4, 0.5, 0.25, -12.25, 0.5, 1.5, -9.25, 0.5, 1.5, -9, 0.5, 0.5, -3.25, 0.5, -8.25, -6.5, 0.5, -2.5, 3.25, 0.5, 6.25, 4, 0.5, 7, 5, 0.5, 2, 4, 0.5, 1.25, 2.25, 0.5, 6.25, -7.75, 0.5, 2.75, 1.25, 0.5, 7.75, 5.25, 1.25, 0.5, 5.5, 1.25, 1, 7, 1.25, -0.5, 6.5, 1.25, -0.75, -7.25, 1.25, 0, -7.25, 1.25, 0.5, -6.5, 1.25, 0, -6.75, 1.25, -0.5, 6, 0.5, 2, 4, 0.5, 8.25, 1.75, 0.5, 11.75, 1, 0.5, 27.5, 38.25, 0.5, 27.5, 1, 0.5, 12, -8, 1.25, 1, -8, 1.25, 1.5, -7.5, 1.25, 1.25, -7.5, 1.25, 0.75, -8.75, 0.5, 2.5, -12.25, 0.5, 11, -0.25, 0.5, 9.75, -0.5, 0.5, 11, 1.25, 1.5, 9.5, 1.25, 1.5, 10, 1.75, 1.5, 9.75, 1.75, 1.5, 9.25, 0.75, 1.5, 10.25, 0.75, 1.5, 10.75, 1.25, 1.5, 10.5, -0.25, 0.5, 11.75, -12.25, 0.5, 27.5, -14, 0.5, 50.5, -14, 0.5, 29.25, -33, 0.5, 29.25, -13.25, 0.5, 499.5, -13.25, 0.5, 50.75, -499.5, 0.5, 499.5, 67.75, 0.5, 29.25, 40, 0.5, 29.25, 40, 0.5, 55, 39.25, 0.5, 55.25, 39.25, 0.5, 499.5, 499.5, 0.5, 499.5, 38.25, 0.5, 29.25, -12.25, 0.5, 29.25, -12.25, 0.5, 50.5, 38.25, 0.5, 55)
@@ -212,14 +213,17 @@ transform = Transform3D(1, 0, 0, 0, 0.862796, 0.505552, 0, -0.505552, 0.862796, 
 
 [node name="HomeButton" parent="UI" instance=ExtResource("1_72csm")]
 
+[node name="Camera3D" parent="." node_paths=PackedStringArray("target") instance=ExtResource("1_ukrf4")]
+physics_interpolation_mode = 2
+transform = Transform3D(0.738558, -0.3853, 0.553241, -0.0532126, 0.784727, 0.617553, -0.672087, -0.485538, 0.559063, 2.83184, 7.25571, 3.1848)
+script = ExtResource("5_mjpad")
+target = NodePath("../Farmer")
+offset = Vector3(4, 4, 4)
+
 [node name="Farmer" parent="." node_paths=PackedStringArray("camera", "cows", "sheeps", "chickens", "pond") instance=ExtResource("5_a1lvl")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.45, 0)
-camera = NodePath("Camera3D")
+camera = NodePath("../Camera3D")
 cows = NodePath("../NavigationRegion3D/Cows")
 sheeps = NodePath("../NavigationRegion3D/Sheeps")
 chickens = NodePath("../NavigationRegion3D/Chickens")
 pond = NodePath("../NavigationRegion3D/Pond")
-
-[node name="Camera3D" parent="Farmer" instance=ExtResource("1_ukrf4")]
-physics_interpolation_mode = 2
-transform = Transform3D(0.738558, -0.3853, 0.553241, -0.0532126, 0.784727, 0.617554, -0.672087, -0.485538, 0.559063, 2.83184, 6.80571, 3.1848)

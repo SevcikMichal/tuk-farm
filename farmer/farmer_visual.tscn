@@ -1,5 +1,116 @@
-[gd_scene load_steps=2 format=3 uid="uid://2cbcngd1mfjm"]
+[gd_scene load_steps=6 format=3 uid="uid://2cbcngd1mfjm"]
 
 [ext_resource type="PackedScene" uid="uid://gkw33y8t8j1r" path="res://farmer/models/farmer.glb" id="1_l5qhy"]
 
+[sub_resource type="Animation" id="Animation_l5qhy"]
+resource_name = "walk"
+
+[sub_resource type="Animation" id="Animation_gux8d"]
+resource_name = "idle"
+length = 2.0
+loop_mode = 1
+tracks/0/type = "rotation_3d"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Armature/Skeleton3D:Bone.006")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = PackedFloat32Array(0, 1, 0, 0, -0.574, 0.819, 1, 1, 0, 0, -0.559, 0.829, 2, 1, 0, 0, -0.574, 0.819)
+tracks/1/type = "rotation_3d"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Armature/Skeleton3D:Bone.009")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = PackedFloat32Array(0, 1, 0, 0, 0.574, 0.819, 1, 1, 0, 0, 0.559, 0.829, 2, 1, 0, 0, 0.574, 0.819)
+tracks/2/type = "rotation_3d"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Armature/Skeleton3D:Bone.010")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = PackedFloat32Array(0, 1, 0, 0, 0.259, 0.966)
+tracks/3/type = "rotation_3d"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Armature/Skeleton3D:Bone.007")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = PackedFloat32Array(0, 1, 0, 0, -0.259, 0.966)
+tracks/4/type = "rotation_3d"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Armature/Skeleton3D:Bone")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = PackedFloat32Array(0, 1, 0.009, 0, 0, 1, 1, 1, -0.017, 0, 0, 1, 2, 1, 0.009, 0, 0, 1)
+tracks/5/type = "rotation_3d"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Armature/Skeleton3D:Bone.023")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = PackedFloat32Array(0, 1, 0.00499267, -1.1381e-07, 0.460074, 0.887867, 1.03333, 1, 0.078, -0.04, 0.483, 0.871, 2, 1, 0.00499267, -1.1381e-07, 0.460074, 0.887867)
+tracks/6/type = "rotation_3d"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Armature/Skeleton3D:Bone.022")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = PackedFloat32Array(0, 1, -0.0531608, -1.67724e-07, 0.506382, 0.860669)
+tracks/7/type = "rotation_3d"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("Armature/Skeleton3D:Bone.021")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = PackedFloat32Array(0, 1, 0.0525959, -1.01471e-07, 3.55758e-07, 0.998616)
+tracks/8/type = "rotation_3d"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("Armature/Skeleton3D:Bone.017")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = PackedFloat32Array(0, 1, -0.0838547, 2.01961e-08, -5.52821e-07, 0.996478, 1, 1, -0.084, 0.001, 0.017, 0.996)
+
+[sub_resource type="Animation" id="Animation_5dvvo"]
+length = 0.001
+tracks/0/type = "rotation_3d"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Armature/Skeleton3D:Bone.023")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = PackedFloat32Array(0, 1, 0, 0, 0, 1)
+tracks/1/type = "rotation_3d"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Armature/Skeleton3D:Bone.017")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = PackedFloat32Array(0, 1, 0, 0, 0, 1)
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_gux8d"]
+_data = {
+&"RESET": SubResource("Animation_5dvvo"),
+&"idle": SubResource("Animation_gux8d"),
+&"walk": SubResource("Animation_l5qhy")
+}
+
 [node name="farmer" instance=ExtResource("1_l5qhy")]
+
+[node name="FarmerAnimations" type="AnimationPlayer" parent="." index="0"]
+libraries = {
+&"": SubResource("AnimationLibrary_gux8d")
+}
+autoplay = "idle"
+
+[node name="Skeleton3D" parent="Armature" index="0"]
+bones/0/rotation = Quaternion(-0.00613827, 0, 0, 0.999981)
+bones/5/rotation = Quaternion(6.66151e-16, -4.44101e-15, -0.565306, 0.824881)
+bones/6/rotation = Quaternion(-8.32569e-17, -2.09356e-15, -0.258969, 0.965886)
+bones/9/rotation = Quaternion(1.83192e-15, 4.44101e-16, 0.565306, 0.824881)
+bones/10/rotation = Quaternion(-3.19151e-16, -7.77064e-16, 0.258969, 0.965886)
+bones/17/rotation = Quaternion(0, 0, 0, 1)
+bones/22/rotation = Quaternion(0.0525959, -1.01471e-07, 3.55758e-07, 0.998616)
+bones/23/rotation = Quaternion(0, 0, 0, 1)
