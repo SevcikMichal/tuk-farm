@@ -13,7 +13,7 @@ var _level = 1
 var _next_level = 50
 var _level_increase = 10
 
-func _on_milk_bucket_bucket_full() -> void:
+func _on_experience_gain_event() -> void:
 	_current_experience = _current_experience + _experience_rate
 	if _current_experience >= _next_level:
 		_next_level += _next_level + _level_increase
