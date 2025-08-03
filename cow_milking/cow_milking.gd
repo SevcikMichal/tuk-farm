@@ -18,5 +18,5 @@ func _on_milk_bucket_bucket_full() -> void:
 	if _current_experience >= _next_level:
 		_next_level += _next_level + _level_increase
 		_level = _level + 1
-		level.update_level(level)
-		bucket.reset()
+		level.update_level(_level)
+	bucket.reset()

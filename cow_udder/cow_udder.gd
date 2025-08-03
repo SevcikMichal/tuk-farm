@@ -6,9 +6,9 @@ const RIGHT_TIT_ANIMATION_NAME: String = "right_tit"
 signal milked(amount: float)
 
 @export
-var good_amount: float = 1.0
+var good_amount: float = 5.0
 @export
-var great_amount: float = 2.0
+var great_amount: float = 10.0
 
 
 # Attached to udder or cow
