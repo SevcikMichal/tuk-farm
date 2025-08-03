@@ -1,5 +1,6 @@
-[gd_scene load_steps=14 format=3 uid="uid://bxstn1rgtokxt"]
+[gd_scene load_steps=16 format=3 uid="uid://bxstn1rgtokxt"]
 
+[ext_resource type="Script" uid="uid://dp8gk07ialapr" path="res://global/experience/experience_pusher.gd" id="1_0ikuk"]
 [ext_resource type="PackedScene" uid="uid://c7fb7ct3lqgec" path="res://debug/debug.tscn" id="1_a0an6"]
 [ext_resource type="PackedScene" uid="uid://bbdx775276raa" path="res://global/directional_light_3d.tscn" id="2_5xpdv"]
 [ext_resource type="PackedScene" uid="uid://b2elg3q57q4sj" path="res://global/camera_3d.tscn" id="3_10bgh"]
@@ -7,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://dag67ckbdflew" path="res://global/post_process.tscn" id="5_0ikuk"]
 [ext_resource type="PackedScene" uid="uid://csnyrhwij17g6" path="res://global/home_button/home_button.tscn" id="5_5xpdv"]
 [ext_resource type="PackedScene" uid="uid://b4masklchxpux" path="res://shears/shears.tscn" id="7_10bgh"]
+[ext_resource type="PackedScene" uid="uid://dn8p6tif0fpiv" path="res://global/experience/experience.tscn" id="7_amrhd"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1385h"]
 albedo_color = Color(3.53761e-06, 0.519047, 0.258171, 1)
@@ -29,7 +31,9 @@ albedo_color = Color(0.294554, 0.42258, 0.183929, 1)
 [sub_resource type="PrismMesh" id="PrismMesh_a0an6"]
 material = SubResource("StandardMaterial3D_bydsx")
 
-[node name="SheepShearing" type="Node3D"]
+[node name="SheepShearing" type="Node3D" node_paths=PackedStringArray("level")]
+script = ExtResource("1_0ikuk")
+level = NodePath("UI/Experience")
 
 [node name="DirectionalLight3D" parent="." instance=ExtResource("2_5xpdv")]
 transform = Transform3D(0.999682, -0.0127399, 0.0217424, -0.0134213, 0.461076, 0.887259, -0.0213284, -0.887269, 0.460758, 0, 0, 3.23218)
@@ -50,6 +54,8 @@ layer = 2
 visible = false
 
 [node name="HomeButton" parent="UI" instance=ExtResource("5_5xpdv")]
+
+[node name="Experience" parent="UI" instance=ExtResource("7_amrhd")]
 
 [node name="Background" type="Node3D" parent="."]
 
@@ -139,3 +145,5 @@ skeleton = NodePath("../..")
 [node name="Shears" parent="." node_paths=PackedStringArray("camera") instance=ExtResource("7_10bgh")]
 transform = Transform3D(-0.00564983, -0.0203809, -0.0977379, -0.0963658, 0.0267137, 0, 0.0261095, 0.094186, -0.0211495, 0, 0, 0)
 camera = NodePath("../Camera3D")
+
+[connection signal="sheep_sheared" from="sheep" to="." method="_on_experience_gain_event"]

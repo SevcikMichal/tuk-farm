@@ -1,13 +1,14 @@
-[gd_scene load_steps=24 format=3 uid="uid://b7ptky0wls84g"]
+[gd_scene load_steps=25 format=3 uid="uid://b7ptky0wls84g"]
 
 [ext_resource type="PackedScene" uid="uid://bq7oqletifb5s" path="res://chicken/chicken.tscn" id="1_i0beg"]
-[ext_resource type="Script" uid="uid://bfq7rm436g5es" path="res://chicken_eggs/chicken_eggs.gd" id="1_uvyug"]
+[ext_resource type="Script" uid="uid://dp8gk07ialapr" path="res://global/experience/experience_pusher.gd" id="1_rcmeq"]
 [ext_resource type="PackedScene" uid="uid://b2elg3q57q4sj" path="res://global/camera_3d.tscn" id="2_0tpng"]
 [ext_resource type="PackedScene" uid="uid://bbdx775276raa" path="res://global/directional_light_3d.tscn" id="3_6hepm"]
 [ext_resource type="PackedScene" uid="uid://dag67ckbdflew" path="res://global/post_process.tscn" id="4_56wwa"]
 [ext_resource type="PackedScene" uid="uid://diknmv0ejsus7" path="res://egg_controller/egg_controller.tscn" id="5_56wwa"]
 [ext_resource type="PackedScene" uid="uid://c7fb7ct3lqgec" path="res://debug/debug.tscn" id="6_rs3o1"]
 [ext_resource type="PackedScene" uid="uid://csnyrhwij17g6" path="res://global/home_button/home_button.tscn" id="8_56g7l"]
+[ext_resource type="PackedScene" uid="uid://dn8p6tif0fpiv" path="res://global/experience/experience.tscn" id="9_rcmeq"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_56g7l"]
 friction = 0.25
@@ -56,8 +57,9 @@ material = SubResource("StandardMaterial3D_uvyug")
 radial_segments = 4
 rings = 4
 
-[node name="chicken_eggs" type="Node3D"]
-script = ExtResource("1_uvyug")
+[node name="chicken_eggs" type="Node3D" node_paths=PackedStringArray("level")]
+script = ExtResource("1_rcmeq")
+level = NodePath("UI/Experience")
 
 [node name="chicken" parent="." instance=ExtResource("1_i0beg")]
 transform = Transform3D(0.986683, 0, -0.162654, -0.0266105, 0.986526, -0.161423, 0.160463, 0.163601, 0.973389, -0.0648155, 0, 0)
@@ -80,6 +82,8 @@ visible = false
 
 [node name="EggController" parent="UI" instance=ExtResource("5_56wwa")]
 mouse_filter = 2
+
+[node name="Experience" parent="UI" instance=ExtResource("9_rcmeq")]
 
 [node name="StaticBody3D2" type="StaticBody3D" parent="."]
 physics_material_override = SubResource("PhysicsMaterial_56g7l")
@@ -207,4 +211,5 @@ mesh = SubResource("SphereMesh_qtxgg")
 transform = Transform3D(3.25216, 0, 0, 0, 3.25216, 0, 0, 0, 1, 7.7463, 12.3233, -27.4823)
 mesh = SubResource("SphereMesh_qtxgg")
 
+[connection signal="eggs_collected" from="chicken" to="." method="_on_experience_gain_event"]
 [connection signal="pitch_performed" from="UI/EggController" to="chicken" method="_on_pitch_performed"]

@@ -1,9 +1,6 @@
 extends Node3D
 
 @export
-var bucket: Node3D
-
-@export
 var level: Control
 
 var _current_experience: int = 0
@@ -19,4 +16,3 @@ func _on_experience_gain_event() -> void:
 		_next_level += _next_level + _level_increase
 		_level = _level + 1
 		level.update_level(_level)
-	bucket.reset()

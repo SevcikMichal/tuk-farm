@@ -23,7 +23,8 @@ func _add_milk(amount: float) -> void:
 		_is_full = true
 		_current_fill = capacity
 		emit_signal("bucket_full")
-	
+		_reset()
+		
 	_set_animation_progress(_current_fill / capacity)
 
 func _set_animation_progress(progress: float) -> void:
@@ -35,7 +36,7 @@ func _set_animation_progress(progress: float) -> void:
 func _on_cow_udder_milked(amount: float) -> void:
 	_add_milk(amount)
 
-func reset() -> void:
+func _reset() -> void:
 	_current_fill = 0
 	_is_full = false
 	_set_animation_progress(0)

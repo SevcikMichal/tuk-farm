@@ -4,6 +4,7 @@ const BASE_CHANCE: float = 0.1
 const CHANCE_INCREMENT: float = 0.05
 const MAX_CHANCE: float = 1.0
 const MAX_FISH_DELTA_MS: int = 1000
+const FISH_TO_CATCH: int = 3
 
 signal throw_finished
 signal hook_finished
@@ -32,6 +33,7 @@ var _fish: Node3D = get_node("FishingLine/LineEnd/Fish")
 
 var _current_chance: float = BASE_CHANCE
 var _fish_hooked_time: int = 0
+var _fish_caught: int = 0
 
 func _process(_delta: float) -> void:
 	update_fishing_line()
@@ -93,7 +95,11 @@ func _on_fishing_controller_swipe_down_detected():
 	if actual_time - _fish_hooked_time <= MAX_FISH_DELTA_MS:
 		_fish.set_color(get_random_warm_color())
 		_fish.visible = true
-		emit_signal("fish_caught")
+		_fish_caught = _fish_caught + 1
+		if _fish_caught == FISH_TO_CATCH:
+			_fish_caught = 0
+			emit_signal("fish_caught")
+		
 	
 	_fishing_animation.play("Hook")
 
