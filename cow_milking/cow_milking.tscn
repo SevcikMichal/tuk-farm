@@ -1,6 +1,6 @@
 [gd_scene load_steps=17 format=3 uid="uid://01skae6kdp8p"]
 
-[ext_resource type="Script" uid="uid://dp8gk07ialapr" path="res://global/experience/experience_pusher.gd" id="1_i1a6h"]
+[ext_resource type="Script" path="res://global/experience/experience_pusher.gd" id="1_i1a6h"]
 [ext_resource type="PackedScene" uid="uid://doqjvunhcfs67" path="res://milk_bucket/milk_bucket.tscn" id="2_bydsx"]
 [ext_resource type="PackedScene" uid="uid://b2elg3q57q4sj" path="res://global/camera_3d.tscn" id="2_rvbjl"]
 [ext_resource type="PackedScene" uid="uid://bbdx775276raa" path="res://global/directional_light_3d.tscn" id="3_mlqbd"]
@@ -31,9 +31,8 @@ albedo_color = Color(0.945098, 0.980392, 0.933333, 1)
 [sub_resource type="SphereMesh" id="SphereMesh_bydsx"]
 material = SubResource("StandardMaterial3D_rvbjl")
 
-[node name="CowMilking" type="Node3D" node_paths=PackedStringArray("bucket", "level")]
+[node name="CowMilking" type="Node3D" node_paths=PackedStringArray("level")]
 script = ExtResource("1_i1a6h")
-bucket = NodePath("MilkBucket")
 level = NodePath("UI/Experience")
 
 [node name="Camera3D" parent="." instance=ExtResource("2_rvbjl")]

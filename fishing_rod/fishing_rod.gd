@@ -4,7 +4,7 @@ const BASE_CHANCE: float = 0.1
 const CHANCE_INCREMENT: float = 0.05
 const MAX_CHANCE: float = 1.0
 const MAX_FISH_DELTA_MS: int = 1000
-const FISH_TO_CATCH: int = 3
+const FISH_TO_CATCH: int = 1
 
 signal throw_finished
 signal hook_finished
