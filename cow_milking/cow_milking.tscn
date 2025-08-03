@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://01skae6kdp8p"]
+[gd_scene load_steps=17 format=3 uid="uid://01skae6kdp8p"]
 
 [ext_resource type="Script" uid="uid://dutp3knmwixvt" path="res://cow_milking/cow_milking.gd" id="1_ywrdx"]
 [ext_resource type="PackedScene" uid="uid://doqjvunhcfs67" path="res://milk_bucket/milk_bucket.tscn" id="2_bydsx"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://c7fb7ct3lqgec" path="res://debug/debug.tscn" id="4_mlqbd"]
 [ext_resource type="PackedScene" uid="uid://qjk6f61jkjhr" path="res://milking_controller/milking_controller.tscn" id="5_0kvvt"]
 [ext_resource type="PackedScene" uid="uid://csnyrhwij17g6" path="res://global/home_button/home_button.tscn" id="9_0kvvt"]
+[ext_resource type="PackedScene" uid="uid://dn8p6tif0fpiv" path="res://global/experience/experience.tscn" id="10_i1a6h"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ywrdx"]
 albedo_color = Color(0.54902, 0.796078, 0.407843, 1)
@@ -30,8 +31,10 @@ albedo_color = Color(0.945098, 0.980392, 0.933333, 1)
 [sub_resource type="SphereMesh" id="SphereMesh_bydsx"]
 material = SubResource("StandardMaterial3D_rvbjl")
 
-[node name="CowMilking" type="Node3D"]
+[node name="CowMilking" type="Node3D" node_paths=PackedStringArray("bucket", "level")]
 script = ExtResource("1_ywrdx")
+bucket = NodePath("MilkBucket")
+level = NodePath("UI/Experience")
 
 [node name="Camera3D" parent="." instance=ExtResource("2_rvbjl")]
 transform = Transform3D(0.999682, 0, 0.0251999, 0, 1, 0, -0.0251999, 0, 0.999682, 0.108079, 2.936, 4.191)
@@ -148,7 +151,10 @@ visible = false
 [node name="MilkingController" parent="UI" instance=ExtResource("5_0kvvt")]
 mouse_filter = 2
 
+[node name="Experience" parent="UI" instance=ExtResource("10_i1a6h")]
+
 [node name="PostProcess" parent="." instance=ExtResource("4_bydsx")]
 
+[connection signal="bucket_full" from="MilkBucket" to="." method="_on_milk_bucket_bucket_full"]
 [connection signal="milked" from="CowUdder" to="MilkBucket" method="_on_cow_udder_milked"]
 [connection signal="rhythm" from="UI/MilkingController" to="CowUdder" method="_on_milking_controller_rhythm"]

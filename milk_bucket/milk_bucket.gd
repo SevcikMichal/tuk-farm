@@ -34,3 +34,7 @@ func _set_animation_progress(progress: float) -> void:
 
 func _on_cow_udder_milked(amount: float) -> void:
 	_add_milk(amount)
+
+func reset() -> void:
+	current_fill = 0
+	is_full = false
