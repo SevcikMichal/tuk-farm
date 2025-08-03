@@ -25,8 +25,8 @@ func _unhandled_input(event) -> void:
 	if event is InputEventScreenTouch and event.pressed or event is InputEventScreenDrag:
 		_set_target_from_screen_position(event.position)
 
-	#if event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
-		#_set_target_from_screen_position(event.position)
+	if event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
+		_set_target_from_screen_position(event.position)
 
 func _set_target_from_screen_position(screen_pos: Vector2) -> void:
 	var ray_origin = camera.project_ray_origin(screen_pos)
@@ -55,7 +55,9 @@ func _physics_process(_delta) -> void:
 	
 	if velocity.length() > 0.01:
 		_animations.play("walk", -1, 2.0)
-		look_at(global_position + velocity.normalized(), Vector3.UP)
+		var flat_velocity = velocity
+		flat_velocity.y = 0
+		look_at(global_position + flat_velocity.normalized(), Vector3.UP)
 	
 	move_and_slide()
 
