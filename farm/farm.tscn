@@ -1,6 +1,6 @@
 [gd_scene load_steps=33 format=3 uid="uid://hdejlod4jlu1"]
 
-[ext_resource type="Script" uid="uid://ny6w160fas55" path="res://farm/minigame_point.gd" id="1_mjpad"]
+[ext_resource type="Script" uid="uid://ny6w160fas55" path="res://global/minigame_point.gd" id="1_mjpad"]
 [ext_resource type="PackedScene" uid="uid://b2elg3q57q4sj" path="res://global/camera_3d.tscn" id="1_ukrf4"]
 [ext_resource type="PackedScene" uid="uid://dag67ckbdflew" path="res://global/post_process.tscn" id="2_72csm"]
 [ext_resource type="PackedScene" uid="uid://bxstn1rgtokxt" path="res://sheep_shearing/sheep_shearing.tscn" id="2_udp8x"]

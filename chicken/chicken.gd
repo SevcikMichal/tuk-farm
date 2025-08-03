@@ -2,7 +2,7 @@ extends Node3D
 
 signal eggs_collected
 
-const EGGS_TO_LAY: int = 4
+const EGGS_TO_LAY: int = 2
 
 @export
 var egg_object: PackedScene
