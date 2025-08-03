@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://clymgqdnxpqvq" path="res://global/experience/experience.gd" id="1_3gmbe"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_juv12"]
-font_size = 150
+font_size = 80
 shadow_size = 10
 shadow_color = Color(0, 0, 0, 1)
 
@@ -19,18 +19,22 @@ script = ExtResource("1_3gmbe")
 
 [node name="CenterContainer" type="CenterContainer" parent="."]
 layout_mode = 1
-anchors_preset = 1
-anchor_left = 1.0
-anchor_right = 1.0
-offset_left = -707.0
-offset_top = 50.0
-offset_right = 440.0
-offset_bottom = 258.0
-grow_horizontal = 0
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -449.0
+offset_top = -96.0
+offset_right = 1051.0
+offset_bottom = 17.0
+grow_horizontal = 2
+grow_vertical = 0
 scale = Vector2(0.6, 0.6)
 mouse_filter = 2
 
 [node name="Label" type="Label" parent="CenterContainer"]
 layout_mode = 2
-text = "LVL: 1"
+text = "1"
 label_settings = SubResource("LabelSettings_juv12")
+horizontal_alignment = 1
