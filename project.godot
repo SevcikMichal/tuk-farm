@@ -13,6 +13,7 @@ config_version=5
 config/name="Vemeno"
 run/main_scene="uid://hdejlod4jlu1"
 config/features=PackedStringArray("4.4", "Mobile")
+boot_splash/bg_color=Color(0, 0, 0, 1)
 config/icon="res://icon.svg"
 
 [autoload]
