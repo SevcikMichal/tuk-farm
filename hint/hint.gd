@@ -3,9 +3,6 @@ extends Control
 @export
 var hint_text: String
 
-@onready
-var _timer: Timer = get_node("Timer")
-
 var _hint_label: Label
 
 func _ready() -> void:
