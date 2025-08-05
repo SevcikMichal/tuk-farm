@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://g76phv1k4sqs"]
+[gd_scene load_steps=20 format=3 uid="uid://g76phv1k4sqs"]
 
 [ext_resource type="PackedScene" uid="uid://b2elg3q57q4sj" path="res://global/scene_setup/camera_3d.tscn" id="1_lxurg"]
 [ext_resource type="Script" uid="uid://dp8gk07ialapr" path="res://global/experience/experience_pusher.gd" id="1_sqpqj"]
@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://b3oylvx3y146q" path="res://fishing_controller/fishing_controller.tscn" id="6_h1tax"]
 [ext_resource type="PackedScene" uid="uid://djhol5r1q3de0" path="res://water/water.tscn" id="7_dnold"]
 [ext_resource type="PackedScene" uid="uid://dn8p6tif0fpiv" path="res://global/experience/experience.tscn" id="8_lxt84"]
+[ext_resource type="PackedScene" uid="uid://c05idj0yb4f10" path="res://hint/hint.tscn" id="10_86gsk"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dnold"]
 albedo_color = Color(1, 0.654902, 0.215686, 1)
@@ -71,6 +72,9 @@ visible = false
 mouse_filter = 2
 
 [node name="Experience" parent="UI" instance=ExtResource("8_lxt84")]
+
+[node name="Hint" parent="UI" instance=ExtResource("10_86gsk")]
+hint_text = "Swipe up to cast the rod! Swipe down to catch a fish!"
 
 [node name="Water" parent="." instance=ExtResource("7_dnold")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.8, 0)

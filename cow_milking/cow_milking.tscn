@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://01skae6kdp8p"]
+[gd_scene load_steps=18 format=3 uid="uid://01skae6kdp8p"]
 
 [ext_resource type="Script" uid="uid://dp8gk07ialapr" path="res://global/experience/experience_pusher.gd" id="1_i1a6h"]
 [ext_resource type="PackedScene" uid="uid://doqjvunhcfs67" path="res://milk_bucket/milk_bucket.tscn" id="2_bydsx"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://c7fb7ct3lqgec" path="res://debug/debug.tscn" id="4_mlqbd"]
 [ext_resource type="PackedScene" uid="uid://qjk6f61jkjhr" path="res://milking_controller/milking_controller.tscn" id="5_0kvvt"]
 [ext_resource type="PackedScene" uid="uid://csnyrhwij17g6" path="res://global/home_button/home_button.tscn" id="9_0kvvt"]
+[ext_resource type="PackedScene" uid="uid://c05idj0yb4f10" path="res://hint/hint.tscn" id="10_0ig7b"]
 [ext_resource type="PackedScene" uid="uid://dn8p6tif0fpiv" path="res://global/experience/experience.tscn" id="10_i1a6h"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ywrdx"]
@@ -152,6 +153,9 @@ visible = false
 mouse_filter = 2
 
 [node name="Experience" parent="UI" instance=ExtResource("10_i1a6h")]
+
+[node name="Hint" parent="UI" instance=ExtResource("10_0ig7b")]
+hint_text = "One finger up the other down to milk the cow!"
 
 [node name="PostProcess" parent="." instance=ExtResource("4_bydsx")]
 

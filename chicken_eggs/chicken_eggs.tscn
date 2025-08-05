@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://b7ptky0wls84g"]
+[gd_scene load_steps=26 format=3 uid="uid://b7ptky0wls84g"]
 
 [ext_resource type="PackedScene" uid="uid://bq7oqletifb5s" path="res://chicken/chicken.tscn" id="1_i0beg"]
 [ext_resource type="Script" uid="uid://dp8gk07ialapr" path="res://global/experience/experience_pusher.gd" id="1_rcmeq"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://c7fb7ct3lqgec" path="res://debug/debug.tscn" id="6_rs3o1"]
 [ext_resource type="PackedScene" uid="uid://csnyrhwij17g6" path="res://global/home_button/home_button.tscn" id="8_56g7l"]
 [ext_resource type="PackedScene" uid="uid://dn8p6tif0fpiv" path="res://global/experience/experience.tscn" id="9_rcmeq"]
+[ext_resource type="PackedScene" uid="uid://c05idj0yb4f10" path="res://hint/hint.tscn" id="10_lrarb"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_56g7l"]
 friction = 0.25
@@ -85,6 +86,9 @@ visible = false
 mouse_filter = 2
 
 [node name="Experience" parent="UI" instance=ExtResource("9_rcmeq")]
+
+[node name="Hint" parent="UI" instance=ExtResource("10_lrarb")]
+hint_text = "Squish/Pinch the chicken to lay eggs!"
 
 [node name="StaticBody3D2" type="StaticBody3D" parent="."]
 physics_material_override = SubResource("PhysicsMaterial_56g7l")

@@ -24,6 +24,7 @@ func actor_setup() -> void:
 func _unhandled_input(event) -> void:
 	if event is InputEventScreenTouch and event.pressed or event is InputEventScreenDrag:
 		_set_target_from_screen_position(event.position)
+		
 
 	if event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
 		_set_target_from_screen_position(event.position)

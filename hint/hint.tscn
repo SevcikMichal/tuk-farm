@@ -1,0 +1,43 @@
+[gd_scene load_steps=3 format=3 uid="uid://c05idj0yb4f10"]
+
+[ext_resource type="Script" uid="uid://dqttlq77rur6e" path="res://hint/hint.gd" id="1_c5qem"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_co3eb"]
+font_size = 100
+outline_size = 10
+outline_color = Color(0, 0, 0, 1)
+
+[node name="Hint" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("1_c5qem")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 3.0
+one_shot = true
+autostart = true
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="Label" type="Label" parent="CenterContainer"]
+custom_minimum_size = Vector2(900, 200)
+layout_mode = 2
+text = "Tap or drag on screen to move"
+label_settings = SubResource("LabelSettings_co3eb")
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
