@@ -8,7 +8,7 @@ var idle_timer: Timer = get_node("IdleTimer")
 @onready
 var animation: AnimationPlayer = get_node("AnimationPlayer")
 
-const MIN_SWIPE_DISTANCE: int = 200
+const MIN_SWIPE_DISTANCE: int = 150
 const MAX_TIME_DELTA_MS: int = 200
 const RESET_TIMEOUT_MS: int = 500
 
