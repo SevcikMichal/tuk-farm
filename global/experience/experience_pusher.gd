@@ -3,8 +3,11 @@ extends Node3D
 @export
 var level: Control
 
-@onready
-var _experience_state: ExperienceState = ExperienceState.new(0, 1, 1, 5, 5)
+
+var _experience_state: ExperienceState 
+
+func _ready() -> void:
+	Globals.set
 
 func _on_experience_gain_event() -> void:
 	if _experience_state.update_experience_state():

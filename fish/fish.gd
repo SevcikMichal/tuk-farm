@@ -12,7 +12,7 @@ func _ready() -> void:
 	_fish_model = _fish.get_node("Icosphere")
 	
 func set_color(color: Color) -> void:
-	var material := _fish_model.get_active_material(0)
+	var material = _fish_model.get_active_material(0)
 	if material == null:
 		material = StandardMaterial3D.new()
 	else:

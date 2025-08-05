@@ -125,7 +125,7 @@ func _on_fishing_timer_timeout() -> void:
 		_fishing_timer.start()
 
 func get_random_warm_color() -> Color:
-	var hue := randf_range(0.0, 0.15)
-	var saturation := randf_range(0.7, 1.0)
-	var value := randf_range(0.8, 1.0)
+	var hue = randf_range(0.0, 0.15)
+	var saturation = randf_range(0.7, 1.0)
+	var value = randf_range(0.8, 1.0)
 	return Color.from_hsv(hue, saturation, value)

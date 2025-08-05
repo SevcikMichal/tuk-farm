@@ -15,7 +15,7 @@ func _init(current_experience: int, experience_rate: int, level: int, next_level
 	_level_increase = level_increase
 
 func update_experience_state() -> bool:
-	_current_experience += _current_experience + _experience_rate
+	_current_experience = _current_experience + _experience_rate
 	if _current_experience >= _next_level:
 		_update_level()
 		return true
@@ -31,3 +31,21 @@ func get_level() -> int:
 
 func get_level_progress() -> float:
 	return float(_current_experience)/float(_next_level) * 100.0
+	
+func to_dict() -> Dictionary:
+	return {
+		"current_experience": _current_experience,
+		"experience_rate": _experience_rate,
+		"level": _level,
+		"next_level": _next_level,
+		"level_increase": _level_increase
+	}
+
+static func from_dict(data: Dictionary) -> ExperienceState:
+	return ExperienceState.new(
+		data.get("current_experience", 0),
+		data.get("experience_rate", 0),
+		data.get("level", 1),
+		data.get("next_level", 100),
+		data.get("level_increase", 50)
+	)

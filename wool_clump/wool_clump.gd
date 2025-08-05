@@ -10,7 +10,7 @@ var _particles: CPUParticles3D = get_node("RigidBody3D/CPUParticles3D")
 
 var _initial_position: Vector3
 var _initial_rotation: Vector3
-var _triggered := false
+var _triggered: bool = false
 
 func _ready() -> void:
 	_initial_rotation = rotation

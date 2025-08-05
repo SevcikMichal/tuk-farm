@@ -216,7 +216,7 @@ shape = SubResource("BoxShape3D_svax8")
 transform = Transform3D(0.548921, 0, 0.835874, 0, 1, 0, -0.835874, 0, 0.548921, -0.379986, 0.568681, 4.50022)
 script = ExtResource("2_qy3th")
 scene = ExtResource("3_lm1ga")
-score_save_id = "sheep"
+save_id = "sheep"
 interaction_radius = 2.0
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Sheeps"]
@@ -241,7 +241,7 @@ transform = Transform3D(0.183239, 0, 0.237537, 0, 0.3, 0, -0.237537, 0, 0.183239
 transform = Transform3D(-0.0506978, 0, 0.998714, 0, 1, 0, -0.998714, 0, -0.0506978, -4.18313, -4.76837e-07, -0.402667)
 script = ExtResource("2_qy3th")
 scene = ExtResource("5_4yqop")
-score_save_id = "cow"
+save_id = "cow"
 interaction_radius = 1.9
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Cows"]
@@ -260,7 +260,7 @@ transform = Transform3D(-0.514059, 0, -0.612979, 0, 0.8, 0, 0.612979, 0, -0.5140
 transform = Transform3D(0.696452, 0, 0.717604, 0, 1, 0, -0.717604, 0, 0.696452, 0.378105, 0, -4.40285)
 script = ExtResource("2_qy3th")
 scene = ExtResource("7_1jjdr")
-score_save_id = "chicken"
+save_id = "chicken"
 interaction_radius = 1.9
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Chickens"]
@@ -291,7 +291,7 @@ transform = Transform3D(-0.109825, 0, -0.167148, 0, 0.2, 0, 0.167148, 0, -0.1098
 transform = Transform3D(0.703742, 0, 0.710456, 0, 1, 0, -0.710456, 0, 0.703742, 6.12149, 0.420536, 0)
 script = ExtResource("2_qy3th")
 scene = ExtResource("9_ighx2")
-score_save_id = "fish"
+save_id = "pond"
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Pond"]
 

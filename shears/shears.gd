@@ -2,9 +2,8 @@ extends Node3D
 
 @export
 var camera: Camera3D
-@onready 
-var ray_length := 1000.0
 
+var ray_length: float = 1000.0
 var debug_ray: ImmediateMesh
 
 func _input(event) -> void:

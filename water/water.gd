@@ -15,7 +15,7 @@ func _ready():
 	_material = _water.get_active_material(0)
 	_foam_material = _foam.get_active_material(0)
 
-	var plane := _water.mesh as PlaneMesh
+	var plane = _water.mesh as PlaneMesh
 	var arrays = plane.get_mesh_arrays()
 	_original_vertices = arrays[Mesh.ARRAY_VERTEX].duplicate()
 
@@ -26,7 +26,7 @@ func _ready():
 	_water.mesh = _original_mesh
 	_water.material_override = _material
 	
-	var foam_mesh := ArrayMesh.new()
+	var foam_mesh = ArrayMesh.new()
 	foam_mesh.add_surface_from_arrays(Mesh.PRIMITIVE_TRIANGLES, _original_mesh.surface_get_arrays(0).duplicate())
 
 	foam_mesh.surface_set_material(0, _foam_material)
@@ -52,17 +52,17 @@ func _process(_delta):
 
 	_original_mesh.surface_set_material(0, _material)
 	
-	var foam_vertices := new_vertices.duplicate()
+	var foam_vertices = new_vertices.duplicate()
 	for i in foam_vertices.size():
 		var v = foam_vertices[i]
 		var wave = sin(v.x + time * 1.1) + cos(v.z + time * 1.3)
 		v.y = wave * 0.5 - 0.2
 		foam_vertices[i] = v
 
-	var foam_arrays := _original_mesh.surface_get_arrays(0)
+	var foam_arrays = _original_mesh.surface_get_arrays(0)
 	foam_arrays[Mesh.ARRAY_VERTEX] = foam_vertices
 
-	var foam_mesh := _foam.mesh as ArrayMesh
+	var foam_mesh = _foam.mesh as ArrayMesh
 	foam_mesh.clear_surfaces()
 	foam_mesh.add_surface_from_arrays(Mesh.PRIMITIVE_TRIANGLES, foam_arrays)
 	foam_mesh.surface_set_material(0, _foam_material)

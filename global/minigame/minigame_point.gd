@@ -4,7 +4,7 @@ extends Node3D
 var scene: PackedScene
 
 @export
-var score_save_id: String
+var save_id: String
 
 @export
 var interaction_radius: float = 3
