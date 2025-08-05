@@ -14,10 +14,12 @@ func _init(current_experience: int, experience_rate: int, level: int, next_level
 	_next_level = next_level
 	_level_increase = level_increase
 
-func update_experience_state() -> void:
+func update_experience_state() -> bool:
 	_current_experience += _current_experience + _experience_rate
 	if _current_experience >= _next_level:
 		_update_level()
+		return true
+	return false
 
 func _update_level() -> void:
 	_current_experience = _current_experience % _next_level
