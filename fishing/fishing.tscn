@@ -1,9 +1,9 @@
 [gd_scene load_steps=19 format=3 uid="uid://g76phv1k4sqs"]
 
-[ext_resource type="PackedScene" uid="uid://b2elg3q57q4sj" path="res://global/camera_3d.tscn" id="1_lxurg"]
+[ext_resource type="PackedScene" uid="uid://b2elg3q57q4sj" path="res://global/scene_setup/camera_3d.tscn" id="1_lxurg"]
 [ext_resource type="Script" uid="uid://dp8gk07ialapr" path="res://global/experience/experience_pusher.gd" id="1_sqpqj"]
-[ext_resource type="PackedScene" uid="uid://bbdx775276raa" path="res://global/directional_light_3d.tscn" id="2_dy0fc"]
-[ext_resource type="PackedScene" uid="uid://dag67ckbdflew" path="res://global/post_process.tscn" id="3_l07jn"]
+[ext_resource type="PackedScene" uid="uid://bbdx775276raa" path="res://global/scene_setup/directional_light_3d.tscn" id="2_dy0fc"]
+[ext_resource type="PackedScene" uid="uid://dag67ckbdflew" path="res://global/scene_setup/post_process.tscn" id="3_l07jn"]
 [ext_resource type="PackedScene" uid="uid://c7fb7ct3lqgec" path="res://debug/debug.tscn" id="4_dy0fc"]
 [ext_resource type="PackedScene" uid="uid://buhbw4s2y70v2" path="res://fishing_rod/fishing_rod.tscn" id="4_l07jn"]
 [ext_resource type="PackedScene" uid="uid://csnyrhwij17g6" path="res://global/home_button/home_button.tscn" id="6_8t1kh"]

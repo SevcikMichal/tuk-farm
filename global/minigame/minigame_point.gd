@@ -4,6 +4,9 @@ extends Node3D
 var scene: PackedScene
 
 @export
+var score_save_id: String
+
+@export
 var interaction_radius: float = 3
 
 func _check_proximity_and_act(farmer_position: Vector3) -> void:

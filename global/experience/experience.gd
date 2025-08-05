@@ -10,7 +10,7 @@ var _level_progress: ProgressBar = get_node("CenterContainer/VBoxContainer/Progr
 var _level_celebration: CPUParticles2D = get_node("CPUParticles2D")
 
 func update_level(level: int) -> void:
-	_level_label.text = "LVL: " + str(level)
+	_level_label.text = str(level)
 	_celebrate()
 	
 func update_progress(value: float) -> void:

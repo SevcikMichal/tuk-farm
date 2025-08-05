@@ -2,9 +2,9 @@
 
 [ext_resource type="PackedScene" uid="uid://bq7oqletifb5s" path="res://chicken/chicken.tscn" id="1_i0beg"]
 [ext_resource type="Script" uid="uid://dp8gk07ialapr" path="res://global/experience/experience_pusher.gd" id="1_rcmeq"]
-[ext_resource type="PackedScene" uid="uid://b2elg3q57q4sj" path="res://global/camera_3d.tscn" id="2_0tpng"]
-[ext_resource type="PackedScene" uid="uid://bbdx775276raa" path="res://global/directional_light_3d.tscn" id="3_6hepm"]
-[ext_resource type="PackedScene" uid="uid://dag67ckbdflew" path="res://global/post_process.tscn" id="4_56wwa"]
+[ext_resource type="PackedScene" uid="uid://b2elg3q57q4sj" path="res://global/scene_setup/camera_3d.tscn" id="2_0tpng"]
+[ext_resource type="PackedScene" uid="uid://bbdx775276raa" path="res://global/scene_setup/directional_light_3d.tscn" id="3_6hepm"]
+[ext_resource type="PackedScene" uid="uid://dag67ckbdflew" path="res://global/scene_setup/post_process.tscn" id="4_56wwa"]
 [ext_resource type="PackedScene" uid="uid://diknmv0ejsus7" path="res://egg_controller/egg_controller.tscn" id="5_56wwa"]
 [ext_resource type="PackedScene" uid="uid://c7fb7ct3lqgec" path="res://debug/debug.tscn" id="6_rs3o1"]
 [ext_resource type="PackedScene" uid="uid://csnyrhwij17g6" path="res://global/home_button/home_button.tscn" id="8_56g7l"]
