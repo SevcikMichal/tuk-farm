@@ -1,0 +1,42 @@
+class_name Configuration
+
+const CONFIGURATION_SAVE_PATH: String = "user://configuration.dat"
+
+var _show_hints: bool = true
+
+func _init(show_hints: bool = true) -> void:
+	_show_hints = show_hints
+	
+func set_show_hints(show_hints: bool) -> void:
+	_show_hints = show_hints
+
+func show_hints() -> bool:
+	return _show_hints
+
+func save_self() -> void:
+	var json = JSON.stringify(to_dict())
+	
+	var file = FileAccess.open(CONFIGURATION_SAVE_PATH, FileAccess.WRITE)
+	file.store_string(json)
+	
+	file.close()
+
+func load_self() -> void:
+	if not FileAccess.file_exists(CONFIGURATION_SAVE_PATH):
+		return
+	
+	var file = FileAccess.open(CONFIGURATION_SAVE_PATH, FileAccess.READ)
+	var json = file.get_as_text()
+	var data = JSON.parse_string(json)
+	
+	file.close()
+	
+	from_dict(data)
+	
+func to_dict() -> Dictionary:
+	return {
+		"show_hints": _show_hints
+	}
+
+func from_dict(data: Dictionary) -> void:
+	_show_hints = data.get("show_hints", true)	

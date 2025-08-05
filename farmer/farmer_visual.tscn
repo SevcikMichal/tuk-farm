@@ -171,12 +171,12 @@ libraries = {
 autoplay = "idle"
 
 [node name="Skeleton3D" parent="Armature" index="0"]
-bones/0/position = Vector3(0, -0.0254968, 0)
-bones/5/rotation = Quaternion(0.0145417, -0.0230162, -0.573693, 0.818618)
+bones/0/position = Vector3(0, -0.0025726, 0)
+bones/5/rotation = Quaternion(-0.00225818, 0.000822658, -0.573928, 0.818902)
 bones/6/rotation = Quaternion(0.0670007, -0.250003, -0.250003, 0.93301)
-bones/9/rotation = Quaternion(-0.0602498, -0.0857455, 0.570205, 0.814791)
-bones/10/rotation = Quaternion(0.208992, -0.0559979, 0.252991, 0.942965)
-bones/15/rotation = Quaternion(-0.532238, 0.0835029, 0.0530059, 0.840798)
-bones/17/rotation = Quaternion(-0.0831871, 0.00487539, 0.0622577, 0.994575)
-bones/20/rotation = Quaternion(0.496171, 0.0787294, -0.0447761, 0.863488)
-bones/22/rotation = Quaternion(0.129805, 0.0123907, -0.0965538, 0.986749)
+bones/9/rotation = Quaternion(-0.0483294, -0.0686118, 0.571308, 0.816434)
+bones/10/rotation = Quaternion(0.208966, -0.0559908, 0.252992, 0.942971)
+bones/15/rotation = Quaternion(-0.533345, 0.0634682, 0.040388, 0.842546)
+bones/17/rotation = Quaternion(-0.082997, 0.00693056, 0.0862422, 0.992787)
+bones/20/rotation = Quaternion(0.497105, 0.0574406, -0.0325238, 0.865176)
+bones/22/rotation = Quaternion(0.129948, 0.0111436, -0.0870895, 0.987626)

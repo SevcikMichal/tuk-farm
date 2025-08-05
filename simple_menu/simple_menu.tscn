@@ -1,4 +1,4 @@
-[gd_scene load_steps=36 format=3 uid="uid://cxlwr1n6nvjar"]
+[gd_scene load_steps=38 format=3 uid="uid://cxlwr1n6nvjar"]
 
 [ext_resource type="Script" uid="uid://bpmd4j067vxy6" path="res://simple_menu/simple_menu.gd" id="1_r45ow"]
 [ext_resource type="Script" uid="uid://ny6w160fas55" path="res://global/minigame/minigame_point.gd" id="2_qy3th"]
@@ -70,6 +70,14 @@ material = SubResource("StandardMaterial3D_xwc0b")
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_7ulba"]
 size = Vector3(3.44048, 1, 2.79639)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ighx2"]
+bg_color = Color(0.6, 0.6, 0.6, 0.364706)
+expand_margin_left = 20.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_d667u"]
+bg_color = Color(0.6, 0.6, 0.6, 0.364706)
+expand_margin_left = 20.0
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ogtfj"]
 bg_color = Color(0.6, 0.6, 0.6, 0.364706)
@@ -368,9 +376,30 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="MarginContainer2" type="MarginContainer" parent="UI/SimpleMenu/VBoxContainer"]
-custom_minimum_size = Vector2(0, 200)
+[node name="MarginContainer4" type="MarginContainer" parent="UI/SimpleMenu/VBoxContainer"]
+custom_minimum_size = Vector2(0, 100)
 layout_mode = 2
+
+[node name="MarginContainer2" type="MarginContainer" parent="UI/SimpleMenu/VBoxContainer"]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="UI/SimpleMenu/VBoxContainer/MarginContainer2"]
+layout_direction = 3
+layout_mode = 2
+
+[node name="CheckButton" type="CheckButton" parent="UI/SimpleMenu/VBoxContainer/MarginContainer2/HBoxContainer"]
+custom_minimum_size = Vector2(220, 0)
+layout_direction = 3
+layout_mode = 2
+theme_override_constants/outline_size = 5
+theme_override_constants/h_separation = 0
+theme_override_constants/align_to_largest_stylebox = 1
+theme_override_font_sizes/font_size = 30
+theme_override_styles/pressed = SubResource("StyleBoxFlat_ighx2")
+theme_override_styles/normal = SubResource("StyleBoxFlat_d667u")
+text = "Show Hints"
+expand_icon = true
 
 [node name="Label" type="Label" parent="UI/SimpleMenu/VBoxContainer"]
 custom_minimum_size = Vector2(900, 0)
@@ -412,4 +441,5 @@ text = "Offline"
 
 [node name="PostProcess" parent="." instance=ExtResource("12_ogtfj")]
 
+[connection signal="toggled" from="UI/SimpleMenu/VBoxContainer/MarginContainer2/HBoxContainer/CheckButton" to="UI/SimpleMenu" method="_on_check_button_toggled"]
 [connection signal="pressed" from="UI/SimpleMenu/VBoxContainer/Offline" to="UI/SimpleMenu" method="_on_offline_pressed"]
