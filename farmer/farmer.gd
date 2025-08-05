@@ -54,7 +54,7 @@ func _physics_process(_delta) -> void:
 	velocity = current_agent_position.direction_to(next_path_position) * MOVEMENT_SPEED
 	
 	if velocity.length() > 0.01:
-		_animations.play("walk", -1, 2.0)
+		_animations.play("walk", -1, 3.5)
 		var flat_velocity = velocity
 		flat_velocity.y = 0
 		look_at(global_position + flat_velocity.normalized(), Vector3.UP)
