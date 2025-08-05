@@ -33,6 +33,7 @@ material = SubResource("StandardMaterial3D_rvbjl")
 
 [node name="CowMilking" type="Node3D" node_paths=PackedStringArray("level")]
 script = ExtResource("1_i1a6h")
+save_id = "cow"
 level = NodePath("UI/Experience")
 
 [node name="Camera3D" parent="." instance=ExtResource("2_rvbjl")]

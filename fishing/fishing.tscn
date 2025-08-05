@@ -45,6 +45,7 @@ rings = 4
 
 [node name="Fishing" type="Node3D" node_paths=PackedStringArray("level")]
 script = ExtResource("1_sqpqj")
+save_id = "fishing"
 level = NodePath("UI/Experience")
 
 [node name="Camera3D" parent="." instance=ExtResource("1_lxurg")]

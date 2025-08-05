@@ -33,6 +33,7 @@ material = SubResource("StandardMaterial3D_bydsx")
 
 [node name="SheepShearing" type="Node3D" node_paths=PackedStringArray("level")]
 script = ExtResource("1_0ikuk")
+save_id = "sheep"
 level = NodePath("UI/Experience")
 
 [node name="DirectionalLight3D" parent="." instance=ExtResource("2_5xpdv")]

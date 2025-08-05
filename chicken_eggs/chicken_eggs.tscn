@@ -59,6 +59,7 @@ rings = 4
 
 [node name="chicken_eggs" type="Node3D" node_paths=PackedStringArray("level")]
 script = ExtResource("1_rcmeq")
+save_id = "chicken"
 level = NodePath("UI/Experience")
 
 [node name="chicken" parent="." instance=ExtResource("1_i0beg")]
