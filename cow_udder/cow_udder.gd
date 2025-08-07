@@ -57,5 +57,6 @@ func _on_milking_controller_rhythm(state: String, last_zone: String) -> void:
 		_great_rhythm()
 	elif state == "bad":
 		_bad_rhythm()
-		
-	
+
+func _on_milk_bucket_bucket_full():
+	_milk_animations.clear_queue()

@@ -10,7 +10,7 @@ signal zone_released(zone: String)
 var zone_name: String
 
 var _drag_start_position: Vector2
-var _last_direction: String = ""
+var _last_direction: String = ""	
 
 func _gui_input(event: InputEvent) -> void:
 	if event is InputEventScreenTouch:
@@ -21,10 +21,10 @@ func _gui_input(event: InputEvent) -> void:
 	
 	elif event is InputEventScreenDrag:
 		var vertical_distance = abs(event.position.y - _drag_start_position.y)
-		var vertical_speed = abs(event.velocity.y)
+		var vertical_speed = abs(event.velocity.y)	
+		
 		if vertical_distance >= MIN_DRAG_DISTANCE and vertical_speed >= MIN_DRAG_SPEED:
 			var direction = "down" if event.velocity.y > 0 else "up"
-
 			if direction != _last_direction:
 				_drag_start_position = event.position
 				_last_direction = direction

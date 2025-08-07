@@ -236,35 +236,35 @@ one_shot = true
 
 [node name="MarginContainerL" type="MarginContainer" parent="."]
 layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.5
+anchors_preset = 2
 anchor_top = 1.0
-anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -436.0
-offset_top = -1105.0
+offset_top = -1640.0
+offset_right = 436.0
+grow_vertical = 0
 
 [node name="Left" type="ColorRect" parent="MarginContainerL"]
 layout_mode = 2
 mouse_filter = 1
-color = Color(1, 1, 1, 0.0196078)
+color = Color(1, 1, 1, 0)
 script = ExtResource("2_oa2ic")
 zone_name = "left"
 
 [node name="Down1" type="TextureRect" parent="MarginContainerL/Left"]
 visible = false
 layout_mode = 0
+offset_top = 535.177
 offset_right = 1024.0
-offset_bottom = 1024.0
+offset_bottom = 1559.18
 scale = Vector2(0.425, 0.409)
 texture = ExtResource("3_oa2ic")
 
 [node name="Down2" type="TextureRect" parent="MarginContainerL/Left"]
 visible = false
 layout_mode = 0
-offset_top = 678.198
+offset_top = 1213.37
 offset_right = 1024.0
-offset_bottom = 1702.2
+offset_bottom = 2237.38
 scale = Vector2(0.425, 0.409)
 texture = ExtResource("3_oa2ic")
 
@@ -272,9 +272,9 @@ texture = ExtResource("3_oa2ic")
 visible = false
 layout_mode = 0
 offset_left = 435.2
-offset_top = 419.057
+offset_top = 954.23
 offset_right = 1459.2
-offset_bottom = 1443.06
+offset_bottom = 1978.24
 rotation = 3.14159
 scale = Vector2(0.425, 0.409)
 texture = ExtResource("3_oa2ic")
@@ -283,44 +283,47 @@ texture = ExtResource("3_oa2ic")
 visible = false
 layout_mode = 0
 offset_left = 435.2
-offset_top = 1100.25
+offset_top = 1635.43
 offset_right = 1459.2
-offset_bottom = 2124.25
+offset_bottom = 2659.43
 rotation = 3.14159
 scale = Vector2(0.425, 0.409)
 texture = ExtResource("3_oa2ic")
 
 [node name="MarginContainerR" type="MarginContainer" parent="."]
 layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.5
+anchors_preset = 3
+anchor_left = 1.0
 anchor_top = 1.0
-anchor_right = 0.5
+anchor_right = 1.0
 anchor_bottom = 1.0
-offset_top = -1105.0
-offset_right = 436.0
+offset_left = -436.0
+offset_top = -1654.0
+grow_horizontal = 0
+grow_vertical = 0
 
 [node name="Right" type="ColorRect" parent="MarginContainerR"]
 layout_mode = 2
 mouse_filter = 1
-color = Color(1, 1, 1, 0.0196078)
+color = Color(1, 1, 1, 0)
 script = ExtResource("2_oa2ic")
 zone_name = "right"
 
 [node name="Down1" type="TextureRect" parent="MarginContainerR/Right"]
 visible = false
 layout_mode = 0
+offset_top = 557.142
 offset_right = 1024.0
-offset_bottom = 1024.0
+offset_bottom = 1581.15
 scale = Vector2(0.425, 0.409)
 texture = ExtResource("3_oa2ic")
 
 [node name="Down2" type="TextureRect" parent="MarginContainerR/Right"]
 visible = false
 layout_mode = 0
-offset_top = 673.206
+offset_top = 1230.35
 offset_right = 1024.0
-offset_bottom = 1697.21
+offset_bottom = 2254.35
 scale = Vector2(0.425, 0.409)
 texture = ExtResource("3_oa2ic")
 
@@ -328,9 +331,9 @@ texture = ExtResource("3_oa2ic")
 visible = false
 layout_mode = 0
 offset_left = 435.2
-offset_top = 419.057
+offset_top = 976.195
 offset_right = 1459.2
-offset_bottom = 1443.06
+offset_bottom = 2000.21
 rotation = 3.14159
 scale = Vector2(0.425, 0.409)
 texture = ExtResource("3_oa2ic")
@@ -339,9 +342,9 @@ texture = ExtResource("3_oa2ic")
 visible = false
 layout_mode = 0
 offset_left = 435.2
-offset_top = 1100.25
+offset_top = 1657.4
 offset_right = 1459.2
-offset_bottom = 2124.25
+offset_bottom = 2681.4
 rotation = 3.14159
 scale = Vector2(0.425, 0.409)
 texture = ExtResource("3_oa2ic")

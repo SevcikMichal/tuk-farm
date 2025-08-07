@@ -4,11 +4,11 @@ const CONFIGURATION_SAVE_PATH: String = "user://configuration.dat"
 
 var _show_hints: bool = true
 
-func _init(show_hints: bool = true) -> void:
-	_show_hints = show_hints
+func _init(show_hints_in: bool = true) -> void:
+	_show_hints = show_hints_in
 	
-func set_show_hints(show_hints: bool) -> void:
-	_show_hints = show_hints
+func set_show_hints(show_hints_in: bool) -> void:
+	_show_hints = show_hints_in
 
 func show_hints() -> bool:
 	return _show_hints

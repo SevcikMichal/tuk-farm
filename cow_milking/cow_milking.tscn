@@ -144,15 +144,15 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.087154, 4.10645, 0)
 [node name="UI" type="CanvasLayer" parent="."]
 layer = 2
 
-[node name="HomeButton" parent="UI" instance=ExtResource("9_0kvvt")]
-
 [node name="Debug" parent="UI" instance=ExtResource("4_mlqbd")]
 visible = false
 
-[node name="MilkingController" parent="UI" instance=ExtResource("5_0kvvt")]
-mouse_filter = 2
+[node name="HomeButton" parent="UI" instance=ExtResource("9_0kvvt")]
 
 [node name="Experience" parent="UI" instance=ExtResource("10_i1a6h")]
+
+[node name="MilkingController" parent="UI" instance=ExtResource("5_0kvvt")]
+mouse_filter = 2
 
 [node name="Hint" parent="UI" instance=ExtResource("10_0ig7b")]
 hint_text = "One finger up the other down to milk the cow!"
@@ -160,5 +160,6 @@ hint_text = "One finger up the other down to milk the cow!"
 [node name="PostProcess" parent="." instance=ExtResource("4_bydsx")]
 
 [connection signal="bucket_full" from="MilkBucket" to="." method="_on_experience_gain_event"]
+[connection signal="bucket_full" from="MilkBucket" to="CowUdder" method="_on_milk_bucket_bucket_full"]
 [connection signal="milked" from="CowUdder" to="MilkBucket" method="_on_cow_udder_milked"]
 [connection signal="rhythm" from="UI/MilkingController" to="CowUdder" method="_on_milking_controller_rhythm"]
