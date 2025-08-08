@@ -17,5 +17,6 @@ func _check_proximity_and_act(farmer_position: Vector3) -> void:
 func load_game_scene() -> void:
 	get_tree().change_scene_to_packed.call_deferred(scene)
 
-func _on_farmer_walk_finished(farmer_position: Vector3) -> void:
-	_check_proximity_and_act(farmer_position)
+func _on_area_3d_body_entered(body) -> void:
+	if body is CharacterBody3D and body.name == "Farmer":
+		load_game_scene()

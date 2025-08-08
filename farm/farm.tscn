@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=3 uid="uid://hdejlod4jlu1"]
+[gd_scene load_steps=41 format=3 uid="uid://hdejlod4jlu1"]
 
 [ext_resource type="Script" uid="uid://ny6w160fas55" path="res://global/minigame/minigame_point.gd" id="1_mjpad"]
 [ext_resource type="PackedScene" uid="uid://b2elg3q57q4sj" path="res://global/scene_setup/camera_3d.tscn" id="1_ukrf4"]
@@ -39,14 +39,38 @@ size = Vector3(0.2, 0.2, 100)
 [sub_resource type="BoxShape3D" id="BoxShape3D_mjpad"]
 size = Vector3(0.5, 2, 100)
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_tafdm"]
+size = Vector3(0.5, 1, 2)
+
+[sub_resource type="TextMesh" id="TextMesh_tafdm"]
+text = "Sheep 
+Shearing"
+font_size = 40
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jcpv1"]
+albedo_color = Color(0, 1, 0.478431, 1)
+
+[sub_resource type="QuadMesh" id="QuadMesh_s5yk0"]
+material = SubResource("StandardMaterial3D_jcpv1")
+
 [sub_resource type="BoxShape3D" id="BoxShape3D_a1lvl"]
 size = Vector3(0.722062, 0.724121, 0.890867)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_qys1r"]
 size = Vector3(1.85533, 1, 1)
 
+[sub_resource type="TextMesh" id="TextMesh_5byl4"]
+text = "Cow 
+Milking"
+font_size = 50
+
 [sub_resource type="BoxShape3D" id="BoxShape3D_udp8x"]
 size = Vector3(1.13829, 1, 1.26855)
+
+[sub_resource type="TextMesh" id="TextMesh_6cb61"]
+text = "Eggs
+Laying"
+font_size = 50
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_pa1w6"]
 radius = 3.09814
@@ -65,6 +89,10 @@ albedo_color = Color(0.917647, 0.701961, 0.243137, 1)
 [sub_resource type="CylinderMesh" id="CylinderMesh_gvuxw"]
 material = SubResource("StandardMaterial3D_6cb61")
 top_radius = 5.53
+
+[sub_resource type="TextMesh" id="TextMesh_x1uu6"]
+text = "Fishing"
+font_size = 50
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_x1uu6"]
 albedo_color = Color(0.699636, 0.393788, 0.101872, 1)
@@ -210,6 +238,21 @@ script = ExtResource("1_mjpad")
 scene = ExtResource("2_udp8x")
 interaction_radius = 2.0
 
+[node name="Area3D" type="Area3D" parent="NavigationRegion3D/Sheeps"]
+transform = Transform3D(0.753942, 0, 0.656941, 0, 1, 0, -0.656941, 0, 0.753942, 1.35168, 0, -0.253319)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="NavigationRegion3D/Sheeps/Area3D"]
+shape = SubResource("BoxShape3D_tafdm")
+debug_color = Color(0.983296, 0, 0.354346, 0.42)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="NavigationRegion3D/Sheeps/Area3D"]
+transform = Transform3D(0.109613, 0.993975, 4.3448e-08, -3.82871e-17, -4.37114e-08, 1, 0.993975, -0.109613, -4.79133e-09, -0.728257, -0.427557, 1.70101)
+mesh = SubResource("TextMesh_tafdm")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="NavigationRegion3D/Sheeps/Area3D"]
+transform = Transform3D(1, -2.98023e-08, -4.44089e-16, 0, -4.37114e-08, 1, -2.98023e-08, -1, -4.37114e-08, 0.213488, -0.532976, 0.209614)
+mesh = SubResource("QuadMesh_s5yk0")
+
 [node name="StaticBody3D" type="StaticBody3D" parent="NavigationRegion3D/Sheeps"]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="NavigationRegion3D/Sheeps/StaticBody3D"]
@@ -246,6 +289,21 @@ transform = Transform3D(0.512023, 0, -0.61468, 0, 0.8, 0, 0.61468, 0, 0.512023, 
 [node name="sheep2" parent="NavigationRegion3D/Cows/StaticBody3D" instance=ExtResource("5_gvuxw")]
 transform = Transform3D(-0.514059, 0, -0.612979, 0, 0.8, 0, 0.612979, 0, -0.514059, 1.07212, 0.816859, 0.736967)
 
+[node name="Area3D" type="Area3D" parent="NavigationRegion3D/Cows"]
+transform = Transform3D(-0.0666571, 0, -0.997776, 0, 1, 0, 0.997776, 0, -0.0666571, 0.602005, 0.557626, 1.36299)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="NavigationRegion3D/Cows/Area3D"]
+shape = SubResource("BoxShape3D_tafdm")
+debug_color = Color(0.983296, 0, 0.354346, 0.42)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="NavigationRegion3D/Cows/Area3D"]
+transform = Transform3D(0.456433, -0.882946, 0.109894, -0.052035, 0.0968095, 0.993942, -0.888236, -0.459386, -0.00175704, -0.0966105, -0.427557, 2.00631)
+mesh = SubResource("TextMesh_5byl4")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="NavigationRegion3D/Cows/Area3D"]
+transform = Transform3D(0.957788, 0.287478, 1.2566e-08, 1.72694e-15, -4.37114e-08, 1, 0.287478, -0.957788, -4.18662e-08, 0.16383, -0.532976, 0.316548)
+mesh = SubResource("QuadMesh_s5yk0")
+
 [node name="Chickens" type="Node3D" parent="NavigationRegion3D"]
 transform = Transform3D(0.696452, 0, 0.717604, 0, 1, 0, -0.717604, 0, 0.696452, 0.378105, 0, -4.40285)
 script = ExtResource("1_mjpad")
@@ -276,6 +334,21 @@ transform = Transform3D(0.150264, 0, -0.131987, 0, 0.2, 0, 0.131987, 0, 0.150264
 [node name="chicken6" parent="NavigationRegion3D/Chickens/StaticBody3D" instance=ExtResource("5_ckfc8")]
 transform = Transform3D(-0.109825, 0, -0.167148, 0, 0.2, 0, 0.167148, 0, -0.109825, 0.268544, 0.259131, -1.24868)
 
+[node name="Area3D" type="Area3D" parent="NavigationRegion3D/Chickens"]
+transform = Transform3D(-0.419642, 0, -0.907689, 0, 1, 0, 0.907689, 0, -0.419642, -0.991094, 0.557626, 0.703515)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="NavigationRegion3D/Chickens/Area3D"]
+shape = SubResource("BoxShape3D_tafdm")
+debug_color = Color(0.983296, 0, 0.354346, 0.42)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="NavigationRegion3D/Chickens/Area3D"]
+transform = Transform3D(0.183703, -0.977379, 0.104813, -0.052035, 0.0968095, 0.993942, -0.981604, -0.188044, -0.0330737, -0.0347152, -0.427557, -1.60635)
+mesh = SubResource("TextMesh_6cb61")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="NavigationRegion3D/Chickens/Area3D"]
+transform = Transform3D(0.957788, 0.287478, 1.2566e-08, 1.72694e-15, -4.37114e-08, 1, 0.287478, -0.957788, -4.18662e-08, 0.16383, -0.532976, 0.316548)
+mesh = SubResource("QuadMesh_s5yk0")
+
 [node name="Pond" type="Node3D" parent="NavigationRegion3D"]
 transform = Transform3D(0.703742, 0, 0.710456, 0, 1, 0, -0.710456, 0, 0.703742, 6.12149, 0.420536, 0)
 script = ExtResource("1_mjpad")
@@ -298,6 +371,21 @@ mesh = SubResource("CylinderMesh_pa1w6")
 [node name="MeshInstance3D2" type="MeshInstance3D" parent="NavigationRegion3D/Pond/StaticBody3D"]
 transform = Transform3D(0.887791, 0, 0, 0, 1.03149, 0, 0, 0, 0.81428, 2.01768, -1.3703, 1.36679)
 mesh = SubResource("CylinderMesh_gvuxw")
+
+[node name="Area3D" type="Area3D" parent="NavigationRegion3D/Pond"]
+transform = Transform3D(-0.90091, 0, 0.434005, 0, 1, 0, -0.434005, 0, -0.90091, -1.87437, 0.146146, -1.52272)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="NavigationRegion3D/Pond/Area3D"]
+shape = SubResource("BoxShape3D_tafdm")
+debug_color = Color(0.983296, 0, 0.354346, 0.42)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="NavigationRegion3D/Pond/Area3D"]
+transform = Transform3D(-0.982152, -0.185109, -0.0333882, -0.052035, 0.0968095, 0.993942, -0.180756, 0.977939, -0.104714, 0.19786, -0.427557, 1.4096)
+mesh = SubResource("TextMesh_x1uu6")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="NavigationRegion3D/Pond/Area3D"]
+transform = Transform3D(0.957788, 0.287478, 1.2566e-08, 1.72694e-15, -4.37114e-08, 1, 0.287478, -0.957788, -4.18662e-08, 0.16383, -0.532976, 0.316548)
+mesh = SubResource("QuadMesh_s5yk0")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="NavigationRegion3D"]
 transform = Transform3D(5.24936, 0, 0, 0, 1, 0, 0, 0, 1, 2.22491, -0.4819, -0.00515485)
@@ -348,6 +436,10 @@ offset = Vector3(4, 4, 4)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.198624, 0)
 camera = NodePath("../Camera3D")
 
+[connection signal="body_entered" from="NavigationRegion3D/Sheeps/Area3D" to="NavigationRegion3D/Sheeps" method="_on_area_3d_body_entered"]
+[connection signal="body_entered" from="NavigationRegion3D/Cows/Area3D" to="NavigationRegion3D/Cows" method="_on_area_3d_body_entered"]
+[connection signal="body_entered" from="NavigationRegion3D/Chickens/Area3D" to="NavigationRegion3D/Chickens" method="_on_area_3d_body_entered"]
+[connection signal="body_entered" from="NavigationRegion3D/Pond/Area3D" to="NavigationRegion3D/Pond" method="_on_area_3d_body_entered"]
 [connection signal="walk_finished" from="Farmer" to="NavigationRegion3D/Sheeps" method="_on_farmer_walk_finished"]
 [connection signal="walk_finished" from="Farmer" to="NavigationRegion3D/Cows" method="_on_farmer_walk_finished"]
 [connection signal="walk_finished" from="Farmer" to="NavigationRegion3D/Chickens" method="_on_farmer_walk_finished"]
