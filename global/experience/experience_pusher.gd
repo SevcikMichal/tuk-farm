@@ -14,7 +14,7 @@ func _ready() -> void:
 	var saved_experience_state = _save_strategy.load_experience_state(save_id)
 	
 	if not saved_experience_state:
-		_experience_state = ExperienceState.new(0, 1, 1, 5, 5)
+		_experience_state = ExperienceState.new(0, 1, 1, 5, 1)
 	else:
 		_experience_state = saved_experience_state
 		
