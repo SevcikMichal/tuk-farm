@@ -68,3 +68,9 @@ func _on_hint_timer_timeout():
 		_hint_animation.play()
 	else:
 		_hint_timer.start()
+
+
+func _on_fishing_rod_throw_reset():
+	_allow_swipe_down = false
+	_allow_swipe_up = false
+	_hint_arrow.flip_v = false

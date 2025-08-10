@@ -7,6 +7,7 @@ const MAX_FISH_DELTA_MS: int = 3000
 const FISH_TO_CATCH: int = 1
 
 signal throw_finished
+signal throw_reset
 signal hook_finished
 signal fish_caught
 
@@ -140,6 +141,7 @@ func get_random_warm_color() -> Color:
 
 func _on_reset_timer_timeout():
 	_fishing_animation.play("Thrown_Idle")
+	emit_signal("throw_reset")
 	_fishing_timer.start()
 	_bubbles.visible = false
 	_reset_timer.stop()

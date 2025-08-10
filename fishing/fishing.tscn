@@ -217,5 +217,6 @@ mesh = SubResource("SphereMesh_8t1kh")
 [connection signal="fish_caught" from="FishingRod" to="." method="_on_experience_gain_event"]
 [connection signal="hook_finished" from="FishingRod" to="UI/FishingController" method="_on_fishing_rod_hook_finished"]
 [connection signal="throw_finished" from="FishingRod" to="UI/FishingController" method="_on_fishing_rod_throw_finished"]
+[connection signal="throw_reset" from="FishingRod" to="UI/FishingController" method="_on_fishing_rod_throw_reset"]
 [connection signal="swipe_down_detected" from="UI/FishingController" to="FishingRod" method="_on_fishing_controller_swipe_down_detected"]
 [connection signal="swipe_up_detected" from="UI/FishingController" to="FishingRod" method="_on_fishing_controller_swipe_up_detected"]
