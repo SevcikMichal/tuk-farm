@@ -40,7 +40,6 @@ var _fish_caught: int = 0
 
 func _ready():
 	_reset_timer.wait_time = MAX_FISH_DELTA_MS / 1000.0
-	_on_fishing_controller_swipe_up_detected()
 
 func _process(_delta: float) -> void:
 	update_fishing_line()
