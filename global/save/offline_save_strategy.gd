@@ -24,7 +24,7 @@ func load_experience_state(save_id: String) -> ExperienceState:
 	
 	return ExperienceState.from_dict(data)
 
-func delete_experience_stat(save_id: String) -> void:
+func delete_experience_state(save_id: String) -> void:
 	if not FileAccess.file_exists(EXPERIENCE_STATE_SAVE_PATH % save_id):
 		return
 	DirAccess.remove_absolute(EXPERIENCE_STATE_SAVE_PATH % save_id)

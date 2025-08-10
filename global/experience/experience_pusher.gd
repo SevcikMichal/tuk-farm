@@ -10,7 +10,7 @@ var level: Control
 var _save_strategy: SaveStrategy = Mode.get_save_strategy()
 var _experience_state: ExperienceState 
 
-func _ready() -> void:
+func _ready() -> void:	
 	var saved_experience_state = _save_strategy.load_experience_state(save_id)
 	
 	if not saved_experience_state:
