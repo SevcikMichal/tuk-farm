@@ -1,4 +1,4 @@
-[gd_scene load_steps=38 format=3 uid="uid://cxlwr1n6nvjar"]
+[gd_scene load_steps=40 format=3 uid="uid://cxlwr1n6nvjar"]
 
 [ext_resource type="Script" uid="uid://bpmd4j067vxy6" path="res://simple_menu/simple_menu.gd" id="1_r45ow"]
 [ext_resource type="Script" uid="uid://ny6w160fas55" path="res://global/minigame/minigame_point.gd" id="2_qy3th"]
@@ -78,6 +78,17 @@ expand_margin_left = 20.0
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_d667u"]
 bg_color = Color(0.6, 0.6, 0.6, 0.364706)
 expand_margin_left = 20.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ohf23"]
+bg_color = Color(0.6, 0.6, 0.6, 0.364706)
+expand_margin_left = 100.0
+expand_margin_top = 23.0
+expand_margin_bottom = 23.0
+
+[sub_resource type="LabelSettings" id="LabelSettings_1jjdr"]
+font_size = 40
+outline_size = 5
+outline_color = Color(0, 0, 0, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ogtfj"]
 bg_color = Color(0.6, 0.6, 0.6, 0.364706)
@@ -375,6 +386,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_constants/separation = 11
 
 [node name="MarginContainer4" type="MarginContainer" parent="UI/SimpleMenu/VBoxContainer"]
 custom_minimum_size = Vector2(0, 100)
@@ -400,6 +412,12 @@ theme_override_styles/pressed = SubResource("StyleBoxFlat_ighx2")
 theme_override_styles/normal = SubResource("StyleBoxFlat_d667u")
 text = "Show Hints"
 expand_icon = true
+
+[node name="Label" type="Label" parent="UI/SimpleMenu/VBoxContainer/MarginContainer2/HBoxContainer"]
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_ohf23")
+text = "Toggle hints in the game ->      "
+label_settings = SubResource("LabelSettings_1jjdr")
 
 [node name="Label" type="Label" parent="UI/SimpleMenu/VBoxContainer"]
 custom_minimum_size = Vector2(900, 0)
