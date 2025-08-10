@@ -73,5 +73,6 @@ grow_vertical = 0
 visible = false
 layout_mode = 2
 texture = ExtResource("1_kg2vi")
+flip_v = true
 
 [connection signal="timeout" from="HintTimer" to="." method="_on_hint_timer_timeout"]
