@@ -80,6 +80,59 @@ tracks/5/keys = {
 "values": [false]
 }
 
+[sub_resource type="Animation" id="Animation_0xa4p"]
+resource_name = "Hooked"
+length = 2.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("fishing_rod:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1, 2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, 0.0665447, 0), Vector3(0, 0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("FishingLine/LineStart:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1, 2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(1.6671, 1.59561, 0), Vector3(1.5368, 1.75819, 0), Vector3(1.6671, 1.59561, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("FishingLine/LineEnd:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.433333, 0.6, 0.8, 1, 1.2, 1.4, 1.63333, 1.8, 2),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(6.753, -1.8, 0), Vector3(8.198, -2.505, -2.25), Vector3(6.753, -1.75, 0.435), Vector3(6.753, -2.725, 1.645), Vector3(7.248, -2.46, 2.25), Vector3(6.753, -1.802, -1.23), Vector3(6.758, -2.301, 1.016), Vector3(6.784, -2.69, -0.017), Vector3(6.774, -2.65, -0.011), Vector3(6.764, -2.679, -0.756), Vector3(6.753, -1.8, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("fishing_rod:rotation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 1, 2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, 0, 0.0675792), Vector3(0, 0, 0)]
+}
+
 [sub_resource type="Animation" id="Animation_rcpge"]
 resource_name = "Idle"
 length = 2.0
@@ -301,59 +354,6 @@ tracks/3/keys = {
 "values": [Vector3(0, 0, 0), Vector3(0, 0, 0.0675792), Vector3(0, 0, 0)]
 }
 
-[sub_resource type="Animation" id="Animation_0xa4p"]
-resource_name = "Hooked"
-length = 2.0
-loop_mode = 1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("fishing_rod:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 1, 2),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [Vector3(0, 0, 0), Vector3(0, 0.0665447, 0), Vector3(0, 0, 0)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("FishingLine/LineStart:position")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 1, 2),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [Vector3(1.6671, 1.59561, 0), Vector3(1.5368, 1.75819, 0), Vector3(1.6671, 1.59561, 0)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("FishingLine/LineEnd:position")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.2, 0.433333, 0.6, 0.8, 1, 1.2, 1.4, 1.63333, 1.8, 2),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
-"update": 0,
-"values": [Vector3(6.753, -1.8, 0), Vector3(8.198, -2.505, -2.25), Vector3(6.753, -1.75, 0.435), Vector3(6.753, -2.725, 1.645), Vector3(7.248, -2.46, 2.25), Vector3(6.753, -1.802, -1.23), Vector3(6.758, -2.301, 1.016), Vector3(6.784, -2.69, -0.017), Vector3(6.774, -2.65, -0.011), Vector3(6.764, -2.679, -0.756), Vector3(6.753, -1.8, 0)]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("fishing_rod:rotation")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0, 1, 2),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [Vector3(0, 0, 0), Vector3(0, 0, 0.0675792), Vector3(0, 0, 0)]
-}
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_tfe6e"]
 _data = {
 &"Hook": SubResource("Animation_dj25p"),
@@ -403,6 +403,8 @@ script = ExtResource("1_dj25p")
 
 [node name="FishingTimer" type="Timer" parent="."]
 
+[node name="ResetTimer" type="Timer" parent="."]
+
 [node name="FishingAnimation" type="AnimationPlayer" parent="."]
 libraries = {
 &"": SubResource("AnimationLibrary_tfe6e")
@@ -439,4 +441,5 @@ process_material = SubResource("ParticleProcessMaterial_tfe6e")
 draw_pass_1 = SubResource("SphereMesh_rcpge")
 
 [connection signal="timeout" from="FishingTimer" to="." method="_on_fishing_timer_timeout"]
+[connection signal="timeout" from="ResetTimer" to="." method="_on_reset_timer_timeout"]
 [connection signal="animation_finished" from="FishingAnimation" to="." method="_on_fishing_animation_animation_finished"]

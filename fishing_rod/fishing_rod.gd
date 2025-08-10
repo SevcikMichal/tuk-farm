@@ -3,7 +3,7 @@ extends Node3D
 const BASE_CHANCE: float = 0.1
 const CHANCE_INCREMENT: float = 0.05
 const MAX_CHANCE: float = 1.0
-const MAX_FISH_DELTA_MS: int = 1000
+const MAX_FISH_DELTA_MS: int = 3000
 const FISH_TO_CATCH: int = 1
 
 signal throw_finished
@@ -26,6 +26,9 @@ var _fishing_animation: AnimationPlayer = get_node("FishingAnimation")
 var _fishing_timer: Timer = get_node("FishingTimer")
 
 @onready
+var _reset_timer: Timer = get_node("ResetTimer")
+
+@onready
 var _bubbles: GPUParticles3D = get_node("FishingLine/LineEnd/Bubbles")
 
 @onready
@@ -34,6 +37,10 @@ var _fish: Node3D = get_node("FishingLine/LineEnd/Fish")
 var _current_chance: float = BASE_CHANCE
 var _fish_hooked_time: int = 0
 var _fish_caught: int = 0
+
+func _ready():
+	_reset_timer.wait_time = MAX_FISH_DELTA_MS / 1000.0
+	_on_fishing_controller_swipe_up_detected()
 
 func _process(_delta: float) -> void:
 	update_fishing_line()
@@ -89,6 +96,7 @@ func _on_fishing_controller_swipe_up_detected():
 	_fishing_animation.play("Throw")
 
 func _on_fishing_controller_swipe_down_detected():
+	_reset_timer.stop()
 	_bubbles.visible = false
 	var actual_time = Time.get_ticks_msec()
 	
@@ -99,7 +107,6 @@ func _on_fishing_controller_swipe_down_detected():
 		if _fish_caught == FISH_TO_CATCH:
 			_fish_caught = 0
 			emit_signal("fish_caught")
-		
 	
 	_fishing_animation.play("Hook")
 
@@ -115,6 +122,7 @@ func _on_fishing_timer_timeout() -> void:
 	var roll = randf()
 	if roll < _current_chance:
 		_fishing_timer.stop()
+		_reset_timer.start()
 		_current_chance = BASE_CHANCE
 		_fish_hooked_time = Time.get_ticks_msec()
 		_fishing_animation.play("Hooked")
@@ -129,3 +137,10 @@ func get_random_warm_color() -> Color:
 	var saturation = randf_range(0.7, 1.0)
 	var value = randf_range(0.8, 1.0)
 	return Color.from_hsv(hue, saturation, value)
+
+
+func _on_reset_timer_timeout():
+	_fishing_animation.play("Thrown_Idle")
+	_fishing_timer.start()
+	_bubbles.visible = false
+	_reset_timer.stop()
