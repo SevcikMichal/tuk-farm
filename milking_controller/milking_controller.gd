@@ -71,37 +71,26 @@ func _try_register_gesture() -> void:
 	var delta = abs(_left_swipe_time - _right_swipe_time)
 	var are_opposite = _left_dir != _right_dir
 	
-	if not are_opposite:
+	if not _is_valid_followup():
 		emit_signal("rhythm", "bad", last_zone)
 		_reset_swipe(true)
 		return
-	elif delta > MAX_PAIR_DELTA:
-		emit_signal("rhythm", "bad", last_zone)
-		_reset_swipe(true)
-		return
-	else:
-		if not _is_valid_followup():
-			emit_signal("rhythm", "bad", last_zone)
-			_reset_swipe(true)
-			return
-		
-		_last_left_dir = _left_dir
-		_last_right_dir = _right_dir
-		
-		var now = Time.get_ticks_msec()
-		
-		if _last_success_time > 0:
-			var rhythm_delta = now - _last_success_time
-			if rhythm_delta <= GREAT_RYTHM_RANGE:
-				emit_signal("rhythm", "great", last_zone)
-			elif rhythm_delta <= GOOD_RHYTHM_RANGE:
-				emit_signal("rhythm", "good", last_zone)
-			else:
-				emit_signal("rhythm", "bad", last_zone)
-		else:
+	
+	_last_left_dir = _left_dir
+	_last_right_dir = _right_dir
+	
+	var now = Time.get_ticks_msec()
+	
+	if _last_success_time > 0:
+		var rhythm_delta = now - _last_success_time
+		if rhythm_delta <= GREAT_RYTHM_RANGE:
+			emit_signal("rhythm", "great", last_zone)
+		elif rhythm_delta <= GOOD_RHYTHM_RANGE:
 			emit_signal("rhythm", "good", last_zone)
+	else:
+		emit_signal("rhythm", "good", last_zone)
 
-		_last_success_time = now
+	_last_success_time = now
 
 	# Reset swipe data
 	_reset_swipe()
