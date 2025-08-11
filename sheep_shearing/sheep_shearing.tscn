@@ -42,7 +42,7 @@ transform = Transform3D(0.999682, -0.0127399, 0.0217424, -0.0134213, 0.461076, 0
 light_energy = 0.5
 
 [node name="Camera3D" parent="." instance=ExtResource("3_10bgh")]
-transform = Transform3D(0.999872, 0, 0.0160215, 0, 1, 0, -0.0160215, 0, 0.999872, 0, 0, 2.38721)
+transform = Transform3D(0.99987, 0, -0.0161435, 0, 1, 0, 0.0161435, 0, 0.99987, 0, 0, 2.7)
 
 [node name="sheep" parent="." instance=ExtResource("4_amrhd")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.993362, 0, -1.18478)
