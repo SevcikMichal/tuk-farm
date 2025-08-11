@@ -107,6 +107,7 @@ func _on_fishing_controller_swipe_down_detected():
 		if _fish_caught == FISH_TO_CATCH:
 			_fish_caught = 0
 			emit_signal("fish_caught")
+			Globals.vibrate(500)
 	
 	_fishing_animation.play("Hook")
 
@@ -121,6 +122,7 @@ func _on_fishing_animation_animation_finished(anim_name):
 func _on_fishing_timer_timeout() -> void:
 	var roll = randf()
 	if roll < _current_chance:
+		Globals.vibrate(100)
 		_fishing_timer.stop()
 		_reset_timer.start()
 		_current_chance = BASE_CHANCE

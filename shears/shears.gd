@@ -11,6 +11,7 @@ func _input(event) -> void:
 		_move_to_finger(event.position)
 
 func _move_to_finger(screen_pos: Vector2) -> void:
+	Globals.vibrate(10, 0.1)
 	visible = false
 	var from = camera.project_ray_origin(screen_pos)
 	var to = from + camera.project_ray_normal(screen_pos) * ray_length

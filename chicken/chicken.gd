@@ -16,6 +16,7 @@ var egg_spawner: Node3D = get_node("EggSpawner")
 var _egg_counter = 0
 
 func _on_pitch_performed():	
+	Globals.vibrate(100)
 	squeeze_player.queue("Squeeze")
 
 func _on_squeeze_animation_finished(anim_name: StringName) -> void:
@@ -27,3 +28,4 @@ func _on_squeeze_animation_finished(anim_name: StringName) -> void:
 		if _egg_counter == EGGS_TO_LAY:
 			_egg_counter = 0
 			emit_signal("eggs_collected")
+			Globals.vibrate(100)

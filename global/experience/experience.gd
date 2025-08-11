@@ -19,3 +19,4 @@ func update_progress(value: float) -> void:
 
 func _celebrate() -> void:
 	_level_celebration.emitting = true
+	Globals.vibrate(1000)

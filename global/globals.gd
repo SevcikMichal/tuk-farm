@@ -1,5 +1,7 @@
 extends Node
 
+const BUTTON_PRESSED_VIBRATION_DURATION_MS: int = 200
+
 var _active_finger: int = -1
 var _configuration: Configuration
 
@@ -20,3 +22,7 @@ func end_touch(finger_id: int) -> void:
 		
 func get_configuration() -> Configuration:
 	return _configuration
+
+func vibrate(duration_ms: int, amplitude: float = -1.0) -> void:
+	if _configuration.is_haptics_enabled():
+		Input.vibrate_handheld(duration_ms, amplitude)

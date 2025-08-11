@@ -23,6 +23,7 @@ func _ready() -> void:
 	visible = true
 
 func fall_and_disappear() -> void:
+	Globals.vibrate(100)
 	emit_signal("wool_cut")
 	_rigidbody.freeze = false
 	await get_tree().physics_frame

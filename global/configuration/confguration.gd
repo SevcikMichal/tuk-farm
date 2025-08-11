@@ -3,6 +3,7 @@ class_name Configuration
 const CONFIGURATION_SAVE_PATH: String = "user://configuration.dat"
 
 var _show_hints: bool = true
+var _is_haptics_enabled: bool = true
 
 func _init(show_hints_in: bool = true) -> void:
 	_show_hints = show_hints_in
@@ -10,8 +11,14 @@ func _init(show_hints_in: bool = true) -> void:
 func set_show_hints(show_hints_in: bool) -> void:
 	_show_hints = show_hints_in
 
+func set_is_haptics_enabled(enable_haptics: bool) -> void:
+	_is_haptics_enabled = enable_haptics
+
 func show_hints() -> bool:
 	return _show_hints
+	
+func is_haptics_enabled() -> bool:
+	return _is_haptics_enabled
 
 func save_self() -> void:
 	var json = JSON.stringify(to_dict())
@@ -35,8 +42,10 @@ func load_self() -> void:
 	
 func to_dict() -> Dictionary:
 	return {
-		"show_hints": _show_hints
+		"show_hints": _show_hints,
+		"is_haptics_enabled": _is_haptics_enabled
 	}
 
 func from_dict(data: Dictionary) -> void:
 	_show_hints = data.get("show_hints", true)	
+	_is_haptics_enabled = data.get("is_haptics_enabled", true)

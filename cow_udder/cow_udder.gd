@@ -52,11 +52,14 @@ func _on_milking_controller_rhythm(state: String, last_zone: String) -> void:
 			_milk_animations.queue(RIGHT_TIT_ANIMATION_NAME)
 	
 	if state == "good":
+		Globals.vibrate(100)
 		_good_rhythm()
 	elif state == "great":
+		Globals.vibrate(100)
 		_great_rhythm()
 	elif state == "bad":
 		_bad_rhythm()
+		Globals.vibrate(500)
 
 func _on_milk_bucket_bucket_full():
 	_milk_animations.clear_queue()
