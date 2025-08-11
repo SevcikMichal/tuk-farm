@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://2cbcngd1mfjm"]
+[gd_scene load_steps=12 format=3 uid="uid://2cbcngd1mfjm"]
 
 [ext_resource type="PackedScene" uid="uid://gkw33y8t8j1r" path="res://farmer/models/farmer.glb" id="1_l5qhy"]
 
@@ -162,6 +162,35 @@ _data = {
 &"walk": SubResource("Animation_l5qhy")
 }
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_l5qhy"]
+albedo_color = Color(0.667312, 0.271577, 0.193308, 1)
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_l5qhy"]
+material = SubResource("StandardMaterial3D_l5qhy")
+top_radius = 0.02
+bottom_radius = 0.02
+height = 3.0
+radial_segments = 8
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_gux8d"]
+albedo_color = Color(0.267389, 0.380393, 1, 1)
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_gux8d"]
+material = SubResource("StandardMaterial3D_gux8d")
+bottom_radius = 1.2
+height = 0.7
+radial_segments = 8
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5dvvo"]
+albedo_color = Color(1, 0.145098, 0.180392, 1)
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_5dvvo"]
+material = SubResource("StandardMaterial3D_5dvvo")
+top_radius = 1.0
+bottom_radius = 1.0
+height = 4.5
+radial_segments = 8
+
 [node name="farmer" instance=ExtResource("1_l5qhy")]
 
 [node name="FarmerAnimations" type="AnimationPlayer" parent="." index="0"]
@@ -171,12 +200,56 @@ libraries = {
 autoplay = "idle"
 
 [node name="Skeleton3D" parent="Armature" index="0"]
-bones/0/position = Vector3(0, -0.0025726, 0)
-bones/5/rotation = Quaternion(-0.00225818, 0.000822658, -0.573928, 0.818902)
-bones/6/rotation = Quaternion(0.0670007, -0.250003, -0.250003, 0.93301)
-bones/9/rotation = Quaternion(-0.0483294, -0.0686118, 0.571308, 0.816434)
-bones/10/rotation = Quaternion(0.208966, -0.0559908, 0.252992, 0.942971)
-bones/15/rotation = Quaternion(-0.533345, 0.0634682, 0.040388, 0.842546)
-bones/17/rotation = Quaternion(-0.082997, 0.00693056, 0.0862422, 0.992787)
-bones/20/rotation = Quaternion(0.497105, 0.0574406, -0.0325238, 0.865176)
-bones/22/rotation = Quaternion(0.129948, 0.0111436, -0.0870895, 0.987626)
+bones/0/rotation = Quaternion(0.00899964, 0, 0, 0.99996)
+bones/5/rotation = Quaternion(4.21835e-15, 4.44037e-15, -0.573932, 0.818903)
+bones/6/rotation = Quaternion(-8.32569e-17, -2.09356e-15, -0.258969, 0.965886)
+bones/9/rotation = Quaternion(-3.05275e-16, 6.66055e-16, 0.573932, 0.818903)
+bones/10/rotation = Quaternion(-3.19151e-16, -7.77064e-16, 0.258969, 0.965886)
+bones/15/rotation = Quaternion(-0.533221, 0.0660273, 0.0420174, 0.842348)
+bones/17/rotation = Quaternion(-0.0838547, 2.01961e-08, -5.52821e-07, 0.996478)
+bones/18/rotation = Quaternion(-0.0531608, -1.66365e-07, 0.506382, 0.860669)
+bones/20/rotation = Quaternion(0.497002, 0.0600003, -0.0340002, 0.865004)
+bones/22/rotation = Quaternion(0.0525959, -1.01471e-07, 3.55758e-07, 0.998616)
+bones/23/rotation = Quaternion(0.00499267, -1.1392e-07, 0.460074, 0.887867)
+
+[node name="Hand" type="BoneAttachment3D" parent="Armature/Skeleton3D" index="1"]
+transform = Transform3D(-0.992319, 0.123706, 1.47287e-08, -0.123686, -0.992158, -0.0179985, -0.0022265, -0.0178602, 0.999838, -1.93045, -1.6664, -0.0299973)
+bone_name = "Bone.011"
+bone_idx = 11
+
+[node name="PitchFork" type="Node3D" parent="Armature/Skeleton3D/Hand" index="0"]
+transform = Transform3D(-4.52632, 0.267992, 0.927938, 0.698639, -2.16188, 4.0322, 0.666927, 4.08349, 2.07382, 2.55292, -0.296167, 0.124299)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Armature/Skeleton3D/Hand/PitchFork" index="0"]
+transform = Transform3D(0.959742, 4.47035e-08, 2.98023e-08, 9.68575e-08, 0.750312, 2.98023e-08, 3.72529e-08, -2.98023e-08, 0.878853, 0.511712, -0.0652505, -0.0183279)
+mesh = SubResource("CylinderMesh_l5qhy")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="Armature/Skeleton3D/Hand/PitchFork" index="1"]
+transform = Transform3D(0.869107, -0.0830383, 0, 0.494625, 0.145907, 0, 0, 0, 1, 0.419653, 0.863912, 0)
+mesh = SubResource("CylinderMesh_l5qhy")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="Armature/Skeleton3D/Hand/PitchFork" index="2"]
+transform = Transform3D(0.861921, 0.0851229, 0, -0.507042, 0.144701, 0, 0, 0, 1, 0.66945, 0.863912, 0)
+mesh = SubResource("CylinderMesh_l5qhy")
+
+[node name="Head" type="BoneAttachment3D" parent="Armature/Skeleton3D" index="2"]
+transform = Transform3D(1, 0, 2.38419e-07, 4.29119e-09, 0.999838, -0.0179985, -2.3838e-07, 0.0179985, 0.999838, 0, 2.83413, 0.0510184)
+bone_name = "Bone.003"
+bone_idx = 3
+
+[node name="Hat" type="Node3D" parent="Armature/Skeleton3D/Head" index="0"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Armature/Skeleton3D/Head/Hat" index="0"]
+transform = Transform3D(1, -8.88178e-16, 0, 0, 1, 0, 2.84217e-14, 3.72529e-09, 1, 0.0179151, 1.53589, 0.050791)
+mesh = SubResource("CylinderMesh_gux8d")
+
+[node name="Chest" type="BoneAttachment3D" parent="Armature/Skeleton3D" index="3"]
+transform = Transform3D(1, 0, 0, 0, 0.999838, -0.0179985, 0, 0.0179985, 0.999838, 0, 0, 0)
+bone_name = "Bone"
+bone_idx = 0
+
+[node name="Shirt" type="Node3D" parent="Armature/Skeleton3D/Chest" index="0"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Armature/Skeleton3D/Chest/Shirt" index="0"]
+transform = Transform3D(1.63255, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.355474, -0.00639905)
+mesh = SubResource("CylinderMesh_5dvvo")
