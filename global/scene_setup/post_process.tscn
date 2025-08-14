@@ -1,14 +1,17 @@
-[gd_scene load_steps=3 format=3 uid="uid://dag67ckbdflew"]
+[gd_scene load_steps=4 format=3 uid="uid://dag67ckbdflew"]
 
 [ext_resource type="Shader" uid="uid://c1j8ww338fh3f" path="res://global/shaders/cell_shading.gdshader" id="1_jinsj"]
+[ext_resource type="Script" uid="uid://b5rh682hbla3v" path="res://global/scene_setup/post_process.gd" id="1_odbt7"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_rvbjl"]
 shader = ExtResource("1_jinsj")
 shader_parameter/levels = 10.0
-shader_parameter/edge_threshold = 0.7
+shader_parameter/edge_threshold = 1.0
+shader_parameter/pixel_block = 16
 
 [node name="PostProcess" type="CanvasLayer"]
 process_mode = 4
+script = ExtResource("1_odbt7")
 
 [node name="ColorRect" type="ColorRect" parent="."]
 material = SubResource("ShaderMaterial_rvbjl")

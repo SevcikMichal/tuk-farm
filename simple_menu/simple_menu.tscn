@@ -488,6 +488,7 @@ text = "Offline"
 [node name="ClickSound" parent="UI/SimpleMenu" instance=ExtResource("16_d667u")]
 
 [node name="PostProcess" parent="." instance=ExtResource("12_ogtfj")]
+pixel_block = 8
 
 [connection signal="toggled" from="UI/SimpleMenu/VBoxContainer/MarginContainer2/HBoxContainer/CheckButton" to="UI/SimpleMenu" method="_on_check_button_toggled"]
 [connection signal="toggled" from="UI/SimpleMenu/VBoxContainer/MarginContainer5/HBoxContainer/CheckButton" to="UI/SimpleMenu" method="_on_haptics_button_toggled"]

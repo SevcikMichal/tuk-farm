@@ -67,10 +67,7 @@ func _try_register_gesture() -> void:
 	_input_locked = true
 	
 	var last_zone = "left" if _left_dir == "down" else "right"
-	
-	var delta = abs(_left_swipe_time - _right_swipe_time)
-	var are_opposite = _left_dir != _right_dir
-	
+		
 	if not _is_valid_followup():
 		emit_signal("rhythm", "bad", last_zone)
 		_reset_swipe(true)

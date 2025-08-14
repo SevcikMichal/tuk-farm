@@ -73,6 +73,7 @@ transform = Transform3D(0.999682, 0, 0.0251999, 0, 1, 0, -0.0251999, 0, 0.999682
 transform = Transform3D(1, 0, 0, 0, 0.380651, 0.924719, 0, -0.924719, 0.380651, 0, 0, 0)
 
 [node name="PostProcess" parent="." instance=ExtResource("4_56wwa")]
+pixel_block = 24
 
 [node name="UI" type="CanvasLayer" parent="."]
 layer = 2

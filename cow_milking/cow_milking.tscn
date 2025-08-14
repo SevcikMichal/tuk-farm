@@ -158,6 +158,7 @@ mouse_filter = 2
 hint_text = "One finger up the other down to milk the cow!"
 
 [node name="PostProcess" parent="." instance=ExtResource("4_bydsx")]
+pixel_block = 32
 
 [connection signal="bucket_full" from="MilkBucket" to="." method="_on_experience_gain_event"]
 [connection signal="bucket_full" from="MilkBucket" to="CowUdder" method="_on_milk_bucket_bucket_full"]
