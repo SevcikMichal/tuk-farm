@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://g76phv1k4sqs"]
+[gd_scene load_steps=25 format=3 uid="uid://g76phv1k4sqs"]
 
 [ext_resource type="PackedScene" uid="uid://b2elg3q57q4sj" path="res://global/scene_setup/camera_3d.tscn" id="1_lxurg"]
 [ext_resource type="Script" uid="uid://dp8gk07ialapr" path="res://global/experience/experience_pusher.gd" id="1_sqpqj"]
@@ -11,6 +11,8 @@
 [ext_resource type="PackedScene" uid="uid://djhol5r1q3de0" path="res://water/water.tscn" id="7_dnold"]
 [ext_resource type="PackedScene" uid="uid://dn8p6tif0fpiv" path="res://global/experience/experience.tscn" id="8_lxt84"]
 [ext_resource type="PackedScene" uid="uid://c05idj0yb4f10" path="res://global/hint/hint.tscn" id="10_86gsk"]
+[ext_resource type="AudioStream" uid="uid://bdfnldh2hdcnv" path="res://fishing/sounds/wave.wav" id="12_78wfu"]
+[ext_resource type="Script" uid="uid://dw1g5cqpj2q8b" path="res://fishing/wave_sound.gd" id="13_4r7pl"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dnold"]
 albedo_color = Color(1, 0.654902, 0.215686, 1)
@@ -43,6 +45,44 @@ size = Vector3(1.465, 3.685, 0.075)
 material = SubResource("StandardMaterial3D_sqpqj")
 radial_segments = 4
 rings = 4
+
+[sub_resource type="Animation" id="Animation_4r7pl"]
+resource_name = "sound"
+length = 3.0
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AudioStreamPlayer3D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(-0.417121, -0.346664, 2.19705), Vector3(1.70557, -0.346664, 2.64491)]
+}
+
+[sub_resource type="Animation" id="Animation_7tvle"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AudioStreamPlayer3D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-0.417121, -0.346664, 2.19705)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_7tvle"]
+_data = {
+&"RESET": SubResource("Animation_7tvle"),
+&"sound": SubResource("Animation_4r7pl")
+}
 
 [node name="Fishing" type="Node3D" node_paths=PackedStringArray("level")]
 script = ExtResource("1_sqpqj")
@@ -214,9 +254,27 @@ mesh = SubResource("SphereMesh_8t1kh")
 transform = Transform3D(3.25216, 0, 0, 0, 3.25216, 0, 0, 0, 1, 2.73955, 16.8774, -51.3695)
 mesh = SubResource("SphereMesh_8t1kh")
 
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_7tvle")
+}
+autoplay = "sound"
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.417121, -0.346664, 2.19705)
+stream = ExtResource("12_78wfu")
+volume_db = -20.0
+pitch_scale = 1.5
+script = ExtResource("13_4r7pl")
+
+[node name="Timer" type="Timer" parent="AudioStreamPlayer3D"]
+wait_time = 3.0
+autostart = true
+
 [connection signal="fish_caught" from="FishingRod" to="." method="_on_experience_gain_event"]
 [connection signal="hook_finished" from="FishingRod" to="UI/FishingController" method="_on_fishing_rod_hook_finished"]
 [connection signal="throw_finished" from="FishingRod" to="UI/FishingController" method="_on_fishing_rod_throw_finished"]
 [connection signal="throw_reset" from="FishingRod" to="UI/FishingController" method="_on_fishing_rod_throw_reset"]
 [connection signal="swipe_down_detected" from="UI/FishingController" to="FishingRod" method="_on_fishing_controller_swipe_down_detected"]
 [connection signal="swipe_up_detected" from="UI/FishingController" to="FishingRod" method="_on_fishing_controller_swipe_up_detected"]
+[connection signal="timeout" from="AudioStreamPlayer3D/Timer" to="AudioStreamPlayer3D" method="_on_timer_timeout"]
