@@ -1,6 +1,8 @@
-[gd_scene load_steps=12 format=3 uid="uid://2cbcngd1mfjm"]
+[gd_scene load_steps=14 format=3 uid="uid://2cbcngd1mfjm"]
 
 [ext_resource type="PackedScene" uid="uid://gkw33y8t8j1r" path="res://farmer/models/farmer.glb" id="1_l5qhy"]
+[ext_resource type="Script" uid="uid://dbve046t87ia4" path="res://farmer/farmer_visual.gd" id="2_5dvvo"]
+[ext_resource type="AudioStream" uid="uid://ba1r7vhflp6hl" path="res://farmer/sounds/step.wav" id="2_gux8d"]
 
 [sub_resource type="Animation" id="Animation_5dvvo"]
 length = 0.001
@@ -154,6 +156,23 @@ tracks/8/path = NodePath("Armature/Skeleton3D:Bone")
 tracks/8/interp = 1
 tracks/8/loop_wrap = true
 tracks/8/keys = PackedFloat32Array(0, 1, 0, 0, 0, 0.633333, 1, 0, -0.3, 0, 1.38333, 1, 0, 0, 0, 2.01333, 1, 0, -0.3, 0, 3, 1, 0, 0, 0)
+tracks/9/type = "method"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath(".")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0.666667, 2.06667),
+"transitions": PackedFloat32Array(1, 1),
+"values": [{
+"args": [true],
+"method": &"play_step"
+}, {
+"args": [false],
+"method": &"play_step"
+}]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_gux8d"]
 _data = {
@@ -192,6 +211,7 @@ height = 4.5
 radial_segments = 8
 
 [node name="farmer" instance=ExtResource("1_l5qhy")]
+script = ExtResource("2_5dvvo")
 
 [node name="FarmerAnimations" type="AnimationPlayer" parent="." index="0"]
 libraries = {
@@ -200,20 +220,20 @@ libraries = {
 autoplay = "idle"
 
 [node name="Skeleton3D" parent="Armature" index="0"]
-bones/0/rotation = Quaternion(0.00899964, 0, 0, 0.99996)
-bones/5/rotation = Quaternion(4.21835e-15, 4.44037e-15, -0.573932, 0.818903)
-bones/6/rotation = Quaternion(-8.32569e-17, -2.09356e-15, -0.258969, 0.965886)
-bones/9/rotation = Quaternion(-3.05275e-16, 6.66055e-16, 0.573932, 0.818903)
-bones/10/rotation = Quaternion(-3.19151e-16, -7.77064e-16, 0.258969, 0.965886)
-bones/15/rotation = Quaternion(-0.533221, 0.0660273, 0.0420174, 0.842348)
-bones/17/rotation = Quaternion(-0.0838547, 2.01961e-08, -5.52821e-07, 0.996478)
+bones/0/position = Vector3(0, -0.0774237, 0)
+bones/5/rotation = Quaternion(0.0322264, -0.0461622, -0.572761, 0.817787)
+bones/6/rotation = Quaternion(0.0670007, -0.250003, -0.250003, 0.93301)
+bones/9/rotation = Quaternion(-0.0322264, -0.0461622, 0.572761, 0.817787)
+bones/10/rotation = Quaternion(0.126582, -0.0339166, 0.25683, 0.957531)
+bones/15/rotation = Quaternion(-0.533913, 0.0503996, 0.0312354, 0.843458)
+bones/17/rotation = Quaternion(-0.083662, -0.0119581, -0.131429, 0.987717)
 bones/18/rotation = Quaternion(-0.0531608, -1.66365e-07, 0.506382, 0.860669)
-bones/20/rotation = Quaternion(0.497002, 0.0600003, -0.0340002, 0.865004)
-bones/22/rotation = Quaternion(0.0525959, -1.01471e-07, 3.55758e-07, 0.998616)
+bones/20/rotation = Quaternion(0.497613, 0.0517121, -0.0290569, 0.865369)
+bones/22/rotation = Quaternion(0.12699, 0.0279977, -0.214983, 0.967922)
 bones/23/rotation = Quaternion(0.00499267, -1.1392e-07, 0.460074, 0.887867)
 
 [node name="Hand" type="BoneAttachment3D" parent="Armature/Skeleton3D" index="1"]
-transform = Transform3D(-0.992319, 0.123705, 1.47287e-08, -0.123685, -0.992158, -0.0179985, -0.00222649, -0.0178602, 0.999838, -1.93046, -1.6664, -0.0299973)
+transform = Transform3D(-0.987018, 0.133747, 0.0889161, -0.121193, -0.983528, 0.134103, 0.105387, 0.121587, 0.98697, -1.91376, -1.71573, -0.000342086)
 bone_name = "Bone.011"
 bone_idx = 11
 
@@ -233,7 +253,7 @@ transform = Transform3D(0.861921, 0.0851229, 0, -0.507042, 0.144701, 0, 0, 0, 1,
 mesh = SubResource("CylinderMesh_l5qhy")
 
 [node name="Head" type="BoneAttachment3D" parent="Armature/Skeleton3D" index="2"]
-transform = Transform3D(1, 0, 2.38419e-07, 4.29119e-09, 0.999838, -0.0179985, -2.3838e-07, 0.0179985, 0.999838, 0, 2.83413, 0.0510184)
+transform = Transform3D(1, 0, 2.38419e-07, 0, 1, 0, -2.38419e-07, 0, 1, 0, 2.75716, 0)
 bone_name = "Bone.003"
 bone_idx = 3
 
@@ -244,7 +264,7 @@ transform = Transform3D(1, -8.88178e-16, 0, 0, 1, 0, 2.84217e-14, 3.72529e-09, 1
 mesh = SubResource("CylinderMesh_gux8d")
 
 [node name="Chest" type="BoneAttachment3D" parent="Armature/Skeleton3D" index="3"]
-transform = Transform3D(1, 0, 0, 0, 0.999838, -0.0179985, 0, 0.0179985, 0.999838, 0, 0, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0774237, 0)
 bone_name = "Bone"
 bone_idx = 0
 
@@ -253,3 +273,25 @@ bone_idx = 0
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Armature/Skeleton3D/Chest/Shirt" index="0"]
 transform = Transform3D(1.63255, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.355474, -0.00639905)
 mesh = SubResource("CylinderMesh_5dvvo")
+
+[node name="RightFoot" type="BoneAttachment3D" parent="Armature/Skeleton3D" index="4"]
+transform = Transform3D(0.103465, 0.0698721, -0.992176, -0.782534, -0.61002, -0.124563, -0.613951, 0.789299, -0.00843839, -0.825921, -8.33787, -0.0972346)
+bone_name = "Bone.022"
+bone_idx = 18
+
+[node name="Node3D" type="Node3D" parent="Armature/Skeleton3D/RightFoot" index="0"]
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="Armature/Skeleton3D/RightFoot/Node3D" index="0"]
+stream = ExtResource("2_gux8d")
+volume_db = -10.0
+
+[node name="LeftFoot" type="BoneAttachment3D" parent="Armature/Skeleton3D" index="5"]
+transform = Transform3D(-0.0218609, -0.15539, -0.987612, -0.398118, -0.904792, 0.151172, -0.917074, 0.396491, -0.0420839, 0.738106, -7.89309, -1.77932)
+bone_name = "Bone.023"
+bone_idx = 23
+
+[node name="Node3D" type="Node3D" parent="Armature/Skeleton3D/LeftFoot" index="0"]
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="Armature/Skeleton3D/LeftFoot/Node3D" index="0"]
+stream = ExtResource("2_gux8d")
+volume_db = -10.0

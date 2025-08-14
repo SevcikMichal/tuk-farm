@@ -1,6 +1,7 @@
-[gd_scene load_steps=6 format=3 uid="uid://dn8p6tif0fpiv"]
+[gd_scene load_steps=7 format=3 uid="uid://dn8p6tif0fpiv"]
 
 [ext_resource type="Script" uid="uid://clymgqdnxpqvq" path="res://global/experience/experience.gd" id="1_3gmbe"]
+[ext_resource type="AudioStream" uid="uid://dtw8kalq6oa3t" path="res://global/experience/sounds/celebrate.wav" id="2_76sx5"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_juv12"]
 font_size = 200
@@ -89,3 +90,8 @@ emission_rect_extents = Vector2(370, 1)
 gravity = Vector2(0, -980)
 scale_amount_max = 10.0
 color_ramp = SubResource("Gradient_3gmbe")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_76sx5")
+volume_db = -15.0
+pitch_scale = 1.5

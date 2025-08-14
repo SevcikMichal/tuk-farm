@@ -1,4 +1,4 @@
-[gd_scene load_steps=40 format=3 uid="uid://cxlwr1n6nvjar"]
+[gd_scene load_steps=41 format=3 uid="uid://cxlwr1n6nvjar"]
 
 [ext_resource type="Script" uid="uid://bpmd4j067vxy6" path="res://simple_menu/simple_menu.gd" id="1_r45ow"]
 [ext_resource type="Script" uid="uid://ny6w160fas55" path="res://global/minigame/minigame_point.gd" id="2_qy3th"]
@@ -15,6 +15,7 @@
 [ext_resource type="Script" uid="uid://djc7tj08ovl7y" path="res://global/scene_setup/camera_3d.gd" id="12_4yqop"]
 [ext_resource type="PackedScene" uid="uid://dag67ckbdflew" path="res://global/scene_setup/post_process.tscn" id="12_ogtfj"]
 [ext_resource type="StyleBox" uid="uid://0ynhknsw6p36" path="res://simple_menu/normal_button.tres" id="14_1jjdr"]
+[ext_resource type="PackedScene" uid="uid://owyejyapokm1" path="res://global/menu_sounds/click_sound.tscn" id="16_d667u"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vkr66"]
 albedo_color = Color(0.372549, 0.666667, 0.305882, 1)
@@ -483,6 +484,8 @@ layout_mode = 2
 theme_override_font_sizes/font_size = 100
 theme_override_styles/normal = ExtResource("14_1jjdr")
 text = "Offline"
+
+[node name="ClickSound" parent="UI/SimpleMenu" instance=ExtResource("16_d667u")]
 
 [node name="PostProcess" parent="." instance=ExtResource("12_ogtfj")]
 

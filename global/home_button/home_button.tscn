@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://csnyrhwij17g6"]
+[gd_scene load_steps=5 format=3 uid="uid://csnyrhwij17g6"]
 
 [ext_resource type="Texture2D" uid="uid://dxvdapnm6m03h" path="res://global/home_button/svgs/home.svg" id="1_1t6ga"]
 [ext_resource type="Script" uid="uid://cshnc15iy8vlx" path="res://global/home_button/home_button.gd" id="1_c2ekf"]
+[ext_resource type="PackedScene" uid="uid://owyejyapokm1" path="res://global/menu_sounds/click_sound.tscn" id="3_j7jyp"]
 
 [sub_resource type="Theme" id="Theme_c2ekf"]
 Button/styles/pressed = null
@@ -30,5 +31,7 @@ mouse_filter = 1
 theme = SubResource("Theme_c2ekf")
 icon = ExtResource("1_1t6ga")
 flat = true
+
+[node name="ClickSound" parent="." instance=ExtResource("3_j7jyp")]
 
 [connection signal="pressed" from="CenterContainer/Home" to="." method="_on_home_pressed"]

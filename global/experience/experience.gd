@@ -9,6 +9,9 @@ var _level_progress: ProgressBar = get_node("CenterContainer/VBoxContainer/Progr
 @onready
 var _level_celebration: CPUParticles2D = get_node("CPUParticles2D")
 
+@onready
+var _celebrate_sound: AudioStreamPlayer = get_node("AudioStreamPlayer")
+
 func update_level(level: int, celebrate: bool = true) -> void:
 	_level_label.text = str(level)
 	if celebrate:
@@ -19,4 +22,5 @@ func update_progress(value: float) -> void:
 
 func _celebrate() -> void:
 	_level_celebration.emitting = true
+	_celebrate_sound.play()
 	Globals.vibrate(1000)
