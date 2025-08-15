@@ -8,6 +8,9 @@ var _rigidbody: RigidBody3D = get_node("RigidBody3D")
 @onready
 var _particles: CPUParticles3D = get_node("RigidBody3D/CPUParticles3D")
 
+@onready
+var _cut_sound: AudioStreamPlayer3D = get_node("CutSound")
+
 var _initial_position: Vector3
 var _initial_rotation: Vector3
 var _triggered: bool = false
@@ -23,6 +26,8 @@ func _ready() -> void:
 	visible = true
 
 func fall_and_disappear() -> void:
+	if not _cut_sound.playing:
+		_cut_sound.play()
 	Globals.vibrate(100)
 	emit_signal("wool_cut")
 	_rigidbody.freeze = false

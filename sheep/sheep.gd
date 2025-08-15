@@ -26,6 +26,8 @@ func _on_check_timer_timeout() -> void:
 		if !wool_clump.is_triggered():
 			return
 	
+	_play_sound(1)
+	
 	emit_signal("sheep_sheared")
 	
 	_sheep_animation.play("Respawn")
@@ -41,10 +43,15 @@ func _on_sheep_animations_animation_finished(_anim_name: StringName) -> void:
 func _on_timer_timeout():
 	var roll = randf()
 	if roll < 0.4:
-		play_sound(0)
+		_play_sound(0)
 	
-func play_sound(sound:int) -> void:
+func _play_sound(sound:int) -> void:
 	if sound == 0:
 		var pitch = randf_range(1.0, 1.5)
+		_beee_sound.volume_db = -15.0
 		_beee_sound.pitch_scale = pitch
+		_beee_sound.play()
+	if sound == 1:
+		_beee_sound.volume_db = -10.0
+		_beee_sound.pitch_scale = 2.0
 		_beee_sound.play()

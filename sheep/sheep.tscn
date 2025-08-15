@@ -126,7 +126,7 @@ libraries = {
 autoplay = "Idle"
 
 [node name="Armature" parent="." index="1"]
-transform = Transform3D(-1.3916e-08, 0.318361, 0, -0.318361, -1.3916e-08, 0, 0, 0, 0.318361, -1.2165, 0.226173, 0)
+transform = Transform3D(-1.15246e-06, 0.318361, 0, -0.318361, -1.15246e-06, 0, 0, 0, 0.318361, -1.2165, 0.226173, 0)
 
 [node name="Skeleton3D" parent="Armature" index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0234981, 0.00021553, -0.00127424)
@@ -138,6 +138,7 @@ bones/28/rotation = Quaternion(-0.0110022, -0.0010002, -0.0740145, 0.997196)
 [node name="Wool" type="Node3D" parent="." index="2"]
 
 [node name="CheckTimer" type="Timer" parent="Wool" index="0"]
+wait_time = 2.0
 
 [node name="Clumps" type="Node3D" parent="Wool" index="1"]
 

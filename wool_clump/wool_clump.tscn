@@ -1,6 +1,7 @@
-[gd_scene load_steps=7 format=3 uid="uid://bav8v4r403kwm"]
+[gd_scene load_steps=8 format=3 uid="uid://bav8v4r403kwm"]
 
 [ext_resource type="Script" uid="uid://c42gcyrxfuqww" path="res://wool_clump/wool_clump.gd" id="1_itqgt"]
+[ext_resource type="AudioStream" uid="uid://bwkk0mamum4u7" path="res://wool_clump/sounds/wool_cut.wav" id="2_tfxlj"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_5riea"]
 radius = 0.176146
@@ -50,5 +51,10 @@ emission_sphere_radius = 0.2
 direction = Vector3(0, 0, 0)
 gravity = Vector3(0, 0, 0)
 initial_velocity_max = 1.0
+
+[node name="CutSound" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("2_tfxlj")
+volume_db = -20.0
+pitch_scale = 1.5
 
 [connection signal="input_event" from="RigidBody3D" to="." method="_on_rigid_body_3d_input_event"]

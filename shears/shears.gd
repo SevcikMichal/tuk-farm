@@ -10,7 +10,7 @@ var ray_length: float = 1000.0
 var debug_ray: ImmediateMesh
 
 func _input(event) -> void:
-	if event is InputEventScreenDrag or event is InputEventMouseMotion:
+	if event is InputEventScreenDrag:
 		_move_to_finger(event.position)
 
 func _move_to_finger(screen_pos: Vector2) -> void:
