@@ -1,7 +1,8 @@
-[gd_scene load_steps=8 format=3 uid="uid://doqjvunhcfs67"]
+[gd_scene load_steps=9 format=3 uid="uid://doqjvunhcfs67"]
 
 [ext_resource type="PackedScene" uid="uid://bbg2cjppo32k1" path="res://milk_bucket/models/bucket.glb" id="1_3nmuo"]
 [ext_resource type="Script" uid="uid://ddpup467cc7gu" path="res://milk_bucket/milk_bucket.gd" id="1_62jrh"]
+[ext_resource type="AudioStream" uid="uid://byubir8g5orqy" path="res://milk_bucket/sounds/cow_splash.wav" id="3_mwgje"]
 
 [sub_resource type="Animation" id="Animation_mwgje"]
 length = 0.001
@@ -80,6 +81,12 @@ libraries = {
 [node name="Milk" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.148871, 0)
 mesh = SubResource("CylinderMesh_ff6l4")
+
+[node name="BlubBlubSound" type="AudioStreamPlayer3D" parent="Milk"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.148871, 0)
+stream = ExtResource("3_mwgje")
+volume_db = -20.0
+pitch_scale = 4.0
 
 [node name="Bucket" parent="." instance=ExtResource("1_3nmuo")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)

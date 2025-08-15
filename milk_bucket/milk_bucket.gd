@@ -12,11 +12,16 @@ var _current_fill: float = 0
 var _is_full: bool = false
 
 @onready
-var animation_player: AnimationPlayer = get_node("AnimationPlayer")
+var _animation_player: AnimationPlayer = get_node("AnimationPlayer")
+
+@onready
+var _blub_blub_sound: AudioStreamPlayer3D = get_node("Milk/BlubBlubSound")
 
 func _add_milk(amount: float) -> void:
 	if _is_full:
 		return
+	
+	_blub_blub_sound.play.call_deferred()
 	
 	_current_fill += amount
 	if _current_fill >= capacity:
@@ -28,9 +33,9 @@ func _add_milk(amount: float) -> void:
 	_set_animation_progress(_current_fill / capacity)
 
 func _set_animation_progress(progress: float) -> void:
-	animation_player.play(FILLING_ANIMATION_NAME)
-	animation_player.seek(progress, true)
-	animation_player.pause()
+	_animation_player.play(FILLING_ANIMATION_NAME)
+	_animation_player.seek(progress, true)
+	_animation_player.pause()
 
 
 func _on_cow_udder_milked(amount: float) -> void:

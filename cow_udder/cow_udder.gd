@@ -19,6 +19,9 @@ var _milk_animations: AnimationPlayer = get_node("MilkAnimations")
 @onready
 var _mooo_sound: AudioStreamPlayer3D = get_node("MoooSound")
 
+@onready
+var _swoosh_sound: AudioStreamPlayer3D = get_node("SwooshSound")
+
 var _original_rotations = {}
 
 func _ready():
@@ -47,6 +50,7 @@ func _great_rhythm() -> void:
 
 func _on_milking_controller_rhythm(state: String, last_zone: String) -> void:
 	if state != "bad":
+		play_sound(1)
 		if last_zone == "left":
 			_milk_animations.queue(LEFT_TIT_ANIMATION_NAME)
 		else:
@@ -75,3 +79,5 @@ func play_sound(sound: int) -> void:
 		var pitch = randf_range(1.0, 1.5)
 		_mooo_sound.pitch_scale = pitch
 		_mooo_sound.play()
+	if sound == 1:
+		_swoosh_sound.play()

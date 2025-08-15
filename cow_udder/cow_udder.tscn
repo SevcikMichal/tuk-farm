@@ -1,8 +1,9 @@
-[gd_scene load_steps=14 format=3 uid="uid://gk8hgpuimdr3"]
+[gd_scene load_steps=15 format=3 uid="uid://gk8hgpuimdr3"]
 
 [ext_resource type="PackedScene" uid="uid://mvtrhls1fa6x" path="res://cow_udder/models/cow_udder.glb" id="1_w4ep5"]
 [ext_resource type="Script" uid="uid://dt4fucme8kn5k" path="res://cow_udder/cow_udder.gd" id="2_4cr8i"]
 [ext_resource type="AudioStream" uid="uid://d2on4ei0hmnep" path="res://cow_udder/sounds/cow_idle.ogg" id="3_4ygoy"]
+[ext_resource type="AudioStream" uid="uid://bdfnldh2hdcnv" path="res://fishing/sounds/wave.wav" id="4_0yv0c"]
 
 [sub_resource type="Animation" id="Animation_4ygoy"]
 length = 0.001
@@ -320,5 +321,10 @@ autostart = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.21544, 1.76341, -2.38419e-07)
 stream = ExtResource("3_4ygoy")
 volume_db = -15.0
+
+[node name="SwooshSound" type="AudioStreamPlayer3D" parent="." index="9"]
+stream = ExtResource("4_0yv0c")
+volume_db = -10.0
+pitch_scale = 1.5
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
