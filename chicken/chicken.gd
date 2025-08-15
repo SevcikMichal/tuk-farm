@@ -46,4 +46,6 @@ func play_sound(sound: int) -> void:
 		_idle_sound.pitch_scale = pitch
 		_idle_sound.play()
 	if sound == 1:
+		var pitch = randf_range(1.0, 1.5)
+		_idle_sound.pitch_scale = pitch
 		_squeek_sound.play()
