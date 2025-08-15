@@ -1,9 +1,10 @@
-[gd_scene load_steps=36 format=3 uid="uid://cxlwr1n6nvjar"]
+[gd_scene load_steps=37 format=3 uid="uid://cxlwr1n6nvjar"]
 
 [ext_resource type="Script" uid="uid://bpmd4j067vxy6" path="res://simple_menu/simple_menu.gd" id="1_r45ow"]
 [ext_resource type="PackedScene" uid="uid://bvyiyhs1rsteb" path="res://sheep/sheep_simple.tscn" id="4_u2f16"]
 [ext_resource type="PackedScene" uid="uid://djo0ceux607jj" path="res://cow/cow_simple.tscn" id="6_ogtfj"]
 [ext_resource type="PackedScene" uid="uid://cs57d8heb32n0" path="res://chicken/models/chicken.glb" id="8_d667u"]
+[ext_resource type="FontFile" uid="uid://bugot647xfbko" path="res://global/fonts/PixelatedEleganceRegular-ovyAA.ttf" id="9_u2f16"]
 [ext_resource type="PackedScene" uid="uid://bevavrvmwtag" path="res://barn/models/barn.glb" id="10_ohf23"]
 [ext_resource type="PackedScene" uid="uid://b2elg3q57q4sj" path="res://global/scene_setup/camera_3d.tscn" id="11_u2f16"]
 [ext_resource type="PackedScene" uid="uid://bbdx775276raa" path="res://global/scene_setup/directional_light_3d.tscn" id="12_1jjdr"]
@@ -82,7 +83,8 @@ expand_margin_top = 23.0
 expand_margin_bottom = 23.0
 
 [sub_resource type="LabelSettings" id="LabelSettings_1jjdr"]
-font_size = 40
+font = ExtResource("9_u2f16")
+font_size = 31
 outline_size = 5
 outline_color = Color(0, 0, 0, 1)
 
@@ -90,6 +92,7 @@ outline_color = Color(0, 0, 0, 1)
 bg_color = Color(0.6, 0.6, 0.6, 0.364706)
 
 [sub_resource type="LabelSettings" id="LabelSettings_r45ow"]
+font = ExtResource("9_u2f16")
 font_size = 50
 shadow_size = 4
 shadow_color = Color(0, 0, 0, 1)
@@ -392,7 +395,8 @@ layout_mode = 2
 theme_override_constants/outline_size = 5
 theme_override_constants/h_separation = 0
 theme_override_constants/align_to_largest_stylebox = 1
-theme_override_font_sizes/font_size = 30
+theme_override_fonts/font = ExtResource("9_u2f16")
+theme_override_font_sizes/font_size = 25
 theme_override_styles/pressed = SubResource("StyleBoxFlat_ighx2")
 theme_override_styles/normal = SubResource("StyleBoxFlat_d667u")
 text = "Show Hints"
@@ -419,6 +423,7 @@ layout_mode = 2
 theme_override_constants/outline_size = 5
 theme_override_constants/h_separation = 0
 theme_override_constants/align_to_largest_stylebox = 1
+theme_override_fonts/font = ExtResource("9_u2f16")
 theme_override_font_sizes/font_size = 30
 theme_override_styles/pressed = SubResource("StyleBoxFlat_ighx2")
 theme_override_styles/normal = SubResource("StyleBoxFlat_d667u")
@@ -451,6 +456,7 @@ layout_mode = 2
 [node name="Online" type="Button" parent="UI/SimpleMenu/VBoxContainer"]
 custom_minimum_size = Vector2(0, 200)
 layout_mode = 2
+theme_override_fonts/font = ExtResource("9_u2f16")
 theme_override_font_sizes/font_size = 100
 theme_override_styles/disabled = SubResource("StyleBoxFlat_1jjdr")
 theme_override_styles/normal = ExtResource("14_1jjdr")
@@ -465,6 +471,7 @@ layout_mode = 2
 [node name="Offline" type="Button" parent="UI/SimpleMenu/VBoxContainer"]
 custom_minimum_size = Vector2(0, 200)
 layout_mode = 2
+theme_override_fonts/font = ExtResource("9_u2f16")
 theme_override_font_sizes/font_size = 100
 theme_override_styles/normal = ExtResource("14_1jjdr")
 text = "Offline"

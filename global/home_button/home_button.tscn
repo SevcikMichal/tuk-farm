@@ -1,11 +1,17 @@
-[gd_scene load_steps=5 format=3 uid="uid://csnyrhwij17g6"]
+[gd_scene load_steps=6 format=3 uid="uid://csnyrhwij17g6"]
 
-[ext_resource type="Texture2D" uid="uid://dxvdapnm6m03h" path="res://global/home_button/svgs/home.svg" id="1_1t6ga"]
 [ext_resource type="Script" uid="uid://cshnc15iy8vlx" path="res://global/home_button/home_button.gd" id="1_c2ekf"]
+[ext_resource type="FontFile" uid="uid://bugot647xfbko" path="res://global/fonts/PixelatedEleganceRegular-ovyAA.ttf" id="2_j7jyp"]
 [ext_resource type="PackedScene" uid="uid://owyejyapokm1" path="res://global/menu_sounds/click_sound.tscn" id="3_j7jyp"]
 
 [sub_resource type="Theme" id="Theme_c2ekf"]
 Button/styles/pressed = null
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vvtib"]
+content_margin_left = 50.0
+content_margin_top = 20.0
+content_margin_right = 40.0
+bg_color = Color(0, 0, 0, 0.294118)
 
 [node name="HomeButton" type="Control"]
 layout_mode = 3
@@ -29,8 +35,10 @@ scale = Vector2(0.6, 0.6)
 layout_mode = 2
 mouse_filter = 1
 theme = SubResource("Theme_c2ekf")
-icon = ExtResource("1_1t6ga")
-flat = true
+theme_override_fonts/font = ExtResource("2_j7jyp")
+theme_override_font_sizes/font_size = 200
+theme_override_styles/normal = SubResource("StyleBoxFlat_vvtib")
+text = "<"
 
 [node name="ClickSound" parent="." instance=ExtResource("3_j7jyp")]
 
