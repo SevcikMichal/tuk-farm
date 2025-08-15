@@ -35,6 +35,15 @@ var _bubbles: GPUParticles3D = get_node("FishingLine/LineEnd/Bubbles")
 @onready
 var _fish: Node3D = get_node("FishingLine/LineEnd/Fish")
 
+@onready
+var _cast_sound: AudioStreamPlayer3D = get_node("FishingLine/LineEnd/CastSound")
+
+@onready
+var _hooked_sound: AudioStreamPlayer3D = get_node("FishingLine/LineEnd/HookedSound")
+
+@onready
+var _hook_sound: AudioStreamPlayer3D = get_node("FishingLine/LineEnd/HookSound")
+
 var _current_chance: float = BASE_CHANCE
 var _fish_hooked_time: int = 0
 var _fish_caught: int = 0
@@ -101,6 +110,7 @@ func _on_fishing_controller_swipe_down_detected():
 	var actual_time = Time.get_ticks_msec()
 	
 	if actual_time - _fish_hooked_time <= MAX_FISH_DELTA_MS:
+		_hooked_sound.stop()
 		_fish.set_color(get_random_warm_color())
 		_fish.visible = true
 		_fish_caught = _fish_caught + 1
@@ -143,7 +153,17 @@ func get_random_warm_color() -> Color:
 
 func _on_reset_timer_timeout():
 	_fishing_animation.play("Thrown_Idle")
+	_hooked_sound.stop()
 	emit_signal("throw_reset")
 	_fishing_timer.start()
 	_bubbles.visible = false
 	_reset_timer.stop()
+	
+func play_sound(sound_type: int) -> void:
+	if sound_type == 0:
+		_cast_sound.play()
+	if sound_type == 1:
+		_hooked_sound.play()
+	if sound_type == 2:
+		_hook_sound.play()
+		

@@ -263,7 +263,7 @@ autoplay = "sound"
 [node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.417121, -0.346664, 2.19705)
 stream = ExtResource("12_78wfu")
-volume_db = -20.0
+volume_db = -35.0
 pitch_scale = 1.5
 script = ExtResource("13_4r7pl")
 
