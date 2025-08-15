@@ -11,6 +11,9 @@ var _check_timer: Timer = get_node("Wool/CheckTimer")
 @onready
 var _sheep_animation: AnimationPlayer = get_node("SheepAnimations")
 
+@onready
+var _beee_sound: AudioStreamPlayer3D = get_node("BeeeSound")
+
 func _ready():
 	for wool_clump in _wool_clumps:
 		wool_clump.wool_cut.connect(_on_wool_cut)
@@ -34,3 +37,14 @@ func _on_check_timer_timeout() -> void:
 
 func _on_sheep_animations_animation_finished(_anim_name: StringName) -> void:
 	_sheep_animation.play("Idle")
+
+func _on_timer_timeout():
+	var roll = randf()
+	if roll < 0.4:
+		play_sound(0)
+	
+func play_sound(sound:int) -> void:
+	if sound == 0:
+		var pitch = randf_range(1.0, 1.5)
+		_beee_sound.pitch_scale = pitch
+		_beee_sound.play()

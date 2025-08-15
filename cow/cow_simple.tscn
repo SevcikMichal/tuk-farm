@@ -25,7 +25,7 @@ material = SubResource("StandardMaterial3D_ngso2")
 radial_segments = 8
 rings = 4
 
-[node name="sheep" instance=ExtResource("1_y80e0")]
+[node name="CowSimple" instance=ExtResource("1_y80e0")]
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." index="1"]
 transform = Transform3D(2.58695, 0, 0, 0, 1.5774, 0, 0, 0, 1.42629, -1.0604, 0.146221, 0)

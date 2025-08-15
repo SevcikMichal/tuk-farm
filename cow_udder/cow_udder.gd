@@ -10,13 +10,14 @@ var good_amount: float = 5.0
 @export
 var great_amount: float = 10.0
 
-
-# Attached to udder or cow
 @onready 
 var _skeleton: Skeleton3D = get_node("Armature/Skeleton3D")
+
 @onready
 var _milk_animations: AnimationPlayer = get_node("MilkAnimations")
 
+@onready
+var _mooo_sound: AudioStreamPlayer3D = get_node("MoooSound")
 
 var _original_rotations = {}
 
@@ -63,3 +64,14 @@ func _on_milking_controller_rhythm(state: String, last_zone: String) -> void:
 
 func _on_milk_bucket_bucket_full():
 	_milk_animations.clear_queue()
+
+func _on_timer_timeout():
+	var roll = randf()
+	if roll < 0.8:
+		play_sound(0)
+	
+func play_sound(sound: int) -> void:
+	if sound == 0:
+		var pitch = randf_range(1.0, 1.5)
+		_mooo_sound.pitch_scale = pitch
+		_mooo_sound.play()

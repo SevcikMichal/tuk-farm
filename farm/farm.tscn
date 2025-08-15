@@ -1,4 +1,4 @@
-[gd_scene load_steps=46 format=3 uid="uid://hdejlod4jlu1"]
+[gd_scene load_steps=48 format=3 uid="uid://hdejlod4jlu1"]
 
 [ext_resource type="Script" uid="uid://ny6w160fas55" path="res://global/minigame/minigame_point.gd" id="1_mjpad"]
 [ext_resource type="PackedScene" uid="uid://b2elg3q57q4sj" path="res://global/scene_setup/camera_3d.tscn" id="1_ukrf4"]
@@ -8,11 +8,13 @@
 [ext_resource type="PackedScene" uid="uid://bvyiyhs1rsteb" path="res://sheep/sheep_simple.tscn" id="3_pa1w6"]
 [ext_resource type="PackedScene" uid="uid://01skae6kdp8p" path="res://cow_milking/cow_milking.tscn" id="3_udp8x"]
 [ext_resource type="PackedScene" uid="uid://b7ptky0wls84g" path="res://chicken_eggs/chicken_eggs.tscn" id="4_ol6uc"]
+[ext_resource type="AudioStream" uid="uid://dg66x6vbga0ms" path="res://sheep/sounds/sheep_idle.ogg" id="4_x1uu6"]
 [ext_resource type="PackedScene" uid="uid://dt2cok28l7oss" path="res://farmer/farmer.tscn" id="5_a1lvl"]
 [ext_resource type="PackedScene" uid="uid://cs57d8heb32n0" path="res://chicken/models/chicken.glb" id="5_ckfc8"]
 [ext_resource type="PackedScene" uid="uid://djo0ceux607jj" path="res://cow/cow_simple.tscn" id="5_gvuxw"]
 [ext_resource type="PackedScene" uid="uid://g76phv1k4sqs" path="res://fishing/fishing.tscn" id="5_jba3n"]
 [ext_resource type="Script" uid="uid://djc7tj08ovl7y" path="res://global/scene_setup/camera_3d.gd" id="5_mjpad"]
+[ext_resource type="AudioStream" uid="uid://d2on4ei0hmnep" path="res://cow_udder/sounds/cow_idle.ogg" id="7_jcpv1"]
 [ext_resource type="AudioStream" uid="uid://dn6i0smh78j2n" path="res://chicken/sounds/chicken_idle.ogg" id="8_6cb61"]
 [ext_resource type="AudioStream" uid="uid://bdfnldh2hdcnv" path="res://fishing/sounds/wave.wav" id="9_5byl4"]
 [ext_resource type="PackedScene" uid="uid://bevavrvmwtag" path="res://barn/models/barn.glb" id="9_xwc0b"]
@@ -128,6 +130,10 @@ navigation_mesh = SubResource("NavigationMesh_72csm")
 transform = Transform3D(0.548921, 0, 0.835874, 0, 1, 0, -0.835874, 0, 0.548921, -0.379986, 0.568681, 4.50022)
 script = ExtResource("1_mjpad")
 scene = ExtResource("2_udp8x")
+sound_chance = 0.4
+randomize_pitch = true
+pitch_range_min = 1.0
+pitch_range_max = 1.5
 interaction_radius = 2.0
 
 [node name="Area3D" type="Area3D" parent="NavigationRegion3D/Minigames/Sheeps"]
@@ -164,8 +170,8 @@ transform = Transform3D(-0.0216894, 0, 0.299215, 0, 0.3, 0, -0.299215, 0, -0.021
 transform = Transform3D(0.183239, 0, 0.237537, 0, 0.3, 0, -0.237537, 0, 0.183239, -0.356285, -0.254331, -0.870806)
 
 [node name="IdleSound" type="AudioStreamPlayer3D" parent="NavigationRegion3D/Minigames/Sheeps"]
+stream = ExtResource("4_x1uu6")
 volume_db = -15.0
-pitch_scale = 0.7
 
 [node name="Timer" type="Timer" parent="NavigationRegion3D/Minigames/Sheeps"]
 wait_time = 3.0
@@ -175,6 +181,10 @@ autostart = true
 transform = Transform3D(-0.0506978, 0, 0.998714, 0, 1, 0, -0.998714, 0, -0.0506978, -4.18313, -4.76837e-07, -0.402667)
 script = ExtResource("1_mjpad")
 scene = ExtResource("3_udp8x")
+sound_chance = 0.8
+randomize_pitch = true
+pitch_range_min = 1.0
+pitch_range_max = 1.5
 interaction_radius = 1.9
 
 [node name="StaticBody3D" type="StaticBody3D" parent="NavigationRegion3D/Minigames/Cows"]
@@ -205,8 +215,8 @@ transform = Transform3D(0.957788, 0.287478, 1.2566e-08, 1.72694e-15, -4.37114e-0
 mesh = SubResource("QuadMesh_s5yk0")
 
 [node name="IdleSound" type="AudioStreamPlayer3D" parent="NavigationRegion3D/Minigames/Cows"]
+stream = ExtResource("7_jcpv1")
 volume_db = -15.0
-pitch_scale = 0.7
 
 [node name="Timer" type="Timer" parent="NavigationRegion3D/Minigames/Cows"]
 wait_time = 6.0

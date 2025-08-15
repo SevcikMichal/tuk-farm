@@ -1,8 +1,9 @@
-[gd_scene load_steps=9 format=3 uid="uid://lvucy2opcubr"]
+[gd_scene load_steps=10 format=3 uid="uid://lvucy2opcubr"]
 
 [ext_resource type="PackedScene" uid="uid://cykmnh1gj8mir" path="res://sheep/models/sheep.glb" id="1_5riea"]
 [ext_resource type="PackedScene" uid="uid://bav8v4r403kwm" path="res://wool_clump/wool_clump.tscn" id="2_8bfv8"]
 [ext_resource type="Script" uid="uid://d3sweqyelp7s1" path="res://sheep/sheep.gd" id="2_1385h"]
+[ext_resource type="AudioStream" uid="uid://dg66x6vbga0ms" path="res://sheep/sounds/sheep_idle.ogg" id="4_vjvfl"]
 
 [sub_resource type="Animation" id="Animation_1385h"]
 resource_name = "Idle"
@@ -266,5 +267,15 @@ transform = Transform3D(-4.3598e-08, 0.997407, -0.0719675, -1, -4.37114e-08, 0, 
 shape = SubResource("CapsuleShape3D_1385h")
 debug_color = Color(1.82897e-06, 0.635395, 0.405878, 1)
 
+[node name="BeeeSound" type="AudioStreamPlayer3D" parent="." index="4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.278544, 0.718973, 0)
+stream = ExtResource("4_vjvfl")
+volume_db = -15.0
+
+[node name="Timer" type="Timer" parent="BeeeSound" index="0"]
+wait_time = 3.0
+autostart = true
+
 [connection signal="animation_finished" from="SheepAnimations" to="." method="_on_sheep_animations_animation_finished"]
 [connection signal="timeout" from="Wool/CheckTimer" to="." method="_on_check_timer_timeout"]
+[connection signal="timeout" from="BeeeSound/Timer" to="." method="_on_timer_timeout"]
