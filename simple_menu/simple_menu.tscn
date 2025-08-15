@@ -1,14 +1,9 @@
-[gd_scene load_steps=41 format=3 uid="uid://cxlwr1n6nvjar"]
+[gd_scene load_steps=36 format=3 uid="uid://cxlwr1n6nvjar"]
 
 [ext_resource type="Script" uid="uid://bpmd4j067vxy6" path="res://simple_menu/simple_menu.gd" id="1_r45ow"]
-[ext_resource type="Script" uid="uid://ny6w160fas55" path="res://global/minigame/minigame_point.gd" id="2_qy3th"]
-[ext_resource type="PackedScene" uid="uid://bxstn1rgtokxt" path="res://sheep_shearing/sheep_shearing.tscn" id="3_lm1ga"]
 [ext_resource type="PackedScene" uid="uid://bvyiyhs1rsteb" path="res://sheep/sheep_simple.tscn" id="4_u2f16"]
-[ext_resource type="PackedScene" uid="uid://01skae6kdp8p" path="res://cow_milking/cow_milking.tscn" id="5_4yqop"]
 [ext_resource type="PackedScene" uid="uid://djo0ceux607jj" path="res://cow/cow_simple.tscn" id="6_ogtfj"]
-[ext_resource type="PackedScene" uid="uid://b7ptky0wls84g" path="res://chicken_eggs/chicken_eggs.tscn" id="7_1jjdr"]
 [ext_resource type="PackedScene" uid="uid://cs57d8heb32n0" path="res://chicken/models/chicken.glb" id="8_d667u"]
-[ext_resource type="PackedScene" uid="uid://g76phv1k4sqs" path="res://fishing/fishing.tscn" id="9_ighx2"]
 [ext_resource type="PackedScene" uid="uid://bevavrvmwtag" path="res://barn/models/barn.glb" id="10_ohf23"]
 [ext_resource type="PackedScene" uid="uid://b2elg3q57q4sj" path="res://global/scene_setup/camera_3d.tscn" id="11_u2f16"]
 [ext_resource type="PackedScene" uid="uid://bbdx775276raa" path="res://global/scene_setup/directional_light_3d.tscn" id="12_1jjdr"]
@@ -234,9 +229,6 @@ shape = SubResource("BoxShape3D_svax8")
 
 [node name="Sheeps" type="Node3D" parent="."]
 transform = Transform3D(0.548921, 0, 0.835874, 0, 1, 0, -0.835874, 0, 0.548921, -0.379986, 0.568681, 4.50022)
-script = ExtResource("2_qy3th")
-scene = ExtResource("3_lm1ga")
-interaction_radius = 2.0
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Sheeps"]
 
@@ -258,9 +250,6 @@ transform = Transform3D(0.183239, 0, 0.237537, 0, 0.3, 0, -0.237537, 0, 0.183239
 
 [node name="Cows" type="Node3D" parent="."]
 transform = Transform3D(-0.0506978, 0, 0.998714, 0, 1, 0, -0.998714, 0, -0.0506978, -4.18313, -4.76837e-07, -0.402667)
-script = ExtResource("2_qy3th")
-scene = ExtResource("5_4yqop")
-interaction_radius = 1.9
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Cows"]
 
@@ -276,9 +265,6 @@ transform = Transform3D(-0.514059, 0, -0.612979, 0, 0.8, 0, 0.612979, 0, -0.5140
 
 [node name="Chickens" type="Node3D" parent="."]
 transform = Transform3D(0.696452, 0, 0.717604, 0, 1, 0, -0.717604, 0, 0.696452, 0.378105, 0, -4.40285)
-script = ExtResource("2_qy3th")
-scene = ExtResource("7_1jjdr")
-interaction_radius = 1.9
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Chickens"]
 
@@ -306,8 +292,6 @@ transform = Transform3D(-0.109825, 0, -0.167148, 0, 0.2, 0, 0.167148, 0, -0.1098
 
 [node name="Pond" type="Node3D" parent="."]
 transform = Transform3D(0.703742, 0, 0.710456, 0, 1, 0, -0.710456, 0, 0.703742, 6.12149, 0.420536, 0)
-script = ExtResource("2_qy3th")
-scene = ExtResource("9_ighx2")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Pond"]
 

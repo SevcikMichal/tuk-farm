@@ -5,7 +5,22 @@ extends Node3D
 var scene: PackedScene
 
 @export
+var sound_chance: float = 0.5
+
+@export
+var randomize_pitch: bool = false
+
+@export
+var pitch_range_min: float = 0.5
+
+@export
+var pitch_range_max: float = 0.7
+
+@export
 var interaction_radius: float = 3
+
+@onready
+var _idle_sound: AudioStreamPlayer3D = get_node("IdleSound")
 
 func _check_proximity_and_act(farmer_position: Vector3) -> void:
 	var flat_self = Vector2(global_position.x, global_position.z)
@@ -20,3 +35,12 @@ func load_game_scene() -> void:
 func _on_area_3d_body_entered(body) -> void:
 	if body is CharacterBody3D and body.name == "Farmer":
 		load_game_scene()
+		
+func _on_timer_timeout():
+	var roll = randf()
+	if roll < sound_chance:
+		if randomize_pitch:
+			var pitch = randf_range(pitch_range_min, pitch_range_max)
+			_idle_sound.pitch_scale = pitch
+		_idle_sound.play()
+		

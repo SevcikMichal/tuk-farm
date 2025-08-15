@@ -1,4 +1,4 @@
-[gd_scene load_steps=44 format=3 uid="uid://hdejlod4jlu1"]
+[gd_scene load_steps=45 format=3 uid="uid://hdejlod4jlu1"]
 
 [ext_resource type="Script" uid="uid://ny6w160fas55" path="res://global/minigame/minigame_point.gd" id="1_mjpad"]
 [ext_resource type="PackedScene" uid="uid://b2elg3q57q4sj" path="res://global/scene_setup/camera_3d.tscn" id="1_ukrf4"]
@@ -13,6 +13,7 @@
 [ext_resource type="PackedScene" uid="uid://djo0ceux607jj" path="res://cow/cow_simple.tscn" id="5_gvuxw"]
 [ext_resource type="PackedScene" uid="uid://g76phv1k4sqs" path="res://fishing/fishing.tscn" id="5_jba3n"]
 [ext_resource type="Script" uid="uid://djc7tj08ovl7y" path="res://global/scene_setup/camera_3d.gd" id="5_mjpad"]
+[ext_resource type="AudioStream" uid="uid://bdfnldh2hdcnv" path="res://fishing/sounds/wave.wav" id="9_5byl4"]
 [ext_resource type="PackedScene" uid="uid://bevavrvmwtag" path="res://barn/models/barn.glb" id="9_xwc0b"]
 [ext_resource type="PackedScene" uid="uid://c05idj0yb4f10" path="res://global/hint/hint.tscn" id="12_tafdm"]
 
@@ -161,6 +162,14 @@ transform = Transform3D(-0.0216894, 0, 0.299215, 0, 0.3, 0, -0.299215, 0, -0.021
 [node name="sheep4" parent="NavigationRegion3D/Minigames/Sheeps/StaticBody3D" instance=ExtResource("3_pa1w6")]
 transform = Transform3D(0.183239, 0, 0.237537, 0, 0.3, 0, -0.237537, 0, 0.183239, -0.356285, -0.254331, -0.870806)
 
+[node name="IdleSound" type="AudioStreamPlayer3D" parent="NavigationRegion3D/Minigames/Sheeps"]
+volume_db = -15.0
+pitch_scale = 0.7
+
+[node name="Timer" type="Timer" parent="NavigationRegion3D/Minigames/Sheeps"]
+wait_time = 3.0
+autostart = true
+
 [node name="Cows" type="Node3D" parent="NavigationRegion3D/Minigames"]
 transform = Transform3D(-0.0506978, 0, 0.998714, 0, 1, 0, -0.998714, 0, -0.0506978, -4.18313, -4.76837e-07, -0.402667)
 script = ExtResource("1_mjpad")
@@ -193,6 +202,14 @@ mesh = SubResource("TextMesh_5byl4")
 [node name="MeshInstance3D2" type="MeshInstance3D" parent="NavigationRegion3D/Minigames/Cows/Area3D"]
 transform = Transform3D(0.957788, 0.287478, 1.2566e-08, 1.72694e-15, -4.37114e-08, 1, 0.287478, -0.957788, -4.18662e-08, 0.16383, -0.532976, 0.316548)
 mesh = SubResource("QuadMesh_s5yk0")
+
+[node name="IdleSound" type="AudioStreamPlayer3D" parent="NavigationRegion3D/Minigames/Cows"]
+volume_db = -15.0
+pitch_scale = 0.7
+
+[node name="Timer" type="Timer" parent="NavigationRegion3D/Minigames/Cows"]
+wait_time = 6.0
+autostart = true
 
 [node name="Chickens" type="Node3D" parent="NavigationRegion3D/Minigames"]
 transform = Transform3D(0.696452, 0, 0.717604, 0, 1, 0, -0.717604, 0, 0.696452, 0.378105, 0, -4.40285)
@@ -239,10 +256,18 @@ mesh = SubResource("TextMesh_6cb61")
 transform = Transform3D(0.957788, 0.287478, 1.2566e-08, 1.72694e-15, -4.37114e-08, 1, 0.287478, -0.957788, -4.18662e-08, 0.177112, -0.532976, 0.282026)
 mesh = SubResource("QuadMesh_s5yk0")
 
+[node name="IdleSound" type="AudioStreamPlayer3D" parent="NavigationRegion3D/Minigames/Chickens"]
+volume_db = -15.0
+pitch_scale = 0.7
+
+[node name="Timer" type="Timer" parent="NavigationRegion3D/Minigames/Chickens"]
+autostart = true
+
 [node name="Pond" type="Node3D" parent="NavigationRegion3D/Minigames"]
 transform = Transform3D(0.703742, 0, 0.710456, 0, 1, 0, -0.710456, 0, 0.703742, 6.12149, 0.420536, 0)
 script = ExtResource("1_mjpad")
 scene = ExtResource("5_jba3n")
+randomize_pitch = true
 
 [node name="StaticBody3D" type="StaticBody3D" parent="NavigationRegion3D/Minigames/Pond"]
 
@@ -276,6 +301,15 @@ mesh = SubResource("TextMesh_x1uu6")
 [node name="MeshInstance3D2" type="MeshInstance3D" parent="NavigationRegion3D/Minigames/Pond/Area3D"]
 transform = Transform3D(0.941306, 0.337556, 1.4755e-08, 1.72694e-15, -4.37114e-08, 1, 0.337556, -0.941306, -4.11458e-08, 0.163252, -0.532976, 0.318177)
 mesh = SubResource("QuadMesh_s5yk0")
+
+[node name="IdleSound" type="AudioStreamPlayer3D" parent="NavigationRegion3D/Minigames/Pond"]
+stream = ExtResource("9_5byl4")
+volume_db = -15.0
+pitch_scale = 0.7
+
+[node name="Timer" type="Timer" parent="NavigationRegion3D/Minigames/Pond"]
+wait_time = 5.0
+autostart = true
 
 [node name="Ground" type="StaticBody3D" parent="NavigationRegion3D"]
 collision_layer = 512
@@ -564,9 +598,13 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.198624, 0)
 camera = NodePath("../Camera3D")
 
 [connection signal="body_entered" from="NavigationRegion3D/Minigames/Sheeps/Area3D" to="NavigationRegion3D/Minigames/Sheeps" method="_on_area_3d_body_entered"]
+[connection signal="timeout" from="NavigationRegion3D/Minigames/Sheeps/Timer" to="NavigationRegion3D/Minigames/Sheeps" method="_on_timer_timeout"]
 [connection signal="body_entered" from="NavigationRegion3D/Minigames/Cows/Area3D" to="NavigationRegion3D/Minigames/Cows" method="_on_area_3d_body_entered"]
+[connection signal="timeout" from="NavigationRegion3D/Minigames/Cows/Timer" to="NavigationRegion3D/Minigames/Cows" method="_on_timer_timeout"]
 [connection signal="body_entered" from="NavigationRegion3D/Minigames/Chickens/Area3D" to="NavigationRegion3D/Minigames/Chickens" method="_on_area_3d_body_entered"]
+[connection signal="timeout" from="NavigationRegion3D/Minigames/Chickens/Timer" to="NavigationRegion3D/Minigames/Chickens" method="_on_timer_timeout"]
 [connection signal="body_entered" from="NavigationRegion3D/Minigames/Pond/Area3D" to="NavigationRegion3D/Minigames/Pond" method="_on_area_3d_body_entered"]
+[connection signal="timeout" from="NavigationRegion3D/Minigames/Pond/Timer" to="NavigationRegion3D/Minigames/Pond" method="_on_timer_timeout"]
 [connection signal="walk_finished" from="Farmer" to="NavigationRegion3D/Minigames/Sheeps" method="_on_farmer_walk_finished"]
 [connection signal="walk_finished" from="Farmer" to="NavigationRegion3D/Minigames/Cows" method="_on_farmer_walk_finished"]
 [connection signal="walk_finished" from="Farmer" to="NavigationRegion3D/Minigames/Chickens" method="_on_farmer_walk_finished"]
