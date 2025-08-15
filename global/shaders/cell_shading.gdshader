@@ -24,6 +24,6 @@ void fragment() {
     float band = floor(lum * levels + levels * 0.5) / levels;
     vec3 toon_color = color * band;
 
-   
+
     COLOR = vec4(toon_color, 1.0);
 }
