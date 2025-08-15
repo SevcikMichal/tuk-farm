@@ -5,6 +5,9 @@ extends Node3D
 @onready
 var rigidbody: RigidBody3D = get_node("RigidBody3D")
 
+@onready
+var _hit_sound: AudioStreamPlayer3D = get_node("AudioStreamPlayer3D")
+
 func _ready():
 	var random_force = Vector3(
 		randf_range(-2, 2.0),
@@ -19,3 +22,8 @@ func _ready():
 	
 	await get_tree().create_timer(lifetime).timeout
 	queue_free()
+
+func _physics_process(_dt: float) -> void:
+	var count := rigidbody.get_contact_count()
+	if count > 0:
+		_hit_sound.play()

@@ -1,4 +1,4 @@
-[gd_scene load_steps=45 format=3 uid="uid://hdejlod4jlu1"]
+[gd_scene load_steps=46 format=3 uid="uid://hdejlod4jlu1"]
 
 [ext_resource type="Script" uid="uid://ny6w160fas55" path="res://global/minigame/minigame_point.gd" id="1_mjpad"]
 [ext_resource type="PackedScene" uid="uid://b2elg3q57q4sj" path="res://global/scene_setup/camera_3d.tscn" id="1_ukrf4"]
@@ -13,6 +13,7 @@
 [ext_resource type="PackedScene" uid="uid://djo0ceux607jj" path="res://cow/cow_simple.tscn" id="5_gvuxw"]
 [ext_resource type="PackedScene" uid="uid://g76phv1k4sqs" path="res://fishing/fishing.tscn" id="5_jba3n"]
 [ext_resource type="Script" uid="uid://djc7tj08ovl7y" path="res://global/scene_setup/camera_3d.gd" id="5_mjpad"]
+[ext_resource type="AudioStream" uid="uid://dn6i0smh78j2n" path="res://chicken/sounds/chicken_idle.ogg" id="8_6cb61"]
 [ext_resource type="AudioStream" uid="uid://bdfnldh2hdcnv" path="res://fishing/sounds/wave.wav" id="9_5byl4"]
 [ext_resource type="PackedScene" uid="uid://bevavrvmwtag" path="res://barn/models/barn.glb" id="9_xwc0b"]
 [ext_resource type="PackedScene" uid="uid://c05idj0yb4f10" path="res://global/hint/hint.tscn" id="12_tafdm"]
@@ -215,6 +216,10 @@ autostart = true
 transform = Transform3D(0.696452, 0, 0.717604, 0, 1, 0, -0.717604, 0, 0.696452, 0.378105, 0, -4.40285)
 script = ExtResource("1_mjpad")
 scene = ExtResource("4_ol6uc")
+sound_chance = 0.3
+randomize_pitch = true
+pitch_range_min = 1.0
+pitch_range_max = 1.2
 interaction_radius = 1.9
 
 [node name="StaticBody3D" type="StaticBody3D" parent="NavigationRegion3D/Minigames/Chickens"]
@@ -257,10 +262,12 @@ transform = Transform3D(0.957788, 0.287478, 1.2566e-08, 1.72694e-15, -4.37114e-0
 mesh = SubResource("QuadMesh_s5yk0")
 
 [node name="IdleSound" type="AudioStreamPlayer3D" parent="NavigationRegion3D/Minigames/Chickens"]
+stream = ExtResource("8_6cb61")
 volume_db = -15.0
-pitch_scale = 0.7
+pitch_scale = 1.2
 
 [node name="Timer" type="Timer" parent="NavigationRegion3D/Minigames/Chickens"]
+wait_time = 1.5
 autostart = true
 
 [node name="Pond" type="Node3D" parent="NavigationRegion3D/Minigames"]

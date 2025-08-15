@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://yod067gv365n"]
+[gd_scene load_steps=6 format=3 uid="uid://yod067gv365n"]
 
 [ext_resource type="PackedScene" uid="uid://ldrea122jcyp" path="res://egg/models/egg.glb" id="1_0ky4p"]
 [ext_resource type="Script" uid="uid://blpafq468prqk" path="res://egg/egg.gd" id="1_ped3g"]
+[ext_resource type="AudioStream" uid="uid://cu6sytsckde1t" path="res://egg/sounds/egg_hit.wav" id="3_4kch2"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_0ky4p"]
 bounce = 0.5
@@ -12,12 +13,20 @@ height = 0.546814
 
 [node name="Egg" type="Node3D"]
 script = ExtResource("1_ped3g")
+lifetime = 3.0
 
 [node name="RigidBody3D" type="RigidBody3D" parent="."]
 physics_material_override = SubResource("PhysicsMaterial_0ky4p")
+contact_monitor = true
+max_contacts_reported = 1
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D"]
 shape = SubResource("CapsuleShape3D_0ky4p")
 
 [node name="egg" parent="RigidBody3D" instance=ExtResource("1_0ky4p")]
 transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0, 0, 0)
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("3_4kch2")
+volume_db = -15.0
+pitch_scale = 2.0
