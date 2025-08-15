@@ -29,7 +29,8 @@ Shearing"
 font_size = 40
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jcpv1"]
-albedo_color = Color(0, 1, 0.478431, 1)
+transparency = 1
+albedo_color = Color(0, 1, 0.478431, 0.164706)
 
 [sub_resource type="QuadMesh" id="QuadMesh_s5yk0"]
 material = SubResource("StandardMaterial3D_jcpv1")
@@ -139,7 +140,7 @@ transform = Transform3D(0.109613, 0.993975, 4.3448e-08, -3.82871e-17, -4.37114e-
 mesh = SubResource("TextMesh_tafdm")
 
 [node name="MeshInstance3D2" type="MeshInstance3D" parent="NavigationRegion3D/Minigames/Sheeps/Area3D"]
-transform = Transform3D(1, -2.98023e-08, -4.44089e-16, 0, -4.37114e-08, 1, -2.98023e-08, -1, -4.37114e-08, 0.213488, -0.532976, 0.209614)
+transform = Transform3D(0.997792, 0.0664131, 2.90301e-09, 0, -4.37114e-08, 1, 0.0664131, -0.997792, -4.36149e-08, 0.346996, -0.532976, 0.211381)
 mesh = SubResource("QuadMesh_s5yk0")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="NavigationRegion3D/Minigames/Sheeps"]
@@ -235,7 +236,7 @@ transform = Transform3D(0.183703, -0.977379, 0.104813, -0.052035, 0.0968095, 0.9
 mesh = SubResource("TextMesh_6cb61")
 
 [node name="MeshInstance3D2" type="MeshInstance3D" parent="NavigationRegion3D/Minigames/Chickens/Area3D"]
-transform = Transform3D(0.957788, 0.287478, 1.2566e-08, 1.72694e-15, -4.37114e-08, 1, 0.287478, -0.957788, -4.18662e-08, 0.16383, -0.532976, 0.316548)
+transform = Transform3D(0.957788, 0.287478, 1.2566e-08, 1.72694e-15, -4.37114e-08, 1, 0.287478, -0.957788, -4.18662e-08, 0.177112, -0.532976, 0.282026)
 mesh = SubResource("QuadMesh_s5yk0")
 
 [node name="Pond" type="Node3D" parent="NavigationRegion3D/Minigames"]
@@ -273,7 +274,7 @@ transform = Transform3D(-0.982152, -0.185109, -0.0333882, -0.052035, 0.0968095, 
 mesh = SubResource("TextMesh_x1uu6")
 
 [node name="MeshInstance3D2" type="MeshInstance3D" parent="NavigationRegion3D/Minigames/Pond/Area3D"]
-transform = Transform3D(0.957788, 0.287478, 1.2566e-08, 1.72694e-15, -4.37114e-08, 1, 0.287478, -0.957788, -4.18662e-08, 0.16383, -0.532976, 0.316548)
+transform = Transform3D(0.941306, 0.337556, 1.4755e-08, 1.72694e-15, -4.37114e-08, 1, 0.337556, -0.941306, -4.11458e-08, 0.163252, -0.532976, 0.318177)
 mesh = SubResource("QuadMesh_s5yk0")
 
 [node name="Ground" type="StaticBody3D" parent="NavigationRegion3D"]
@@ -405,7 +406,7 @@ transform = Transform3D(5.24936, 0, 0, 0, 1, 0, 0, 0, 1, 2.22491, -0.4819, -0.00
 mesh = SubResource("BoxMesh_tafdm")
 
 [node name="MeshInstance3D2" type="MeshInstance3D" parent="NavigationRegion3D"]
-transform = Transform3D(5.01224, 0, -0.297158, 0, 1, 0, 1.55989, 0, 0.954828, -2.62198, -0.4819, -0.732508)
+transform = Transform3D(2.86292, 0, -0.295688, 0, 1, 0, 0.890986, 0, 0.950106, -1.74194, -0.4819, -0.463881)
 mesh = SubResource("BoxMesh_tafdm")
 
 [node name="MeshInstance3D3" type="MeshInstance3D" parent="NavigationRegion3D"]
