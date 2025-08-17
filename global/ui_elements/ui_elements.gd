@@ -39,12 +39,17 @@ var _haptics_indicator: ColorRect = get_node("GeneralPanel/Options/CenterContain
 @onready
 var _hints_indicator: ColorRect = get_node("GeneralPanel/Options/CenterContainer/Vertical/Hints/Indicator")
 
+@onready
+var _sounds_indicator: ColorRect = get_node("GeneralPanel/Options/CenterContainer/Vertical/Sounds/Indicator")
+
 func _ready():
 	_level_progress.visible = show_level_progress
 	_home_button.visible = show_home_button
 	_simple_menu.visible = show_simple_menu
 	_hints_indicator.color = Color.DARK_GREEN if Globals.get_configuration().show_hints() else Color.DARK_RED
 	_haptics_indicator.color = Color.DARK_GREEN if Globals.get_configuration().is_haptics_enabled() else Color.DARK_RED
+	_sounds_indicator.color = Color.DARK_GREEN if Globals.get_configuration().is_sound_enabled() else Color.DARK_RED
+
 	
 func _on_show_options_pressed():
 	_button_pressed_feedback()
@@ -66,6 +71,17 @@ func _on_haptics_button_pressed():
 	var res = Globals.get_configuration().toggle_is_haptics_enabled()
 	_haptics_indicator.color = Color.DARK_GREEN if res else Color.DARK_RED
 	Globals.get_configuration().save_self()
+
+func _on_sounds_pressed():
+	_button_pressed_feedback()
+	var res = Globals.get_configuration().toggle_is_sound_enabled()
+	if res:
+		Globals.unmute_sound()
+	else:
+		Globals.mute_sound()
+	_sounds_indicator.color = Color.DARK_GREEN if res else Color.DARK_RED
+	Globals.get_configuration().save_self()
+
 
 func _on_offline_pressed() -> void:
 	_button_pressed_feedback()

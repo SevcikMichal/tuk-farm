@@ -359,3 +359,4 @@ pitch_scale = 1.5
 [connection signal="pressed" from="GeneralPanel/TopPanel/Home" to="." method="_on_home_pressed"]
 [connection signal="pressed" from="GeneralPanel/Options/CenterContainer/Vertical/Hints/Hints" to="." method="_on_hints_button_pressed"]
 [connection signal="pressed" from="GeneralPanel/Options/CenterContainer/Vertical/Haptics/Haptics" to="." method="_on_haptics_button_pressed"]
+[connection signal="pressed" from="GeneralPanel/Options/CenterContainer/Vertical/Sounds/Sounds" to="." method="_on_sounds_pressed"]

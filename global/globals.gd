@@ -9,12 +9,20 @@ func _ready() -> void:
 	randomize()
 	_configuration = Configuration.new()
 	_configuration.load_self()
+	if not _configuration.is_sound_enabled():
+		mute_sound()
 
 func begin_touch(finger_id: int) -> bool:
 	if _active_finger == -1:
 		_active_finger = finger_id
 		return true
 	return _active_finger == finger_id
+
+func mute_sound():
+	AudioServer.set_bus_mute(AudioServer.get_bus_index("Master"), true)
+
+func unmute_sound():
+	AudioServer.set_bus_mute(AudioServer.get_bus_index("Master"), false)
 
 func end_touch(finger_id: int) -> void:
 	if _active_finger == finger_id:
