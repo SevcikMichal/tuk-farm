@@ -1,0 +1,362 @@
+[gd_scene load_steps=16 format=3 uid="uid://dytvn2lfmcumw"]
+
+[ext_resource type="Script" uid="uid://dd0a04to6ul3b" path="res://global/ui_elements/ui_elements.gd" id="1_u2g1r"]
+[ext_resource type="FontFile" uid="uid://bugot647xfbko" path="res://global/fonts/PixelatedEleganceRegular-ovyAA.ttf" id="2_b8ior"]
+[ext_resource type="StyleBox" uid="uid://dw76rve0hm281" path="res://global/ui_elements/small_button_style.tres" id="3_7doxu"]
+[ext_resource type="StyleBox" uid="uid://bc0erjxrsulp5" path="res://global/ui_elements/option_button_style.tres" id="4_onqvq"]
+[ext_resource type="PackedScene" uid="uid://owyejyapokm1" path="res://global/menu_sounds/click_sound.tscn" id="5_b8ior"]
+[ext_resource type="AudioStream" uid="uid://dtw8kalq6oa3t" path="res://global/ui_elements/sounds/celebrate.wav" id="6_7doxu"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7doxu"]
+content_margin_left = 50.0
+content_margin_top = 50.0
+content_margin_right = 50.0
+content_margin_bottom = 50.0
+bg_color = Color(0.47775, 0.355941, 0.20833, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+corner_detail = 1
+shadow_size = 2
+shadow_offset = Vector2(5, 5)
+anti_aliasing = false
+
+[sub_resource type="Theme" id="Theme_0c5et"]
+Button/styles/pressed = null
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0c5et"]
+bg_color = Color(0.698649, 0.537609, 0.346172, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+corner_detail = 1
+shadow_size = 5
+shadow_offset = Vector2(10, 10)
+anti_aliasing = false
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qj86h"]
+bg_color = Color(1, 1, 1, 1)
+draw_center = false
+border_width_bottom = 2
+border_color = Color(1, 1, 1, 1)
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+corner_detail = 1
+expand_margin_bottom = 10.0
+
+[sub_resource type="LabelSettings" id="LabelSettings_qj86h"]
+font = ExtResource("2_b8ior")
+font_size = 100
+outline_size = 5
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4x6rc"]
+bg_color = Color(0.6, 1, 0.6, 0)
+draw_center = false
+border_width_left = 10
+border_width_top = 10
+border_width_right = 10
+border_width_bottom = 10
+border_color = Color(7.55653e-06, 0.346186, 0.0523098, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+corner_detail = 1
+expand_margin_left = 15.0
+expand_margin_top = 15.0
+expand_margin_right = 15.0
+expand_margin_bottom = 15.0
+shadow_offset = Vector2(10, 10)
+anti_aliasing = false
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0o1ox"]
+bg_color = Color(0, 0.468427, 0.0836483, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+corner_detail = 1
+shadow_offset = Vector2(10, 10)
+
+[sub_resource type="LabelSettings" id="LabelSettings_onqvq"]
+font = ExtResource("2_b8ior")
+font_size = 100
+shadow_size = 10
+shadow_color = Color(0, 0, 0, 1)
+
+[sub_resource type="Gradient" id="Gradient_1dhh4"]
+offsets = PackedFloat32Array(0, 0.230415, 0.389401, 0.513825, 0.693548, 0.831797, 1)
+colors = PackedColorArray(1, 0, 0, 1, 1, 1, 0.231373, 1, 1, 1, 1, 1, 0, 0, 1, 1, 1, 0, 0.693548, 1, 0, 1, 0, 1, 1, 0, 1, 1)
+
+[node name="UIElements" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("1_u2g1r")
+
+[node name="SimpleMenu" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -305.5
+offset_top = -1010.0
+offset_right = 305.5
+offset_bottom = -214.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="Offline" type="Button" parent="SimpleMenu"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_b8ior")
+theme_override_font_sizes/font_size = 100
+theme_override_styles/normal = SubResource("StyleBoxFlat_7doxu")
+text = "Offline"
+
+[node name="MarginContainer" type="MarginContainer" parent="SimpleMenu"]
+custom_minimum_size = Vector2(0, 500)
+layout_mode = 2
+
+[node name="Online" type="Button" parent="SimpleMenu"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_b8ior")
+theme_override_font_sizes/font_size = 100
+theme_override_styles/normal = ExtResource("4_onqvq")
+disabled = true
+text = "Online
+"
+
+[node name="GeneralPanel" type="VBoxContainer" parent="."]
+custom_minimum_size = Vector2(900, 0)
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -450.0
+offset_right = 450.0
+offset_bottom = 253.0
+grow_horizontal = 2
+mouse_filter = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="GeneralPanel"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+mouse_filter = 2
+
+[node name="TopPanel" type="HBoxContainer" parent="GeneralPanel"]
+custom_minimum_size = Vector2(0, 199)
+layout_direction = 3
+layout_mode = 2
+mouse_filter = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="GeneralPanel/TopPanel"]
+custom_minimum_size = Vector2(50, 0)
+layout_mode = 2
+mouse_filter = 2
+
+[node name="ShowOptions" type="Button" parent="GeneralPanel/TopPanel"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_b8ior")
+theme_override_font_sizes/font_size = 100
+theme_override_styles/normal = ExtResource("3_7doxu")
+text = "O"
+
+[node name="MarginContainer2" type="MarginContainer" parent="GeneralPanel/TopPanel"]
+custom_minimum_size = Vector2(450, 0)
+layout_mode = 2
+mouse_filter = 2
+
+[node name="Home" type="Button" parent="GeneralPanel/TopPanel"]
+layout_mode = 2
+mouse_filter = 1
+theme = SubResource("Theme_0c5et")
+theme_override_fonts/font = ExtResource("2_b8ior")
+theme_override_font_sizes/font_size = 200
+theme_override_styles/normal = ExtResource("3_7doxu")
+text = "<"
+
+[node name="Options" type="CenterContainer" parent="GeneralPanel"]
+visible = false
+custom_minimum_size = Vector2(900, 1750)
+layout_mode = 2
+mouse_filter = 2
+
+[node name="CenterContainer" type="CenterContainer" parent="GeneralPanel/Options"]
+layout_mode = 2
+mouse_filter = 2
+
+[node name="Panel" type="Panel" parent="GeneralPanel/Options/CenterContainer"]
+custom_minimum_size = Vector2(800, 525)
+layout_mode = 2
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_0c5et")
+
+[node name="Vertical" type="VBoxContainer" parent="GeneralPanel/Options/CenterContainer"]
+layout_mode = 2
+mouse_filter = 2
+
+[node name="Options Label" type="Label" parent="GeneralPanel/Options/CenterContainer/Vertical"]
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_qj86h")
+text = "Options"
+label_settings = SubResource("LabelSettings_qj86h")
+horizontal_alignment = 1
+
+[node name="MarginContainer2" type="MarginContainer" parent="GeneralPanel/Options/CenterContainer/Vertical"]
+custom_minimum_size = Vector2(85, 20)
+layout_mode = 2
+mouse_filter = 2
+
+[node name="Hints" type="HBoxContainer" parent="GeneralPanel/Options/CenterContainer/Vertical"]
+layout_mode = 2
+mouse_filter = 2
+
+[node name="Hints" type="Button" parent="GeneralPanel/Options/CenterContainer/Vertical/Hints"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_b8ior")
+theme_override_font_sizes/font_size = 60
+theme_override_styles/normal = ExtResource("4_onqvq")
+text = "Toggle Hints"
+
+[node name="MarginContainer2" type="MarginContainer" parent="GeneralPanel/Options/CenterContainer/Vertical/Hints"]
+custom_minimum_size = Vector2(123, 20)
+layout_mode = 2
+mouse_filter = 2
+
+[node name="Indicator" type="ColorRect" parent="GeneralPanel/Options/CenterContainer/Vertical/Hints"]
+custom_minimum_size = Vector2(85, 0)
+layout_mode = 2
+mouse_filter = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="GeneralPanel/Options/CenterContainer/Vertical"]
+custom_minimum_size = Vector2(85, 20)
+layout_mode = 2
+mouse_filter = 2
+
+[node name="Haptics" type="HBoxContainer" parent="GeneralPanel/Options/CenterContainer/Vertical"]
+custom_minimum_size = Vector2(85, 0)
+layout_mode = 2
+mouse_filter = 2
+
+[node name="Haptics" type="Button" parent="GeneralPanel/Options/CenterContainer/Vertical/Haptics"]
+custom_minimum_size = Vector2(85, 0)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_b8ior")
+theme_override_font_sizes/font_size = 60
+theme_override_styles/normal = ExtResource("4_onqvq")
+text = "Toggle Happtics"
+
+[node name="MarginContainer2" type="MarginContainer" parent="GeneralPanel/Options/CenterContainer/Vertical/Haptics"]
+custom_minimum_size = Vector2(10, 20)
+layout_mode = 2
+mouse_filter = 2
+
+[node name="Indicator" type="ColorRect" parent="GeneralPanel/Options/CenterContainer/Vertical/Haptics"]
+custom_minimum_size = Vector2(85, 0)
+layout_mode = 2
+mouse_filter = 2
+
+[node name="MarginContainer3" type="MarginContainer" parent="GeneralPanel/Options/CenterContainer/Vertical"]
+custom_minimum_size = Vector2(85, 20)
+layout_mode = 2
+mouse_filter = 2
+
+[node name="Sounds" type="HBoxContainer" parent="GeneralPanel/Options/CenterContainer/Vertical"]
+custom_minimum_size = Vector2(85, 0)
+layout_mode = 2
+mouse_filter = 2
+
+[node name="Sounds" type="Button" parent="GeneralPanel/Options/CenterContainer/Vertical/Sounds"]
+custom_minimum_size = Vector2(85, 0)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_b8ior")
+theme_override_font_sizes/font_size = 60
+theme_override_styles/normal = ExtResource("4_onqvq")
+text = "Toggle Sounds"
+
+[node name="MarginContainer2" type="MarginContainer" parent="GeneralPanel/Options/CenterContainer/Vertical/Sounds"]
+custom_minimum_size = Vector2(76, 20)
+layout_mode = 2
+mouse_filter = 2
+
+[node name="Indicator" type="ColorRect" parent="GeneralPanel/Options/CenterContainer/Vertical/Sounds"]
+custom_minimum_size = Vector2(85, 0)
+layout_mode = 2
+mouse_filter = 2
+
+[node name="ClickSound" parent="." instance=ExtResource("5_b8ior")]
+
+[node name="Experience" type="CenterContainer" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -449.0
+offset_top = -133.0
+offset_right = 1051.0
+offset_bottom = 79.0
+grow_horizontal = 2
+grow_vertical = 0
+scale = Vector2(0.6, 0.6)
+mouse_filter = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Experience"]
+layout_mode = 2
+
+[node name="ProgressBar" type="ProgressBar" parent="Experience/VBoxContainer"]
+custom_minimum_size = Vector2(1200, 100)
+layout_mode = 2
+theme_override_styles/background = SubResource("StyleBoxFlat_4x6rc")
+theme_override_styles/fill = SubResource("StyleBoxFlat_0o1ox")
+show_percentage = false
+
+[node name="Label" type="Label" parent="Experience/VBoxContainer/ProgressBar"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -600.0
+offset_top = -45.0
+offset_right = 600.0
+offset_bottom = 45.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "1"
+label_settings = SubResource("LabelSettings_onqvq")
+horizontal_alignment = 1
+
+[node name="ExperienceParticles" type="CPUParticles2D" parent="."]
+position = Vector2(450, 1800)
+emitting = false
+amount = 200
+lifetime = 2.0
+one_shot = true
+emission_shape = 3
+emission_rect_extents = Vector2(370, 1)
+gravity = Vector2(0, -980)
+scale_amount_max = 10.0
+color_ramp = SubResource("Gradient_1dhh4")
+
+[node name="ExperienceCelebration" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_7doxu")
+volume_db = -15.0
+pitch_scale = 1.5
+
+[connection signal="pressed" from="SimpleMenu/Offline" to="." method="_on_offline_pressed"]
+[connection signal="pressed" from="GeneralPanel/TopPanel/ShowOptions" to="." method="_on_show_options_pressed"]
+[connection signal="pressed" from="GeneralPanel/TopPanel/Home" to="." method="_on_home_pressed"]
+[connection signal="pressed" from="GeneralPanel/Options/CenterContainer/Vertical/Hints/Hints" to="." method="_on_hints_button_pressed"]
+[connection signal="pressed" from="GeneralPanel/Options/CenterContainer/Vertical/Haptics/Haptics" to="." method="_on_haptics_button_pressed"]

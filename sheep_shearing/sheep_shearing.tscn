@@ -1,14 +1,12 @@
-[gd_scene load_steps=17 format=3 uid="uid://bxstn1rgtokxt"]
+[gd_scene load_steps=15 format=3 uid="uid://bxstn1rgtokxt"]
 
 [ext_resource type="Script" uid="uid://dp8gk07ialapr" path="res://global/experience/experience_pusher.gd" id="1_0ikuk"]
-[ext_resource type="PackedScene" uid="uid://c7fb7ct3lqgec" path="res://global/debug/debug.tscn" id="1_a0an6"]
 [ext_resource type="PackedScene" uid="uid://bbdx775276raa" path="res://global/scene_setup/directional_light_3d.tscn" id="2_5xpdv"]
 [ext_resource type="PackedScene" uid="uid://b2elg3q57q4sj" path="res://global/scene_setup/camera_3d.tscn" id="3_10bgh"]
 [ext_resource type="PackedScene" uid="uid://lvucy2opcubr" path="res://sheep/sheep.tscn" id="4_amrhd"]
 [ext_resource type="PackedScene" uid="uid://dag67ckbdflew" path="res://global/scene_setup/post_process.tscn" id="5_0ikuk"]
-[ext_resource type="PackedScene" uid="uid://csnyrhwij17g6" path="res://global/home_button/home_button.tscn" id="5_5xpdv"]
 [ext_resource type="PackedScene" uid="uid://b4masklchxpux" path="res://shears/shears.tscn" id="7_10bgh"]
-[ext_resource type="PackedScene" uid="uid://dn8p6tif0fpiv" path="res://global/experience/experience.tscn" id="7_amrhd"]
+[ext_resource type="PackedScene" uid="uid://dytvn2lfmcumw" path="res://global/ui_elements/ui_elements.tscn" id="7_amrhd"]
 [ext_resource type="PackedScene" uid="uid://c05idj0yb4f10" path="res://global/hint/hint.tscn" id="9_ang0i"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1385h"]
@@ -35,7 +33,7 @@ material = SubResource("StandardMaterial3D_bydsx")
 [node name="SheepShearing" type="Node3D" node_paths=PackedStringArray("level")]
 script = ExtResource("1_0ikuk")
 save_id = "sheep"
-level = NodePath("UI/Experience")
+level = NodePath("UI/UIElements")
 
 [node name="DirectionalLight3D" parent="." instance=ExtResource("2_5xpdv")]
 transform = Transform3D(0.999682, -0.0127399, 0.0217424, -0.0134213, 0.461076, 0.887259, -0.0213284, -0.887269, 0.460758, 0, 0, 3.23218)
@@ -52,15 +50,10 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.993362, 0, -1.18478)
 [node name="UI" type="CanvasLayer" parent="."]
 layer = 2
 
-[node name="Debug" parent="UI" instance=ExtResource("1_a0an6")]
-visible = false
-
-[node name="HomeButton" parent="UI" instance=ExtResource("5_5xpdv")]
-
-[node name="Experience" parent="UI" instance=ExtResource("7_amrhd")]
-
 [node name="Hint" parent="UI" instance=ExtResource("9_ang0i")]
 hint_text = "Drag your finger acros the screen to shear the sheep!"
+
+[node name="UIElements" parent="UI" instance=ExtResource("7_amrhd")]
 
 [node name="Background" type="Node3D" parent="."]
 

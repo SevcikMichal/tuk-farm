@@ -1,17 +1,14 @@
-[gd_scene load_steps=37 format=3 uid="uid://cxlwr1n6nvjar"]
+[gd_scene load_steps=27 format=3 uid="uid://cxlwr1n6nvjar"]
 
-[ext_resource type="Script" uid="uid://bpmd4j067vxy6" path="res://simple_menu/simple_menu.gd" id="1_r45ow"]
 [ext_resource type="PackedScene" uid="uid://bvyiyhs1rsteb" path="res://sheep/sheep_simple.tscn" id="4_u2f16"]
 [ext_resource type="PackedScene" uid="uid://djo0ceux607jj" path="res://cow/cow_simple.tscn" id="6_ogtfj"]
 [ext_resource type="PackedScene" uid="uid://cs57d8heb32n0" path="res://chicken/models/chicken.glb" id="8_d667u"]
-[ext_resource type="FontFile" uid="uid://bugot647xfbko" path="res://global/fonts/PixelatedEleganceRegular-ovyAA.ttf" id="9_u2f16"]
 [ext_resource type="PackedScene" uid="uid://bevavrvmwtag" path="res://barn/models/barn.glb" id="10_ohf23"]
 [ext_resource type="PackedScene" uid="uid://b2elg3q57q4sj" path="res://global/scene_setup/camera_3d.tscn" id="11_u2f16"]
 [ext_resource type="PackedScene" uid="uid://bbdx775276raa" path="res://global/scene_setup/directional_light_3d.tscn" id="12_1jjdr"]
 [ext_resource type="Script" uid="uid://djc7tj08ovl7y" path="res://global/scene_setup/camera_3d.gd" id="12_4yqop"]
+[ext_resource type="PackedScene" uid="uid://dytvn2lfmcumw" path="res://global/ui_elements/ui_elements.tscn" id="12_d667u"]
 [ext_resource type="PackedScene" uid="uid://dag67ckbdflew" path="res://global/scene_setup/post_process.tscn" id="12_ogtfj"]
-[ext_resource type="StyleBox" uid="uid://0ynhknsw6p36" path="res://simple_menu/normal_button.tres" id="14_1jjdr"]
-[ext_resource type="PackedScene" uid="uid://owyejyapokm1" path="res://global/menu_sounds/click_sound.tscn" id="16_d667u"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vkr66"]
 albedo_color = Color(0.372549, 0.666667, 0.305882, 1)
@@ -67,42 +64,6 @@ material = SubResource("StandardMaterial3D_xwc0b")
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_7ulba"]
 size = Vector3(3.44048, 1, 2.79639)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ighx2"]
-bg_color = Color(0.6, 0.6, 0.6, 0.364706)
-expand_margin_left = 20.0
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_d667u"]
-bg_color = Color(0.6, 0.6, 0.6, 0.364706)
-expand_margin_left = 20.0
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ohf23"]
-bg_color = Color(0.6, 0.6, 0.6, 0.364706)
-expand_margin_left = 100.0
-expand_margin_top = 23.0
-expand_margin_bottom = 23.0
-
-[sub_resource type="LabelSettings" id="LabelSettings_1jjdr"]
-font = ExtResource("9_u2f16")
-font_size = 31
-outline_size = 5
-outline_color = Color(0, 0, 0, 1)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ogtfj"]
-bg_color = Color(0.6, 0.6, 0.6, 0.364706)
-
-[sub_resource type="LabelSettings" id="LabelSettings_r45ow"]
-font = ExtResource("9_u2f16")
-font_size = 50
-shadow_size = 4
-shadow_color = Color(0, 0, 0, 1)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1jjdr"]
-bg_color = Color(0.347817, 0.347817, 0.347817, 0.364706)
-corner_radius_top_left = 20
-corner_radius_top_right = 20
-corner_radius_bottom_right = 20
-corner_radius_bottom_left = 20
 
 [node name="SimpleMenu" type="Node3D"]
 
@@ -358,129 +319,10 @@ transform = Transform3D(1, 0, 0, 0, 0.862796, 0.505552, 0, -0.505552, 0.862796, 
 [node name="UI" type="CanvasLayer" parent="."]
 layer = 2
 
-[node name="SimpleMenu" type="Control" parent="UI"]
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-script = ExtResource("1_r45ow")
-
-[node name="VBoxContainer" type="VBoxContainer" parent="UI/SimpleMenu"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_constants/separation = 11
-
-[node name="MarginContainer4" type="MarginContainer" parent="UI/SimpleMenu/VBoxContainer"]
-custom_minimum_size = Vector2(0, 100)
-layout_mode = 2
-
-[node name="MarginContainer2" type="MarginContainer" parent="UI/SimpleMenu/VBoxContainer"]
-custom_minimum_size = Vector2(0, 100)
-layout_mode = 2
-
-[node name="HBoxContainer" type="HBoxContainer" parent="UI/SimpleMenu/VBoxContainer/MarginContainer2"]
-layout_direction = 3
-layout_mode = 2
-
-[node name="CheckButton" type="CheckButton" parent="UI/SimpleMenu/VBoxContainer/MarginContainer2/HBoxContainer"]
-custom_minimum_size = Vector2(220, 0)
-layout_direction = 3
-layout_mode = 2
-theme_override_constants/outline_size = 5
-theme_override_constants/h_separation = 0
-theme_override_constants/align_to_largest_stylebox = 1
-theme_override_fonts/font = ExtResource("9_u2f16")
-theme_override_font_sizes/font_size = 25
-theme_override_styles/pressed = SubResource("StyleBoxFlat_ighx2")
-theme_override_styles/normal = SubResource("StyleBoxFlat_d667u")
-text = "Show Hints"
-expand_icon = true
-
-[node name="Label" type="Label" parent="UI/SimpleMenu/VBoxContainer/MarginContainer2/HBoxContainer"]
-layout_mode = 2
-theme_override_styles/normal = SubResource("StyleBoxFlat_ohf23")
-text = "Toggle hints in the game ->      "
-label_settings = SubResource("LabelSettings_1jjdr")
-
-[node name="MarginContainer5" type="MarginContainer" parent="UI/SimpleMenu/VBoxContainer"]
-custom_minimum_size = Vector2(0, 100)
-layout_mode = 2
-
-[node name="HBoxContainer" type="HBoxContainer" parent="UI/SimpleMenu/VBoxContainer/MarginContainer5"]
-layout_direction = 3
-layout_mode = 2
-
-[node name="CheckButton" type="CheckButton" parent="UI/SimpleMenu/VBoxContainer/MarginContainer5/HBoxContainer"]
-custom_minimum_size = Vector2(220, 0)
-layout_direction = 3
-layout_mode = 2
-theme_override_constants/outline_size = 5
-theme_override_constants/h_separation = 0
-theme_override_constants/align_to_largest_stylebox = 1
-theme_override_fonts/font = ExtResource("9_u2f16")
-theme_override_font_sizes/font_size = 30
-theme_override_styles/pressed = SubResource("StyleBoxFlat_ighx2")
-theme_override_styles/normal = SubResource("StyleBoxFlat_d667u")
-text = "Haptics"
-expand_icon = true
-
-[node name="Label" type="Label" parent="UI/SimpleMenu/VBoxContainer/MarginContainer5/HBoxContainer"]
-layout_mode = 2
-theme_override_styles/normal = SubResource("StyleBoxFlat_ohf23")
-text = "Toggle haptics ->      "
-label_settings = SubResource("LabelSettings_1jjdr")
-
-[node name="Label" type="Label" parent="UI/SimpleMenu/VBoxContainer"]
-custom_minimum_size = Vector2(900, 0)
-layout_mode = 2
-theme_override_styles/normal = SubResource("StyleBoxFlat_ogtfj")
-text = "Online and offline modes are tracked separately.
-
-In online mode, all data is stored on the backend and leaderboards are enabled.
-
-In offline mode, all progress is stored locally on the device."
-label_settings = SubResource("LabelSettings_r45ow")
-horizontal_alignment = 1
-autowrap_mode = 2
-
-[node name="MarginContainer" type="MarginContainer" parent="UI/SimpleMenu/VBoxContainer"]
-custom_minimum_size = Vector2(0, 200)
-layout_mode = 2
-
-[node name="Online" type="Button" parent="UI/SimpleMenu/VBoxContainer"]
-custom_minimum_size = Vector2(0, 200)
-layout_mode = 2
-theme_override_fonts/font = ExtResource("9_u2f16")
-theme_override_font_sizes/font_size = 100
-theme_override_styles/disabled = SubResource("StyleBoxFlat_1jjdr")
-theme_override_styles/normal = ExtResource("14_1jjdr")
-disabled = true
-text = "Online
-"
-
-[node name="MarginContainer3" type="MarginContainer" parent="UI/SimpleMenu/VBoxContainer"]
-custom_minimum_size = Vector2(0, 50)
-layout_mode = 2
-
-[node name="Offline" type="Button" parent="UI/SimpleMenu/VBoxContainer"]
-custom_minimum_size = Vector2(0, 200)
-layout_mode = 2
-theme_override_fonts/font = ExtResource("9_u2f16")
-theme_override_font_sizes/font_size = 100
-theme_override_styles/normal = ExtResource("14_1jjdr")
-text = "Offline"
-
-[node name="ClickSound" parent="UI/SimpleMenu" instance=ExtResource("16_d667u")]
+[node name="UIElements" parent="UI" instance=ExtResource("12_d667u")]
+show_home_button = false
+show_level_progress = false
+show_simple_menu = true
 
 [node name="PostProcess" parent="." instance=ExtResource("12_ogtfj")]
 pixel_block = 8
-
-[connection signal="toggled" from="UI/SimpleMenu/VBoxContainer/MarginContainer2/HBoxContainer/CheckButton" to="UI/SimpleMenu" method="_on_check_button_toggled"]
-[connection signal="toggled" from="UI/SimpleMenu/VBoxContainer/MarginContainer5/HBoxContainer/CheckButton" to="UI/SimpleMenu" method="_on_haptics_button_toggled"]
-[connection signal="pressed" from="UI/SimpleMenu/VBoxContainer/Offline" to="UI/SimpleMenu" method="_on_offline_pressed"]

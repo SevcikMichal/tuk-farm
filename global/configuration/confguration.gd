@@ -8,11 +8,13 @@ var _is_haptics_enabled: bool = true
 func _init(show_hints_in: bool = true) -> void:
 	_show_hints = show_hints_in
 	
-func set_show_hints(show_hints_in: bool) -> void:
-	_show_hints = show_hints_in
+func toggle_show_hints() -> bool:
+	_show_hints = !_show_hints
+	return _show_hints
 
-func set_is_haptics_enabled(enable_haptics: bool) -> void:
-	_is_haptics_enabled = enable_haptics
+func toggle_is_haptics_enabled() -> bool:
+	_is_haptics_enabled = !_is_haptics_enabled
+	return _is_haptics_enabled
 
 func show_hints() -> bool:
 	return _show_hints

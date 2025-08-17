@@ -3,12 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://dtw8kalq6oa3t"
-path="res://.godot/imported/celebrate.wav-82a26303c26668b940c8d7cdf4232db3.sample"
+path="res://.godot/imported/celebrate.wav-6d01a8f0d220b62f704161ca09f0a343.sample"
 
 [deps]
 
-source_file="res://global/experience/sounds/celebrate.wav"
-dest_files=["res://.godot/imported/celebrate.wav-82a26303c26668b940c8d7cdf4232db3.sample"]
+source_file="res://global/ui_elements/sounds/celebrate.wav"
+dest_files=["res://.godot/imported/celebrate.wav-6d01a8f0d220b62f704161ca09f0a343.sample"]
 
 [params]
 

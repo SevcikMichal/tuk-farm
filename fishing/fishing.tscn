@@ -1,15 +1,13 @@
-[gd_scene load_steps=25 format=3 uid="uid://g76phv1k4sqs"]
+[gd_scene load_steps=23 format=3 uid="uid://g76phv1k4sqs"]
 
 [ext_resource type="PackedScene" uid="uid://b2elg3q57q4sj" path="res://global/scene_setup/camera_3d.tscn" id="1_lxurg"]
 [ext_resource type="Script" uid="uid://dp8gk07ialapr" path="res://global/experience/experience_pusher.gd" id="1_sqpqj"]
 [ext_resource type="PackedScene" uid="uid://bbdx775276raa" path="res://global/scene_setup/directional_light_3d.tscn" id="2_dy0fc"]
 [ext_resource type="PackedScene" uid="uid://dag67ckbdflew" path="res://global/scene_setup/post_process.tscn" id="3_l07jn"]
-[ext_resource type="PackedScene" uid="uid://c7fb7ct3lqgec" path="res://global/debug/debug.tscn" id="4_dy0fc"]
 [ext_resource type="PackedScene" uid="uid://buhbw4s2y70v2" path="res://fishing_rod/fishing_rod.tscn" id="4_l07jn"]
-[ext_resource type="PackedScene" uid="uid://csnyrhwij17g6" path="res://global/home_button/home_button.tscn" id="6_8t1kh"]
 [ext_resource type="PackedScene" uid="uid://b3oylvx3y146q" path="res://fishing_controller/fishing_controller.tscn" id="6_h1tax"]
 [ext_resource type="PackedScene" uid="uid://djhol5r1q3de0" path="res://water/water.tscn" id="7_dnold"]
-[ext_resource type="PackedScene" uid="uid://dn8p6tif0fpiv" path="res://global/experience/experience.tscn" id="8_lxt84"]
+[ext_resource type="PackedScene" uid="uid://dytvn2lfmcumw" path="res://global/ui_elements/ui_elements.tscn" id="8_86gsk"]
 [ext_resource type="PackedScene" uid="uid://c05idj0yb4f10" path="res://global/hint/hint.tscn" id="10_86gsk"]
 [ext_resource type="AudioStream" uid="uid://bdfnldh2hdcnv" path="res://fishing/sounds/wave.wav" id="12_78wfu"]
 [ext_resource type="Script" uid="uid://dw1g5cqpj2q8b" path="res://fishing/wave_sound.gd" id="13_4r7pl"]
@@ -87,7 +85,7 @@ _data = {
 [node name="Fishing" type="Node3D" node_paths=PackedStringArray("level")]
 script = ExtResource("1_sqpqj")
 save_id = "fishing"
-level = NodePath("UI/Experience")
+level = NodePath("UI/UIElements")
 
 [node name="Camera3D" parent="." instance=ExtResource("1_lxurg")]
 transform = Transform3D(0.999682, 0, 0.0251999, 0, 1, 0, -0.0251999, 0, 0.999682, 0, 0, 1.867)
@@ -103,18 +101,13 @@ transform = Transform3D(-0.222961, 0, 0.974827, 0, 1, 0, -0.974827, 0, -0.222961
 [node name="UI" type="CanvasLayer" parent="."]
 layer = 2
 
-[node name="Debug" parent="UI" instance=ExtResource("4_dy0fc")]
-visible = false
-
-[node name="HomeButton" parent="UI" instance=ExtResource("6_8t1kh")]
-
 [node name="FishingController" parent="UI" instance=ExtResource("6_h1tax")]
 mouse_filter = 2
 
-[node name="Experience" parent="UI" instance=ExtResource("8_lxt84")]
-
 [node name="Hint" parent="UI" instance=ExtResource("10_86gsk")]
 hint_text = "Swipe up to cast the rod! Swipe down to catch a fish!"
+
+[node name="UIElements" parent="UI" instance=ExtResource("8_86gsk")]
 
 [node name="Water" parent="." instance=ExtResource("7_dnold")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.8, 0)
