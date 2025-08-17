@@ -12,15 +12,14 @@ content_margin_left = 50.0
 content_margin_top = 50.0
 content_margin_right = 50.0
 content_margin_bottom = 50.0
-bg_color = Color(0.47775, 0.355941, 0.20833, 1)
+bg_color = Color(0.478431, 0.356863, 0.207843, 1)
 corner_radius_top_left = 10
 corner_radius_top_right = 10
 corner_radius_bottom_right = 10
 corner_radius_bottom_left = 10
 corner_detail = 1
-shadow_size = 2
-shadow_offset = Vector2(5, 5)
-anti_aliasing = false
+shadow_size = 10
+shadow_offset = Vector2(10, 10)
 
 [sub_resource type="Theme" id="Theme_0c5et"]
 Button/styles/pressed = null
@@ -114,6 +113,7 @@ offset_right = 305.5
 offset_bottom = -214.0
 grow_horizontal = 2
 grow_vertical = 0
+mouse_filter = 0
 
 [node name="Offline" type="Button" parent="SimpleMenu"]
 layout_mode = 2
@@ -125,6 +125,7 @@ text = "Offline"
 [node name="MarginContainer" type="MarginContainer" parent="SimpleMenu"]
 custom_minimum_size = Vector2(0, 500)
 layout_mode = 2
+mouse_filter = 2
 
 [node name="Online" type="Button" parent="SimpleMenu"]
 layout_mode = 2
@@ -177,7 +178,6 @@ mouse_filter = 2
 
 [node name="Home" type="Button" parent="GeneralPanel/TopPanel"]
 layout_mode = 2
-mouse_filter = 1
 theme = SubResource("Theme_0c5et")
 theme_override_fonts/font = ExtResource("2_b8ior")
 theme_override_font_sizes/font_size = 200
