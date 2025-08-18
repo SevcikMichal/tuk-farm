@@ -34,6 +34,12 @@ var _home_button: Button = get_node("GeneralPanel/TopPanel/Home")
 var _simple_menu: VBoxContainer = get_node("SimpleMenu")
 
 @onready
+var _game_title_panel: Panel = get_node("GameTitlePanel")
+
+@onready
+var _game_title: Label = get_node("GameTitlePanel/GameTitle")
+
+@onready
 var _haptics_indicator: ColorRect = get_node("GeneralPanel/Options/CenterContainer/Vertical/Haptics/Indicator")
 
 @onready
@@ -46,10 +52,11 @@ func _ready():
 	_level_progress.visible = show_level_progress
 	_home_button.visible = show_home_button
 	_simple_menu.visible = show_simple_menu
+	_game_title_panel.visible = show_simple_menu
 	_hints_indicator.color = Color.DARK_GREEN if Globals.get_configuration().show_hints() else Color.DARK_RED
 	_haptics_indicator.color = Color.DARK_GREEN if Globals.get_configuration().is_haptics_enabled() else Color.DARK_RED
 	_sounds_indicator.color = Color.DARK_GREEN if Globals.get_configuration().is_sound_enabled() else Color.DARK_RED
-
+	_game_title.label_settings.outline_color = Color(randf(), randf(), randf())
 	
 func _on_show_options_pressed():
 	_button_pressed_feedback()

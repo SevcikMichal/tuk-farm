@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://dytvn2lfmcumw"]
+[gd_scene load_steps=18 format=3 uid="uid://dytvn2lfmcumw"]
 
 [ext_resource type="Script" uid="uid://dd0a04to6ul3b" path="res://global/ui_elements/ui_elements.gd" id="1_u2g1r"]
 [ext_resource type="FontFile" uid="uid://bugot647xfbko" path="res://global/fonts/PixelatedEleganceRegular-ovyAA.ttf" id="2_b8ior"]
@@ -6,21 +6,32 @@
 [ext_resource type="StyleBox" uid="uid://lyaj1ipvd4h4" path="res://global/ui_elements/big_button_style.tres" id="3_onqvq"]
 [ext_resource type="StyleBox" uid="uid://bc0erjxrsulp5" path="res://global/ui_elements/option_button_style.tres" id="4_onqvq"]
 [ext_resource type="PackedScene" uid="uid://owyejyapokm1" path="res://global/menu_sounds/click_sound.tscn" id="5_b8ior"]
+[ext_resource type="StyleBox" uid="uid://ddvvdtwlwsv6" path="res://global/ui_elements/panel_style.tres" id="6_4x6rc"]
 [ext_resource type="AudioStream" uid="uid://dtw8kalq6oa3t" path="res://global/ui_elements/sounds/celebrate.wav" id="6_7doxu"]
 
-[sub_resource type="Theme" id="Theme_0c5et"]
-Button/styles/pressed = null
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0c5et"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1dhh4"]
 bg_color = Color(0.698649, 0.537609, 0.346172, 1)
 corner_radius_top_left = 10
 corner_radius_top_right = 10
 corner_radius_bottom_right = 10
 corner_radius_bottom_left = 10
 corner_detail = 1
+expand_margin_top = 20.0
 shadow_size = 5
 shadow_offset = Vector2(10, 10)
 anti_aliasing = false
+
+[sub_resource type="LabelSettings" id="LabelSettings_4x6rc"]
+font = ExtResource("2_b8ior")
+font_size = 100
+outline_size = 20
+outline_color = Color(0.636104, 0.466181, 0.811128, 1)
+shadow_size = 10
+shadow_color = Color(0, 0, 0, 0.745098)
+shadow_offset = Vector2(10, 10)
+
+[sub_resource type="Theme" id="Theme_0c5et"]
+Button/styles/pressed = null
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qj86h"]
 bg_color = Color(1, 1, 1, 1)
@@ -86,6 +97,34 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 script = ExtResource("1_u2g1r")
+
+[node name="GameTitlePanel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -375.0
+offset_top = 500.0
+offset_right = 375.0
+offset_bottom = 700.0
+grow_horizontal = 2
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_1dhh4")
+
+[node name="GameTitle" type="Label" parent="GameTitlePanel"]
+z_index = 10
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -450.0
+offset_right = 450.0
+offset_bottom = 202.0
+grow_horizontal = 2
+text = "\"Ťuk\" Farm"
+label_settings = SubResource("LabelSettings_4x6rc")
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="SimpleMenu" type="VBoxContainer" parent="."]
 layout_mode = 1
@@ -191,7 +230,7 @@ mouse_filter = 2
 custom_minimum_size = Vector2(800, 525)
 layout_mode = 2
 mouse_filter = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_0c5et")
+theme_override_styles/panel = ExtResource("6_4x6rc")
 
 [node name="Vertical" type="VBoxContainer" parent="GeneralPanel/Options/CenterContainer"]
 layout_mode = 2
