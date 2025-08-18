@@ -1,17 +1,18 @@
-Pixelated Elegance Font
-https://www.fontspace.com/pixelated-elegance-font-f126145
-PixelatedEleganceRegular-ovyAA.ttf
-DESIGNED BY
-GGBotNet
+Font – Pixelated Elegance
+Designed by: GGBotNet
+Source: https://www.fontspace.com/pixelated-elegance-font-f126145
+Designer Profile: https://www.fontspace.com/ggbotnet
 
-Cow and Sheep Animal sounds
-From http://commons.wikimedia.org/wiki/Category:Mudchute_Park_and_Farm
-By Secretlondon http://commons.wikimedia.org/wiki/User:Secretlondon
+Cow and Sheep Animal Sounds
+Author: Secretlondon
+Source: http://commons.wikimedia.org/wiki/Category:Mudchute_Park_and_Farm
+Author Profile: http://commons.wikimedia.org/wiki/User:Secretlondon
 
-Chicken Animal Sounds
-https://opengameart.org/content/chicken-sound-effect
-Author 
-IMadeIt
+Chicken Sound Effect
+Author: IMadeIt
+Source: https://opengameart.org/content/chicken-sound-effect
+Author Profile: https://opengameart.org/users/imadeit
 
 Application Icon
-Chat GPT
+Created with the assistance of: ChatGPT
+Source: https://openai.com/chatgpt

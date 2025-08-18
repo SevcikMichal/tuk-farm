@@ -54,6 +54,9 @@ var _info_panel_offline: Panel = get_node("InfoPanelOffline")
 @onready
 var _info_panel_online: Panel = get_node("InfoPanelOnline")
 
+@onready
+var _credits_panel: Panel = get_node("CreditsPanel")
+
 
 func _ready():
 	_level_progress.visible = show_level_progress
@@ -128,7 +131,6 @@ func _celebrate() -> void:
 func _on_show_offline_info_button_down():
 	_info_panel_offline.visible = true
 
-
 func _on_show_offline_info_button_up():
 	_info_panel_offline.visible = false
 
@@ -137,3 +139,11 @@ func _on_show_online_info_button_down():
 
 func _on_show_online_info_button_up():
 	_info_panel_online.visible = false
+
+func _on_credits_pressed():
+	_button_pressed_feedback()
+	_credits_panel.visible = true
+
+func _on_credits_close_pressed():
+	_button_pressed_feedback()
+	_credits_panel.visible = false

@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://dytvn2lfmcumw"]
+[gd_scene load_steps=26 format=3 uid="uid://dytvn2lfmcumw"]
 
 [ext_resource type="Script" uid="uid://dd0a04to6ul3b" path="res://global/ui_elements/ui_elements.gd" id="1_u2g1r"]
 [ext_resource type="FontFile" uid="uid://bugot647xfbko" path="res://global/fonts/PixelatedEleganceRegular-ovyAA.ttf" id="2_b8ior"]
@@ -136,6 +136,16 @@ font = ExtResource("2_b8ior")
 font_size = 100
 shadow_size = 10
 shadow_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_052wq"]
+line_spacing = 10.0
+font = ExtResource("2_b8ior")
+font_size = 40
+
+[sub_resource type="LabelSettings" id="LabelSettings_xsv64"]
+line_spacing = 10.0
+font = ExtResource("2_b8ior")
+font_size = 40
 
 [sub_resource type="Gradient" id="Gradient_1dhh4"]
 offsets = PackedFloat32Array(0, 0.230415, 0.389401, 0.513825, 0.693548, 0.831797, 1)
@@ -376,7 +386,7 @@ layout_mode = 2
 mouse_filter = 2
 
 [node name="Panel" type="Panel" parent="GeneralPanel/Options/CenterContainer"]
-custom_minimum_size = Vector2(800, 525)
+custom_minimum_size = Vector2(800, 610)
 layout_mode = 2
 mouse_filter = 2
 theme_override_styles/panel = ExtResource("6_4x6rc")
@@ -420,6 +430,44 @@ custom_minimum_size = Vector2(85, 0)
 layout_mode = 2
 mouse_filter = 2
 
+[node name="ColorRect" type="ColorRect" parent="GeneralPanel/Options/CenterContainer/Vertical/Hints/Indicator"]
+custom_minimum_size = Vector2(10, 0)
+layout_mode = 2
+offset_right = 10.0
+offset_bottom = 94.0
+mouse_filter = 2
+color = Color(0.468389, 0.23624, 0.0319527, 1)
+
+[node name="ColorRect2" type="ColorRect" parent="GeneralPanel/Options/CenterContainer/Vertical/Hints/Indicator"]
+custom_minimum_size = Vector2(10, 0)
+layout_mode = 2
+offset_left = 75.0
+offset_right = 85.0
+offset_bottom = 94.0
+mouse_filter = 2
+color = Color(0.468389, 0.23624, 0.0319527, 1)
+
+[node name="ColorRect3" type="ColorRect" parent="GeneralPanel/Options/CenterContainer/Vertical/Hints/Indicator"]
+custom_minimum_size = Vector2(10, 0)
+layout_mode = 2
+offset_left = 89.0
+offset_right = 99.0
+offset_bottom = 94.0
+rotation = 1.57079
+mouse_filter = 2
+color = Color(0.468389, 0.23624, 0.0319527, 1)
+
+[node name="ColorRect4" type="ColorRect" parent="GeneralPanel/Options/CenterContainer/Vertical/Hints/Indicator"]
+custom_minimum_size = Vector2(10, 0)
+layout_mode = 2
+offset_left = 89.0
+offset_top = 84.0
+offset_right = 99.0
+offset_bottom = 178.0
+rotation = 1.57079
+mouse_filter = 2
+color = Color(0.468389, 0.23624, 0.0319527, 1)
+
 [node name="MarginContainer" type="MarginContainer" parent="GeneralPanel/Options/CenterContainer/Vertical"]
 custom_minimum_size = Vector2(85, 20)
 layout_mode = 2
@@ -450,6 +498,40 @@ custom_minimum_size = Vector2(85, 0)
 layout_mode = 2
 mouse_filter = 2
 
+[node name="ColorRect" type="ColorRect" parent="GeneralPanel/Options/CenterContainer/Vertical/Haptics/Indicator"]
+custom_minimum_size = Vector2(10, 0)
+offset_right = 10.0
+offset_bottom = 94.0
+mouse_filter = 2
+color = Color(0.468389, 0.23624, 0.0319527, 1)
+
+[node name="ColorRect2" type="ColorRect" parent="GeneralPanel/Options/CenterContainer/Vertical/Haptics/Indicator"]
+custom_minimum_size = Vector2(10, 0)
+offset_left = 75.0
+offset_right = 85.0
+offset_bottom = 94.0
+mouse_filter = 2
+color = Color(0.468389, 0.23624, 0.0319527, 1)
+
+[node name="ColorRect3" type="ColorRect" parent="GeneralPanel/Options/CenterContainer/Vertical/Haptics/Indicator"]
+custom_minimum_size = Vector2(10, 0)
+offset_left = 89.0
+offset_right = 99.0
+offset_bottom = 94.0
+rotation = 1.57079
+mouse_filter = 2
+color = Color(0.468389, 0.23624, 0.0319527, 1)
+
+[node name="ColorRect4" type="ColorRect" parent="GeneralPanel/Options/CenterContainer/Vertical/Haptics/Indicator"]
+custom_minimum_size = Vector2(10, 0)
+offset_left = 89.0
+offset_top = 84.0
+offset_right = 99.0
+offset_bottom = 178.0
+rotation = 1.57079
+mouse_filter = 2
+color = Color(0.468389, 0.23624, 0.0319527, 1)
+
 [node name="MarginContainer3" type="MarginContainer" parent="GeneralPanel/Options/CenterContainer/Vertical"]
 custom_minimum_size = Vector2(85, 20)
 layout_mode = 2
@@ -479,6 +561,56 @@ mouse_filter = 2
 custom_minimum_size = Vector2(85, 0)
 layout_mode = 2
 mouse_filter = 2
+
+[node name="ColorRect" type="ColorRect" parent="GeneralPanel/Options/CenterContainer/Vertical/Sounds/Indicator"]
+custom_minimum_size = Vector2(10, 0)
+offset_right = 10.0
+offset_bottom = 94.0
+mouse_filter = 2
+color = Color(0.468389, 0.23624, 0.0319527, 1)
+
+[node name="ColorRect2" type="ColorRect" parent="GeneralPanel/Options/CenterContainer/Vertical/Sounds/Indicator"]
+custom_minimum_size = Vector2(10, 0)
+offset_left = 75.0
+offset_right = 85.0
+offset_bottom = 94.0
+mouse_filter = 2
+color = Color(0.468389, 0.23624, 0.0319527, 1)
+
+[node name="ColorRect3" type="ColorRect" parent="GeneralPanel/Options/CenterContainer/Vertical/Sounds/Indicator"]
+custom_minimum_size = Vector2(10, 0)
+offset_left = 89.0
+offset_right = 99.0
+offset_bottom = 94.0
+rotation = 1.57079
+mouse_filter = 2
+color = Color(0.468389, 0.23624, 0.0319527, 1)
+
+[node name="ColorRect4" type="ColorRect" parent="GeneralPanel/Options/CenterContainer/Vertical/Sounds/Indicator"]
+custom_minimum_size = Vector2(10, 0)
+offset_left = 89.0
+offset_top = 84.0
+offset_right = 99.0
+offset_bottom = 178.0
+rotation = 1.57079
+mouse_filter = 2
+color = Color(0.468389, 0.23624, 0.0319527, 1)
+
+[node name="MarginContainer4" type="MarginContainer" parent="GeneralPanel/Options/CenterContainer/Vertical"]
+custom_minimum_size = Vector2(85, 20)
+layout_mode = 2
+mouse_filter = 2
+
+[node name="Credits" type="Button" parent="GeneralPanel/Options/CenterContainer/Vertical"]
+custom_minimum_size = Vector2(85, 0)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_b8ior")
+theme_override_font_sizes/font_size = 60
+theme_override_styles/focus = ExtResource("4_onqvq")
+theme_override_styles/hover = ExtResource("4_onqvq")
+theme_override_styles/normal = ExtResource("4_onqvq")
+text = "Credits
+"
 
 [node name="ClickSound" parent="." instance=ExtResource("5_b8ior")]
 
@@ -525,6 +657,158 @@ text = "1"
 label_settings = SubResource("LabelSettings_onqvq")
 horizontal_alignment = 1
 
+[node name="CreditsPanel" type="Panel" parent="."]
+custom_minimum_size = Vector2(0, 1500)
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -375.0
+offset_top = 341.0
+offset_right = 375.0
+offset_bottom = 1241.0
+grow_horizontal = 2
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_1dhh4")
+
+[node name="ScrollContainer" type="ScrollContainer" parent="CreditsPanel"]
+custom_minimum_size = Vector2(750, 1515)
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -379.0
+offset_top = -17.0
+offset_right = 379.0
+offset_bottom = 1483.0
+grow_horizontal = 2
+horizontal_scroll_mode = 0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CreditsPanel/ScrollContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="CreditsPanel/ScrollContainer/VBoxContainer"]
+custom_minimum_size = Vector2(750, 0)
+layout_mode = 2
+text = "Author
+Game Design
+Programming
+3D Models
+Music
+Art
+------------------------------------------"
+label_settings = SubResource("LabelSettings_052wq")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label3" type="Label" parent="CreditsPanel/ScrollContainer/VBoxContainer"]
+custom_minimum_size = Vector2(750, 0)
+layout_mode = 2
+text = "Michal Ševčík
+------------------------------------------"
+label_settings = SubResource("LabelSettings_xsv64")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label2" type="Label" parent="CreditsPanel/ScrollContainer/VBoxContainer"]
+custom_minimum_size = Vector2(750, 0)
+layout_mode = 2
+text = "
+------------------------------------------
+Third Party Assest
+------------------------------------------
+"
+label_settings = SubResource("LabelSettings_052wq")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label4" type="Label" parent="CreditsPanel/ScrollContainer/VBoxContainer"]
+custom_minimum_size = Vector2(750, 0)
+layout_mode = 2
+text = "Font – Pixelated Elegance
+
+Designed by: GGBotNet
+
+Source: https://www.fontspace.com/pixelated-elegance-font-f126145
+
+Designer Profile: https://www.fontspace.com/ggbotnet
+
+------------------------------------------
+"
+label_settings = SubResource("LabelSettings_052wq")
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="Label6" type="Label" parent="CreditsPanel/ScrollContainer/VBoxContainer"]
+custom_minimum_size = Vector2(750, 0)
+layout_mode = 2
+text = "Cow and Sheep Animal Sounds
+
+Author: Secretlondon
+
+Source: http://commons.wikimedia.org/wiki/Category:Mudchute_Park_and_Farm
+
+Author Profile: http://commons.wikimedia.org/wiki/User:Secretlondon
+
+------------------------------------------
+"
+label_settings = SubResource("LabelSettings_052wq")
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="Label7" type="Label" parent="CreditsPanel/ScrollContainer/VBoxContainer"]
+custom_minimum_size = Vector2(750, 0)
+layout_mode = 2
+text = "Chicken Sound Effect
+
+Author: IMadeIt
+
+Source: https://opengameart.org/content/chicken-sound-effect
+
+Author Profile: https://opengameart.org/users/imadeit
+
+------------------------------------------
+"
+label_settings = SubResource("LabelSettings_052wq")
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="Label8" type="Label" parent="CreditsPanel/ScrollContainer/VBoxContainer"]
+custom_minimum_size = Vector2(750, 0)
+layout_mode = 2
+text = "Application Icon
+
+Created with the assistance of: ChatGPT
+
+Source: https://openai.com/chatgpt
+
+
+"
+label_settings = SubResource("LabelSettings_052wq")
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="CreditsClose" type="Button" parent="CreditsPanel"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -145.0
+offset_top = -20.0
+offset_right = -11.0
+offset_bottom = 45.0
+grow_horizontal = 0
+theme_override_fonts/font = ExtResource("2_b8ior")
+theme_override_font_sizes/font_size = 50
+theme_override_styles/focus = ExtResource("3_7doxu")
+theme_override_styles/hover = ExtResource("3_7doxu")
+theme_override_styles/normal = ExtResource("3_7doxu")
+text = "X"
+
 [node name="ExperienceParticles" type="CPUParticles2D" parent="."]
 position = Vector2(450, 1800)
 emitting = false
@@ -552,3 +836,5 @@ pitch_scale = 1.5
 [connection signal="pressed" from="GeneralPanel/Options/CenterContainer/Vertical/Hints/Hints" to="." method="_on_hints_button_pressed"]
 [connection signal="pressed" from="GeneralPanel/Options/CenterContainer/Vertical/Haptics/Haptics" to="." method="_on_haptics_button_pressed"]
 [connection signal="pressed" from="GeneralPanel/Options/CenterContainer/Vertical/Sounds/Sounds" to="." method="_on_sounds_pressed"]
+[connection signal="pressed" from="GeneralPanel/Options/CenterContainer/Vertical/Credits" to="." method="_on_credits_pressed"]
+[connection signal="pressed" from="CreditsPanel/CreditsClose" to="." method="_on_credits_close_pressed"]
