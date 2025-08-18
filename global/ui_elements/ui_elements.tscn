@@ -658,6 +658,7 @@ label_settings = SubResource("LabelSettings_onqvq")
 horizontal_alignment = 1
 
 [node name="CreditsPanel" type="Panel" parent="."]
+visible = false
 custom_minimum_size = Vector2(0, 1500)
 layout_mode = 1
 anchors_preset = 5
