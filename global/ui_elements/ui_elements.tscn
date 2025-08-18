@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://dytvn2lfmcumw"]
+[gd_scene load_steps=21 format=3 uid="uid://dytvn2lfmcumw"]
 
 [ext_resource type="Script" uid="uid://dd0a04to6ul3b" path="res://global/ui_elements/ui_elements.gd" id="1_u2g1r"]
 [ext_resource type="FontFile" uid="uid://bugot647xfbko" path="res://global/fonts/PixelatedEleganceRegular-ovyAA.ttf" id="2_b8ior"]
@@ -28,6 +28,34 @@ outline_size = 20
 outline_color = Color(0.636104, 0.466181, 0.811128, 1)
 shadow_size = 10
 shadow_color = Color(0, 0, 0, 0.745098)
+shadow_offset = Vector2(10, 10)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bmr6q"]
+content_margin_left = 50.0
+content_margin_top = 20.0
+content_margin_right = 40.0
+bg_color = Color(0.478431, 0.356863, 0.207843, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+corner_detail = 1
+expand_margin_left = 10.0
+shadow_size = 10
+shadow_offset = Vector2(10, 10)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xsv64"]
+content_margin_left = 50.0
+content_margin_top = 20.0
+content_margin_right = 40.0
+bg_color = Color(0.478431, 0.356863, 0.207843, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+corner_detail = 1
+expand_margin_left = 10.0
+shadow_size = 10
 shadow_offset = Vector2(10, 10)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_052wq"]
@@ -210,8 +238,8 @@ mouse_filter = 2
 layout_mode = 2
 theme_override_fonts/font = ExtResource("2_b8ior")
 theme_override_font_sizes/font_size = 150
-theme_override_styles/focus = ExtResource("3_7doxu")
-theme_override_styles/hover = ExtResource("3_7doxu")
+theme_override_styles/focus = SubResource("StyleBoxFlat_bmr6q")
+theme_override_styles/hover = SubResource("StyleBoxFlat_xsv64")
 theme_override_styles/normal = SubResource("StyleBoxFlat_052wq")
 text = "≡"
 
