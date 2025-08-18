@@ -10,7 +10,7 @@ config_version=5
 
 [application]
 
-config/name="\"Ťuk\" Farm"
+config/name="Ťuk Farm"
 run/main_scene="uid://cxlwr1n6nvjar"
 config/features=PackedStringArray("4.4", "Mobile")
 boot_splash/bg_color=Color(0, 0, 0, 1)
