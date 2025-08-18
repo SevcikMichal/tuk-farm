@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://bbdx775276raa" path="res://global/scene_setup/directional_light_3d.tscn" id="3_a1lvl"]
 [ext_resource type="PackedScene" uid="uid://bvyiyhs1rsteb" path="res://sheep/sheep_simple.tscn" id="3_pa1w6"]
 [ext_resource type="PackedScene" uid="uid://01skae6kdp8p" path="res://cow_milking/cow_milking.tscn" id="3_udp8x"]
+[ext_resource type="PackedScene" uid="uid://dv3f8j8juyxeb" path="res://arrow/arrow.tscn" id="3_yiujh"]
 [ext_resource type="PackedScene" uid="uid://b7ptky0wls84g" path="res://chicken_eggs/chicken_eggs.tscn" id="4_ol6uc"]
 [ext_resource type="AudioStream" uid="uid://dg66x6vbga0ms" path="res://sheep/sounds/sheep_idle.ogg" id="4_x1uu6"]
 [ext_resource type="PackedScene" uid="uid://dt2cok28l7oss" path="res://farmer/farmer.tscn" id="5_a1lvl"]
@@ -28,14 +29,9 @@ polygons = [PackedInt32Array(2, 1, 0), PackedInt32Array(4, 3, 2), PackedInt32Arr
 [sub_resource type="BoxShape3D" id="BoxShape3D_tafdm"]
 size = Vector3(0.5, 1, 2)
 
-[sub_resource type="TextMesh" id="TextMesh_tafdm"]
-text = "Sheep 
-Shearing"
-font_size = 40
-
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jcpv1"]
 transparency = 1
-albedo_color = Color(0, 1, 0.478431, 0.164706)
+albedo_color = Color(0, 1, 0.478431, 0.0784314)
 
 [sub_resource type="QuadMesh" id="QuadMesh_s5yk0"]
 material = SubResource("StandardMaterial3D_jcpv1")
@@ -144,13 +140,12 @@ transform = Transform3D(0.753942, 0, 0.656941, 0, 1, 0, -0.656941, 0, 0.753942, 
 shape = SubResource("BoxShape3D_tafdm")
 debug_color = Color(0.983296, 0, 0.354346, 0.42)
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="NavigationRegion3D/Minigames/Sheeps/Area3D"]
-transform = Transform3D(0.109613, 0.993975, 4.3448e-08, -3.82871e-17, -4.37114e-08, 1, 0.993975, -0.109613, -4.79133e-09, -0.728257, -0.427557, 1.70101)
-mesh = SubResource("TextMesh_tafdm")
-
 [node name="MeshInstance3D2" type="MeshInstance3D" parent="NavigationRegion3D/Minigames/Sheeps/Area3D"]
 transform = Transform3D(0.997792, 0.0664131, 2.90301e-09, 0, -4.37114e-08, 1, 0.0664131, -0.997792, -4.36149e-08, 0.346996, -0.532976, 0.211381)
 mesh = SubResource("QuadMesh_s5yk0")
+
+[node name="Arrow" parent="NavigationRegion3D/Minigames/Sheeps/Area3D" instance=ExtResource("3_yiujh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.401425, 0.253008, 0.0386923)
 
 [node name="StaticBody3D" type="StaticBody3D" parent="NavigationRegion3D/Minigames/Sheeps"]
 
@@ -215,6 +210,9 @@ mesh = SubResource("TextMesh_5byl4")
 transform = Transform3D(0.957788, 0.287478, 1.2566e-08, 1.72694e-15, -4.37114e-08, 1, 0.287478, -0.957788, -4.18662e-08, 0.16383, -0.532976, 0.316548)
 mesh = SubResource("QuadMesh_s5yk0")
 
+[node name="Arrow" parent="NavigationRegion3D/Minigames/Cows/Area3D" instance=ExtResource("3_yiujh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.132168, 0.253008, 0.295159)
+
 [node name="IdleSound" type="AudioStreamPlayer3D" parent="NavigationRegion3D/Minigames/Cows"]
 stream = ExtResource("7_jcpv1")
 volume_db = -15.0
@@ -272,6 +270,9 @@ mesh = SubResource("TextMesh_6cb61")
 transform = Transform3D(0.957788, 0.287478, 1.2566e-08, 1.72694e-15, -4.37114e-08, 1, 0.287478, -0.957788, -4.18662e-08, 0.177112, -0.532976, 0.282026)
 mesh = SubResource("QuadMesh_s5yk0")
 
+[node name="Arrow" parent="NavigationRegion3D/Minigames/Chickens/Area3D" instance=ExtResource("3_yiujh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.209399, 0.253008, 0.200578)
+
 [node name="IdleSound" type="AudioStreamPlayer3D" parent="NavigationRegion3D/Minigames/Chickens"]
 stream = ExtResource("8_6cb61")
 volume_db = -15.0
@@ -319,6 +320,9 @@ mesh = SubResource("TextMesh_x1uu6")
 [node name="MeshInstance3D2" type="MeshInstance3D" parent="NavigationRegion3D/Minigames/Pond/Area3D"]
 transform = Transform3D(0.941306, 0.337556, 1.4755e-08, 1.72694e-15, -4.37114e-08, 1, 0.337556, -0.941306, -4.11458e-08, 0.163252, -0.532976, 0.318177)
 mesh = SubResource("QuadMesh_s5yk0")
+
+[node name="Arrow" parent="NavigationRegion3D/Minigames/Pond/Area3D" instance=ExtResource("3_yiujh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.123819, 0.253008, 0.452839)
 
 [node name="IdleSound" type="AudioStreamPlayer3D" parent="NavigationRegion3D/Minigames/Pond"]
 stream = ExtResource("9_5byl4")

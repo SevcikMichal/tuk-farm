@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://demgux8j0kiss"]
+
+[ext_resource type="PackedScene" uid="uid://dgu4r4r7qqe02" path="res://arrow/models/arrow.glb" id="1_af8a8"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_af8a8"]
+transparency = 1
+albedo_color = Color(0, 1, 0, 0.196078)
+
+[node name="arrow" instance=ExtResource("1_af8a8")]
+
+[node name="Cube" parent="." index="0"]
+material_override = SubResource("StandardMaterial3D_af8a8")
+gi_mode = 0
