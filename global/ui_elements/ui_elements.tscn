@@ -306,6 +306,8 @@ grow_horizontal = 2
 grow_vertical = 0
 theme_override_fonts/font = ExtResource("2_b8ior")
 theme_override_font_sizes/font_size = 50
+theme_override_styles/focus = ExtResource("4_0o1ox")
+theme_override_styles/hover = ExtResource("4_0o1ox")
 theme_override_styles/normal = ExtResource("4_0o1ox")
 text = "?
 "
