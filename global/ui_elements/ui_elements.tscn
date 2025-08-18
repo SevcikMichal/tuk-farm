@@ -1,9 +1,10 @@
-[gd_scene load_steps=21 format=3 uid="uid://dytvn2lfmcumw"]
+[gd_scene load_steps=24 format=3 uid="uid://dytvn2lfmcumw"]
 
 [ext_resource type="Script" uid="uid://dd0a04to6ul3b" path="res://global/ui_elements/ui_elements.gd" id="1_u2g1r"]
 [ext_resource type="FontFile" uid="uid://bugot647xfbko" path="res://global/fonts/PixelatedEleganceRegular-ovyAA.ttf" id="2_b8ior"]
 [ext_resource type="StyleBox" uid="uid://dw76rve0hm281" path="res://global/ui_elements/small_button_style.tres" id="3_7doxu"]
 [ext_resource type="StyleBox" uid="uid://lyaj1ipvd4h4" path="res://global/ui_elements/big_button_style.tres" id="3_onqvq"]
+[ext_resource type="StyleBox" uid="uid://clffxl0jejxli" path="res://global/ui_elements/hint_style.tres" id="4_0o1ox"]
 [ext_resource type="StyleBox" uid="uid://bc0erjxrsulp5" path="res://global/ui_elements/option_button_style.tres" id="4_onqvq"]
 [ext_resource type="PackedScene" uid="uid://owyejyapokm1" path="res://global/menu_sounds/click_sound.tscn" id="5_b8ior"]
 [ext_resource type="StyleBox" uid="uid://ddvvdtwlwsv6" path="res://global/ui_elements/panel_style.tres" id="6_4x6rc"]
@@ -29,6 +30,16 @@ outline_color = Color(0.636104, 0.466181, 0.811128, 1)
 shadow_size = 10
 shadow_color = Color(0, 0, 0, 0.745098)
 shadow_offset = Vector2(10, 10)
+
+[sub_resource type="LabelSettings" id="LabelSettings_0o1ox"]
+line_spacing = 20.0
+font = ExtResource("2_b8ior")
+font_size = 80
+
+[sub_resource type="LabelSettings" id="LabelSettings_1dhh4"]
+line_spacing = 20.0
+font = ExtResource("2_b8ior")
+font_size = 60
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bmr6q"]
 content_margin_left = 50.0
@@ -154,7 +165,6 @@ mouse_filter = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_1dhh4")
 
 [node name="GameTitle" type="Label" parent="GameTitlePanel"]
-z_index = 10
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
@@ -167,6 +177,60 @@ text = "\"Ťuk\" Farm"
 label_settings = SubResource("LabelSettings_4x6rc")
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="InfoPanelOffline" type="Panel" parent="."]
+visible = false
+custom_minimum_size = Vector2(0, 500)
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -375.0
+offset_top = 341.0
+offset_right = 375.0
+offset_bottom = 841.0
+grow_horizontal = 2
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_1dhh4")
+
+[node name="Label" type="Label" parent="InfoPanelOffline"]
+custom_minimum_size = Vector2(750, 0)
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+text = "Progress is saved locally on your device."
+label_settings = SubResource("LabelSettings_0o1ox")
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="InfoPanelOnline" type="Panel" parent="."]
+visible = false
+custom_minimum_size = Vector2(0, 500)
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -375.0
+offset_top = 341.0
+offset_right = 375.0
+offset_bottom = 841.0
+grow_horizontal = 2
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_1dhh4")
+
+[node name="Label" type="Label" parent="InfoPanelOnline"]
+custom_minimum_size = Vector2(750, 0)
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+text = "!Work In Progress!
+
+Data is stored in the cloud with Game Center leaderboards enabled."
+label_settings = SubResource("LabelSettings_1dhh4")
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
 
 [node name="SimpleMenu" type="VBoxContainer" parent="."]
 layout_mode = 1
@@ -192,6 +256,27 @@ theme_override_styles/hover = ExtResource("3_onqvq")
 theme_override_styles/normal = ExtResource("3_onqvq")
 text = "Offline"
 
+[node name="ShowOfflineInfo" type="Button" parent="SimpleMenu/Offline"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -16.0
+offset_top = 45.0
+offset_right = 17.0
+offset_bottom = 90.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_fonts/font = ExtResource("2_b8ior")
+theme_override_font_sizes/font_size = 50
+theme_override_styles/focus = ExtResource("4_0o1ox")
+theme_override_styles/hover = ExtResource("4_0o1ox")
+theme_override_styles/normal = ExtResource("4_0o1ox")
+text = "?
+"
+
 [node name="MarginContainer" type="MarginContainer" parent="SimpleMenu"]
 custom_minimum_size = Vector2(0, 500)
 layout_mode = 2
@@ -204,6 +289,25 @@ theme_override_font_sizes/font_size = 100
 theme_override_styles/normal = ExtResource("4_onqvq")
 disabled = true
 text = "Online
+"
+
+[node name="ShowOnlineInfo" type="Button" parent="SimpleMenu/Online"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -16.0
+offset_top = 38.0
+offset_right = 17.0
+offset_bottom = 83.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_fonts/font = ExtResource("2_b8ior")
+theme_override_font_sizes/font_size = 50
+theme_override_styles/normal = ExtResource("4_0o1ox")
+text = "?
 "
 
 [node name="GeneralPanel" type="VBoxContainer" parent="."]
@@ -437,6 +541,10 @@ volume_db = -15.0
 pitch_scale = 1.5
 
 [connection signal="pressed" from="SimpleMenu/Offline" to="." method="_on_offline_pressed"]
+[connection signal="button_down" from="SimpleMenu/Offline/ShowOfflineInfo" to="." method="_on_show_offline_info_button_down"]
+[connection signal="button_up" from="SimpleMenu/Offline/ShowOfflineInfo" to="." method="_on_show_offline_info_button_up"]
+[connection signal="button_down" from="SimpleMenu/Online/ShowOnlineInfo" to="." method="_on_show_online_info_button_down"]
+[connection signal="button_up" from="SimpleMenu/Online/ShowOnlineInfo" to="." method="_on_show_online_info_button_up"]
 [connection signal="pressed" from="GeneralPanel/TopPanel/ShowOptions" to="." method="_on_show_options_pressed"]
 [connection signal="pressed" from="GeneralPanel/TopPanel/Home" to="." method="_on_home_pressed"]
 [connection signal="pressed" from="GeneralPanel/Options/CenterContainer/Vertical/Hints/Hints" to="." method="_on_hints_button_pressed"]

@@ -48,6 +48,13 @@ var _hints_indicator: ColorRect = get_node("GeneralPanel/Options/CenterContainer
 @onready
 var _sounds_indicator: ColorRect = get_node("GeneralPanel/Options/CenterContainer/Vertical/Sounds/Indicator")
 
+@onready
+var _info_panel_offline: Panel = get_node("InfoPanelOffline")
+
+@onready
+var _info_panel_online: Panel = get_node("InfoPanelOnline")
+
+
 func _ready():
 	_level_progress.visible = show_level_progress
 	_home_button.visible = show_home_button
@@ -116,3 +123,17 @@ func _celebrate() -> void:
 	_level_celebration.emitting = true
 	_celebrate_sound.play()
 	Globals.vibrate(1000)
+
+
+func _on_show_offline_info_button_down():
+	_info_panel_offline.visible = true
+
+
+func _on_show_offline_info_button_up():
+	_info_panel_offline.visible = false
+
+func _on_show_online_info_button_down():
+	_info_panel_online.visible = true
+
+func _on_show_online_info_button_up():
+	_info_panel_online.visible = false
