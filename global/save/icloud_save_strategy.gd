@@ -14,8 +14,10 @@ func save_experience_state(save_id: String, experience_state: ExperienceState) -
 	_icloud.synchronize_key_values()
 
 func load_experience_state(save_id: String) -> ExperienceState:
-	var dict_to_load = _icloud.get_key_value("experience_state:%s" % save_id)
 	_icloud.synchronize_key_values()
+	var dict_to_load = _icloud.get_key_value("experience_state:%s" % save_id)
+	if dict_to_load == null:
+		dict_to_load = {}
 	return ExperienceState.from_dict(dict_to_load)
 
 func delete_experience_state(save_id: String) -> void:

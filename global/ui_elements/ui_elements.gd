@@ -107,8 +107,8 @@ func _on_offline_pressed() -> void:
 
 func _on_online_pressed():
 	_button_pressed_feedback()
-	if Engine.has_singleton("iCloud"):
-		var icloud = Engine.get_singleton("iCloud")
+	if Engine.has_singleton("ICloud"):
+		var icloud = Engine.get_singleton("ICloud")
 		Mode.set_mode(Mode.NetworkMode.ONLINE)
 		Mode.set_save_strategy(ICloudSaveStrategy.new(icloud))
 		_load_game_scene("res://farm/farm.tscn")

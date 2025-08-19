@@ -44,8 +44,8 @@ func to_dict() -> Dictionary:
 static func from_dict(data: Dictionary) -> ExperienceState:
 	return ExperienceState.new(
 		data.get("current_experience", 0),
-		data.get("experience_rate", 0),
+		data.get("experience_rate", 1),
 		data.get("level", 1),
-		data.get("next_level", 100),
-		data.get("level_increase", 50)
+		data.get("next_level", 5),
+		data.get("level_increase", 1)
 	)
