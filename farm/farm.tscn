@@ -676,6 +676,7 @@ transform = Transform3D(1, 0, 0, 0, 0.862796, 0.505552, 0, -0.505552, 0.862796, 
 
 [node name="Hint" parent="UI" instance=ExtResource("12_tafdm")]
 hint_text = "Tap or drag on screen to move!"
+hint_panel_y_size = 400
 
 [node name="UIElements" parent="UI" instance=ExtResource("17_s5yk0")]
 show_home_button = false

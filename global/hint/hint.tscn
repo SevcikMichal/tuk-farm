@@ -1,11 +1,24 @@
-[gd_scene load_steps=3 format=3 uid="uid://c05idj0yb4f10"]
+[gd_scene load_steps=5 format=3 uid="uid://c05idj0yb4f10"]
 
 [ext_resource type="Script" uid="uid://dqttlq77rur6e" path="res://global/hint/hint.gd" id="1_c5qem"]
+[ext_resource type="FontFile" uid="uid://bugot647xfbko" path="res://global/fonts/PixelatedEleganceRegular-ovyAA.ttf" id="2_fs5ys"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fs5ys"]
+bg_color = Color(0.698039, 0.537255, 0.345098, 0.705882)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+corner_detail = 1
+expand_margin_top = 20.0
+shadow_color = Color(0.12549, 0.12549, 0.12549, 0.0784314)
+shadow_size = 5
+shadow_offset = Vector2(10, 10)
+anti_aliasing = false
 
 [sub_resource type="LabelSettings" id="LabelSettings_co3eb"]
+font = ExtResource("2_fs5ys")
 font_size = 100
-outline_size = 10
-outline_color = Color(0, 0, 0, 1)
 
 [node name="Hint" type="Control"]
 layout_mode = 3
@@ -31,9 +44,22 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 
-[node name="Label" type="Label" parent="CenterContainer"]
-custom_minimum_size = Vector2(900, 200)
+[node name="HintPanel" type="Panel" parent="CenterContainer"]
+custom_minimum_size = Vector2(750, 500)
 layout_mode = 2
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_fs5ys")
+
+[node name="Label" type="Label" parent="CenterContainer/HintPanel"]
+custom_minimum_size = Vector2(800, 200)
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -400.0
+offset_right = 400.0
+offset_bottom = 369.0
+grow_horizontal = 2
 text = "Tap or drag on screen to move"
 label_settings = SubResource("LabelSettings_co3eb")
 horizontal_alignment = 1

@@ -106,6 +106,7 @@ mouse_filter = 2
 
 [node name="Hint" parent="UI" instance=ExtResource("10_86gsk")]
 hint_text = "Swipe up to cast the rod! Swipe down to catch a fish!"
+hint_panel_y_size = 700
 
 [node name="UIElements" parent="UI" instance=ExtResource("8_86gsk")]
 

@@ -52,6 +52,7 @@ layer = 2
 
 [node name="Hint" parent="UI" instance=ExtResource("9_ang0i")]
 hint_text = "Drag your finger acros the screen to shear the sheep!"
+hint_panel_y_size = 600
 
 [node name="UIElements" parent="UI" instance=ExtResource("7_amrhd")]
 

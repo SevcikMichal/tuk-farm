@@ -500,6 +500,7 @@ mouse_filter = 2
 
 [node name="ColorRect" type="ColorRect" parent="GeneralPanel/Options/CenterContainer/Vertical/Haptics/Indicator"]
 custom_minimum_size = Vector2(10, 0)
+layout_mode = 0
 offset_right = 10.0
 offset_bottom = 94.0
 mouse_filter = 2
@@ -507,6 +508,7 @@ color = Color(0.468389, 0.23624, 0.0319527, 1)
 
 [node name="ColorRect2" type="ColorRect" parent="GeneralPanel/Options/CenterContainer/Vertical/Haptics/Indicator"]
 custom_minimum_size = Vector2(10, 0)
+layout_mode = 0
 offset_left = 75.0
 offset_right = 85.0
 offset_bottom = 94.0
@@ -515,6 +517,7 @@ color = Color(0.468389, 0.23624, 0.0319527, 1)
 
 [node name="ColorRect3" type="ColorRect" parent="GeneralPanel/Options/CenterContainer/Vertical/Haptics/Indicator"]
 custom_minimum_size = Vector2(10, 0)
+layout_mode = 0
 offset_left = 89.0
 offset_right = 99.0
 offset_bottom = 94.0
@@ -524,6 +527,7 @@ color = Color(0.468389, 0.23624, 0.0319527, 1)
 
 [node name="ColorRect4" type="ColorRect" parent="GeneralPanel/Options/CenterContainer/Vertical/Haptics/Indicator"]
 custom_minimum_size = Vector2(10, 0)
+layout_mode = 0
 offset_left = 89.0
 offset_top = 84.0
 offset_right = 99.0
@@ -564,6 +568,7 @@ mouse_filter = 2
 
 [node name="ColorRect" type="ColorRect" parent="GeneralPanel/Options/CenterContainer/Vertical/Sounds/Indicator"]
 custom_minimum_size = Vector2(10, 0)
+layout_mode = 0
 offset_right = 10.0
 offset_bottom = 94.0
 mouse_filter = 2
@@ -571,6 +576,7 @@ color = Color(0.468389, 0.23624, 0.0319527, 1)
 
 [node name="ColorRect2" type="ColorRect" parent="GeneralPanel/Options/CenterContainer/Vertical/Sounds/Indicator"]
 custom_minimum_size = Vector2(10, 0)
+layout_mode = 0
 offset_left = 75.0
 offset_right = 85.0
 offset_bottom = 94.0
@@ -579,6 +585,7 @@ color = Color(0.468389, 0.23624, 0.0319527, 1)
 
 [node name="ColorRect3" type="ColorRect" parent="GeneralPanel/Options/CenterContainer/Vertical/Sounds/Indicator"]
 custom_minimum_size = Vector2(10, 0)
+layout_mode = 0
 offset_left = 89.0
 offset_right = 99.0
 offset_bottom = 94.0
@@ -588,6 +595,7 @@ color = Color(0.468389, 0.23624, 0.0319527, 1)
 
 [node name="ColorRect4" type="ColorRect" parent="GeneralPanel/Options/CenterContainer/Vertical/Sounds/Indicator"]
 custom_minimum_size = Vector2(10, 0)
+layout_mode = 0
 offset_left = 89.0
 offset_top = 84.0
 offset_right = 99.0

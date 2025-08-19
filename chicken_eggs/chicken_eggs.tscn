@@ -81,6 +81,7 @@ mouse_filter = 2
 
 [node name="Hint" parent="UI" instance=ExtResource("10_lrarb")]
 hint_text = "Squish/Pinch the chicken to lay eggs!"
+hint_panel_y_size = 400
 
 [node name="UIElements" parent="UI" instance=ExtResource("8_56g7l")]
 

@@ -147,6 +147,7 @@ mouse_filter = 2
 
 [node name="Hint" parent="UI" instance=ExtResource("10_0ig7b")]
 hint_text = "One finger up the other down to milk the cow!"
+hint_panel_y_size = 580
 
 [node name="UIElements" parent="UI" instance=ExtResource("11_cuexo")]
 
