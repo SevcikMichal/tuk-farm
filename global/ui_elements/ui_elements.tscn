@@ -288,7 +288,7 @@ text = "?
 "
 
 [node name="MarginContainer" type="MarginContainer" parent="SimpleMenu"]
-custom_minimum_size = Vector2(0, 500)
+custom_minimum_size = Vector2(0, 200)
 layout_mode = 2
 mouse_filter = 2
 
@@ -296,8 +296,9 @@ mouse_filter = 2
 layout_mode = 2
 theme_override_fonts/font = ExtResource("2_b8ior")
 theme_override_font_sizes/font_size = 100
-theme_override_styles/normal = ExtResource("4_onqvq")
-disabled = true
+theme_override_styles/focus = ExtResource("3_onqvq")
+theme_override_styles/hover = ExtResource("3_onqvq")
+theme_override_styles/normal = ExtResource("3_onqvq")
 text = "Online
 "
 
@@ -838,6 +839,7 @@ pitch_scale = 1.5
 [connection signal="pressed" from="SimpleMenu/Offline" to="." method="_on_offline_pressed"]
 [connection signal="button_down" from="SimpleMenu/Offline/ShowOfflineInfo" to="." method="_on_show_offline_info_button_down"]
 [connection signal="button_up" from="SimpleMenu/Offline/ShowOfflineInfo" to="." method="_on_show_offline_info_button_up"]
+[connection signal="pressed" from="SimpleMenu/Online" to="." method="_on_online_pressed"]
 [connection signal="button_down" from="SimpleMenu/Online/ShowOnlineInfo" to="." method="_on_show_online_info_button_down"]
 [connection signal="button_up" from="SimpleMenu/Online/ShowOnlineInfo" to="." method="_on_show_online_info_button_up"]
 [connection signal="pressed" from="GeneralPanel/TopPanel/ShowOptions" to="." method="_on_show_options_pressed"]

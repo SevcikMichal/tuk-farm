@@ -99,12 +99,21 @@ func _on_sounds_pressed():
 	_sounds_indicator.color = Color.DARK_GREEN if res else Color.DARK_RED
 	Globals.get_configuration().save_self()
 
-
 func _on_offline_pressed() -> void:
 	_button_pressed_feedback()
 	Mode.set_mode(Mode.NetworkMode.OFFLINE)
 	Mode.set_save_strategy(OfflineSaveStrategy.new())
 	_load_game_scene("res://farm/farm.tscn")
+
+func _on_online_pressed():
+	_button_pressed_feedback()
+	if Engine.has_singleton("iCloud"):
+		var icloud = Engine.get_singleton("iCloud")
+		Mode.set_mode(Mode.NetworkMode.ONLINE)
+		Mode.set_save_strategy(ICloudSaveStrategy.new(icloud))
+		_load_game_scene("res://farm/farm.tscn")
+	else:
+		print("iOS iCloud is not available on this platform.")
 
 func _button_pressed_feedback() -> void:
 	Globals.vibrate(Globals.BUTTON_PRESSED_VIBRATION_DURATION_MS)
@@ -126,7 +135,6 @@ func _celebrate() -> void:
 	_level_celebration.emitting = true
 	_celebrate_sound.play()
 	Globals.vibrate(1000)
-
 
 func _on_show_offline_info_button_down():
 	_info_panel_offline.visible = true
