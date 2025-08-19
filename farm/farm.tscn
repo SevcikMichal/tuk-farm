@@ -137,6 +137,7 @@ randomize_pitch = true
 pitch_range_min = 1.0
 pitch_range_max = 1.5
 interaction_radius = 2.0
+groups = ["minigame", "interactive"]
 
 [node name="StaticBody3D" type="StaticBody3D" parent="NavigationRegion3D/Minigames/Sheeps"]
 
@@ -159,6 +160,10 @@ transform = Transform3D(0.183239, 0, 0.237537, 0, 0.3, 0, -0.237537, 0, 0.183239
 [node name="IdleSound" type="AudioStreamPlayer3D" parent="NavigationRegion3D/Minigames/Sheeps"]
 stream = ExtResource("4_x1uu6")
 volume_db = -15.0
+max_distance = 35.0
+unit_size = 1.0
+doppler_tracking = 1
+groups = ["ambient_audio"]
 
 [node name="Timer" type="Timer" parent="NavigationRegion3D/Minigames/Sheeps"]
 wait_time = 3.0
@@ -166,6 +171,7 @@ autostart = true
 
 [node name="Area3D" type="Area3D" parent="NavigationRegion3D/Minigames/Sheeps"]
 transform = Transform3D(0.753942, 0, 0.656941, 0, 1, 0, -0.656941, 0, 0.753942, 1.35168, 0, -0.253319)
+groups = ["minigame_area"]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="NavigationRegion3D/Minigames/Sheeps/Area3D"]
 shape = SubResource("BoxShape3D_tafdm")
@@ -187,6 +193,7 @@ randomize_pitch = true
 pitch_range_min = 1.0
 pitch_range_max = 1.5
 interaction_radius = 1.9
+groups = ["minigame", "interactive"]
 
 [node name="StaticBody3D" type="StaticBody3D" parent="NavigationRegion3D/Minigames/Cows"]
 
@@ -203,6 +210,10 @@ transform = Transform3D(-0.514059, 0, -0.612979, 0, 0.8, 0, 0.612979, 0, -0.5140
 [node name="IdleSound" type="AudioStreamPlayer3D" parent="NavigationRegion3D/Minigames/Cows"]
 stream = ExtResource("7_jcpv1")
 volume_db = -15.0
+max_distance = 35.0
+unit_size = 1.0
+doppler_tracking = 1
+groups = ["ambient_audio"]
 
 [node name="Timer" type="Timer" parent="NavigationRegion3D/Minigames/Cows"]
 wait_time = 6.0
@@ -210,6 +221,7 @@ autostart = true
 
 [node name="Area3D" type="Area3D" parent="NavigationRegion3D/Minigames/Cows"]
 transform = Transform3D(-0.0666571, 0, -0.997776, 0, 1, 0, 0.997776, 0, -0.0666571, 0.602005, 0.557626, 1.36299)
+groups = ["minigame_area"]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="NavigationRegion3D/Minigames/Cows/Area3D"]
 shape = SubResource("BoxShape3D_tafdm")
@@ -231,6 +243,7 @@ randomize_pitch = true
 pitch_range_min = 1.0
 pitch_range_max = 1.2
 interaction_radius = 1.9
+groups = ["minigame", "interactive"]
 
 [node name="StaticBody3D" type="StaticBody3D" parent="NavigationRegion3D/Minigames/Chickens"]
 
@@ -260,6 +273,10 @@ transform = Transform3D(-0.109825, 0, -0.167148, 0, 0.2, 0, 0.167148, 0, -0.1098
 stream = ExtResource("8_6cb61")
 volume_db = -15.0
 pitch_scale = 1.2
+max_distance = 35.0
+unit_size = 1.0
+doppler_tracking = 1
+groups = ["ambient_audio"]
 
 [node name="Timer" type="Timer" parent="NavigationRegion3D/Minigames/Chickens"]
 wait_time = 1.5
@@ -267,6 +284,7 @@ autostart = true
 
 [node name="Area3D" type="Area3D" parent="NavigationRegion3D/Minigames/Chickens"]
 transform = Transform3D(-0.419642, 0, -0.907689, 0, 1, 0, 0.907689, 0, -0.419642, -0.991094, 0.557626, 0.703515)
+groups = ["minigame_area"]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="NavigationRegion3D/Minigames/Chickens/Area3D"]
 shape = SubResource("BoxShape3D_tafdm")
@@ -284,6 +302,7 @@ transform = Transform3D(0.703742, 0, 0.710456, 0, 1, 0, -0.710456, 0, 0.703742, 
 script = ExtResource("1_mjpad")
 scene = ExtResource("5_jba3n")
 randomize_pitch = true
+groups = ["minigame", "interactive"]
 
 [node name="StaticBody3D" type="StaticBody3D" parent="NavigationRegion3D/Minigames/Pond"]
 
@@ -307,6 +326,10 @@ mesh = SubResource("CylinderMesh_gvuxw")
 stream = ExtResource("9_5byl4")
 volume_db = -15.0
 pitch_scale = 0.7
+max_distance = 40.0
+unit_size = 1.0
+doppler_tracking = 1
+groups = ["ambient_audio"]
 
 [node name="Timer" type="Timer" parent="NavigationRegion3D/Minigames/Pond"]
 wait_time = 5.0
@@ -314,6 +337,7 @@ autostart = true
 
 [node name="Area3D" type="Area3D" parent="NavigationRegion3D/Minigames/Pond"]
 transform = Transform3D(-0.90091, 0, 0.434005, 0, 1, 0, -0.434005, 0, -0.90091, -1.87437, 0.146146, -1.52272)
+groups = ["minigame_area"]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="NavigationRegion3D/Minigames/Pond/Area3D"]
 shape = SubResource("BoxShape3D_tafdm")
@@ -671,11 +695,12 @@ pixel_block = 8
 
 [node name="DirectionalLight3D" parent="." instance=ExtResource("3_a1lvl")]
 transform = Transform3D(1, 0, 0, 0, 0.862796, 0.505552, 0, -0.505552, 0.862796, 0, 0, 1.2283)
+shadow_enabled = true
 
 [node name="UI" type="CanvasLayer" parent="."]
 
 [node name="Hint" parent="UI" instance=ExtResource("12_tafdm")]
-hint_text = "Tap or drag on screen to move!"
+hint_text = "Tap/Click or drag on screen to move!"
 hint_panel_y_size = 400
 
 [node name="UIElements" parent="UI" instance=ExtResource("17_s5yk0")]
@@ -688,10 +713,12 @@ transform = Transform3D(0.738558, -0.3853, 0.553241, -0.0532126, 0.784727, 0.617
 script = ExtResource("5_mjpad")
 target = NodePath("../Farmer")
 offset = Vector3(4, 4, 4)
+current = true
 
 [node name="Farmer" parent="." node_paths=PackedStringArray("camera") instance=ExtResource("5_a1lvl")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.198624, 0)
 camera = NodePath("../Camera3D")
+physics_interpolation_mode = 2
 
 [connection signal="timeout" from="NavigationRegion3D/Minigames/Sheeps/Timer" to="NavigationRegion3D/Minigames/Sheeps" method="_on_timer_timeout"]
 [connection signal="body_entered" from="NavigationRegion3D/Minigames/Sheeps/Area3D" to="NavigationRegion3D/Minigames/Sheeps" method="_on_area_3d_body_entered"]
