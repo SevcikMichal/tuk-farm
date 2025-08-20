@@ -6,6 +6,9 @@ var save_id: String
 @export
 var level: Control
 
+@export
+var leaderboard_id: String
+
 @onready
 var _save_strategy: SaveStrategy = Mode.get_save_strategy()
 var _experience_state: ExperienceState 
@@ -24,5 +27,6 @@ func _ready() -> void:
 func _on_experience_gain_event() -> void:
 	if _experience_state.update_experience_state():
 		level.update_level(_experience_state.get_level())
+		GameCenter.post_score(_experience_state.get_level(), leaderboard_id)
 	level.update_progress(_experience_state.get_level_progress())
 	_save_strategy.save_experience_state(save_id, _experience_state)

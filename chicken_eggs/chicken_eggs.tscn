@@ -60,6 +60,7 @@ rings = 4
 script = ExtResource("1_rcmeq")
 save_id = "chicken"
 level = NodePath("UI/UIElements")
+leaderboard_id = "eggs_laying"
 
 [node name="chicken" parent="." instance=ExtResource("1_i0beg")]
 transform = Transform3D(0.986683, 0, -0.162654, -0.0266105, 0.986526, -0.161423, 0.160463, 0.163601, 0.973389, -0.0648155, 0, 0)

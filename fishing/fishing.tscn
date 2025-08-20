@@ -86,6 +86,7 @@ _data = {
 script = ExtResource("1_sqpqj")
 save_id = "fishing"
 level = NodePath("UI/UIElements")
+leaderboard_id = "fishing"
 
 [node name="Camera3D" parent="." instance=ExtResource("1_lxurg")]
 transform = Transform3D(0.999682, 0, 0.0251999, 0, 1, 0, -0.0251999, 0, 0.999682, 0, 0, 1.867)

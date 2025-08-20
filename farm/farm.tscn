@@ -681,6 +681,7 @@ hint_panel_y_size = 400
 [node name="UIElements" parent="UI" instance=ExtResource("17_s5yk0")]
 show_home_button = false
 show_level_progress = false
+allow_gc_button = true
 
 [node name="Camera3D" parent="." node_paths=PackedStringArray("target") instance=ExtResource("1_ukrf4")]
 physics_interpolation_mode = 2

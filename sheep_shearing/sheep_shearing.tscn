@@ -34,6 +34,7 @@ material = SubResource("StandardMaterial3D_bydsx")
 script = ExtResource("1_0ikuk")
 save_id = "sheep"
 level = NodePath("UI/UIElements")
+leaderboard_id = "sheep_shearing"
 
 [node name="DirectionalLight3D" parent="." instance=ExtResource("2_5xpdv")]
 transform = Transform3D(0.999682, -0.0127399, 0.0217424, -0.0134213, 0.461076, 0.887259, -0.0213284, -0.887269, 0.460758, 0, 0, 3.23218)

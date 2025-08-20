@@ -34,6 +34,7 @@ material = SubResource("StandardMaterial3D_rvbjl")
 script = ExtResource("1_i1a6h")
 save_id = "cow"
 level = NodePath("UI/UIElements")
+leaderboard_id = "cow_milking"
 
 [node name="Camera3D" parent="." instance=ExtResource("2_rvbjl")]
 transform = Transform3D(0.999682, 0, 0.0251999, 0, 1, 0, -0.0251999, 0, 0.999682, 0.108079, 2.936, 4.191)

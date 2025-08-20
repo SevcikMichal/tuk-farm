@@ -21,6 +21,7 @@ config/icon="res://icon.svg"
 Globals="*res://global/globals.gd"
 Mode="*res://global/save/mode.gd"
 BackgroundMusic="*res://global/background_music/background_music.tscn"
+GameCenter="*res://global/game_center.gd"
 
 [display]
 

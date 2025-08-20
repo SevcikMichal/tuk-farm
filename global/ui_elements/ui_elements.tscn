@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://dytvn2lfmcumw"]
+[gd_scene load_steps=29 format=3 uid="uid://dytvn2lfmcumw"]
 
 [ext_resource type="Script" uid="uid://dd0a04to6ul3b" path="res://global/ui_elements/ui_elements.gd" id="1_u2g1r"]
 [ext_resource type="FontFile" uid="uid://bugot647xfbko" path="res://global/fonts/PixelatedEleganceRegular-ovyAA.ttf" id="2_b8ior"]
@@ -146,6 +146,36 @@ font_size = 40
 line_spacing = 10.0
 font = ExtResource("2_b8ior")
 font_size = 40
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_m3qmx"]
+bg_color = Color(0.478431, 0.356863, 0.207843, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+corner_detail = 1
+shadow_size = 10
+shadow_offset = Vector2(10, 10)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xj384"]
+bg_color = Color(0.478431, 0.356863, 0.207843, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+corner_detail = 1
+shadow_size = 10
+shadow_offset = Vector2(10, 10)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fdry6"]
+bg_color = Color(0.478431, 0.356863, 0.207843, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+corner_detail = 1
+shadow_size = 10
+shadow_offset = Vector2(10, 10)
 
 [sub_resource type="Gradient" id="Gradient_1dhh4"]
 offsets = PackedFloat32Array(0, 0.230415, 0.389401, 0.513825, 0.693548, 0.831797, 1)
@@ -819,6 +849,26 @@ theme_override_styles/hover = ExtResource("3_7doxu")
 theme_override_styles/normal = ExtResource("3_7doxu")
 text = "X"
 
+[node name="GameCenter" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -129.0
+offset_top = -138.0
+offset_right = -29.0
+offset_bottom = -38.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_fonts/font = ExtResource("2_b8ior")
+theme_override_font_sizes/font_size = 50
+theme_override_styles/focus = SubResource("StyleBoxFlat_m3qmx")
+theme_override_styles/hover = SubResource("StyleBoxFlat_xj384")
+theme_override_styles/normal = SubResource("StyleBoxFlat_fdry6")
+text = "GC"
+
 [node name="ExperienceParticles" type="CPUParticles2D" parent="."]
 position = Vector2(450, 1800)
 emitting = false
@@ -836,6 +886,10 @@ stream = ExtResource("6_7doxu")
 volume_db = -15.0
 pitch_scale = 1.5
 
+[node name="AllowGCButtonTimer" type="Timer" parent="."]
+wait_time = 3.0
+autostart = true
+
 [connection signal="pressed" from="SimpleMenu/Offline" to="." method="_on_offline_pressed"]
 [connection signal="button_down" from="SimpleMenu/Offline/ShowOfflineInfo" to="." method="_on_show_offline_info_button_down"]
 [connection signal="button_up" from="SimpleMenu/Offline/ShowOfflineInfo" to="." method="_on_show_offline_info_button_up"]
@@ -849,3 +903,5 @@ pitch_scale = 1.5
 [connection signal="pressed" from="GeneralPanel/Options/CenterContainer/Vertical/Sounds/Sounds" to="." method="_on_sounds_pressed"]
 [connection signal="pressed" from="GeneralPanel/Options/CenterContainer/Vertical/Credits" to="." method="_on_credits_pressed"]
 [connection signal="pressed" from="CreditsPanel/CreditsClose" to="." method="_on_credits_close_pressed"]
+[connection signal="pressed" from="GameCenter" to="." method="_on_game_center_pressed"]
+[connection signal="timeout" from="AllowGCButtonTimer" to="." method="_on_allow_gc_button_timer_timeout"]

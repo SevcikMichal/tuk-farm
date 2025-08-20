@@ -9,6 +9,9 @@ var show_level_progress: bool = true
 @export
 var show_simple_menu: bool = false
 
+@export
+var allow_gc_button: bool = false
+
 @onready
 var _level_label: Label = get_node("Experience/VBoxContainer/ProgressBar/Label")
 
@@ -57,8 +60,12 @@ var _info_panel_online: Panel = get_node("InfoPanelOnline")
 @onready
 var _credits_panel: Panel = get_node("CreditsPanel")
 
+@onready
+var _gc_button: Button = get_node("GameCenter")
+
 
 func _ready():
+	_gc_button.visible = false
 	_level_progress.visible = show_level_progress
 	_home_button.visible = show_home_button
 	_simple_menu.visible = show_simple_menu
@@ -111,6 +118,7 @@ func _on_online_pressed():
 		var icloud = Engine.get_singleton("ICloud")
 		Mode.set_mode(Mode.NetworkMode.ONLINE)
 		Mode.set_save_strategy(ICloudSaveStrategy.new(icloud))
+		GameCenter.authenticate()
 		_load_game_scene("res://farm/farm.tscn")
 	else:
 		print("iOS iCloud is not available on this platform.")
@@ -155,3 +163,10 @@ func _on_credits_pressed():
 func _on_credits_close_pressed():
 	_button_pressed_feedback()
 	_credits_panel.visible = false
+
+func _on_allow_gc_button_timer_timeout():
+	_gc_button.visible = allow_gc_button and GameCenter.is_authenticated()
+
+func _on_game_center_pressed():
+	_button_pressed_feedback()
+	GameCenter.show_game_center()

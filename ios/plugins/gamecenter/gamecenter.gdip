@@ -1,6 +1,6 @@
 [config]
 name="GameCenter"
-binary="gamecenter.release_debug.xcframework"
+binary="gamecenter.release.xcframework"
 
 initialization="register_gamecenter_types"
 deinitialization="unregister_gamecenter_types"
