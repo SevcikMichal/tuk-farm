@@ -9,9 +9,6 @@ var show_level_progress: bool = true
 @export
 var show_simple_menu: bool = false
 
-@export
-var allow_gc_button: bool = false
-
 @onready
 var _level_label: Label = get_node("Experience/VBoxContainer/ProgressBar/Label")
 
@@ -61,8 +58,10 @@ var _info_panel_online: Panel = get_node("InfoPanelOnline")
 var _credits_panel: Panel = get_node("CreditsPanel")
 
 @onready
-var _gc_button: Button = get_node("GameCenter")
+var _gc_button: Button = get_node("GeneralPanel/Options/CenterContainer/Vertical/GameCenter")
 
+@onready
+var _options_background_panel: Panel = get_node("GeneralPanel/Options/CenterContainer/Panel")
 
 func _ready():
 	_gc_button.visible = false
@@ -165,7 +164,12 @@ func _on_credits_close_pressed():
 	_credits_panel.visible = false
 
 func _on_allow_gc_button_timer_timeout():
-	_gc_button.visible = allow_gc_button and GameCenter.is_authenticated()
+	_gc_button.visible = GameCenter.is_authenticated()
+	# Refactor this via better UI tree so that the panel expand automatically
+	if _gc_button.visible:
+		_options_background_panel.custom_minimum_size.y = 750.0
+	else:
+		_options_background_panel.custom_minimum_size.y = 610.0
 
 func _on_game_center_pressed():
 	_button_pressed_feedback()
