@@ -19,6 +19,7 @@ var _boom: AudioStreamPlayer3D = get_node("Boom")
 var _cuts: int = 0
 
 func cut() -> void:
+	Globals.vibrate(100)
 	_cuts = _cuts + 1
 	if _cuts >= CUTS_TO_FALL:
 		_fall()
@@ -30,6 +31,7 @@ func _fall() -> void:
 
 func _on_animation_player_animation_finished(anim_name) -> void:
 	if anim_name == "fall":
+		Globals.vibrate(500)
 		_crash.stop()
 		_boom.play(.10)
 		emit_signal("fall_finished")
