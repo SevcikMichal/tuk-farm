@@ -1,7 +1,7 @@
 extends Node3D
 
 const CUTS_TO_FALL: int = 4
-const DELAY: float = 2.0
+const DELAY: float = 1.0
 
 signal tree_falling
 signal fall_finished

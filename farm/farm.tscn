@@ -1,4 +1,4 @@
-[gd_scene load_steps=50 format=3 uid="uid://hdejlod4jlu1"]
+[gd_scene load_steps=52 format=3 uid="uid://hdejlod4jlu1"]
 
 [ext_resource type="Script" uid="uid://ny6w160fas55" path="res://global/minigame/minigame_point.gd" id="1_mjpad"]
 [ext_resource type="PackedScene" uid="uid://b2elg3q57q4sj" path="res://global/scene_setup/camera_3d.tscn" id="1_ukrf4"]
@@ -20,6 +20,7 @@
 [ext_resource type="AudioStream" uid="uid://bdfnldh2hdcnv" path="res://fishing/sounds/wave.wav" id="9_5byl4"]
 [ext_resource type="PackedScene" uid="uid://bevavrvmwtag" path="res://barn/models/barn.glb" id="9_xwc0b"]
 [ext_resource type="PackedScene" uid="uid://c05idj0yb4f10" path="res://global/hint/hint.tscn" id="12_tafdm"]
+[ext_resource type="PackedScene" uid="uid://dqa1s4lx43uyc" path="res://woodcutting/wood_cutting.tscn" id="14_3gq81"]
 [ext_resource type="PackedScene" uid="uid://dytvn2lfmcumw" path="res://global/ui_elements/ui_elements.tscn" id="17_s5yk0"]
 
 [sub_resource type="NavigationMesh" id="NavigationMesh_72csm"]
@@ -63,6 +64,27 @@ albedo_color = Color(0.917647, 0.701961, 0.243137, 1)
 material = SubResource("StandardMaterial3D_6cb61")
 top_radius = 5.53
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_yiujh"]
+albedo_color = Color(0.540042, 0.304493, 0.17573, 1)
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_yiujh"]
+material = SubResource("StandardMaterial3D_yiujh")
+top_radius = 0.1
+bottom_radius = 0.1
+height = 3.0
+radial_segments = 8
+rings = 2
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3gq81"]
+albedo_color = Color(0, 0.576471, 0, 1)
+
+[sub_resource type="SphereMesh" id="SphereMesh_3gq81"]
+material = SubResource("StandardMaterial3D_3gq81")
+radial_segments = 8
+rings = 4
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_yiujh"]
+
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xwc0b"]
 albedo_color = Color(0.372549, 0.666667, 0.305882, 1)
 
@@ -101,25 +123,6 @@ rings = 4
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_5byl4"]
 size = Vector3(0.428162, 1, 0.565002)
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_yiujh"]
-albedo_color = Color(0.540042, 0.304493, 0.17573, 1)
-
-[sub_resource type="CylinderMesh" id="CylinderMesh_yiujh"]
-material = SubResource("StandardMaterial3D_yiujh")
-top_radius = 0.1
-bottom_radius = 0.1
-height = 3.0
-radial_segments = 8
-rings = 2
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3gq81"]
-albedo_color = Color(0, 0.576471, 0, 1)
-
-[sub_resource type="SphereMesh" id="SphereMesh_3gq81"]
-material = SubResource("StandardMaterial3D_3gq81")
-radial_segments = 8
-rings = 4
 
 [node name="Farm" type="Node3D"]
 
@@ -326,6 +329,106 @@ mesh = SubResource("QuadMesh_s5yk0")
 [node name="Arrow" parent="NavigationRegion3D/Minigames/Pond/Area3D" instance=ExtResource("3_yiujh")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.123819, 0.253008, 0.452839)
 
+[node name="Woods" type="Node3D" parent="NavigationRegion3D/Minigames"]
+transform = Transform3D(-0.0689384, 0, 0.997621, 0, 1, 0, -0.997621, 0, -0.0689384, 4.52241, 0.420536, -5.21968)
+script = ExtResource("1_mjpad")
+scene = ExtResource("14_3gq81")
+randomize_pitch = true
+
+[node name="StaticBody3D" type="StaticBody3D" parent="NavigationRegion3D/Minigames/Woods"]
+
+[node name="Tree" type="Node3D" parent="NavigationRegion3D/Minigames/Woods/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.998386, 0.932727, -1.3666)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="NavigationRegion3D/Minigames/Woods/StaticBody3D/Tree"]
+mesh = SubResource("CylinderMesh_yiujh")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="NavigationRegion3D/Minigames/Woods/StaticBody3D/Tree"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.26348, 0)
+mesh = SubResource("SphereMesh_3gq81")
+
+[node name="Tree2" type="Node3D" parent="NavigationRegion3D/Minigames/Woods/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.61542, 0.373355, -0.813423)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="NavigationRegion3D/Minigames/Woods/StaticBody3D/Tree2"]
+mesh = SubResource("CylinderMesh_yiujh")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="NavigationRegion3D/Minigames/Woods/StaticBody3D/Tree2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.26348, 0)
+mesh = SubResource("SphereMesh_3gq81")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="NavigationRegion3D/Minigames/Woods/StaticBody3D/Tree2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.346148, 1.31871, 0.35506)
+mesh = SubResource("SphereMesh_3gq81")
+
+[node name="MeshInstance3D4" type="MeshInstance3D" parent="NavigationRegion3D/Minigames/Woods/StaticBody3D/Tree2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0387607, 1.04238, -0.488166)
+mesh = SubResource("SphereMesh_3gq81")
+
+[node name="Tree3" type="Node3D" parent="NavigationRegion3D/Minigames/Woods/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.202922, 0.373355, -0.841308)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="NavigationRegion3D/Minigames/Woods/StaticBody3D/Tree3"]
+mesh = SubResource("CylinderMesh_yiujh")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="NavigationRegion3D/Minigames/Woods/StaticBody3D/Tree3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.26348, 0)
+mesh = SubResource("SphereMesh_3gq81")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="NavigationRegion3D/Minigames/Woods/StaticBody3D/Tree3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.346148, 1.31871, 0.35506)
+mesh = SubResource("SphereMesh_3gq81")
+
+[node name="MeshInstance3D4" type="MeshInstance3D" parent="NavigationRegion3D/Minigames/Woods/StaticBody3D/Tree3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0387607, 1.04238, -0.488166)
+mesh = SubResource("SphereMesh_3gq81")
+
+[node name="Tree4" type="Node3D" parent="NavigationRegion3D/Minigames/Woods/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.55712, 1.10786, 0.20282)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="NavigationRegion3D/Minigames/Woods/StaticBody3D/Tree4"]
+mesh = SubResource("CylinderMesh_yiujh")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="NavigationRegion3D/Minigames/Woods/StaticBody3D/Tree4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.26348, 0)
+mesh = SubResource("SphereMesh_3gq81")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="NavigationRegion3D/Minigames/Woods/StaticBody3D/Tree4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0127425, 0.957777, 0.35506)
+mesh = SubResource("SphereMesh_3gq81")
+
+[node name="MeshInstance3D4" type="MeshInstance3D" parent="NavigationRegion3D/Minigames/Woods/StaticBody3D/Tree4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0387607, 1.04238, -0.488166)
+mesh = SubResource("SphereMesh_3gq81")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="NavigationRegion3D/Minigames/Woods/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.94349, 0, -0.925942)
+shape = SubResource("BoxShape3D_yiujh")
+
+[node name="Timer" type="Timer" parent="NavigationRegion3D/Minigames/Woods"]
+wait_time = 5.0
+autostart = true
+
+[node name="IdleSound" type="AudioStreamPlayer3D" parent="NavigationRegion3D/Minigames/Woods"]
+transform = Transform3D(-0.90091, 0, 0.434005, 0, 1, 0, -0.434005, 0, -0.90091, -1.87437, 0.146146, -1.52272)
+stream = ExtResource("9_5byl4")
+volume_db = -15.0
+pitch_scale = 0.3
+
+[node name="Area3D" type="Area3D" parent="NavigationRegion3D/Minigames/Woods"]
+transform = Transform3D(-0.90091, 0, 0.434005, 0, 1, 0, -0.434005, 0, -0.90091, -1.87437, 0.146146, -1.52272)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="NavigationRegion3D/Minigames/Woods/Area3D"]
+shape = SubResource("BoxShape3D_tafdm")
+debug_color = Color(0.983296, 0, 0.354346, 0.42)
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="NavigationRegion3D/Minigames/Woods/Area3D"]
+transform = Transform3D(0.941306, 0.337556, 1.4755e-08, 1.72694e-15, -4.37114e-08, 1, 0.337556, -0.941306, -4.11458e-08, 0.163252, -0.532976, 0.318177)
+mesh = SubResource("QuadMesh_s5yk0")
+
+[node name="Arrow" parent="NavigationRegion3D/Minigames/Woods/Area3D" instance=ExtResource("3_yiujh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.123819, 0.253008, 0.452839)
+
 [node name="Ground" type="StaticBody3D" parent="NavigationRegion3D"]
 collision_layer = 512
 
@@ -466,6 +569,10 @@ mesh = SubResource("BoxMesh_tafdm")
 transform = Transform3D(0.219465, 0, -0.997379, 0, 1, 0, 3.02541, 0, 0.0723504, 0.218364, -0.4819, 1.82188)
 mesh = SubResource("BoxMesh_tafdm")
 
+[node name="MeshInstance3D5" type="MeshInstance3D" parent="NavigationRegion3D"]
+transform = Transform3D(-3.00163, 0, -0.755041, 0, 1, 0, 3.45651, 0, -0.655677, 1.61241, -0.4819, -1.89588)
+mesh = SubResource("BoxMesh_tafdm")
+
 [node name="Barn" type="Node3D" parent="NavigationRegion3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.33667, 0, -6.27536)
 
@@ -602,16 +709,6 @@ mesh = SubResource("CylinderMesh_yiujh")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.26348, 0)
 mesh = SubResource("SphereMesh_3gq81")
 
-[node name="Tree5" type="Node3D" parent="NavigationRegion3D/Trees"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.88021, 0.932727, -3.78861)
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="NavigationRegion3D/Trees/Tree5"]
-mesh = SubResource("CylinderMesh_yiujh")
-
-[node name="MeshInstance3D2" type="MeshInstance3D" parent="NavigationRegion3D/Trees/Tree5"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.26348, 0)
-mesh = SubResource("SphereMesh_3gq81")
-
 [node name="Tree2" type="Node3D" parent="NavigationRegion3D/Trees"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.20055, 0.373355, 2.52769)
 
@@ -681,7 +778,6 @@ hint_panel_y_size = 400
 [node name="UIElements" parent="UI" instance=ExtResource("17_s5yk0")]
 show_home_button = false
 show_level_progress = false
-show_simple_menu = false
 
 [node name="Camera3D" parent="." node_paths=PackedStringArray("target") instance=ExtResource("1_ukrf4")]
 physics_interpolation_mode = 2
@@ -702,6 +798,8 @@ camera = NodePath("../Camera3D")
 [connection signal="body_entered" from="NavigationRegion3D/Minigames/Chickens/Area3D" to="NavigationRegion3D/Minigames/Chickens" method="_on_area_3d_body_entered"]
 [connection signal="timeout" from="NavigationRegion3D/Minigames/Pond/Timer" to="NavigationRegion3D/Minigames/Pond" method="_on_timer_timeout"]
 [connection signal="body_entered" from="NavigationRegion3D/Minigames/Pond/Area3D" to="NavigationRegion3D/Minigames/Pond" method="_on_area_3d_body_entered"]
+[connection signal="timeout" from="NavigationRegion3D/Minigames/Woods/Timer" to="NavigationRegion3D/Minigames/Woods" method="_on_timer_timeout"]
+[connection signal="body_entered" from="NavigationRegion3D/Minigames/Woods/Area3D" to="NavigationRegion3D/Minigames/Woods" method="_on_area_3d_body_entered"]
 [connection signal="walk_finished" from="Farmer" to="NavigationRegion3D/Minigames/Sheeps" method="_on_farmer_walk_finished"]
 [connection signal="walk_finished" from="Farmer" to="NavigationRegion3D/Minigames/Cows" method="_on_farmer_walk_finished"]
 [connection signal="walk_finished" from="Farmer" to="NavigationRegion3D/Minigames/Chickens" method="_on_farmer_walk_finished"]

@@ -368,5 +368,6 @@ mesh = SubResource("SphereMesh_8u4ir")
 [connection signal="tree_hit" from="Axes/AxeL" to="Tree" method="cut"]
 [connection signal="swing_finished" from="Axes/AxeR" to="UI/WoodCuttingController" method="enable"]
 [connection signal="tree_hit" from="Axes/AxeR" to="Tree" method="cut"]
+[connection signal="fall_finished" from="Tree" to="." method="_on_experience_gain_event"]
 [connection signal="tree_falling" from="Tree" to="UI/WoodCuttingController" method="tree_falling"]
 [connection signal="tree_standing" from="Tree" to="UI/WoodCuttingController" method="tree_standing"]

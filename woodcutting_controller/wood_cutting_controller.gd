@@ -8,6 +8,9 @@ var min_distance: float = 120.0
 @onready
 var _animation: AnimationPlayer = get_node("AnimationPlayer")
 
+@onready
+var _idle_timer: Timer = get_node("IdleTimer")
+
 var _enabled: bool = true
 var _tree_falling: bool = false
 var _tracking: bool = false
@@ -28,18 +31,7 @@ func _input(event: InputEvent) -> void:
 		_start_pos = event.position
 		return
 
-	if event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
-		_tracking = true
-		_active_pointer = -1
-		_start_pos = event.position
-		return
-
 	if event is InputEventScreenTouch and not event.pressed and event.index == _active_pointer:
-		_tracking = false
-		_active_pointer = -1
-		return
-
-	if event is InputEventMouseButton and not event.pressed and event.button_index == MOUSE_BUTTON_LEFT and _active_pointer == -1:
 		_tracking = false
 		_active_pointer = -1
 		return
@@ -49,11 +41,12 @@ func _input(event: InputEvent) -> void:
 
 	if event is InputEventScreenDrag and event.index != _active_pointer:
 		return
+		
+	_idle_timer.start()
+	_animation.stop()
 
 	var pos: Vector2
 	if event is InputEventScreenDrag:
-		pos = event.position
-	elif event is InputEventMouseMotion and _active_pointer == -1:
 		pos = event.position
 	else:
 		return
@@ -70,7 +63,6 @@ func _input(event: InputEvent) -> void:
 		_last_direction = dir
 		_tracking = false
 		_active_pointer = -1
-
 
 func _on_idle_timer_timeout() -> void:
 	_animation.play("hint")
