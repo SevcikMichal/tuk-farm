@@ -1,0 +1,114 @@
+[gd_scene load_steps=6 format=3 uid="uid://b4hbs4rqhb68d"]
+
+[ext_resource type="Script" uid="uid://fq1ytpln6old" path="res://woodcutting_controller/wood_cutting_controller.gd" id="1_7jkxh"]
+[ext_resource type="Texture2D" uid="uid://bab8fc7xl1rwm" path="res://milking_controller/sprites/arrow.png" id="2_6qfyt"]
+
+[sub_resource type="Animation" id="Animation_1suj8"]
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ControllerWindow/Hint/Left:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_oa2ic"]
+resource_name = "hint"
+length = 2.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ControllerWindow/Hint/Right:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [false, true, false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ControllerWindow/Hint/Left:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1.5, 2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [false, true, false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_1suj8"]
+_data = {
+&"RESET": SubResource("Animation_1suj8"),
+&"hint": SubResource("Animation_oa2ic")
+}
+
+[node name="WoodCuttingController" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1, 1.00154)
+mouse_filter = 1
+script = ExtResource("1_7jkxh")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_1suj8")
+}
+
+[node name="IdleTimer" type="Timer" parent="."]
+wait_time = 10.0
+
+[node name="ControllerWindow" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -450.0
+offset_top = -1000.0
+offset_right = 450.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="Hint" type="ColorRect" parent="ControllerWindow"]
+layout_mode = 2
+mouse_filter = 1
+color = Color(1, 1, 1, 0.0196078)
+
+[node name="Right" type="TextureRect" parent="ControllerWindow/Hint"]
+visible = false
+layout_mode = 0
+offset_top = 980.0
+offset_right = 2194.0
+offset_bottom = 3174.0
+rotation = -1.5708
+scale = Vector2(0.425, 0.409)
+texture = ExtResource("2_6qfyt")
+
+[node name="Left" type="TextureRect" parent="ControllerWindow/Hint"]
+visible = false
+layout_mode = 0
+offset_top = 980.0
+offset_right = 2197.0
+offset_bottom = 3177.0
+rotation = -1.5708
+scale = Vector2(0.425, 0.409)
+texture = ExtResource("2_6qfyt")
+flip_v = true
+
+[connection signal="timeout" from="IdleTimer" to="." method="_on_idle_timer_timeout"]

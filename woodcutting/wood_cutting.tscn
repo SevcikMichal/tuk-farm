@@ -1,0 +1,372 @@
+[gd_scene load_steps=20 format=3 uid="uid://dqa1s4lx43uyc"]
+
+[ext_resource type="PackedScene" uid="uid://bbdx775276raa" path="res://global/scene_setup/directional_light_3d.tscn" id="1_0qx0v"]
+[ext_resource type="Script" uid="uid://dp8gk07ialapr" path="res://global/experience/experience_pusher.gd" id="1_ikvf6"]
+[ext_resource type="PackedScene" uid="uid://b2elg3q57q4sj" path="res://global/scene_setup/camera_3d.tscn" id="2_hw24s"]
+[ext_resource type="PackedScene" uid="uid://dag67ckbdflew" path="res://global/scene_setup/post_process.tscn" id="3_5j6po"]
+[ext_resource type="PackedScene" uid="uid://dytvn2lfmcumw" path="res://global/ui_elements/ui_elements.tscn" id="4_ikvf6"]
+[ext_resource type="PackedScene" uid="uid://0iqce6w1md48" path="res://axe/axe.tscn" id="5_vb7ei"]
+[ext_resource type="Script" uid="uid://bi5tbh032ptq4" path="res://woodcutting/axes.gd" id="6_5j6po"]
+[ext_resource type="PackedScene" uid="uid://bquk8p1lv6v2i" path="res://tree/tree.tscn" id="6_eqntd"]
+[ext_resource type="PackedScene" uid="uid://b4hbs4rqhb68d" path="res://woodcutting_controller/wood_cutting_controller.tscn" id="7_hw24s"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1385h"]
+albedo_color = Color(3.53761e-06, 0.519047, 0.258171, 1)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_x35qj"]
+material = SubResource("StandardMaterial3D_1385h")
+size = Vector2(200, 200)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8u4ir"]
+albedo_color = Color(0.540042, 0.304493, 0.17573, 1)
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_x35qj"]
+material = SubResource("StandardMaterial3D_8u4ir")
+top_radius = 0.1
+bottom_radius = 0.1
+height = 3.0
+radial_segments = 8
+rings = 2
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4mg6k"]
+albedo_color = Color(0, 0.576471, 0, 1)
+
+[sub_resource type="SphereMesh" id="SphereMesh_ydnst"]
+material = SubResource("StandardMaterial3D_4mg6k")
+radial_segments = 8
+rings = 4
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_bydsx"]
+albedo_color = Color(0.294554, 0.42258, 0.183929, 1)
+
+[sub_resource type="PrismMesh" id="PrismMesh_x35qj"]
+material = SubResource("StandardMaterial3D_bydsx")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_x35qj"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_8u4ir"]
+material = SubResource("StandardMaterial3D_x35qj")
+radial_segments = 4
+rings = 4
+
+[node name="WoodCutting" type="Node3D" node_paths=PackedStringArray("level")]
+script = ExtResource("1_ikvf6")
+save_id = "wood_cutting"
+level = NodePath("UI/UIElements")
+leaderboard_id = "wood_cutting"
+
+[node name="DirectionalLight3D" parent="." instance=ExtResource("1_0qx0v")]
+transform = Transform3D(0.999682, -0.0127399, 0.0217424, 0, 0.862796, 0.505552, -0.0251999, -0.505391, 0.862522, 0, 0, 1.06401)
+
+[node name="Camera3D" parent="." instance=ExtResource("2_hw24s")]
+transform = Transform3D(0.999682, 0, 0.0251999, 0.0057056, 0.974031, -0.226341, -0.0245455, 0.226413, 0.973722, 0, -0.970002, 1.56814)
+
+[node name="PostProcess" parent="." instance=ExtResource("3_5j6po")]
+
+[node name="UI" type="CanvasLayer" parent="."]
+
+[node name="WoodCuttingController" parent="UI" instance=ExtResource("7_hw24s")]
+
+[node name="UIElements" parent="UI" instance=ExtResource("4_ikvf6")]
+
+[node name="Axes" type="Node3D" parent="."]
+script = ExtResource("6_5j6po")
+
+[node name="AxeL" parent="Axes" instance=ExtResource("5_vb7ei")]
+transform = Transform3D(0.880519, -0.418481, 0.222622, 0, 0.469656, 0.882849, -0.474011, -0.777365, 0.413541, -0.393426, -0.863818, 1.16423)
+
+[node name="AxeR" parent="Axes" instance=ExtResource("5_vb7ei")]
+transform = Transform3D(-0.875329, 0.316231, 0.365786, -0.12833, 0.577427, -0.806294, -0.466189, -0.752713, -0.464856, 0.459765, -0.80205, 1.10973)
+
+[node name="Tree" parent="." instance=ExtResource("6_eqntd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.24276, 0.669269)
+
+[node name="Background" type="Node3D" parent="."]
+
+[node name="Ground" type="MeshInstance3D" parent="Background"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.08666, 0)
+mesh = SubResource("PlaneMesh_x35qj")
+
+[node name="Trees" type="Node3D" parent="Background"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.01598, 0, 0)
+
+[node name="Tree" type="Node3D" parent="Background/Trees"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.46542, -0.153934, -2.6486)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Background/Trees/Tree"]
+mesh = SubResource("CylinderMesh_x35qj")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="Background/Trees/Tree"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.26348, 0)
+mesh = SubResource("SphereMesh_ydnst")
+
+[node name="Tree2" type="Node3D" parent="Background/Trees"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0154963, -0.713304, -2.97908)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Background/Trees/Tree2"]
+mesh = SubResource("CylinderMesh_x35qj")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="Background/Trees/Tree2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.26348, 0)
+mesh = SubResource("SphereMesh_ydnst")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="Background/Trees/Tree2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.346148, 1.31871, 0.35506)
+mesh = SubResource("SphereMesh_ydnst")
+
+[node name="MeshInstance3D4" type="MeshInstance3D" parent="Background/Trees/Tree2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0387607, 1.04238, -0.488166)
+mesh = SubResource("SphereMesh_ydnst")
+
+[node name="Tree3" type="Node3D" parent="Background/Trees"]
+transform = Transform3D(0.622638, 0, -0.78251, 0, 1, 0, 0.78251, 0, 0.622638, -1.41182, -0.713305, -1.82974)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Background/Trees/Tree3"]
+mesh = SubResource("CylinderMesh_x35qj")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="Background/Trees/Tree3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.26348, 0)
+mesh = SubResource("SphereMesh_ydnst")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="Background/Trees/Tree3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.346148, 1.31871, 0.35506)
+mesh = SubResource("SphereMesh_ydnst")
+
+[node name="MeshInstance3D4" type="MeshInstance3D" parent="Background/Trees/Tree3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0387607, 1.04238, -0.488166)
+mesh = SubResource("SphereMesh_ydnst")
+
+[node name="Tree4" type="Node3D" parent="Background/Trees"]
+transform = Transform3D(0.943639, 0, 0.330976, 0, 1, 0, -0.330976, 0, 0.943639, 1.29973, -0.153935, -5.25389)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Background/Trees/Tree4"]
+mesh = SubResource("CylinderMesh_x35qj")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="Background/Trees/Tree4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.26348, 0)
+mesh = SubResource("SphereMesh_ydnst")
+
+[node name="Tree5" type="Node3D" parent="Background/Trees"]
+transform = Transform3D(0.943639, 0, 0.330976, 0, 1, 0, -0.330976, 0, 0.943639, -0.207109, -0.713305, -5.0756)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Background/Trees/Tree5"]
+mesh = SubResource("CylinderMesh_x35qj")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="Background/Trees/Tree5"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.26348, 0)
+mesh = SubResource("SphereMesh_ydnst")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="Background/Trees/Tree5"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.346148, 1.31871, 0.35506)
+mesh = SubResource("SphereMesh_ydnst")
+
+[node name="MeshInstance3D4" type="MeshInstance3D" parent="Background/Trees/Tree5"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0387607, 1.04238, -0.488166)
+mesh = SubResource("SphereMesh_ydnst")
+
+[node name="Tree6" type="Node3D" parent="Background/Trees"]
+transform = Transform3D(0.846537, 0, -0.53233, 0, 1, 0, 0.53233, 0, 0.846537, -1.14433, -0.713306, -3.52889)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Background/Trees/Tree6"]
+mesh = SubResource("CylinderMesh_x35qj")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="Background/Trees/Tree6"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.26348, 0)
+mesh = SubResource("SphereMesh_ydnst")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="Background/Trees/Tree6"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.346148, 1.31871, 0.35506)
+mesh = SubResource("SphereMesh_ydnst")
+
+[node name="MeshInstance3D4" type="MeshInstance3D" parent="Background/Trees/Tree6"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0387607, 1.04238, -0.488166)
+mesh = SubResource("SphereMesh_ydnst")
+
+[node name="Tree7" type="Node3D" parent="Background/Trees"]
+transform = Transform3D(-0.150778, 0, 0.988568, 0, 1, 0, -0.988568, 0, -0.150778, -3.93637, -0.153934, -5.75587)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Background/Trees/Tree7"]
+mesh = SubResource("CylinderMesh_x35qj")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="Background/Trees/Tree7"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.26348, 0)
+mesh = SubResource("SphereMesh_ydnst")
+
+[node name="Tree8" type="Node3D" parent="Background/Trees"]
+transform = Transform3D(-0.150778, 0, 0.988568, 0, 1, 0, -0.988568, 0, -0.150778, -4.03979, -0.713304, -4.24205)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Background/Trees/Tree8"]
+mesh = SubResource("CylinderMesh_x35qj")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="Background/Trees/Tree8"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.26348, 0)
+mesh = SubResource("SphereMesh_ydnst")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="Background/Trees/Tree8"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.346148, 1.31871, 0.35506)
+mesh = SubResource("SphereMesh_ydnst")
+
+[node name="MeshInstance3D4" type="MeshInstance3D" parent="Background/Trees/Tree8"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0387607, 1.04238, -0.488166)
+mesh = SubResource("SphereMesh_ydnst")
+
+[node name="Tree9" type="Node3D" parent="Background/Trees"]
+transform = Transform3D(0.679685, 0, 0.733504, 0, 1, 0, -0.733504, 0, 0.679685, -2.69306, -0.713305, -3.03499)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Background/Trees/Tree9"]
+mesh = SubResource("CylinderMesh_x35qj")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="Background/Trees/Tree9"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.26348, 0)
+mesh = SubResource("SphereMesh_ydnst")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="Background/Trees/Tree9"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.346148, 1.31871, 0.35506)
+mesh = SubResource("SphereMesh_ydnst")
+
+[node name="MeshInstance3D4" type="MeshInstance3D" parent="Background/Trees/Tree9"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0387607, 1.04238, -0.488166)
+mesh = SubResource("SphereMesh_ydnst")
+
+[node name="Tree10" type="Node3D" parent="Background/Trees"]
+transform = Transform3D(0.873781, 0, 0.48632, 0, 1, 0, -0.48632, 0, 0.873781, -0.0842543, -0.153934, -7.33671)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Background/Trees/Tree10"]
+mesh = SubResource("CylinderMesh_x35qj")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="Background/Trees/Tree10"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.26348, 0)
+mesh = SubResource("SphereMesh_ydnst")
+
+[node name="Tree11" type="Node3D" parent="Background/Trees"]
+transform = Transform3D(0.873781, 0, 0.48632, 0, 1, 0, -0.48632, 0, 0.873781, -1.53897, -0.713304, -6.90528)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Background/Trees/Tree11"]
+mesh = SubResource("CylinderMesh_x35qj")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="Background/Trees/Tree11"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.26348, 0)
+mesh = SubResource("SphereMesh_ydnst")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="Background/Trees/Tree11"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.346148, 1.31871, 0.35506)
+mesh = SubResource("SphereMesh_ydnst")
+
+[node name="MeshInstance3D4" type="MeshInstance3D" parent="Background/Trees/Tree11"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0387607, 1.04238, -0.488166)
+mesh = SubResource("SphereMesh_ydnst")
+
+[node name="Tree12" type="Node3D" parent="Background/Trees"]
+transform = Transform3D(0.924599, 0, -0.380941, 0, 1, 0, 0.380941, 0, 0.924599, -2.20011, -0.713305, -5.22195)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Background/Trees/Tree12"]
+mesh = SubResource("CylinderMesh_x35qj")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="Background/Trees/Tree12"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.26348, 0)
+mesh = SubResource("SphereMesh_ydnst")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="Background/Trees/Tree12"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.346148, 1.31871, 0.35506)
+mesh = SubResource("SphereMesh_ydnst")
+
+[node name="MeshInstance3D4" type="MeshInstance3D" parent="Background/Trees/Tree12"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0387607, 1.04238, -0.488166)
+mesh = SubResource("SphereMesh_ydnst")
+
+[node name="HillsGroup" type="Node3D" parent="Background"]
+transform = Transform3D(1.8854, 0, 0, 0, 2.40328, 0, 0, 0, 1, 9.71032, 14.5134, 18.6722)
+
+[node name="Hills" type="MeshInstance3D" parent="Background/HillsGroup"]
+transform = Transform3D(13.9882, 0, 0, 0, 13.9882, 0, 0, 0, 1, 0.131497, -7.29043, -94.0662)
+mesh = SubResource("PrismMesh_x35qj")
+skeleton = NodePath("../..")
+
+[node name="Hills2" type="MeshInstance3D" parent="Background/HillsGroup"]
+transform = Transform3D(13.9882, 0, 0, 0, 13.9882, 0, 0, 0, 1, -7.61904, -5.55741, -94.4616)
+mesh = SubResource("PrismMesh_x35qj")
+skeleton = NodePath("../..")
+
+[node name="Hills3" type="MeshInstance3D" parent="Background/HillsGroup"]
+transform = Transform3D(13.9882, 0, 0, 0, 13.9882, 0, 0, 0, 1, 8.37879, -7.64942, -94.4616)
+mesh = SubResource("PrismMesh_x35qj")
+skeleton = NodePath("../..")
+
+[node name="Hills4" type="MeshInstance3D" parent="Background/HillsGroup"]
+transform = Transform3D(28.8683, 0, 0, 0, 34.3251, 0, 0, 0, 1, -10.4583, -7.48141, -106.394)
+mesh = SubResource("PrismMesh_x35qj")
+skeleton = NodePath("../..")
+
+[node name="Hills5" type="MeshInstance3D" parent="Background/HillsGroup"]
+transform = Transform3D(28.6885, 0, 0, 0, 34.3806, 0, 0, 0, 1, 14.9191, -17.1168, -94.5246)
+mesh = SubResource("PrismMesh_x35qj")
+skeleton = NodePath("../..")
+
+[node name="Hills6" type="MeshInstance3D" parent="Background/HillsGroup"]
+transform = Transform3D(28.6885, 0, 0, 0, 34.3806, 0, 0, 0, 1, 18.0621, -14.369, -93.2829)
+mesh = SubResource("PrismMesh_x35qj")
+skeleton = NodePath("../..")
+
+[node name="Hills7" type="MeshInstance3D" parent="Background/HillsGroup"]
+transform = Transform3D(28.6885, 0, 0, 0, 34.3806, 0, 0, 0, 1, -13.7032, -10.6399, -91.5256)
+mesh = SubResource("PrismMesh_x35qj")
+skeleton = NodePath("../..")
+
+[node name="Hills8" type="MeshInstance3D" parent="Background/HillsGroup"]
+transform = Transform3D(28.6885, 0, 0, 0, 34.3806, 0, 0, 0, 1, -24.9591, -7.64387, -89.8467)
+mesh = SubResource("PrismMesh_x35qj")
+skeleton = NodePath("../..")
+
+[node name="Clouds" type="Node3D" parent="Background"]
+
+[node name="Cloud" type="Node3D" parent="Background/Clouds"]
+
+[node name="MeshInstance3D16" type="MeshInstance3D" parent="Background/Clouds/Cloud"]
+transform = Transform3D(3.25216, 0, 0, 0, 3.25216, 0, 0, 0, 1, -5.38153, 9.66982, -14.5292)
+mesh = SubResource("SphereMesh_8u4ir")
+
+[node name="MeshInstance3D17" type="MeshInstance3D" parent="Background/Clouds/Cloud"]
+transform = Transform3D(3.25216, 0, 0, 0, 3.25216, 0, 0, 0, 1, -3.54418, 9.83422, -14.5292)
+mesh = SubResource("SphereMesh_8u4ir")
+
+[node name="MeshInstance3D18" type="MeshInstance3D" parent="Background/Clouds/Cloud"]
+transform = Transform3D(3.25216, 0, 0, 0, 3.25216, 0, 0, 0, 1, -4.53135, 11.0867, -14.5292)
+mesh = SubResource("SphereMesh_8u4ir")
+
+[node name="Cloud2" type="Node3D" parent="Background/Clouds"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.85043, 9.53674e-07, -7.00076)
+
+[node name="MeshInstance3D16" type="MeshInstance3D" parent="Background/Clouds/Cloud2"]
+transform = Transform3D(3.25216, 0, 0, 0, 3.25216, 0, 0, 0, 1, -5.38153, 9.66982, -14.5292)
+mesh = SubResource("SphereMesh_8u4ir")
+
+[node name="MeshInstance3D17" type="MeshInstance3D" parent="Background/Clouds/Cloud2"]
+transform = Transform3D(3.25216, 0, 0, 0, 3.25216, 0, 0, 0, 1, -3.54418, 9.83422, -14.5292)
+mesh = SubResource("SphereMesh_8u4ir")
+
+[node name="MeshInstance3D18" type="MeshInstance3D" parent="Background/Clouds/Cloud2"]
+transform = Transform3D(3.25216, 0, 0, 0, 3.25216, 0, 0, 0, 1, -4.53135, 11.0867, -14.5292)
+mesh = SubResource("SphereMesh_8u4ir")
+
+[node name="Cloud3" type="Node3D" parent="Background/Clouds"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.18487, 9.53674e-07, 4.85572)
+
+[node name="MeshInstance3D16" type="MeshInstance3D" parent="Background/Clouds/Cloud3"]
+transform = Transform3D(3.25216, 0, 0, 0, 3.25216, 0, 0, 0, 1, -5.38153, 9.66982, -14.5292)
+mesh = SubResource("SphereMesh_8u4ir")
+
+[node name="MeshInstance3D17" type="MeshInstance3D" parent="Background/Clouds/Cloud3"]
+transform = Transform3D(3.25216, 0, 0, 0, 3.25216, 0, 0, 0, 1, -3.54418, 9.83422, -14.5292)
+mesh = SubResource("SphereMesh_8u4ir")
+
+[node name="MeshInstance3D18" type="MeshInstance3D" parent="Background/Clouds/Cloud3"]
+transform = Transform3D(3.25216, 0, 0, 0, 3.25216, 0, 0, 0, 1, -4.53135, 11.0867, -14.5292)
+mesh = SubResource("SphereMesh_8u4ir")
+
+[connection signal="swipe" from="UI/WoodCuttingController" to="Axes" method="_on_wood_cutting_controller_swipe"]
+[connection signal="swing_finished" from="Axes/AxeL" to="UI/WoodCuttingController" method="enable"]
+[connection signal="tree_hit" from="Axes/AxeL" to="Tree" method="cut"]
+[connection signal="swing_finished" from="Axes/AxeR" to="UI/WoodCuttingController" method="enable"]
+[connection signal="tree_hit" from="Axes/AxeR" to="Tree" method="cut"]
+[connection signal="tree_falling" from="Tree" to="UI/WoodCuttingController" method="tree_falling"]
+[connection signal="tree_standing" from="Tree" to="UI/WoodCuttingController" method="tree_standing"]

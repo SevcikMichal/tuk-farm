@@ -1,0 +1,117 @@
+[gd_scene load_steps=11 format=3 uid="uid://bquk8p1lv6v2i"]
+
+[ext_resource type="Script" uid="uid://cj8hybwk8bgbe" path="res://tree/tree.gd" id="1_1nrm2"]
+[ext_resource type="AudioStream" uid="uid://bwkk0mamum4u7" path="res://wool_clump/sounds/wool_cut.wav" id="2_tqxsf"]
+[ext_resource type="AudioStream" uid="uid://cu6sytsckde1t" path="res://egg/sounds/egg_hit.wav" id="3_303ym"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_yiujh"]
+albedo_color = Color(0.540042, 0.304493, 0.17573, 1)
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_oqxxp"]
+material = SubResource("StandardMaterial3D_yiujh")
+top_radius = 0.1
+bottom_radius = 0.1
+height = 3.0
+radial_segments = 8
+rings = 2
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3gq81"]
+albedo_color = Color(0, 0.576471, 0, 1)
+
+[sub_resource type="SphereMesh" id="SphereMesh_1nrm2"]
+material = SubResource("StandardMaterial3D_3gq81")
+radial_segments = 8
+rings = 4
+
+[sub_resource type="Animation" id="Animation_oqxxp"]
+resource_name = "fall"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TreeFall:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.32, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 1.96177, 0), Vector3(-0.611726, 1.83968, -0.501707), Vector3(-1.53137, 0.351268, -1.30174)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("TreeFall:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.32, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0.0166165, -0.67511, 0.486736), Vector3(0.0519263, -0.719563, 1.52105)]
+}
+
+[sub_resource type="Animation" id="Animation_1nrm2"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TreeFall:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 1.96177, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("TreeFall:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_1nrm2"]
+_data = {
+&"RESET": SubResource("Animation_1nrm2"),
+&"fall": SubResource("Animation_oqxxp")
+}
+
+[node name="Tree" type="Node3D"]
+script = ExtResource("1_1nrm2")
+
+[node name="Trunk" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.996002, 0)
+mesh = SubResource("CylinderMesh_oqxxp")
+skeleton = NodePath("../TreeFall/MeshInstance3D")
+
+[node name="TreeFall" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.96177, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="TreeFall"]
+mesh = SubResource("CylinderMesh_oqxxp")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="TreeFall"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.26348, 0)
+mesh = SubResource("SphereMesh_1nrm2")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_1nrm2")
+}
+
+[node name="Crash" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("2_tqxsf")
+pitch_scale = 0.2
+
+[node name="Boom" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("3_303ym")
+pitch_scale = 0.1
+
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]

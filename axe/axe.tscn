@@ -1,0 +1,81 @@
+[gd_scene load_steps=8 format=3 uid="uid://0iqce6w1md48"]
+
+[ext_resource type="Script" uid="uid://sl8u0keek7t3" path="res://axe/axe.gd" id="1_g4gfw"]
+[ext_resource type="PackedScene" uid="uid://co7gk1wcah6ng" path="res://axe/models/axe.glb" id="1_ib58u"]
+[ext_resource type="AudioStream" uid="uid://bdfnldh2hdcnv" path="res://fishing/sounds/wave.wav" id="3_qvt6e"]
+[ext_resource type="AudioStream" uid="uid://cu6sytsckde1t" path="res://egg/sounds/egg_hit.wav" id="4_tvq3g"]
+
+[sub_resource type="Animation" id="Animation_ib58u"]
+resource_name = "swing"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("axe:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0.44, 0, 0), Vector3(0, 0, 0)]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.5),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"hit"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_g4gfw"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("axe:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_qvt6e"]
+_data = {
+&"RESET": SubResource("Animation_g4gfw"),
+&"swing": SubResource("Animation_ib58u")
+}
+
+[node name="Axe" type="Node3D"]
+script = ExtResource("1_g4gfw")
+
+[node name="axe" parent="." instance=ExtResource("1_ib58u")]
+transform = Transform3D(0.02, 5.12604e-06, -1.05712e-06, -5.12603e-06, 0.02, 1.47507e-07, 1.05716e-06, -1.47236e-07, 0.02, 0, 0, 0)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_qvt6e")
+}
+
+[node name="Swoosh" type="AudioStreamPlayer3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.26, 0)
+stream = ExtResource("3_qvt6e")
+volume_db = -15.0
+pitch_scale = 1.8
+
+[node name="Tick" type="AudioStreamPlayer3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.249636, 0)
+stream = ExtResource("4_tvq3g")
+volume_db = -10.0
+pitch_scale = 0.3
+
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
