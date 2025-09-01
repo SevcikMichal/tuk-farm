@@ -1,5 +1,10 @@
 # "Ťuk" Farm
 
+
+<a href="https://apps.apple.com/us/app/%C5%A5uk-farm/id6751227748?itscg=30200&itsct=apps_box_badge&mttnsubad=6751227748" style="display: inline-block;">
+<img src="https://toolbox.marketingtools.apple.com/api/v2/badges/download-on-the-app-store/black/en-us?releaseDate=1756684800" alt="Download on the App Store" style="width: 124px; height: 41px; vertical-align: middle; object-fit: contain;" />
+</a>
+
 A **non-violent, relaxing farming game** for mobile, built in [Godot 4](https://godotengine.org/).  
 The game focuses on **fun interactive minigames** like milking cows, shearing sheep, collecting eggs, and fishing.  
 Players earn **experience in each farming skill**, climb **Game Center leaderboards**, and compete to be the best farmer.
