@@ -86,6 +86,7 @@ Use it freely for learning, portfolio, or contributions.
 
   * [Cow & Sheep – Secretlondon (Wikimedia Commons)](http://commons.wikimedia.org/wiki/Category:Mudchute_Park_and_Farm)
   * [Chicken – IMadeIt (OpenGameArt)](https://opengameart.org/content/chicken-sound-effect)
+* **IOS Integrations** -> [godot-sdk-integrations/godot-ios-plugins](https://github.com/godot-sdk-integrations/godot-ios-plugins)
 
 ---
 
